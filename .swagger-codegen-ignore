@@ -27,3 +27,4 @@ git_push.sh
 Gemfile.lock
 README.md
 lib/ynab.rb
+spec/
