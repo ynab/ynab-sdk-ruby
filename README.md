@@ -21,7 +21,14 @@ application.
 
 ```
 require 'ynab'
+access_token = "bf0cbb14b4330e9d5f4312a646eb0115b80a169ad1425d3de12e66a389eaafe2";
+ynab = YnabApi::Client.new(access_token)
 
+budget_response = ynab.budgets.get_budgets
+budgets = budget_response.data.budgets
+budgets.each do |budget|
+  puts "Budget Name: #{budget.name}"
+end
 ```
 
 ## Examples
