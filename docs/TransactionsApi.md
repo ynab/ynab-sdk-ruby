@@ -1,4 +1,4 @@
-# YnabAPI::TransactionsApi
+# YnabApi::TransactionsApi
 
 All URIs are relative to *https://localhost/papi/v1*
 
@@ -22,14 +22,14 @@ Returns all budget transactions
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::TransactionsApi.new
+api_instance = YnabApi::TransactionsApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -41,7 +41,7 @@ begin
   #List transactions
   result = api_instance.get_transactions(budget_id, opts)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling TransactionsApi->get_transactions: #{e}"
 end
 ```
@@ -80,14 +80,14 @@ Returns all transactions for a specified account
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::TransactionsApi.new
+api_instance = YnabApi::TransactionsApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -101,7 +101,7 @@ begin
   #List account transactions
   result = api_instance.get_transactions_by_account(budget_id, account_id, opts)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling TransactionsApi->get_transactions_by_account: #{e}"
 end
 ```
@@ -141,14 +141,14 @@ Returns all transactions for a specified category
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::TransactionsApi.new
+api_instance = YnabApi::TransactionsApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -162,7 +162,7 @@ begin
   #List category transactions
   result = api_instance.get_transactions_by_category(budget_id, category_id, opts)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling TransactionsApi->get_transactions_by_category: #{e}"
 end
 ```
@@ -202,14 +202,14 @@ Returns a single transaction
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::TransactionsApi.new
+api_instance = YnabApi::TransactionsApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -220,7 +220,7 @@ begin
   #Single transaction
   result = api_instance.get_transactions_by_id(budget_id, transaction_id)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling TransactionsApi->get_transactions_by_id: #{e}"
 end
 ```

@@ -80,20 +80,24 @@ require 'ynab/api/payees_api'
 require 'ynab/api/scheduled_transactions_api'
 require 'ynab/api/transactions_api'
 
-module YnabAPI
-  class << self
-    # Customize default settings for the SDK using block.
-    #   YnabAPI.configure do |config|
-    #     config.username = "xxx"
-    #     config.password = "xxx"
-    #   end
-    # If no block given, return the default Configuration object.
-    def configure
-      if block_given?
-        yield(Configuration.default)
-      else
-        Configuration.default
-      end
+module YnabApi
+  class Client
+    def initialize(access_token)
+      config = Configuration.default
+      config.api_key['Authorization'] = access_token
+      config.api_key_prefix['Authorization'] = 'Bearer'
+      config.host = 'api.youneedabudget.com'
+      config.base_path = '/v1'
+
+      @client = ApiClient.new(config)
+    end
+
+    def budgets
+      BudgetsApi.new(@client)
+    end
+
+    def accounts
+      AccountsApi.new(@client)
     end
   end
 end

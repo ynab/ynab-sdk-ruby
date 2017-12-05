@@ -1,4 +1,4 @@
-# YnabAPI::MonthSummariesResponse
+# YnabApi::MonthSummariesResponse
 
 ## Properties
 Name | Type | Description | Notes

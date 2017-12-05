@@ -17,7 +17,7 @@ require 'tempfile'
 require 'typhoeus'
 require 'uri'
 
-module YnabAPI
+module YnabApi
   class ApiClient
     # The Configuration object holding settings to be used in the API client.
     attr_accessor :config
@@ -210,7 +210,7 @@ module YnabAPI
         end
       else
         # models, e.g. Pet
-        YnabAPI.const_get(return_type).new.tap do |model|
+        YnabApi.const_get(return_type).new.tap do |model|
           model.build_from_hash data
         end
       end

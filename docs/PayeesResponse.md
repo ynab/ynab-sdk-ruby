@@ -1,4 +1,4 @@
-# YnabAPI::PayeesResponse
+# YnabApi::PayeesResponse
 
 ## Properties
 Name | Type | Description | Notes

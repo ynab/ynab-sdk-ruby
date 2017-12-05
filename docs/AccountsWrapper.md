@@ -1,4 +1,4 @@
-# YnabAPI::AccountsWrapper
+# YnabApi::AccountsWrapper
 
 ## Properties
 Name | Type | Description | Notes

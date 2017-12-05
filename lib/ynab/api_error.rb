@@ -10,7 +10,7 @@ Swagger Codegen version: 2.3.0-SNAPSHOT
 
 =end
 
-module YnabAPI
+module YnabApi
   class ApiError < StandardError
     attr_reader :code, :response_headers, :response_body
 

@@ -1,4 +1,4 @@
-# YnabAPI::MonthsApi
+# YnabApi::MonthsApi
 
 All URIs are relative to *https://localhost/papi/v1*
 
@@ -20,14 +20,14 @@ Returns a single budget month
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::MonthsApi.new
+api_instance = YnabApi::MonthsApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -38,7 +38,7 @@ begin
   #Single budget month
   result = api_instance.get_budget_month(budget_id, month)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling MonthsApi->get_budget_month: #{e}"
 end
 ```
@@ -77,14 +77,14 @@ Returns all budget months
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::MonthsApi.new
+api_instance = YnabApi::MonthsApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -93,7 +93,7 @@ begin
   #List budget months
   result = api_instance.get_budget_months(budget_id)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling MonthsApi->get_budget_months: #{e}"
 end
 ```

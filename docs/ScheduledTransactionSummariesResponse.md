@@ -1,4 +1,4 @@
-# YnabAPI::ScheduledTransactionSummariesResponse
+# YnabApi::ScheduledTransactionSummariesResponse
 
 ## Properties
 Name | Type | Description | Notes

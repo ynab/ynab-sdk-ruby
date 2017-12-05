@@ -1,4 +1,4 @@
-# YnabAPI::ScheduledTransactionsApi
+# YnabApi::ScheduledTransactionsApi
 
 All URIs are relative to *https://localhost/papi/v1*
 
@@ -20,14 +20,14 @@ Returns a single scheduled transaction
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::ScheduledTransactionsApi.new
+api_instance = YnabApi::ScheduledTransactionsApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -38,7 +38,7 @@ begin
   #Single scheduled transaction
   result = api_instance.get_scheduled_transaction_by_id(budget_id, scheduled_transaction_id)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling ScheduledTransactionsApi->get_scheduled_transaction_by_id: #{e}"
 end
 ```
@@ -77,14 +77,14 @@ Returns all scheduled transactions
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::ScheduledTransactionsApi.new
+api_instance = YnabApi::ScheduledTransactionsApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -93,7 +93,7 @@ begin
   #List scheduled transactions
   result = api_instance.get_scheduled_transactions(budget_id)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling ScheduledTransactionsApi->get_scheduled_transactions: #{e}"
 end
 ```

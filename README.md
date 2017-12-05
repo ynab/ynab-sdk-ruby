@@ -20,7 +20,8 @@ the [My Account](https://app.youneedabudget.com/settings) area of the YNAB web
 application.
 
 ```
-TBD
+require 'ynab'
+
 ```
 
 ## Examples

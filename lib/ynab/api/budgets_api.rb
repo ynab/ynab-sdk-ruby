@@ -12,7 +12,7 @@ Swagger Codegen version: 2.3.0-SNAPSHOT
 
 require "uri"
 
-module YnabAPI
+module YnabApi
   class BudgetsApi
     attr_accessor :api_client
 

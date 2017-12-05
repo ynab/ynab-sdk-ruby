@@ -1,4 +1,4 @@
-# YnabAPI::PayeeLocationsApi
+# YnabApi::PayeeLocationsApi
 
 All URIs are relative to *https://localhost/papi/v1*
 
@@ -21,14 +21,14 @@ Returns a single payee location
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::PayeeLocationsApi.new
+api_instance = YnabApi::PayeeLocationsApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -39,7 +39,7 @@ begin
   #Single payee location
   result = api_instance.get_payee_location_by_id(budget_id, payee_location_id)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling PayeeLocationsApi->get_payee_location_by_id: #{e}"
 end
 ```
@@ -78,14 +78,14 @@ Returns all payee locations
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::PayeeLocationsApi.new
+api_instance = YnabApi::PayeeLocationsApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -94,7 +94,7 @@ begin
   #List payee locations
   result = api_instance.get_payee_locations(budget_id)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling PayeeLocationsApi->get_payee_locations: #{e}"
 end
 ```
@@ -132,14 +132,14 @@ Returns all payee locations for the specified payee
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::PayeeLocationsApi.new
+api_instance = YnabApi::PayeeLocationsApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -150,7 +150,7 @@ begin
   #List locations for a payee
   result = api_instance.get_payee_locations_by_payee(budget_id, payee_id)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling PayeeLocationsApi->get_payee_locations_by_payee: #{e}"
 end
 ```

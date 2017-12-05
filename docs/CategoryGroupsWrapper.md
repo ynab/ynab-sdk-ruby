@@ -1,4 +1,4 @@
-# YnabAPI::CategoryGroupsWrapper
+# YnabApi::CategoryGroupsWrapper
 
 ## Properties
 Name | Type | Description | Notes

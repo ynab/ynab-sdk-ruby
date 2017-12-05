@@ -1,4 +1,4 @@
-# YnabAPI::ScheduledTransactionDetail
+# YnabApi::ScheduledTransactionDetail
 
 ## Properties
 Name | Type | Description | Notes

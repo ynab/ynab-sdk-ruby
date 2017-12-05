@@ -1,4 +1,4 @@
-# YnabAPI::PayeeLocationWrapper
+# YnabApi::PayeeLocationWrapper
 
 ## Properties
 Name | Type | Description | Notes

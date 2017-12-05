@@ -12,7 +12,7 @@ Swagger Codegen version: 2.3.0-SNAPSHOT
 
 require 'date'
 
-module YnabAPI
+module YnabApi
 
   class PayeeLocationWrapper
     attr_accessor :payee_location
@@ -141,7 +141,7 @@ module YnabAPI
           end
         end
       else # model
-        temp_model = YnabAPI.const_get(type).new
+        temp_model = YnabApi.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

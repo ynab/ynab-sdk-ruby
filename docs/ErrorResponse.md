@@ -1,4 +1,4 @@
-# YnabAPI::ErrorResponse
+# YnabApi::ErrorResponse
 
 ## Properties
 Name | Type | Description | Notes

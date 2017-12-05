@@ -1,4 +1,4 @@
-# YnabAPI::CategoryWrapper
+# YnabApi::CategoryWrapper
 
 ## Properties
 Name | Type | Description | Notes

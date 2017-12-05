@@ -1,4 +1,4 @@
-# YnabAPI::TransactionSummary
+# YnabApi::TransactionSummary
 
 ## Properties
 Name | Type | Description | Notes

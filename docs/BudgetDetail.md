@@ -1,4 +1,4 @@
-# YnabAPI::BudgetDetail
+# YnabApi::BudgetDetail
 
 ## Properties
 Name | Type | Description | Notes

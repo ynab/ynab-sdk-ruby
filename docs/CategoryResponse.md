@@ -1,4 +1,4 @@
-# YnabAPI::CategoryResponse
+# YnabApi::CategoryResponse
 
 ## Properties
 Name | Type | Description | Notes

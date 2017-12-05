@@ -1,4 +1,4 @@
-# YnabAPI::SubTransaction
+# YnabApi::SubTransaction
 
 ## Properties
 Name | Type | Description | Notes

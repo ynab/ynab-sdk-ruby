@@ -1,4 +1,4 @@
-# YnabAPI::CategoriesApi
+# YnabApi::CategoriesApi
 
 All URIs are relative to *https://localhost/papi/v1*
 
@@ -20,14 +20,14 @@ Returns all categories grouped by category group
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::CategoriesApi.new
+api_instance = YnabApi::CategoriesApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -36,7 +36,7 @@ begin
   #List categories
   result = api_instance.get_categories(budget_id)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
@@ -74,14 +74,14 @@ Returns a single category
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::CategoriesApi.new
+api_instance = YnabApi::CategoriesApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -92,7 +92,7 @@ begin
   #Single category
   result = api_instance.get_category_by_id(budget_id, category_id)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling CategoriesApi->get_category_by_id: #{e}"
 end
 ```

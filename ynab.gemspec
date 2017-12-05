@@ -17,7 +17,7 @@ require "ynab/version"
 
 Gem::Specification.new do |s|
   s.name        = "ynab"
-  s.version     = YnabAPI::VERSION
+  s.version     = YnabApi::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["You Need A Budget, LLC"]
   s.email       = ["help@youneedabudget.com"]

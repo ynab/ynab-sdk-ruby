@@ -1,4 +1,4 @@
-# YnabAPI::BudgetsApi
+# YnabApi::BudgetsApi
 
 All URIs are relative to *https://localhost/papi/v1*
 
@@ -20,14 +20,14 @@ Returns a single budget with all related entities.  This resource is effectively
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::BudgetsApi.new
+api_instance = YnabApi::BudgetsApi.new
 
 budget_id = "budget_id_example" # String | ID of budget
 
@@ -39,7 +39,7 @@ begin
   #Single budget
   result = api_instance.get_budget_contents(budget_id, opts)
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling BudgetsApi->get_budget_contents: #{e}"
 end
 ```
@@ -78,20 +78,20 @@ Returns budgets list with summary information
 # load the gem
 require 'ynab'
 # setup authorization
-YnabAPI.configure do |config|
+YnabApi.configure do |config|
   # Configure API key authorization: bearer
   config.api_key['Authorization'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = YnabAPI::BudgetsApi.new
+api_instance = YnabApi::BudgetsApi.new
 
 begin
   #List budgets
   result = api_instance.get_budgets
   p result
-rescue YnabAPI::ApiError => e
+rescue YnabApi::ApiError => e
   puts "Exception when calling BudgetsApi->get_budgets: #{e}"
 end
 ```
