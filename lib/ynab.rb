@@ -99,5 +99,29 @@ module YnabApi
     def accounts
       AccountsApi.new(@client)
     end
+
+    def categories
+      CategoriesApi.new(@client)
+    end
+
+    def months
+      MonthsApi.new(@client)
+    end
+
+    def payee
+      PayeesApi.new(@client)
+    end
+
+    def payee_locations
+      PayeeLocationsApi.new(@client)
+    end
+
+    def transactions
+      TransactionsApi.new(@client)
+    end
+
+    def scheduled_transactions
+      ScheduledTransactionsApi.new(@client)
+    end
   end
 end
