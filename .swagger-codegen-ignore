@@ -28,3 +28,4 @@ Gemfile.lock
 README.md
 lib/ynab.rb
 spec/
+spec/**/*.rb

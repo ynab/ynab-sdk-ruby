@@ -12,5 +12,6 @@ task :generate do
   sh "docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli generate"\
      " -i https://ynab-api-develop.herokuapp.com/papi/spec-v1-swagger.json"\
      " -l ruby"\
-     " -c /local/config.json -o /local"
+     " -c /local/config.json -o /local"\
+     " -t /local/swagger-templates"
 end
