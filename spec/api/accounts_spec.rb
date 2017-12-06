@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'pp'
 
 describe '/budgets' do
   let(:access_token) { 'af5717b1aa3eab1b27ece7263aef84f320967591e19597b7c8dac824b9f43bcc' }
