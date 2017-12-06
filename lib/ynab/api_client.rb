@@ -27,6 +27,8 @@ module YnabApi
     # @return [Hash]
     attr_accessor :default_headers
 
+    attr_accessor :last_request
+
     # Initializes the ApiClient
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config = Configuration.default)
@@ -48,6 +50,7 @@ module YnabApi
     #   the data deserialized from response body (could be nil), response status code and response headers.
     def call_api(http_method, path, opts = {})
       request = build_request(http_method, path, opts)
+      @last_request = request
       response = request.run
 
       if @config.debugging

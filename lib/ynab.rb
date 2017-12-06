@@ -82,11 +82,12 @@ require 'ynab/api/transactions_api'
 
 module YnabApi
   class Client
-    def initialize(access_token)
+    def initialize(access_token, host = 'api.youneedabudget.com', useHttps = true)
       config = Configuration.default
       config.api_key['Authorization'] = access_token
       config.api_key_prefix['Authorization'] = 'Bearer'
-      config.host = 'api.youneedabudget.com'
+      config.scheme = useHttps ? 'https' : 'http'
+      config.host = host
       config.base_path = '/v1'
 
       @client = ApiClient.new(config)
@@ -122,6 +123,10 @@ module YnabApi
 
     def scheduled_transactions
       ScheduledTransactionsApi.new(@client)
+    end
+
+    def last_request
+      @client.last_request
     end
   end
 end

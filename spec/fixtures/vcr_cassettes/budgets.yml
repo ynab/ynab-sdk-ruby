@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.localhost:3000/v1/budgets
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Swagger-Codegen/0.1.0/ruby
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer af5717b1aa3eab1b27ece7263aef84f320967591e19597b7c8dac824b9f43bcc
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding, Origin
+      ETag:
+      - W/"278a53c61cf1cdad53fa43b364d1d750"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0a051522-1c33-4bec-9414-6c72475d9a30
+      X-Runtime:
+      - '0.045766'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"budgets":[{"id":"6dbde6f0-eb4e-42e3-89cb-17e43317c76b","name":"My
+        Budget","last_accessed_on":"2017-12-04T23:31:41+00:00","date_format":{"locale":"en_US"},"currency_format":{"locale":"en_US"},"first_month":null,"last_month":null},{"id":"bd53e065-0e97-4b23-b9da-fb52eacbbb6a","name":"Hammel
+        Budget","last_accessed_on":"2017-12-04T23:31:41+00:00","date_format":{"locale":"en_US"},"currency_format":{"locale":"en_US"},"first_month":"2010-10-01","last_month":"2017-12-01"},{"id":"74ba607f-12dc-4bd5-8379-02fd1d30848d","name":"Household
+        Budget","last_accessed_on":"2017-12-04T23:31:44+00:00","date_format":{"locale":"en_US"},"currency_format":{"locale":"en_US"},"first_month":"2013-09-01","last_month":"2017-12-01"},{"id":"df5868f8-f44f-4bc5-84a1-02d3e35791ca","name":"ABC","last_accessed_on":"2017-12-06T16:51:29+00:00","date_format":{"format":"MM/DD/YYYY"},"currency_format":{"iso_code":"USD","example_format":"123,456.78","decimal_digits":2,"decimal_separator":".","symbol_first":true,"group_separator":",","currency_symbol":"$","display_symbol":true},"first_month":"2017-12-01","last_month":"2017-12-01"},{"id":"cb400129-def4-4eea-986a-1dbd8e47d468","name":"ScheduledTransactionWebTestsBudget","last_accessed_on":"2017-12-06T16:15:57+00:00","date_format":{"format":"MM/DD/YYYY"},"currency_format":{"iso_code":"USD","example_format":"123,456.78","decimal_digits":2,"decimal_separator":".","symbol_first":true,"group_separator":",","currency_symbol":"$","display_symbol":true},"first_month":"2017-11-01","last_month":"2017-12-01"},{"id":"00f3f4e4-9d0e-4f6b-b4ac-b1c29f1ffc57","name":"ScheduledTransactionWebTestsBudget","last_accessed_on":"2017-12-06T16:16:12+00:00","date_format":{"format":"MM/DD/YYYY"},"currency_format":{"iso_code":"USD","example_format":"123,456.78","decimal_digits":2,"decimal_separator":".","symbol_first":true,"group_separator":",","currency_symbol":"$","display_symbol":true},"first_month":"2017-11-01","last_month":"2017-12-01"}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://api.localhost:3000/v1/budgets
+  recorded_at: Wed, 06 Dec 2017 17:37:31 GMT
+recorded_with: VCR 3.0.3
