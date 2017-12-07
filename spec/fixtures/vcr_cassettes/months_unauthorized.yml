@@ -1,0 +1,99 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/months
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - api_client/ruby/0.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer not_valid_access_token
+      Expect:
+      - ''
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      WWW-Authenticate:
+      - Bearer realm="Doorkeeper", error="invalid_token", error_description="The access
+        token is invalid"
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 2ae5a053-0b32-45f2-a622-38d414068de3
+      X-Runtime:
+      - '0.014457'
+      Content-Security-Policy:
+      - 'default-src ''self'' ; block-all-mixed-content; child-src djtflbt20bdde.cloudfront.net
+        api.recurly.com share.intercom.io ; connect-src ''self'' *.helpscoutdocs.com
+        api.ipify.org secure.helpscout.net api.recurly.com wss://*.intercom.io *.intercom.io
+        uploads.intercomcdn.com uploads.intercomusercontent.com api.rollbar.com ;
+        font-src  ''self'' data: fonts.gstatic.com js.intercomcdn.com; img-src ''self''
+        data: d33v4339jhl8k0.cloudfront.net js.intercomcdn.com static.intercomassets.com
+        uploads.intercomcdn.com uploads.intercomusercontent.com sslcdn-youneedabudgetco.netdna-ssl.com
+        googleads.g.doubleclick.net stats.g.doubleclick.net www.googleadservices.com
+        www.google-analytics.com www.facebook.com www.google.com www.google.ca www.google.co.uk
+        www.google.de www.google.cz www.google.com.au www.google.com.br www.google.ie
+        www.google.it www.google.cl online.swagger.io ; manifest-src ''self'' sslcdn-youneedabudgetco.netdna-ssl.com;
+        media-src ''self'' *.intercomcdn.com ; object-src djtflbt20bdde.cloudfront.net;
+        script-src  ''self'' app.intercom.io widget.intercom.io js.intercomcdn.com
+        ajax.aspnetcdn.com ajax.googleapis.com d37gvrvc0wt4s1.cloudfront.net djtflbt20bdde.cloudfront.net
+        js.recurly.com www.google-analytics.com www.googleadservices.com connect.facebook.net
+        code.jquery.com; style-src  ''self'' ''unsafe-inline'' djtflbt20bdde.cloudfront.net
+        fonts.googleapis.com fonts.gstatic.com ynab-evergreen-production.s3.amazonaws.com;
+        report-uri https://ynab.report-uri.io/r/default/csp/enforce'
+      Content-Security-Policy-Report-Only:
+      - 'default-src ''self''; block-all-mixed-content; child-src djtflbt20bdde.cloudfront.net
+        api.recurly.com share.intercom.io; connect-src ''self'' *.helpscoutdocs.com
+        api.ipify.org secure.helpscout.net api.recurly.com wss://*.intercom.io *.intercom.io
+        uploads.intercomcdn.com uploads.intercomusercontent.com api.rollbar.com; font-src  ''self''
+        data: fonts.gstatic.com js.intercomcdn.com; img-src ''self'' data: d33v4339jhl8k0.cloudfront.net
+        js.intercomcdn.com static.intercomassets.com uploads.intercomcdn.com uploads.intercomusercontent.com
+        sslcdn-youneedabudgetco.netdna-ssl.com googleads.g.doubleclick.net stats.g.doubleclick.net
+        www.googleadservices.com www.google-analytics.com www.facebook.com www.google.com
+        www.google.ca www.google.co.uk www.google.de www.google.cz www.google.com.au
+        www.google.com.br www.google.ie www.google.it www.google.cl online.swagger.io;
+        manifest-src ''self'' sslcdn-youneedabudgetco.netdna-ssl.com; media-src ''self''
+        *.intercomcdn.com; object-src djtflbt20bdde.cloudfront.net; plugin-types image/svg+xml;
+        script-src  ''self'' app.intercom.io widget.intercom.io js.intercomcdn.com
+        ajax.aspnetcdn.com ajax.googleapis.com d37gvrvc0wt4s1.cloudfront.net djtflbt20bdde.cloudfront.net
+        js.recurly.com www.google-analytics.com www.googleadservices.com connect.facebook.net
+        code.jquery.com; style-src  ''self'' ''unsafe-inline'' djtflbt20bdde.cloudfront.net
+        fonts.googleapis.com fonts.gstatic.com ynab-evergreen-production.s3.amazonaws.com;
+        report-uri https://ynab.report-uri.io/r/default/csp/reportOnly'
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - DENY
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-XSS-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"error":{"id":"401","name":"unauthorized","description":"Unauthorized"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/months
+  recorded_at: Thu, 07 Dec 2017 00:02:57 GMT
+recorded_with: VCR 3.0.3

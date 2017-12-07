@@ -19,12 +19,18 @@ module YnabApi
 
     attr_accessor :payee_id
 
+    attr_accessor :latitude
+
+    attr_accessor :longitude
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'payee_id' => :'payee_id'
+        :'payee_id' => :'payee_id',
+        :'latitude' => :'latitude',
+        :'longitude' => :'longitude'
       }
     end
 
@@ -32,7 +38,9 @@ module YnabApi
     def self.swagger_types
       {
         :'id' => :'String',
-        :'payee_id' => :'String'
+        :'payee_id' => :'String',
+        :'latitude' => :'String',
+        :'longitude' => :'String'
       }
     end
 
@@ -52,6 +60,14 @@ module YnabApi
         self.payee_id = attributes[:'payee_id']
       end
 
+      if attributes.has_key?(:'latitude')
+        self.latitude = attributes[:'latitude']
+      end
+
+      if attributes.has_key?(:'longitude')
+        self.longitude = attributes[:'longitude']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -66,6 +82,14 @@ module YnabApi
         invalid_properties.push("invalid value for 'payee_id', payee_id cannot be nil.")
       end
 
+      if @latitude.nil?
+        invalid_properties.push("invalid value for 'latitude', latitude cannot be nil.")
+      end
+
+      if @longitude.nil?
+        invalid_properties.push("invalid value for 'longitude', longitude cannot be nil.")
+      end
+
       return invalid_properties
     end
 
@@ -74,6 +98,8 @@ module YnabApi
     def valid?
       return false if @id.nil?
       return false if @payee_id.nil?
+      return false if @latitude.nil?
+      return false if @longitude.nil?
       return true
     end
 
@@ -83,7 +109,9 @@ module YnabApi
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          payee_id == o.payee_id
+          payee_id == o.payee_id &&
+          latitude == o.latitude &&
+          longitude == o.longitude
     end
 
     # @see the `==` method
@@ -95,7 +123,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, payee_id].hash
+      [id, payee_id, latitude, longitude].hash
     end
 
     # Builds the object from hash

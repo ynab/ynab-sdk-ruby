@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/accounts
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - api_client/ruby/0.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding, Origin
+      ETag:
+      - W/"220dd25696eaae01331ac8a12bb15d82"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 9aca5846-0454-4239-b1a8-0fc3dc8477c4
+      X-Runtime:
+      - '0.039379'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"accounts":[{"id":"515df7e3-d28a-4a50-a9b2-33814700e78a","name":"Checking","type":"Checking","on_budget":true,"closed":false,"note":null,"balance":990000}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/accounts
+  recorded_at: Wed, 06 Dec 2017 23:45:30 GMT
+recorded_with: VCR 3.0.3

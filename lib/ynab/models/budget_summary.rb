@@ -19,6 +19,8 @@ module YnabApi
 
     attr_accessor :name
 
+    attr_accessor :last_accessed_on
+
     attr_accessor :date_format
 
     attr_accessor :currency_format
@@ -29,6 +31,7 @@ module YnabApi
       {
         :'id' => :'id',
         :'name' => :'name',
+        :'last_accessed_on' => :'last_accessed_on',
         :'date_format' => :'date_format',
         :'currency_format' => :'currency_format'
       }
@@ -39,6 +42,7 @@ module YnabApi
       {
         :'id' => :'String',
         :'name' => :'String',
+        :'last_accessed_on' => :'DateTime',
         :'date_format' => :'DateFormat',
         :'currency_format' => :'CurrencyFormat'
       }
@@ -58,6 +62,10 @@ module YnabApi
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'last_accessed_on')
+        self.last_accessed_on = attributes[:'last_accessed_on']
       end
 
       if attributes.has_key?(:'date_format')
@@ -100,6 +108,7 @@ module YnabApi
       self.class == o.class &&
           id == o.id &&
           name == o.name &&
+          last_accessed_on == o.last_accessed_on &&
           date_format == o.date_format &&
           currency_format == o.currency_format
     end
@@ -113,7 +122,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, date_format, currency_format].hash
+      [id, name, last_accessed_on, date_format, currency_format].hash
     end
 
     # Builds the object from hash

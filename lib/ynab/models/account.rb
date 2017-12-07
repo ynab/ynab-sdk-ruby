@@ -27,6 +27,8 @@ module YnabApi
     # Whether this account is closed or not
     attr_accessor :closed
 
+    attr_accessor :note
+
     # The current balance of the account in milliunits format
     attr_accessor :balance
 
@@ -39,6 +41,7 @@ module YnabApi
         :'type' => :'type',
         :'on_budget' => :'on_budget',
         :'closed' => :'closed',
+        :'note' => :'note',
         :'balance' => :'balance'
       }
     end
@@ -51,6 +54,7 @@ module YnabApi
         :'type' => :'String',
         :'on_budget' => :'BOOLEAN',
         :'closed' => :'BOOLEAN',
+        :'note' => :'String',
         :'balance' => :'Float'
       }
     end
@@ -83,6 +87,10 @@ module YnabApi
         self.closed = attributes[:'closed']
       end
 
+      if attributes.has_key?(:'note')
+        self.note = attributes[:'note']
+      end
+
       if attributes.has_key?(:'balance')
         self.balance = attributes[:'balance']
       end
@@ -113,6 +121,10 @@ module YnabApi
         invalid_properties.push("invalid value for 'closed', closed cannot be nil.")
       end
 
+      if @note.nil?
+        invalid_properties.push("invalid value for 'note', note cannot be nil.")
+      end
+
       if @balance.nil?
         invalid_properties.push("invalid value for 'balance', balance cannot be nil.")
       end
@@ -128,6 +140,7 @@ module YnabApi
       return false if @type.nil?
       return false if @on_budget.nil?
       return false if @closed.nil?
+      return false if @note.nil?
       return false if @balance.nil?
       return true
     end
@@ -142,6 +155,7 @@ module YnabApi
           type == o.type &&
           on_budget == o.on_budget &&
           closed == o.closed &&
+          note == o.note &&
           balance == o.balance
     end
 
@@ -154,7 +168,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, type, on_budget, closed, balance].hash
+      [id, name, type, on_budget, closed, note, balance].hash
     end
 
     # Builds the object from hash

@@ -1,6 +1,6 @@
 # YnabApi::CategoriesApi
 
-All URIs are relative to *https://localhost/papi/v1*
+All URIs are relative to *https://api.youneedabudget.com/papi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

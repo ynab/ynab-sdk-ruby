@@ -19,12 +19,16 @@ module YnabApi
 
     attr_accessor :name
 
+    # If a transfer payee, the account_id to which this payee transfers to
+    attr_accessor :transfer_account_id
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'transfer_account_id' => :'transfer_account_id'
       }
     end
 
@@ -32,7 +36,8 @@ module YnabApi
     def self.swagger_types
       {
         :'id' => :'String',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'transfer_account_id' => :'String'
       }
     end
 
@@ -52,6 +57,10 @@ module YnabApi
         self.name = attributes[:'name']
       end
 
+      if attributes.has_key?(:'transfer_account_id')
+        self.transfer_account_id = attributes[:'transfer_account_id']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -66,6 +75,10 @@ module YnabApi
         invalid_properties.push("invalid value for 'name', name cannot be nil.")
       end
 
+      if @transfer_account_id.nil?
+        invalid_properties.push("invalid value for 'transfer_account_id', transfer_account_id cannot be nil.")
+      end
+
       return invalid_properties
     end
 
@@ -74,6 +87,7 @@ module YnabApi
     def valid?
       return false if @id.nil?
       return false if @name.nil?
+      return false if @transfer_account_id.nil?
       return true
     end
 
@@ -83,7 +97,8 @@ module YnabApi
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          name == o.name
+          name == o.name &&
+          transfer_account_id == o.transfer_account_id
     end
 
     # @see the `==` method
@@ -95,7 +110,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name].hash
+      [id, name, transfer_account_id].hash
     end
 
     # Builds the object from hash

@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/transactions/2d672d77-577e-4dfc-9f60-05a314aafc7e
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - api_client/ruby/0.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding, Origin
+      ETag:
+      - W/"642da5b41c80d6e1d70d0d7dfef9156e"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - efe6649b-d2a7-4b7f-9057-c5ee5f9b485f
+      X-Runtime:
+      - '0.040902'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"transaction":{"id":"2d672d77-577e-4dfc-9f60-05a314aafc7e","date":"2017-12-06","amount":-2000,"memo":null,"cleared":"Uncleared","approved":true,"flag":null,"account_id":"515df7e3-d28a-4a50-a9b2-33814700e78a","payee_id":"0c102a79-7ddf-4b8a-bd20-69563fb2caec","category_id":null,"transfer_account_id":null,"subtransactions":[]}}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/transactions/2d672d77-577e-4dfc-9f60-05a314aafc7e
+  recorded_at: Thu, 07 Dec 2017 00:16:52 GMT
+recorded_with: VCR 3.0.3

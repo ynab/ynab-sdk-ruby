@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/categories/6921a4b3-095a-435f-92e1-28931d3186ed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - api_client/ruby/0.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding, Origin
+      ETag:
+      - W/"bcb3bc128b5a72eceaa6655235647311"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - dbf34377-0b04-41f7-a066-c826122cfcb2
+      X-Runtime:
+      - '0.030313'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"category":{"id":"6921a4b3-095a-435f-92e1-28931d3186ed","category_group_id":"35b4f757-a42f-4d8b-97cd-665880385281","name":"Groceries","hidden":false,"note":null,"budgeted":200000,"activity":-3000,"balance":197000}}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/categories/6921a4b3-095a-435f-92e1-28931d3186ed
+  recorded_at: Wed, 06 Dec 2017 23:54:00 GMT
+recorded_with: VCR 3.0.3

@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/months
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - api_client/ruby/0.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding, Origin
+      ETag:
+      - W/"00891d65ad03f4cdea71c7e0303eebf2"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6c2244eb-0d34-4b61-acda-d72cc9df5b8f
+      X-Runtime:
+      - '0.054427'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"months":[{"month":"2017-11-01","note":null,"to_be_budgeted":null,"age_of_money":null},{"month":"2017-12-01","note":"Test
+        Note","to_be_budgeted":800000,"age_of_money":null},{"month":"2018-01-01","note":null,"to_be_budgeted":793000,"age_of_money":null}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/months
+  recorded_at: Thu, 07 Dec 2017 00:02:57 GMT
+recorded_with: VCR 3.0.3

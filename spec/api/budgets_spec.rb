@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe '/budgets' do
-  let(:access_token) { 'af5717b1aa3eab1b27ece7263aef84f320967591e19597b7c8dac824b9f43bcc' }
+describe 'budgets' do
+  let(:access_token) { 'd7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd' }
   let(:client) { YnabApi::Client.new(access_token, 'api.localhost:3000', false) }
   let (:instance) { client.budgets }
 

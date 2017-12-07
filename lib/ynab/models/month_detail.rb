@@ -17,6 +17,13 @@ module YnabApi
   class MonthDetail
     attr_accessor :month
 
+    attr_accessor :note
+
+    # The current balance of the account in milliunits format
+    attr_accessor :to_be_budgeted
+
+    attr_accessor :age_of_money
+
     # The budget month categories
     attr_accessor :categories
 
@@ -25,6 +32,9 @@ module YnabApi
     def self.attribute_map
       {
         :'month' => :'month',
+        :'note' => :'note',
+        :'to_be_budgeted' => :'to_be_budgeted',
+        :'age_of_money' => :'age_of_money',
         :'categories' => :'categories'
       }
     end
@@ -33,6 +43,9 @@ module YnabApi
     def self.swagger_types
       {
         :'month' => :'Date',
+        :'note' => :'String',
+        :'to_be_budgeted' => :'Float',
+        :'age_of_money' => :'Float',
         :'categories' => :'Array<Category>'
       }
     end
@@ -47,6 +60,18 @@ module YnabApi
 
       if attributes.has_key?(:'month')
         self.month = attributes[:'month']
+      end
+
+      if attributes.has_key?(:'note')
+        self.note = attributes[:'note']
+      end
+
+      if attributes.has_key?(:'to_be_budgeted')
+        self.to_be_budgeted = attributes[:'to_be_budgeted']
+      end
+
+      if attributes.has_key?(:'age_of_money')
+        self.age_of_money = attributes[:'age_of_money']
       end
 
       if attributes.has_key?(:'categories')
@@ -65,6 +90,18 @@ module YnabApi
         invalid_properties.push("invalid value for 'month', month cannot be nil.")
       end
 
+      if @note.nil?
+        invalid_properties.push("invalid value for 'note', note cannot be nil.")
+      end
+
+      if @to_be_budgeted.nil?
+        invalid_properties.push("invalid value for 'to_be_budgeted', to_be_budgeted cannot be nil.")
+      end
+
+      if @age_of_money.nil?
+        invalid_properties.push("invalid value for 'age_of_money', age_of_money cannot be nil.")
+      end
+
       if @categories.nil?
         invalid_properties.push("invalid value for 'categories', categories cannot be nil.")
       end
@@ -76,6 +113,9 @@ module YnabApi
     # @return true if the model is valid
     def valid?
       return false if @month.nil?
+      return false if @note.nil?
+      return false if @to_be_budgeted.nil?
+      return false if @age_of_money.nil?
       return false if @categories.nil?
       return true
     end
@@ -86,6 +126,9 @@ module YnabApi
       return true if self.equal?(o)
       self.class == o.class &&
           month == o.month &&
+          note == o.note &&
+          to_be_budgeted == o.to_be_budgeted &&
+          age_of_money == o.age_of_money &&
           categories == o.categories
     end
 
@@ -98,7 +141,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [month, categories].hash
+      [month, note, to_be_budgeted, age_of_money, categories].hash
     end
 
     # Builds the object from hash

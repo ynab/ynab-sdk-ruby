@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/payees/0c102a79-7ddf-4b8a-bd20-69563fb2caec
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - api_client/ruby/0.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding, Origin
+      ETag:
+      - W/"10b266914e0f8ddc96de2888ec7b5a15"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - fee1920a-0797-4853-90fb-c1faa51c3148
+      X-Runtime:
+      - '0.025903'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"payee":{"id":"0c102a79-7ddf-4b8a-bd20-69563fb2caec","name":"Test
+        Payee","transfer_account_id":null}}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/payees/0c102a79-7ddf-4b8a-bd20-69563fb2caec
+  recorded_at: Thu, 07 Dec 2017 00:06:28 GMT
+recorded_with: VCR 3.0.3

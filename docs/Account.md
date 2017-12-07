@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **type** | **String** |  | 
 **on_budget** | **BOOLEAN** | Whether this account is on budget or not | 
 **closed** | **BOOLEAN** | Whether this account is closed or not | 
+**note** | **String** |  | 
 **balance** | **Float** | The current balance of the account in milliunits format | 
 
 

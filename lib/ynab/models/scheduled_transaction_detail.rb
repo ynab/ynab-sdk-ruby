@@ -24,7 +24,18 @@ module YnabApi
     # The current balance of the account in milliunits format
     attr_accessor :amount
 
+    attr_accessor :memo
+
+    attr_accessor :flag
+
     attr_accessor :account_id
+
+    attr_accessor :payee_id
+
+    attr_accessor :category_id
+
+    # If a transfer, the account_id which the scheduled transaction transfers to
+    attr_accessor :transfer_account_id
 
     # If a split scheduled transaction, the sub-transactions.
     attr_accessor :subtransactions
@@ -37,7 +48,12 @@ module YnabApi
         :'date' => :'date',
         :'frequency' => :'frequency',
         :'amount' => :'amount',
+        :'memo' => :'memo',
+        :'flag' => :'flag',
         :'account_id' => :'account_id',
+        :'payee_id' => :'payee_id',
+        :'category_id' => :'category_id',
+        :'transfer_account_id' => :'transfer_account_id',
         :'subtransactions' => :'subtransactions'
       }
     end
@@ -49,7 +65,12 @@ module YnabApi
         :'date' => :'Date',
         :'frequency' => :'String',
         :'amount' => :'Float',
+        :'memo' => :'String',
+        :'flag' => :'String',
         :'account_id' => :'String',
+        :'payee_id' => :'String',
+        :'category_id' => :'String',
+        :'transfer_account_id' => :'String',
         :'subtransactions' => :'Array<ScheduledSubTransaction>'
       }
     end
@@ -78,8 +99,28 @@ module YnabApi
         self.amount = attributes[:'amount']
       end
 
+      if attributes.has_key?(:'memo')
+        self.memo = attributes[:'memo']
+      end
+
+      if attributes.has_key?(:'flag')
+        self.flag = attributes[:'flag']
+      end
+
       if attributes.has_key?(:'account_id')
         self.account_id = attributes[:'account_id']
+      end
+
+      if attributes.has_key?(:'payee_id')
+        self.payee_id = attributes[:'payee_id']
+      end
+
+      if attributes.has_key?(:'category_id')
+        self.category_id = attributes[:'category_id']
+      end
+
+      if attributes.has_key?(:'transfer_account_id')
+        self.transfer_account_id = attributes[:'transfer_account_id']
       end
 
       if attributes.has_key?(:'subtransactions')
@@ -110,8 +151,28 @@ module YnabApi
         invalid_properties.push("invalid value for 'amount', amount cannot be nil.")
       end
 
+      if @memo.nil?
+        invalid_properties.push("invalid value for 'memo', memo cannot be nil.")
+      end
+
+      if @flag.nil?
+        invalid_properties.push("invalid value for 'flag', flag cannot be nil.")
+      end
+
       if @account_id.nil?
         invalid_properties.push("invalid value for 'account_id', account_id cannot be nil.")
+      end
+
+      if @payee_id.nil?
+        invalid_properties.push("invalid value for 'payee_id', payee_id cannot be nil.")
+      end
+
+      if @category_id.nil?
+        invalid_properties.push("invalid value for 'category_id', category_id cannot be nil.")
+      end
+
+      if @transfer_account_id.nil?
+        invalid_properties.push("invalid value for 'transfer_account_id', transfer_account_id cannot be nil.")
       end
 
       if @subtransactions.nil?
@@ -128,7 +189,12 @@ module YnabApi
       return false if @date.nil?
       return false if @frequency.nil?
       return false if @amount.nil?
+      return false if @memo.nil?
+      return false if @flag.nil?
       return false if @account_id.nil?
+      return false if @payee_id.nil?
+      return false if @category_id.nil?
+      return false if @transfer_account_id.nil?
       return false if @subtransactions.nil?
       return true
     end
@@ -142,7 +208,12 @@ module YnabApi
           date == o.date &&
           frequency == o.frequency &&
           amount == o.amount &&
+          memo == o.memo &&
+          flag == o.flag &&
           account_id == o.account_id &&
+          payee_id == o.payee_id &&
+          category_id == o.category_id &&
+          transfer_account_id == o.transfer_account_id &&
           subtransactions == o.subtransactions
     end
 
@@ -155,7 +226,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, date, frequency, amount, account_id, subtransactions].hash
+      [id, date, frequency, amount, memo, flag, account_id, payee_id, category_id, transfer_account_id, subtransactions].hash
     end
 
     # Builds the object from hash

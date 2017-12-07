@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/scheduled_transactions
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - api_client/ruby/0.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding, Origin
+      ETag:
+      - W/"3b537d8b0813d8757058231d071e4c18"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c047f203-6249-4f4c-9c1c-39ee05a2efbb
+      X-Runtime:
+      - '0.048846'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"scheduled_transactions":[{"id":"e03dc1f5-886f-4c61-aeeb-ff244181d092","date":"2017-12-03","frequency":"Daily","amount":-10000,"memo":"","flag":null,"account_id":"515df7e3-d28a-4a50-a9b2-33814700e78a","payee_id":null,"category_id":"b627c923-91e4-4a46-8249-0f1fa6876a5c","transfer_account_id":null}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/scheduled_transactions
+  recorded_at: Thu, 07 Dec 2017 00:19:46 GMT
+recorded_with: VCR 3.0.3

@@ -14,7 +14,7 @@ http_interactions:
       Accept:
       - application/json
       Authorization:
-      - Bearer af5717b1aa3eab1b27ece7263aef84f320967591e19597b7c8dac824b9f43bcc
+      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
       Expect:
       - ''
   response:

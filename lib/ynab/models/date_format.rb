@@ -15,16 +15,20 @@ require 'date'
 module YnabApi
 
   class DateFormat
+    attr_accessor :locale
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'locale' => :'locale'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'locale' => :'String'
       }
     end
 
@@ -36,18 +40,27 @@ module YnabApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
+      if attributes.has_key?(:'locale')
+        self.locale = attributes[:'locale']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @locale.nil?
+        invalid_properties.push("invalid value for 'locale', locale cannot be nil.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @locale.nil?
       return true
     end
 
@@ -55,7 +68,8 @@ module YnabApi
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
-      self.class == o.class
+      self.class == o.class &&
+          locale == o.locale
     end
 
     # @see the `==` method
@@ -67,7 +81,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [].hash
+      [locale].hash
     end
 
     # Builds the object from hash

@@ -22,13 +22,24 @@ module YnabApi
     # The current balance of the account in milliunits format
     attr_accessor :amount
 
+    attr_accessor :memo
+
     # The cleared status of the transaction
     attr_accessor :cleared
 
     # Whether or not the transaction is approved
     attr_accessor :approved
 
+    # Whether or not the transaction is approved
+    attr_accessor :flag
+
     attr_accessor :account_id
+
+    attr_accessor :payee_id
+
+    attr_accessor :category_id
+
+    attr_accessor :transfer_account_id
 
     # If a split transaction, the sub-transactions.
     attr_accessor :subtransactions
@@ -40,9 +51,14 @@ module YnabApi
         :'id' => :'id',
         :'date' => :'date',
         :'amount' => :'amount',
+        :'memo' => :'memo',
         :'cleared' => :'cleared',
         :'approved' => :'approved',
+        :'flag' => :'flag',
         :'account_id' => :'account_id',
+        :'payee_id' => :'payee_id',
+        :'category_id' => :'category_id',
+        :'transfer_account_id' => :'transfer_account_id',
         :'subtransactions' => :'subtransactions'
       }
     end
@@ -53,9 +69,14 @@ module YnabApi
         :'id' => :'String',
         :'date' => :'Date',
         :'amount' => :'Float',
+        :'memo' => :'String',
         :'cleared' => :'String',
         :'approved' => :'BOOLEAN',
+        :'flag' => :'String',
         :'account_id' => :'String',
+        :'payee_id' => :'String',
+        :'category_id' => :'String',
+        :'transfer_account_id' => :'String',
         :'subtransactions' => :'Array<SubTransaction>'
       }
     end
@@ -80,6 +101,10 @@ module YnabApi
         self.amount = attributes[:'amount']
       end
 
+      if attributes.has_key?(:'memo')
+        self.memo = attributes[:'memo']
+      end
+
       if attributes.has_key?(:'cleared')
         self.cleared = attributes[:'cleared']
       end
@@ -88,8 +113,24 @@ module YnabApi
         self.approved = attributes[:'approved']
       end
 
+      if attributes.has_key?(:'flag')
+        self.flag = attributes[:'flag']
+      end
+
       if attributes.has_key?(:'account_id')
         self.account_id = attributes[:'account_id']
+      end
+
+      if attributes.has_key?(:'payee_id')
+        self.payee_id = attributes[:'payee_id']
+      end
+
+      if attributes.has_key?(:'category_id')
+        self.category_id = attributes[:'category_id']
+      end
+
+      if attributes.has_key?(:'transfer_account_id')
+        self.transfer_account_id = attributes[:'transfer_account_id']
       end
 
       if attributes.has_key?(:'subtransactions')
@@ -116,6 +157,10 @@ module YnabApi
         invalid_properties.push("invalid value for 'amount', amount cannot be nil.")
       end
 
+      if @memo.nil?
+        invalid_properties.push("invalid value for 'memo', memo cannot be nil.")
+      end
+
       if @cleared.nil?
         invalid_properties.push("invalid value for 'cleared', cleared cannot be nil.")
       end
@@ -124,8 +169,24 @@ module YnabApi
         invalid_properties.push("invalid value for 'approved', approved cannot be nil.")
       end
 
+      if @flag.nil?
+        invalid_properties.push("invalid value for 'flag', flag cannot be nil.")
+      end
+
       if @account_id.nil?
         invalid_properties.push("invalid value for 'account_id', account_id cannot be nil.")
+      end
+
+      if @payee_id.nil?
+        invalid_properties.push("invalid value for 'payee_id', payee_id cannot be nil.")
+      end
+
+      if @category_id.nil?
+        invalid_properties.push("invalid value for 'category_id', category_id cannot be nil.")
+      end
+
+      if @transfer_account_id.nil?
+        invalid_properties.push("invalid value for 'transfer_account_id', transfer_account_id cannot be nil.")
       end
 
       if @subtransactions.nil?
@@ -141,9 +202,14 @@ module YnabApi
       return false if @id.nil?
       return false if @date.nil?
       return false if @amount.nil?
+      return false if @memo.nil?
       return false if @cleared.nil?
       return false if @approved.nil?
+      return false if @flag.nil?
       return false if @account_id.nil?
+      return false if @payee_id.nil?
+      return false if @category_id.nil?
+      return false if @transfer_account_id.nil?
       return false if @subtransactions.nil?
       return true
     end
@@ -156,9 +222,14 @@ module YnabApi
           id == o.id &&
           date == o.date &&
           amount == o.amount &&
+          memo == o.memo &&
           cleared == o.cleared &&
           approved == o.approved &&
+          flag == o.flag &&
           account_id == o.account_id &&
+          payee_id == o.payee_id &&
+          category_id == o.category_id &&
+          transfer_account_id == o.transfer_account_id &&
           subtransactions == o.subtransactions
     end
 
@@ -171,7 +242,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, date, amount, cleared, approved, account_id, subtransactions].hash
+      [id, date, amount, memo, cleared, approved, flag, account_id, payee_id, category_id, transfer_account_id, subtransactions].hash
     end
 
     # Builds the object from hash

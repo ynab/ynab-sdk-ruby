@@ -22,13 +22,26 @@ module YnabApi
     # The current balance of the account in milliunits format
     attr_accessor :amount
 
+    attr_accessor :memo
+
+    attr_accessor :payee_id
+
+    attr_accessor :category_id
+
+    # If a transfer, the account_id which the scheduled sub transaction transfers to
+    attr_accessor :transfer_account_id
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
         :'scheduled_transaction_id' => :'scheduled_transaction_id',
-        :'amount' => :'amount'
+        :'amount' => :'amount',
+        :'memo' => :'memo',
+        :'payee_id' => :'payee_id',
+        :'category_id' => :'category_id',
+        :'transfer_account_id' => :'transfer_account_id'
       }
     end
 
@@ -37,7 +50,11 @@ module YnabApi
       {
         :'id' => :'String',
         :'scheduled_transaction_id' => :'String',
-        :'amount' => :'Float'
+        :'amount' => :'Float',
+        :'memo' => :'String',
+        :'payee_id' => :'String',
+        :'category_id' => :'String',
+        :'transfer_account_id' => :'String'
       }
     end
 
@@ -61,6 +78,22 @@ module YnabApi
         self.amount = attributes[:'amount']
       end
 
+      if attributes.has_key?(:'memo')
+        self.memo = attributes[:'memo']
+      end
+
+      if attributes.has_key?(:'payee_id')
+        self.payee_id = attributes[:'payee_id']
+      end
+
+      if attributes.has_key?(:'category_id')
+        self.category_id = attributes[:'category_id']
+      end
+
+      if attributes.has_key?(:'transfer_account_id')
+        self.transfer_account_id = attributes[:'transfer_account_id']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -79,6 +112,22 @@ module YnabApi
         invalid_properties.push("invalid value for 'amount', amount cannot be nil.")
       end
 
+      if @memo.nil?
+        invalid_properties.push("invalid value for 'memo', memo cannot be nil.")
+      end
+
+      if @payee_id.nil?
+        invalid_properties.push("invalid value for 'payee_id', payee_id cannot be nil.")
+      end
+
+      if @category_id.nil?
+        invalid_properties.push("invalid value for 'category_id', category_id cannot be nil.")
+      end
+
+      if @transfer_account_id.nil?
+        invalid_properties.push("invalid value for 'transfer_account_id', transfer_account_id cannot be nil.")
+      end
+
       return invalid_properties
     end
 
@@ -88,6 +137,10 @@ module YnabApi
       return false if @id.nil?
       return false if @scheduled_transaction_id.nil?
       return false if @amount.nil?
+      return false if @memo.nil?
+      return false if @payee_id.nil?
+      return false if @category_id.nil?
+      return false if @transfer_account_id.nil?
       return true
     end
 
@@ -98,7 +151,11 @@ module YnabApi
       self.class == o.class &&
           id == o.id &&
           scheduled_transaction_id == o.scheduled_transaction_id &&
-          amount == o.amount
+          amount == o.amount &&
+          memo == o.memo &&
+          payee_id == o.payee_id &&
+          category_id == o.category_id &&
+          transfer_account_id == o.transfer_account_id
     end
 
     # @see the `==` method
@@ -110,7 +167,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, scheduled_transaction_id, amount].hash
+      [id, scheduled_transaction_id, amount, memo, payee_id, category_id, transfer_account_id].hash
     end
 
     # Builds the object from hash

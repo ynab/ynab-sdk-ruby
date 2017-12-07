@@ -1,30 +1,31 @@
 require 'spec_helper'
 
-describe '/budgets' do
-  let(:access_token) { 'af5717b1aa3eab1b27ece7263aef84f320967591e19597b7c8dac824b9f43bcc' }
+describe 'accounts' do
+  let(:access_token) { 'd7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd' }
+  let(:budget_id) { 'df5868f8-f44f-4bc5-84a1-02d3e35791ca' }
   let(:client) { YnabApi::Client.new(access_token, 'api.localhost:3000', false) }
-  let (:instance) { client.budgets }
+  let (:instance) { client.accounts }
 
-  describe 'test an instance of BudgetsApi' do
-    it 'should create an instance of BudgetsApi' do
-      expect(instance).to be_instance_of(YnabApi::BudgetsApi)
+  describe 'test an instance of AccountsApi' do
+    it 'should create an instance of AccountsApi' do
+      expect(instance).to be_instance_of(YnabApi::AccountsApi)
     end
   end
 
   describe 'authorization' do
     it "sets the Bearer Auth header correctly" do
-      VCR.use_cassette("budgets") do
-        response = instance.get_budgets
+      VCR.use_cassette("accounts") do
+        response = instance.get_accounts(budget_id)
         expect(client.last_request.options[:headers]["Authorization"]).to eq "Bearer #{access_token}"
 
       end
     end
 
     it "throws when unauthorized" do
-      VCR.use_cassette("budgets_unauthorized") do
+      VCR.use_cassette("accounts_unauthorized") do
         client = YnabApi::Client.new('not_valid_access_token', 'api.localhost:3000', false)
         begin
-          response = client.budgets.get_budgets
+          response = client.accounts.get_accounts(budget_id)
         rescue YnabApi::ApiError => e
           expect(e.code).to be 401
           expect(client.last_request.response.options[:code]).to be 401
@@ -33,22 +34,22 @@ describe '/budgets' do
     end
   end
 
-  describe 'GET /budgets' do
-    it "returns a list of budgets" do
-      VCR.use_cassette("budgets") do
-        response = instance.get_budgets
+  describe 'GET /budgets/{budget_id}/accounts' do
+    it "returns a list of accounts" do
+      VCR.use_cassette("accounts") do
+        response = instance.get_accounts(budget_id)
         expect(client.last_request.response.options[:code]).to be 200
-        expect(response.data.budgets.length).to be 6
+        expect(response.data.accounts.length).to be 1
       end
     end
   end
 
-  describe 'GET /budgets/{budget_id}' do
-    it "returns a budget" do
-      VCR.use_cassette("budget") do
-        response = instance.get_budget_contents('df5868f8-f44f-4bc5-84a1-02d3e35791ca')
-        expect(response.data.budget).to be
-        expect(response.data.budget.name).to eq "ABC"
+  describe 'GET /budgets/{budget_id}/accounts/{account_id}' do
+    it "returns an account" do
+      VCR.use_cassette("account") do
+        response = instance.get_account_by_id(budget_id, '515df7e3-d28a-4a50-a9b2-33814700e78a')
+        expect(response.data.account).to be
+        expect(response.data.account.name).to eq "Checking"
       end
     end
   end

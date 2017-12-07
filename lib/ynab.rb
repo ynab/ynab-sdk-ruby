@@ -109,7 +109,7 @@ module YnabApi
       MonthsApi.new(@client)
     end
 
-    def payee
+    def payees
       PayeesApi.new(@client)
     end
 

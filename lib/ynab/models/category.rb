@@ -24,6 +24,8 @@ module YnabApi
     # Whether or not the category is hidden
     attr_accessor :hidden
 
+    attr_accessor :note
+
     # Budgeted amount in current month in milliunits format
     attr_accessor :budgeted
 
@@ -41,6 +43,7 @@ module YnabApi
         :'category_group_id' => :'category_group_id',
         :'name' => :'name',
         :'hidden' => :'hidden',
+        :'note' => :'note',
         :'budgeted' => :'budgeted',
         :'activity' => :'activity',
         :'balance' => :'balance'
@@ -54,6 +57,7 @@ module YnabApi
         :'category_group_id' => :'String',
         :'name' => :'String',
         :'hidden' => :'BOOLEAN',
+        :'note' => :'String',
         :'budgeted' => :'Float',
         :'activity' => :'Float',
         :'balance' => :'Float'
@@ -82,6 +86,10 @@ module YnabApi
 
       if attributes.has_key?(:'hidden')
         self.hidden = attributes[:'hidden']
+      end
+
+      if attributes.has_key?(:'note')
+        self.note = attributes[:'note']
       end
 
       if attributes.has_key?(:'budgeted')
@@ -118,6 +126,10 @@ module YnabApi
         invalid_properties.push("invalid value for 'hidden', hidden cannot be nil.")
       end
 
+      if @note.nil?
+        invalid_properties.push("invalid value for 'note', note cannot be nil.")
+      end
+
       if @budgeted.nil?
         invalid_properties.push("invalid value for 'budgeted', budgeted cannot be nil.")
       end
@@ -140,6 +152,7 @@ module YnabApi
       return false if @category_group_id.nil?
       return false if @name.nil?
       return false if @hidden.nil?
+      return false if @note.nil?
       return false if @budgeted.nil?
       return false if @activity.nil?
       return false if @balance.nil?
@@ -155,6 +168,7 @@ module YnabApi
           category_group_id == o.category_group_id &&
           name == o.name &&
           hidden == o.hidden &&
+          note == o.note &&
           budgeted == o.budgeted &&
           activity == o.activity &&
           balance == o.balance
@@ -169,7 +183,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, category_group_id, name, hidden, budgeted, activity, balance].hash
+      [id, category_group_id, name, hidden, note, budgeted, activity, balance].hash
     end
 
     # Builds the object from hash

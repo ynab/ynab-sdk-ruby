@@ -1,30 +1,31 @@
 require 'spec_helper'
 
-describe '/budgets' do
-  let(:access_token) { 'af5717b1aa3eab1b27ece7263aef84f320967591e19597b7c8dac824b9f43bcc' }
+describe 'payee locations' do
+  let(:access_token) { 'd7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd' }
+  let(:budget_id) { 'df5868f8-f44f-4bc5-84a1-02d3e35791ca' }
   let(:client) { YnabApi::Client.new(access_token, 'api.localhost:3000', false) }
-  let (:instance) { client.budgets }
+  let (:instance) { client.payee_locations }
 
-  describe 'test an instance of BudgetsApi' do
-    it 'should create an instance of BudgetsApi' do
-      expect(instance).to be_instance_of(YnabApi::BudgetsApi)
+  describe 'test an instance of PayeeLocationsApi' do
+    it 'should create an instance of PayeeLocationsApi' do
+      expect(instance).to be_instance_of(YnabApi::PayeeLocationsApi)
     end
   end
 
   describe 'authorization' do
     it "sets the Bearer Auth header correctly" do
-      VCR.use_cassette("budgets") do
-        response = instance.get_budgets
+      VCR.use_cassette("payee_locations") do
+        response = instance.get_payee_locations(budget_id)
         expect(client.last_request.options[:headers]["Authorization"]).to eq "Bearer #{access_token}"
 
       end
     end
 
     it "throws when unauthorized" do
-      VCR.use_cassette("budgets_unauthorized") do
+      VCR.use_cassette("payee_locations_unauthorized") do
         client = YnabApi::Client.new('not_valid_access_token', 'api.localhost:3000', false)
         begin
-          response = client.budgets.get_budgets
+          response = client.payee_locations.get_payee_locations(budget_id)
         rescue YnabApi::ApiError => e
           expect(e.code).to be 401
           expect(client.last_request.response.options[:code]).to be 401
@@ -33,22 +34,23 @@ describe '/budgets' do
     end
   end
 
-  describe 'GET /budgets' do
-    it "returns a list of budgets" do
-      VCR.use_cassette("budgets") do
-        response = instance.get_budgets
+  describe 'GET /budgets/{budget_id}/payee_location' do
+    it "returns a list of payee locations" do
+      VCR.use_cassette("payee_locations") do
+        response = instance.get_payee_locations(budget_id)
         expect(client.last_request.response.options[:code]).to be 200
-        expect(response.data.budgets.length).to be 6
+        expect(response.data.payee_locations.length).to be 1
       end
     end
   end
 
-  describe 'GET /budgets/{budget_id}' do
-    it "returns a budget" do
-      VCR.use_cassette("budget") do
-        response = instance.get_budget_contents('df5868f8-f44f-4bc5-84a1-02d3e35791ca')
-        expect(response.data.budget).to be
-        expect(response.data.budget.name).to eq "ABC"
+  describe 'GET /budgets/{budget_id}/payee_locations/{payee_id}' do
+    it "returns a payee location" do
+      VCR.use_cassette("payee_location") do
+        response = instance.get_payee_location_by_id(budget_id, 'bd3219ea-e0c1-4c10-a881-e8e4d5697b6b')
+        expect(response.data.payee_location).to be
+        expect(response.data.payee_location.latitude).to eq "40.7128"
+        expect(response.data.payee_location.longitude).to eq "74.006"
       end
     end
   end

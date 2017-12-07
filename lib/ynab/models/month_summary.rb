@@ -17,18 +17,31 @@ module YnabApi
   class MonthSummary
     attr_accessor :month
 
+    attr_accessor :note
+
+    # The current balance of the account in milliunits format
+    attr_accessor :to_be_budgeted
+
+    attr_accessor :age_of_money
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'month' => :'month'
+        :'month' => :'month',
+        :'note' => :'note',
+        :'to_be_budgeted' => :'to_be_budgeted',
+        :'age_of_money' => :'age_of_money'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'month' => :'Date'
+        :'month' => :'Date',
+        :'note' => :'String',
+        :'to_be_budgeted' => :'Float',
+        :'age_of_money' => :'Float'
       }
     end
 
@@ -44,6 +57,18 @@ module YnabApi
         self.month = attributes[:'month']
       end
 
+      if attributes.has_key?(:'note')
+        self.note = attributes[:'note']
+      end
+
+      if attributes.has_key?(:'to_be_budgeted')
+        self.to_be_budgeted = attributes[:'to_be_budgeted']
+      end
+
+      if attributes.has_key?(:'age_of_money')
+        self.age_of_money = attributes[:'age_of_money']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -54,6 +79,18 @@ module YnabApi
         invalid_properties.push("invalid value for 'month', month cannot be nil.")
       end
 
+      if @note.nil?
+        invalid_properties.push("invalid value for 'note', note cannot be nil.")
+      end
+
+      if @to_be_budgeted.nil?
+        invalid_properties.push("invalid value for 'to_be_budgeted', to_be_budgeted cannot be nil.")
+      end
+
+      if @age_of_money.nil?
+        invalid_properties.push("invalid value for 'age_of_money', age_of_money cannot be nil.")
+      end
+
       return invalid_properties
     end
 
@@ -61,6 +98,9 @@ module YnabApi
     # @return true if the model is valid
     def valid?
       return false if @month.nil?
+      return false if @note.nil?
+      return false if @to_be_budgeted.nil?
+      return false if @age_of_money.nil?
       return true
     end
 
@@ -69,7 +109,10 @@ module YnabApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          month == o.month
+          month == o.month &&
+          note == o.note &&
+          to_be_budgeted == o.to_be_budgeted &&
+          age_of_money == o.age_of_money
     end
 
     # @see the `==` method
@@ -81,7 +124,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [month].hash
+      [month, note, to_be_budgeted, age_of_money].hash
     end
 
     # Builds the object from hash
