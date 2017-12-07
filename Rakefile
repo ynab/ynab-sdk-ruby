@@ -19,6 +19,7 @@ task :generate do
   #   ["number", "null"] => "number"
   sh %Q[sed -E -i '' 's/\\\[\\"(string|number|array|boolean)\\"\\, \\"null\\"\\\]/"\\1"/g' #{spec_filename}]
 
+  # Use Docker to codegen ruby based on the swagger spec
   sh "docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli generate"\
      " -i /local/spec-v1-swagger.json"\
      " -l ruby"\
