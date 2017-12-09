@@ -38,6 +38,11 @@ end
 See the [examples folder](https://github.com/ynab/ynab-sdk-ruby/tree/master/examples) for, well, example usage scenarios.
 
 ## Development
+Install dependencies:
+
+```
+bundle
+```
 
 To generate latest based on swagger spec:
 
