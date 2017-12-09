@@ -2,7 +2,7 @@ begin
   require 'rspec/core/rake_task'
 
   RSpec::Core::RakeTask.new(:spec) do |t|
-    t.rspec_opts = "--tag fast"
+    t.rspec_opts = "-fd"
   end
 rescue LoadError
   # no rspec available
