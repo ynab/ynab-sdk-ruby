@@ -19,7 +19,7 @@ module YnabApi
 
     attr_accessor :transaction_id
 
-    # The current balance of the account in milliunits format
+    # The sub-transaction amount in milliunits format
     attr_accessor :amount
 
     attr_accessor :memo

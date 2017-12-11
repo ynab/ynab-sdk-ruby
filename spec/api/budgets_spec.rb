@@ -46,7 +46,7 @@ describe 'budgets' do
   describe 'GET /budgets/{budget_id}' do
     it "returns a budget" do
       VCR.use_cassette("budget") do
-        response = instance.get_budget_contents('df5868f8-f44f-4bc5-84a1-02d3e35791ca')
+        response = instance.get_budget_by_id('df5868f8-f44f-4bc5-84a1-02d3e35791ca')
         expect(response.data.budget).to be
         expect(response.data.budget.name).to eq "ABC"
       end

@@ -34,7 +34,8 @@ api_instance = YnabApi::TransactionsApi.new
 budget_id = "budget_id_example" # String | ID of budget
 
 opts = { 
-  since_date: Date.parse("2013-10-20") # Date | Only return transactions on or after this date
+  since_date: Date.parse("2013-10-20"), # Date | Only return transactions on or after this date
+  type: "type_example" # String | Only return transactions of a certain type (i.e. 'uncategorized', 'unapproved')
 }
 
 begin
@@ -52,6 +53,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | **String**| ID of budget | 
  **since_date** | **Date**| Only return transactions on or after this date | [optional] 
+ **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
 
 ### Return type
 

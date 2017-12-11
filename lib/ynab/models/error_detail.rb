@@ -19,7 +19,7 @@ module YnabApi
 
     attr_accessor :name
 
-    attr_accessor :description
+    attr_accessor :detail
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -27,7 +27,7 @@ module YnabApi
       {
         :'id' => :'id',
         :'name' => :'name',
-        :'description' => :'description'
+        :'detail' => :'detail'
       }
     end
 
@@ -36,7 +36,7 @@ module YnabApi
       {
         :'id' => :'String',
         :'name' => :'String',
-        :'description' => :'String'
+        :'detail' => :'String'
       }
     end
 
@@ -56,8 +56,8 @@ module YnabApi
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.has_key?(:'detail')
+        self.detail = attributes[:'detail']
       end
 
     end
@@ -74,8 +74,8 @@ module YnabApi
         invalid_properties.push("invalid value for 'name', name cannot be nil.")
       end
 
-      if @description.nil?
-        invalid_properties.push("invalid value for 'description', description cannot be nil.")
+      if @detail.nil?
+        invalid_properties.push("invalid value for 'detail', detail cannot be nil.")
       end
 
       return invalid_properties
@@ -86,7 +86,7 @@ module YnabApi
     def valid?
       return false if @id.nil?
       return false if @name.nil?
-      return false if @description.nil?
+      return false if @detail.nil?
       return true
     end
 
@@ -97,7 +97,7 @@ module YnabApi
       self.class == o.class &&
           id == o.id &&
           name == o.name &&
-          description == o.description
+          detail == o.detail
     end
 
     # @see the `==` method
@@ -109,7 +109,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, description].hash
+      [id, name, detail].hash
     end
 
     # Builds the object from hash

@@ -25,6 +25,7 @@ module YnabApi
     # @param budget_id ID of budget
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date
+    # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [TransactionSummariesResponse]
     def get_transactions(budget_id, opts = {})
       data, _status_code, _headers = get_transactions_with_http_info(budget_id, opts)
@@ -36,6 +37,7 @@ module YnabApi
     # @param budget_id ID of budget
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date
+    # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [Array<(TransactionSummariesResponse, Fixnum, Hash)>] TransactionSummariesResponse data, response status code and response headers
     def get_transactions_with_http_info(budget_id, opts = {})
       if @api_client.config.debugging
@@ -45,12 +47,16 @@ module YnabApi
       if @api_client.config.client_side_validation && budget_id.nil?
         fail ArgumentError, "Missing the required parameter 'budget_id' when calling TransactionsApi.get_transactions"
       end
+      if @api_client.config.client_side_validation && opts[:'type'] && !['uncategorized', 'unapproved'].include?(opts[:'type'])
+        fail ArgumentError, 'invalid value for "type", must be one of uncategorized, unapproved'
+      end
       # resource path
       local_var_path = "/budgets/{budget_id}/transactions".sub('{' + 'budget_id' + '}', budget_id.to_s)
 
       # query parameters
       query_params = {}
       query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
+      query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
 
       # header parameters
       header_params = {}

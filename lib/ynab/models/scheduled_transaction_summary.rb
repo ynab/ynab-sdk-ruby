@@ -21,7 +21,7 @@ module YnabApi
 
     attr_accessor :frequency
 
-    # The current balance of the account in milliunits format
+    # The scheduled transaction amount in milliunits format
     attr_accessor :amount
 
     attr_accessor :memo
@@ -37,6 +37,27 @@ module YnabApi
     # If a transfer, the account_id which the scheduled transaction transfers to
     attr_accessor :transfer_account_id
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -173,6 +194,8 @@ module YnabApi
       return false if @id.nil?
       return false if @date.nil?
       return false if @frequency.nil?
+      frequency_validator = EnumAttributeValidator.new('String', ["Never", "Daily", "Weekly", "EveryOtherWeek", "TwiceAMonth", "Every4Weeks", "Monthly", "EveryOtherMonth", "Every3Months", "Every4Months", "TwiceAYear", "Yearly", "EveryOtherYear"])
+      return false unless frequency_validator.valid?(@frequency)
       return false if @amount.nil?
       return false if @memo.nil?
       return false if @flag.nil?
@@ -181,6 +204,16 @@ module YnabApi
       return false if @category_id.nil?
       return false if @transfer_account_id.nil?
       return true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] frequency Object to be assigned
+    def frequency=(frequency)
+      validator = EnumAttributeValidator.new('String', ["Never", "Daily", "Weekly", "EveryOtherWeek", "TwiceAMonth", "Every4Weeks", "Monthly", "EveryOtherMonth", "Every3Months", "Every4Months", "TwiceAYear", "Yearly", "EveryOtherYear"])
+      unless validator.valid?(frequency)
+        fail ArgumentError, "invalid value for 'frequency', must be one of #{validator.allowable_values}."
+      end
+      @frequency = frequency
     end
 
     # Checks equality by comparing each attribute.

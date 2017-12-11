@@ -26,8 +26,8 @@ module YnabApi
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :last_knowledge_of_server Starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [BudgetDetailResponse]
-    def get_budget_contents(budget_id, opts = {})
-      data, _status_code, _headers = get_budget_contents_with_http_info(budget_id, opts)
+    def get_budget_by_id(budget_id, opts = {})
+      data, _status_code, _headers = get_budget_by_id_with_http_info(budget_id, opts)
       return data
     end
 
@@ -37,13 +37,13 @@ module YnabApi
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :last_knowledge_of_server Starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [Array<(BudgetDetailResponse, Fixnum, Hash)>] BudgetDetailResponse data, response status code and response headers
-    def get_budget_contents_with_http_info(budget_id, opts = {})
+    def get_budget_by_id_with_http_info(budget_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: BudgetsApi.get_budget_contents ..."
+        @api_client.config.logger.debug "Calling API: BudgetsApi.get_budget_by_id ..."
       end
       # verify the required parameter 'budget_id' is set
       if @api_client.config.client_side_validation && budget_id.nil?
-        fail ArgumentError, "Missing the required parameter 'budget_id' when calling BudgetsApi.get_budget_contents"
+        fail ArgumentError, "Missing the required parameter 'budget_id' when calling BudgetsApi.get_budget_by_id"
       end
       # resource path
       local_var_path = "/budgets/{budget_id}".sub('{' + 'budget_id' + '}', budget_id.to_s)
@@ -71,7 +71,7 @@ module YnabApi
         :auth_names => auth_names,
         :return_type => 'BudgetDetailResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BudgetsApi#get_budget_contents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BudgetsApi#get_budget_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

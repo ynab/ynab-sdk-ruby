@@ -4,12 +4,12 @@ All URIs are relative to *https://api.youneedabudget.com/papi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_budget_contents**](BudgetsApi.md#get_budget_contents) | **GET** /budgets/{budget_id} | Single budget
+[**get_budget_by_id**](BudgetsApi.md#get_budget_by_id) | **GET** /budgets/{budget_id} | Single budget
 [**get_budgets**](BudgetsApi.md#get_budgets) | **GET** /budgets | List budgets
 
 
-# **get_budget_contents**
-> BudgetDetailResponse get_budget_contents(budget_id, opts)
+# **get_budget_by_id**
+> BudgetDetailResponse get_budget_by_id(budget_id, opts)
 
 Single budget
 
@@ -37,10 +37,10 @@ opts = {
 
 begin
   #Single budget
-  result = api_instance.get_budget_contents(budget_id, opts)
+  result = api_instance.get_budget_by_id(budget_id, opts)
   p result
 rescue YnabApi::ApiError => e
-  puts "Exception when calling BudgetsApi->get_budget_contents: #{e}"
+  puts "Exception when calling BudgetsApi->get_budget_by_id: #{e}"
 end
 ```
 

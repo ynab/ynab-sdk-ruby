@@ -19,7 +19,7 @@ module YnabApi
 
     attr_accessor :date
 
-    # The current balance of the account in milliunits format
+    # The transaction amount in milliunits format
     attr_accessor :amount
 
     attr_accessor :memo
@@ -30,7 +30,6 @@ module YnabApi
     # Whether or not the transaction is approved
     attr_accessor :approved
 
-    # Whether or not the transaction is approved
     attr_accessor :flag
 
     attr_accessor :account_id
@@ -44,6 +43,27 @@ module YnabApi
     # If a split transaction, the sub-transactions.
     attr_accessor :subtransactions
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -204,6 +224,8 @@ module YnabApi
       return false if @amount.nil?
       return false if @memo.nil?
       return false if @cleared.nil?
+      cleared_validator = EnumAttributeValidator.new('String', ["Cleared", "Uncleared", "Reconciled"])
+      return false unless cleared_validator.valid?(@cleared)
       return false if @approved.nil?
       return false if @flag.nil?
       return false if @account_id.nil?
@@ -212,6 +234,16 @@ module YnabApi
       return false if @transfer_account_id.nil?
       return false if @subtransactions.nil?
       return true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] cleared Object to be assigned
+    def cleared=(cleared)
+      validator = EnumAttributeValidator.new('String', ["Cleared", "Uncleared", "Reconciled"])
+      unless validator.valid?(cleared)
+        fail ArgumentError, "invalid value for 'cleared', must be one of #{validator.allowable_values}."
+      end
+      @cleared = cleared
     end
 
     # Checks equality by comparing each attribute.
