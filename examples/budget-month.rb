@@ -3,7 +3,7 @@ require 'ynab'
 require 'date'
 
 def print_budget_month
-  access_token = 'bd7840ad3b4863b8c60bc01cf9533e823781d40daad160664d053f8ba8ce2307'
+  access_token = '4cada065-8eb7-4af6-b964-bda34754749e'
   ynab = YnabApi::Client.new(access_token)
 
   budget_id = "f968197b-2863-473a-8974-c2406dbe7f0d"
