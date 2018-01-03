@@ -1,4 +1,4 @@
-$:.unshift('../lib');
+$:.unshift('../lib')
 require 'ynab'
 
 def print_budget_list
@@ -17,9 +17,9 @@ def print_budget_list
     budgets.each do |budget|
       puts "[id: #{budget.id}, name: #{budget.name}]"
     end
-  rescue Exception => e
+  rescue => e
     puts "ERROR: #{e}"
   end
 end
 
-print_budget_list();
+print_budget_list()

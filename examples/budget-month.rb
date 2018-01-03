@@ -1,4 +1,4 @@
-$:.unshift('../lib');
+$:.unshift('../lib')
 require 'ynab'
 require 'date'
 
@@ -28,9 +28,9 @@ def print_budget_month
     budget_month.categories.each do |category|
       puts "                #{category.name} - $#{category.balance}"
     end
-  rescue Exception => e
+  rescue => e
     puts "ERROR: #{e}"
   end
 end
 
-print_budget_month();
+print_budget_month()

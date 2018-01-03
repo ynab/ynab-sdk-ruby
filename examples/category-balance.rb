@@ -1,4 +1,4 @@
-$:.unshift('../lib');
+$:.unshift('../lib')
 require 'ynab'
 
 def print_category_info
@@ -19,9 +19,9 @@ def print_category_info
     puts "      Name: #{category.name}"
     puts "  Budgeted: #{category.budgeted}"
     puts "   Balance: #{category.balance}"
-  rescue Exception => e
+  rescue => e
     puts "ERROR: #{e}"
   end
 end
 
-print_category_info();
+print_category_info()
