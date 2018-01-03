@@ -44,7 +44,7 @@ Install dependencies:
 bundle
 ```
 
-To generate latest based on swagger spec:
+To generate latest client based on swagger spec:
 
 ```
 rake generate
@@ -55,8 +55,8 @@ To run tests:
 ```
 rake spec
 ```
- 
-or 
+
+or
 
 ```
 rspec spec
