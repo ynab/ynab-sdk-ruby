@@ -21,7 +21,7 @@ app.
 ```ruby
 require 'ynab'
 
-access_token = 'bf0cbb14b4330e9d5f4312a646eb0115b80a169ad1425d3de12e66a389eaafe2'
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
 ynab = YnabApi::Client.new(access_token)
 

@@ -2,7 +2,7 @@ $:.unshift('../lib')
 require 'ynab'
 
 def print_budget_list
-  access_token = '4cada065-8eb7-4af6-b964-bda34754749e'
+  access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
   ynab = YnabApi::Client.new(access_token)
 
   puts "Fetching budgets..."
