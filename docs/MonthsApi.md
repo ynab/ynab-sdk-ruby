@@ -47,7 +47,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | **String**| ID of budget | 
+ **budget_id** | [**String**](.md)| ID of budget | 
  **month** | **Date**| The budget month.  \&quot;current\&quot; can also be used to specify the current calendar month (UTC). | 
 
 ### Return type
@@ -102,7 +102,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | **String**| ID of budget | 
+ **budget_id** | [**String**](.md)| ID of budget | 
 
 ### Return type
 

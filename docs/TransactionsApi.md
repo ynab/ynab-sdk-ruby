@@ -11,11 +11,11 @@ Method | HTTP request | Description
 
 
 # **get_transactions**
-> TransactionSummariesResponse get_transactions(budget_id, opts)
+> TransactionsResponse get_transactions(budget_id, opts)
 
 List transactions
 
-Returns all budget transactions
+Returns budget transactions
 
 ### Example
 ```ruby
@@ -51,13 +51,13 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | **String**| ID of budget | 
+ **budget_id** | [**String**](.md)| ID of budget | 
  **since_date** | **Date**| Only return transactions on or after this date | [optional] 
  **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
 
 ### Return type
 
-[**TransactionSummariesResponse**](TransactionSummariesResponse.md)
+[**TransactionsResponse**](TransactionsResponse.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 
 # **get_transactions_by_account**
-> TransactionSummariesResponse get_transactions_by_account(budget_id, account_id, opts)
+> TransactionsResponse get_transactions_by_account(budget_id, account_id, opts)
 
 List account transactions
 
@@ -112,13 +112,13 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | **String**| ID of budget | 
- **account_id** | **String**| ID of account | 
+ **budget_id** | [**String**](.md)| ID of budget | 
+ **account_id** | [**String**](.md)| ID of account | 
  **since_date** | **Date**| Only return transactions on or after this date | [optional] 
 
 ### Return type
 
-[**TransactionSummariesResponse**](TransactionSummariesResponse.md)
+[**TransactionsResponse**](TransactionsResponse.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 
 # **get_transactions_by_category**
-> TransactionSummariesResponse get_transactions_by_category(budget_id, category_id, opts)
+> TransactionsResponse get_transactions_by_category(budget_id, category_id, opts)
 
 List category transactions
 
@@ -173,13 +173,13 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | **String**| ID of budget | 
- **category_id** | **String**| ID of category | 
+ **budget_id** | [**String**](.md)| ID of budget | 
+ **category_id** | [**String**](.md)| ID of category | 
  **since_date** | **Date**| Only return transactions on or after this date | [optional] 
 
 ### Return type
 
-[**TransactionSummariesResponse**](TransactionSummariesResponse.md)
+[**TransactionsResponse**](TransactionsResponse.md)
 
 ### Authorization
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 
 # **get_transactions_by_id**
-> TransactionDetailResponse get_transactions_by_id(budget_id, transaction_id)
+> TransactionResponse get_transactions_by_id(budget_id, transaction_id)
 
 Single transaction
 
@@ -231,12 +231,12 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | **String**| ID of budget | 
- **transaction_id** | **String**| ID of transaction | 
+ **budget_id** | [**String**](.md)| ID of budget | 
+ **transaction_id** | [**String**](.md)| ID of transaction | 
 
 ### Return type
 
-[**TransactionDetailResponse**](TransactionDetailResponse.md)
+[**TransactionResponse**](TransactionResponse.md)
 
 ### Authorization
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_scheduled_transaction_by_id**
-> ScheduledTransactionDetailResponse get_scheduled_transaction_by_id(budget_id, scheduled_transaction_id)
+> ScheduledTransactionResponse get_scheduled_transaction_by_id(budget_id, scheduled_transaction_id)
 
 Single scheduled transaction
 
@@ -47,12 +47,12 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | **String**| ID of budget | 
- **scheduled_transaction_id** | **String**| ID of scheduled transaction | 
+ **budget_id** | [**String**](.md)| ID of budget | 
+ **scheduled_transaction_id** | [**String**](.md)| ID of scheduled transaction | 
 
 ### Return type
 
-[**ScheduledTransactionDetailResponse**](ScheduledTransactionDetailResponse.md)
+[**ScheduledTransactionResponse**](ScheduledTransactionResponse.md)
 
 ### Authorization
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 
 # **get_scheduled_transactions**
-> ScheduledTransactionSummariesResponse get_scheduled_transactions(budget_id)
+> ScheduledTransactionsResponse get_scheduled_transactions(budget_id)
 
 List scheduled transactions
 
@@ -102,11 +102,11 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | **String**| ID of budget | 
+ **budget_id** | [**String**](.md)| ID of budget | 
 
 ### Return type
 
-[**ScheduledTransactionSummariesResponse**](ScheduledTransactionSummariesResponse.md)
+[**ScheduledTransactionsResponse**](ScheduledTransactionsResponse.md)
 
 ### Authorization
 

@@ -45,7 +45,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | **String**| ID of budget | 
+ **budget_id** | [**String**](.md)| ID of budget | 
 
 ### Return type
 
@@ -101,8 +101,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | **String**| ID of budget | 
- **category_id** | **String**| ID of category | 
+ **budget_id** | [**String**](.md)| ID of budget | 
+ **category_id** | [**String**](.md)| ID of category | 
 
 ### Return type
 
