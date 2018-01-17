@@ -48,7 +48,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | **String**| ID of budget | 
+ **budget_id** | [**String**](.md)| ID of budget | 
  **last_knowledge_of_server** | **Float**| Starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type

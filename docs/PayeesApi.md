@@ -47,8 +47,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | **String**| ID of budget | 
- **payee_id** | **String**| ID of payee | 
+ **budget_id** | [**String**](.md)| ID of budget | 
+ **payee_id** | [**String**](.md)| ID of payee | 
 
 ### Return type
 
@@ -102,7 +102,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | **String**| ID of budget | 
+ **budget_id** | [**String**](.md)| ID of budget | 
 
 ### Return type
 
