@@ -4,10 +4,127 @@ All URIs are relative to *https://api.youneedabudget.com/papi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**bulk_create_transactions**](TransactionsApi.md#bulk_create_transactions) | **POST** /budgets/{budget_id}/transactions/bulk | Bulk create transactions
+[**create_transaction**](TransactionsApi.md#create_transaction) | **POST** /budgets/{budget_id}/transactions | Create new transaction
 [**get_transactions**](TransactionsApi.md#get_transactions) | **GET** /budgets/{budget_id}/transactions | List transactions
 [**get_transactions_by_account**](TransactionsApi.md#get_transactions_by_account) | **GET** /budgets/{budget_id}/accounts/{account_id}/transactions | List account transactions
 [**get_transactions_by_category**](TransactionsApi.md#get_transactions_by_category) | **GET** /budgets/{budget_id}/categories/{category_id}/transactions | List category transactions
 [**get_transactions_by_id**](TransactionsApi.md#get_transactions_by_id) | **GET** /budgets/{budget_id}/transactions/{transaction_id} | Single transaction
+[**update_transaction**](TransactionsApi.md#update_transaction) | **PUT** /budgets/{budget_id}/transactions/{transaction_id} | Updates an existing transaction
+
+
+# **bulk_create_transactions**
+> BulkTransactionCreateResponse bulk_create_transactions(budget_id, transactions)
+
+Bulk create transactions
+
+Creates multiple transactions
+
+### Example
+```ruby
+# load the gem
+require 'ynab'
+# setup authorization
+YnabApi.configure do |config|
+  # Configure API key authorization: bearer
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = YnabApi::TransactionsApi.new
+
+budget_id = "budget_id_example" # String | ID of budget
+
+transactions = YnabApi::BulkTransactions.new # BulkTransactions | Transactions to create
+
+
+begin
+  #Bulk create transactions
+  result = api_instance.bulk_create_transactions(budget_id, transactions)
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling TransactionsApi->bulk_create_transactions: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **budget_id** | [**String**](.md)| ID of budget | 
+ **transactions** | [**BulkTransactions**](BulkTransactions.md)| Transactions to create | 
+
+### Return type
+
+[**BulkTransactionCreateResponse**](BulkTransactionCreateResponse.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **create_transaction**
+> TransactionResponse create_transaction(budget_id, transaction)
+
+Create new transaction
+
+Creates a transaction
+
+### Example
+```ruby
+# load the gem
+require 'ynab'
+# setup authorization
+YnabApi.configure do |config|
+  # Configure API key authorization: bearer
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = YnabApi::TransactionsApi.new
+
+budget_id = "budget_id_example" # String | ID of budget
+
+transaction = YnabApi::SaveTransaction.new # SaveTransaction | Transaction to create
+
+
+begin
+  #Create new transaction
+  result = api_instance.create_transaction(budget_id, transaction)
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling TransactionsApi->create_transaction: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **budget_id** | [**String**](.md)| ID of budget | 
+ **transaction** | [**SaveTransaction**](SaveTransaction.md)| Transaction to create | 
+
+### Return type
+
+[**TransactionResponse**](TransactionResponse.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 
 # **get_transactions**
@@ -233,6 +350,66 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| ID of budget | 
  **transaction_id** | [**String**](.md)| ID of transaction | 
+
+### Return type
+
+[**TransactionResponse**](TransactionResponse.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **update_transaction**
+> TransactionResponse update_transaction(budget_id, transaction_id, transaction)
+
+Updates an existing transaction
+
+Updates a transaction
+
+### Example
+```ruby
+# load the gem
+require 'ynab'
+# setup authorization
+YnabApi.configure do |config|
+  # Configure API key authorization: bearer
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = YnabApi::TransactionsApi.new
+
+budget_id = "budget_id_example" # String | ID of budget
+
+transaction_id = "transaction_id_example" # String | ID of transaction
+
+transaction = YnabApi::SaveTransaction.new # SaveTransaction | Transaction to create
+
+
+begin
+  #Updates an existing transaction
+  result = api_instance.update_transaction(budget_id, transaction_id, transaction)
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling TransactionsApi->update_transaction: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **budget_id** | [**String**](.md)| ID of budget | 
+ **transaction_id** | [**String**](.md)| ID of transaction | 
+ **transaction** | [**SaveTransaction**](SaveTransaction.md)| Transaction to create | 
 
 ### Return type
 
