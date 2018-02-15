@@ -69,6 +69,10 @@ require 'ynab/models/category_group_with_categories'
 require 'ynab/models/month_detail'
 require 'ynab/models/scheduled_transaction_detail'
 require 'ynab/models/transaction_detail'
+require 'ynab/models/transaction_detail'
+require 'ynab/models/bulk_id_wrapper'
+require 'ynab/models/bulk_ids'
+require 'ynab/models/bulk_response'
 
 # APIs
 require 'ynab/api/accounts_api'

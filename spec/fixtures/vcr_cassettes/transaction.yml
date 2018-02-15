@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/transactions/2d672d77-577e-4dfc-9f60-05a314aafc7e
+    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/transactions/81c374ff-74ab-4d6d-8d5a-ba3ad3fa68e4
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       Accept:
       - application/json
       Authorization:
-      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      - Bearer 9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045
       Expect:
       - ''
   response:
@@ -27,20 +27,20 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       ETag:
-      - W/"642da5b41c80d6e1d70d0d7dfef9156e"
+      - W/"1e46ae4f1882d274e3bc56617bede19d"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - efe6649b-d2a7-4b7f-9057-c5ee5f9b485f
+      - 1754d660-f78f-4aad-a6ec-47d834f47efd
       X-Runtime:
-      - '0.040902'
+      - '0.180542'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"transaction":{"id":"2d672d77-577e-4dfc-9f60-05a314aafc7e","date":"2017-12-06","amount":-2000,"memo":null,"cleared":"Uncleared","approved":true,"flag":null,"account_id":"515df7e3-d28a-4a50-a9b2-33814700e78a","payee_id":"0c102a79-7ddf-4b8a-bd20-69563fb2caec","category_id":null,"transfer_account_id":null,"subtransactions":[]}}}'
+      string: '{"data":{"transaction":{"id":"81c374ff-74ab-4d6d-8d5a-ba3ad3fa68e4","date":"2018-02-15","amount":-2000,"memo":"","cleared":"uncleared","approved":true,"flag_color":null,"account_id":"5982e895-98e5-41ca-9681-0b6de1036a1c","payee_id":"200e6eb1-02fc-4af6-be26-27c5740bb949","category_id":null,"transfer_account_id":null,"import_id":null,"subtransactions":[]}}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/transactions/2d672d77-577e-4dfc-9f60-05a314aafc7e
-  recorded_at: Thu, 07 Dec 2017 00:16:52 GMT
+      effective_url: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/transactions/81c374ff-74ab-4d6d-8d5a-ba3ad3fa68e4
+  recorded_at: Thu, 15 Feb 2018 19:00:01 GMT
 recorded_with: VCR 3.0.3

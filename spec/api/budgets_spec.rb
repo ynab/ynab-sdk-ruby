@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'budgets' do
-  let(:access_token) { 'd7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd' }
+  let(:access_token) { '9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045' }
   let(:client) { YnabApi::Client.new(access_token, 'api.localhost:3000', false) }
   let (:instance) { client.budgets }
 
@@ -38,7 +38,7 @@ describe 'budgets' do
       VCR.use_cassette("budgets") do
         response = instance.get_budgets
         expect(client.last_request.response.options[:code]).to be 200
-        expect(response.data.budgets.length).to be 6
+        expect(response.data.budgets.length).to be 4
       end
     end
   end
@@ -46,7 +46,7 @@ describe 'budgets' do
   describe 'GET /budgets/{budget_id}' do
     it "returns a budget" do
       VCR.use_cassette("budget") do
-        response = instance.get_budget_by_id('df5868f8-f44f-4bc5-84a1-02d3e35791ca')
+        response = instance.get_budget_by_id('f419ac25-6217-4175-88dc-c3136ff5f6fd')
         expect(response.data.budget).to be
         expect(response.data.budget.name).to eq "ABC"
       end

@@ -21,8 +21,8 @@ module YnabApi
     end
 
     # List categories
-    # Returns all categories grouped by category group
-    # @param budget_id ID of budget
+    # Returns all categories grouped by category group.
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
     # @return [CategoriesResponse]
     def get_categories(budget_id, opts = {})
@@ -31,8 +31,8 @@ module YnabApi
     end
 
     # List categories
-    # Returns all categories grouped by category group
-    # @param budget_id ID of budget
+    # Returns all categories grouped by category group.
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
     # @return [Array<(CategoriesResponse, Fixnum, Hash)>] CategoriesResponse data, response status code and response headers
     def get_categories_with_http_info(budget_id, opts = {})
@@ -75,8 +75,8 @@ module YnabApi
 
     # Single category
     # Returns a single category
-    # @param budget_id ID of budget
-    # @param category_id ID of category
+    # @param budget_id The ID of the Budget.
+    # @param category_id The ID of the Category.
     # @param [Hash] opts the optional parameters
     # @return [CategoryResponse]
     def get_category_by_id(budget_id, category_id, opts = {})
@@ -86,8 +86,8 @@ module YnabApi
 
     # Single category
     # Returns a single category
-    # @param budget_id ID of budget
-    # @param category_id ID of category
+    # @param budget_id The ID of the Budget.
+    # @param category_id The ID of the Category.
     # @param [Hash] opts the optional parameters
     # @return [Array<(CategoryResponse, Fixnum, Hash)>] CategoryResponse data, response status code and response headers
     def get_category_by_id_with_http_info(budget_id, category_id, opts = {})

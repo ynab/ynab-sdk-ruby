@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/categories/6921a4b3-095a-435f-92e1-28931d3186ed
+    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/categories/574fac19-537d-46a8-be2b-d2f875691165
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       Accept:
       - application/json
       Authorization:
-      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      - Bearer 9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045
       Expect:
       - ''
   response:
@@ -27,20 +27,20 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       ETag:
-      - W/"bcb3bc128b5a72eceaa6655235647311"
+      - W/"7839befe092f187d604ddad811587a57"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - dbf34377-0b04-41f7-a066-c826122cfcb2
+      - 1ddc786e-63fe-45ec-acd8-588e917ade51
       X-Runtime:
-      - '0.030313'
+      - '0.183579'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"category":{"id":"6921a4b3-095a-435f-92e1-28931d3186ed","category_group_id":"35b4f757-a42f-4d8b-97cd-665880385281","name":"Groceries","hidden":false,"note":null,"budgeted":200000,"activity":-3000,"balance":197000}}}'
+      string: '{"data":{"category":{"id":"574fac19-537d-46a8-be2b-d2f875691165","category_group_id":"2318eeca-0504-41b4-86c8-9426130eb27d","name":"Groceries","hidden":false,"note":null,"budgeted":0,"activity":0,"balance":0}}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/categories/6921a4b3-095a-435f-92e1-28931d3186ed
-  recorded_at: Wed, 06 Dec 2017 23:54:00 GMT
+      effective_url: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/categories/574fac19-537d-46a8-be2b-d2f875691165
+  recorded_at: Thu, 15 Feb 2018 18:59:59 GMT
 recorded_with: VCR 3.0.3

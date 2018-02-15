@@ -22,8 +22,8 @@ module YnabApi
 
     # Single scheduled transaction
     # Returns a single scheduled transaction
-    # @param budget_id ID of budget
-    # @param scheduled_transaction_id ID of scheduled transaction
+    # @param budget_id The ID of the Budget.
+    # @param scheduled_transaction_id The ID of the Scheduled Transaction.
     # @param [Hash] opts the optional parameters
     # @return [ScheduledTransactionResponse]
     def get_scheduled_transaction_by_id(budget_id, scheduled_transaction_id, opts = {})
@@ -33,8 +33,8 @@ module YnabApi
 
     # Single scheduled transaction
     # Returns a single scheduled transaction
-    # @param budget_id ID of budget
-    # @param scheduled_transaction_id ID of scheduled transaction
+    # @param budget_id The ID of the Budget.
+    # @param scheduled_transaction_id The ID of the Scheduled Transaction.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ScheduledTransactionResponse, Fixnum, Hash)>] ScheduledTransactionResponse data, response status code and response headers
     def get_scheduled_transaction_by_id_with_http_info(budget_id, scheduled_transaction_id, opts = {})
@@ -81,7 +81,7 @@ module YnabApi
 
     # List scheduled transactions
     # Returns all scheduled transactions
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
     # @return [ScheduledTransactionsResponse]
     def get_scheduled_transactions(budget_id, opts = {})
@@ -91,7 +91,7 @@ module YnabApi
 
     # List scheduled transactions
     # Returns all scheduled transactions
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ScheduledTransactionsResponse, Fixnum, Hash)>] ScheduledTransactionsResponse data, response status code and response headers
     def get_scheduled_transactions_with_http_info(budget_id, opts = {})

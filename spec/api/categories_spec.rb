@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe 'categories' do
-  let(:access_token) { 'd7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd' }
-  let(:budget_id) { 'df5868f8-f44f-4bc5-84a1-02d3e35791ca' }
+  let(:access_token) { '9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045' }
+  let(:budget_id) { 'f419ac25-6217-4175-88dc-c3136ff5f6fd' }
   let(:client) { YnabApi::Client.new(access_token, 'api.localhost:3000', false) }
   let (:instance) { client.categories }
 
@@ -48,7 +48,7 @@ describe 'categories' do
   describe 'GET /budgets/{budget_id}/category/{category_id}' do
     it "returns a category" do
       VCR.use_cassette("category") do
-        response = instance.get_category_by_id(budget_id, '6921a4b3-095a-435f-92e1-28931d3186ed')
+        response = instance.get_category_by_id(budget_id, '574fac19-537d-46a8-be2b-d2f875691165')
         expect(response.data.category).to be
         expect(response.data.category.name).to eq 'Groceries'
       end

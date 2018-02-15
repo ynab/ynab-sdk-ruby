@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/months
+    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/months
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       Accept:
       - application/json
       Authorization:
-      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      - Bearer 9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045
       Expect:
       - ''
   response:
@@ -27,21 +27,21 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       ETag:
-      - W/"00891d65ad03f4cdea71c7e0303eebf2"
+      - W/"35fbac0102918d018b79d75ac9c8e0b9"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6c2244eb-0d34-4b61-acda-d72cc9df5b8f
+      - 6f8c270d-199a-48fc-a69f-4cbd414d6679
       X-Runtime:
-      - '0.054427'
+      - '0.178872'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"months":[{"month":"2017-11-01","note":null,"to_be_budgeted":null,"age_of_money":null},{"month":"2017-12-01","note":"Test
-        Note","to_be_budgeted":800000,"age_of_money":null},{"month":"2018-01-01","note":null,"to_be_budgeted":793000,"age_of_money":null}]}}'
+      string: '{"data":{"months":[{"month":"2018-01-01","note":null,"to_be_budgeted":null,"age_of_money":null},{"month":"2018-02-01","note":"Test
+        Note","to_be_budgeted":1000000,"age_of_money":null},{"month":"2018-03-01","note":null,"to_be_budgeted":998000,"age_of_money":null}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/months
-  recorded_at: Thu, 07 Dec 2017 00:02:57 GMT
+      effective_url: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/months
+  recorded_at: Thu, 15 Feb 2018 18:59:59 GMT
 recorded_with: VCR 3.0.3

@@ -22,7 +22,7 @@ module YnabApi
 
     # Single payee location
     # Returns a single payee location
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param payee_location_id ID of payee location
     # @param [Hash] opts the optional parameters
     # @return [PayeeLocationResponse]
@@ -33,7 +33,7 @@ module YnabApi
 
     # Single payee location
     # Returns a single payee location
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param payee_location_id ID of payee location
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayeeLocationResponse, Fixnum, Hash)>] PayeeLocationResponse data, response status code and response headers
@@ -81,7 +81,7 @@ module YnabApi
 
     # List payee locations
     # Returns all payee locations
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
     # @return [PayeeLocationsResponse]
     def get_payee_locations(budget_id, opts = {})
@@ -91,7 +91,7 @@ module YnabApi
 
     # List payee locations
     # Returns all payee locations
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayeeLocationsResponse, Fixnum, Hash)>] PayeeLocationsResponse data, response status code and response headers
     def get_payee_locations_with_http_info(budget_id, opts = {})
@@ -134,7 +134,7 @@ module YnabApi
 
     # List locations for a payee
     # Returns all payee locations for the specified payee
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param payee_id ID of payee
     # @param [Hash] opts the optional parameters
     # @return [PayeeLocationsResponse]
@@ -145,7 +145,7 @@ module YnabApi
 
     # List locations for a payee
     # Returns all payee locations for the specified payee
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param payee_id ID of payee
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayeeLocationsResponse, Fixnum, Hash)>] PayeeLocationsResponse data, response status code and response headers

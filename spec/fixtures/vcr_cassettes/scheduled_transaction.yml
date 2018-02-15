@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/scheduled_transactions/e03dc1f5-886f-4c61-aeeb-ff244181d092
+    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/scheduled_transactions/1a8e4929-3ad1-4859-8443-2aeeab0684ab
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       Accept:
       - application/json
       Authorization:
-      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      - Bearer 9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045
       Expect:
       - ''
   response:
@@ -27,20 +27,20 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       ETag:
-      - W/"d5a2a0d01bb9e8d0c6da82afa1d167a1"
+      - W/"a12522073b08168393067bb1afe6f899"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 5e054980-7ff1-4d24-91f8-a7cc6a72acb3
+      - 0d0d76ee-d37e-4c8d-9caa-eedf60692e61
       X-Runtime:
-      - '0.042462'
+      - '0.179118'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"scheduled_transaction":{"id":"e03dc1f5-886f-4c61-aeeb-ff244181d092","date":"2017-12-03","frequency":"Daily","amount":-10000,"memo":"","flag":null,"account_id":"515df7e3-d28a-4a50-a9b2-33814700e78a","payee_id":null,"category_id":"b627c923-91e4-4a46-8249-0f1fa6876a5c","transfer_account_id":null,"subtransactions":[{"id":"70eb40ca-3df6-4d3c-99fb-844846fff737","scheduled_transaction_id":"e03dc1f5-886f-4c61-aeeb-ff244181d092","amount":-5000,"memo":"","payee_id":null,"category_id":"aaa238a7-bfd2-45c5-bd9d-a69702aefd81","transfer_account_id":null},{"id":"309568f8-b0f5-416a-951b-c29a3904d87c","scheduled_transaction_id":"e03dc1f5-886f-4c61-aeeb-ff244181d092","amount":-2000,"memo":"","payee_id":null,"category_id":"8aeb52cf-cb4a-4919-85f7-44df52c6eba6","transfer_account_id":null},{"id":"6fcd308f-e23e-471b-8629-d315310055e3","scheduled_transaction_id":"e03dc1f5-886f-4c61-aeeb-ff244181d092","amount":-3000,"memo":"","payee_id":null,"category_id":"6921a4b3-095a-435f-92e1-28931d3186ed","transfer_account_id":null}]}}}'
+      string: '{"data":{"scheduled_transaction":{"id":"1a8e4929-3ad1-4859-8443-2aeeab0684ab","date_first":"2018-02-16","date_next":"2018-02-16","frequency":"never","amount":-10000,"memo":null,"flag_color":null,"account_id":"5982e895-98e5-41ca-9681-0b6de1036a1c","payee_id":null,"category_id":null,"transfer_account_id":null,"subtransactions":[]}}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/scheduled_transactions/e03dc1f5-886f-4c61-aeeb-ff244181d092
-  recorded_at: Thu, 07 Dec 2017 00:21:22 GMT
+      effective_url: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/scheduled_transactions/1a8e4929-3ad1-4859-8443-2aeeab0684ab
+  recorded_at: Thu, 15 Feb 2018 19:00:01 GMT
 recorded_with: VCR 3.0.3

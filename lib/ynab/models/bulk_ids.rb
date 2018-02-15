@@ -14,79 +14,27 @@ require 'date'
 
 module YnabApi
 
-  class Account
-    attr_accessor :id
+  class BulkIds
+    # The list of Transaction IDs that were created.
+    attr_accessor :transaction_ids
 
-    attr_accessor :name
+    # If any Transactions were not created because they had an import_id matching a transaction already on the same account, the specified import_id(s) will be included in this list.
+    attr_accessor :duplicate_import_ids
 
-    attr_accessor :type
-
-    # Whether this account is on budget or not
-    attr_accessor :on_budget
-
-    # Whether this account is closed or not
-    attr_accessor :closed
-
-    attr_accessor :note
-
-    # The current balance of the account in milliunits format
-    attr_accessor :balance
-
-    # The current cleared balance of the account in milliunits format
-    attr_accessor :cleared_balance
-
-    # The current uncleared balance of the account in milliunits format
-    attr_accessor :uncleared_balance
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name',
-        :'type' => :'type',
-        :'on_budget' => :'on_budget',
-        :'closed' => :'closed',
-        :'note' => :'note',
-        :'balance' => :'balance',
-        :'cleared_balance' => :'cleared_balance',
-        :'uncleared_balance' => :'uncleared_balance'
+        :'transaction_ids' => :'transaction_ids',
+        :'duplicate_import_ids' => :'duplicate_import_ids'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
-        :'name' => :'String',
-        :'type' => :'String',
-        :'on_budget' => :'BOOLEAN',
-        :'closed' => :'BOOLEAN',
-        :'note' => :'String',
-        :'balance' => :'Float',
-        :'cleared_balance' => :'Float',
-        :'uncleared_balance' => :'Float'
+        :'transaction_ids' => :'Array<String>',
+        :'duplicate_import_ids' => :'Array<String>'
       }
     end
 
@@ -98,40 +46,16 @@ module YnabApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'transaction_ids')
+        if (value = attributes[:'transaction_ids']).is_a?(Array)
+          self.transaction_ids = value
+        end
       end
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.has_key?(:'on_budget')
-        self.on_budget = attributes[:'on_budget']
-      end
-
-      if attributes.has_key?(:'closed')
-        self.closed = attributes[:'closed']
-      end
-
-      if attributes.has_key?(:'note')
-        self.note = attributes[:'note']
-      end
-
-      if attributes.has_key?(:'balance')
-        self.balance = attributes[:'balance']
-      end
-
-      if attributes.has_key?(:'cleared_balance')
-        self.cleared_balance = attributes[:'cleared_balance']
-      end
-
-      if attributes.has_key?(:'uncleared_balance')
-        self.uncleared_balance = attributes[:'uncleared_balance']
+      if attributes.has_key?(:'duplicate_import_ids')
+        if (value = attributes[:'duplicate_import_ids']).is_a?(Array)
+          self.duplicate_import_ids = value
+        end
       end
 
     end
@@ -140,40 +64,12 @@ module YnabApi
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push("invalid value for 'id', id cannot be nil.")
+      if @transaction_ids.nil?
+        invalid_properties.push("invalid value for 'transaction_ids', transaction_ids cannot be nil.")
       end
 
-      if @name.nil?
-        invalid_properties.push("invalid value for 'name', name cannot be nil.")
-      end
-
-      if @type.nil?
-        invalid_properties.push("invalid value for 'type', type cannot be nil.")
-      end
-
-      if @on_budget.nil?
-        invalid_properties.push("invalid value for 'on_budget', on_budget cannot be nil.")
-      end
-
-      if @closed.nil?
-        invalid_properties.push("invalid value for 'closed', closed cannot be nil.")
-      end
-
-      if @note.nil?
-        invalid_properties.push("invalid value for 'note', note cannot be nil.")
-      end
-
-      if @balance.nil?
-        invalid_properties.push("invalid value for 'balance', balance cannot be nil.")
-      end
-
-      if @cleared_balance.nil?
-        invalid_properties.push("invalid value for 'cleared_balance', cleared_balance cannot be nil.")
-      end
-
-      if @uncleared_balance.nil?
-        invalid_properties.push("invalid value for 'uncleared_balance', uncleared_balance cannot be nil.")
+      if @duplicate_import_ids.nil?
+        invalid_properties.push("invalid value for 'duplicate_import_ids', duplicate_import_ids cannot be nil.")
       end
 
       return invalid_properties
@@ -182,28 +78,9 @@ module YnabApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
-      return false if @name.nil?
-      return false if @type.nil?
-      type_validator = EnumAttributeValidator.new('String', ["Checking", "Savings", "CreditCard"])
-      return false unless type_validator.valid?(@type)
-      return false if @on_budget.nil?
-      return false if @closed.nil?
-      return false if @note.nil?
-      return false if @balance.nil?
-      return false if @cleared_balance.nil?
-      return false if @uncleared_balance.nil?
+      return false if @transaction_ids.nil?
+      return false if @duplicate_import_ids.nil?
       return true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] type Object to be assigned
-    def type=(type)
-      validator = EnumAttributeValidator.new('String', ["Checking", "Savings", "CreditCard"])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for 'type', must be one of #{validator.allowable_values}."
-      end
-      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -211,15 +88,8 @@ module YnabApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          name == o.name &&
-          type == o.type &&
-          on_budget == o.on_budget &&
-          closed == o.closed &&
-          note == o.note &&
-          balance == o.balance &&
-          cleared_balance == o.cleared_balance &&
-          uncleared_balance == o.uncleared_balance
+          transaction_ids == o.transaction_ids &&
+          duplicate_import_ids == o.duplicate_import_ids
     end
 
     # @see the `==` method
@@ -231,7 +101,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, type, on_budget, closed, note, balance, cleared_balance, uncleared_balance].hash
+      [transaction_ids, duplicate_import_ids].hash
     end
 
     # Builds the object from hash

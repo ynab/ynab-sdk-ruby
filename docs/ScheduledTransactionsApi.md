@@ -29,9 +29,9 @@ end
 
 api_instance = YnabApi::ScheduledTransactionsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
-scheduled_transaction_id = "scheduled_transaction_id_example" # String | ID of scheduled transaction
+scheduled_transaction_id = "scheduled_transaction_id_example" # String | The ID of the Scheduled Transaction.
 
 
 begin
@@ -47,8 +47,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
- **scheduled_transaction_id** | [**String**](.md)| ID of scheduled transaction | 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **scheduled_transaction_id** | [**String**](.md)| The ID of the Scheduled Transaction. | 
 
 ### Return type
 
@@ -86,7 +86,7 @@ end
 
 api_instance = YnabApi::ScheduledTransactionsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
 
 begin
@@ -102,7 +102,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
 
 ### Return type
 

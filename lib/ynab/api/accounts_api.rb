@@ -22,8 +22,8 @@ module YnabApi
 
     # Single account
     # Returns a single account
-    # @param budget_id ID of budget
-    # @param account_id ID of account
+    # @param budget_id The ID of the Budget.
+    # @param account_id The ID of the Account.
     # @param [Hash] opts the optional parameters
     # @return [AccountResponse]
     def get_account_by_id(budget_id, account_id, opts = {})
@@ -33,8 +33,8 @@ module YnabApi
 
     # Single account
     # Returns a single account
-    # @param budget_id ID of budget
-    # @param account_id ID of account
+    # @param budget_id The ID of the Budget.
+    # @param account_id The ID of the Account.
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountResponse, Fixnum, Hash)>] AccountResponse data, response status code and response headers
     def get_account_by_id_with_http_info(budget_id, account_id, opts = {})
@@ -81,7 +81,7 @@ module YnabApi
 
     # Account list
     # Returns all accounts
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
     # @return [AccountsResponse]
     def get_accounts(budget_id, opts = {})
@@ -91,7 +91,7 @@ module YnabApi
 
     # Account list
     # Returns all accounts
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountsResponse, Fixnum, Hash)>] AccountsResponse data, response status code and response headers
     def get_accounts_with_http_info(budget_id, opts = {})

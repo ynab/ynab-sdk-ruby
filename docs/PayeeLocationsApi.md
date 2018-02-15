@@ -30,7 +30,7 @@ end
 
 api_instance = YnabApi::PayeeLocationsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
 payee_location_id = "payee_location_id_example" # String | ID of payee location
 
@@ -48,7 +48,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
  **payee_location_id** | [**String**](.md)| ID of payee location | 
 
 ### Return type
@@ -87,7 +87,7 @@ end
 
 api_instance = YnabApi::PayeeLocationsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
 
 begin
@@ -103,7 +103,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
 
 ### Return type
 
@@ -141,7 +141,7 @@ end
 
 api_instance = YnabApi::PayeeLocationsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
 payee_id = "payee_id_example" # String | ID of payee
 
@@ -159,7 +159,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
  **payee_id** | [**String**](.md)| ID of payee | 
 
 ### Return type

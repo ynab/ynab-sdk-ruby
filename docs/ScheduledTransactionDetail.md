@@ -4,11 +4,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
-**date** | **Date** |  | 
+**date_first** | **Date** | The first date for which the Scheduled Transaction was scheduled. | 
+**date_next** | **Date** | The next date for which the Scheduled Transaction is scheduled. | 
 **frequency** | **String** |  | 
 **amount** | **Float** | The scheduled transaction amount in milliunits format | 
 **memo** | **String** |  | 
-**flag** | **String** |  | 
+**flag_color** | **String** |  | 
 **account_id** | **String** |  | 
 **payee_id** | **String** |  | 
 **category_id** | **String** |  | 

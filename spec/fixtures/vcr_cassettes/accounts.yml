@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/accounts
+    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/accounts
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       Accept:
       - application/json
       Authorization:
-      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      - Bearer 9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045
       Expect:
       - ''
   response:
@@ -27,20 +27,20 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       ETag:
-      - W/"220dd25696eaae01331ac8a12bb15d82"
+      - W/"cba59f1eb6fcb1979c5e82ff7a05d1b2"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 9aca5846-0454-4239-b1a8-0fc3dc8477c4
+      - c2221610-c1f5-4ee2-a4b7-6914ce33a360
       X-Runtime:
-      - '0.039379'
+      - '0.192788'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"accounts":[{"id":"515df7e3-d28a-4a50-a9b2-33814700e78a","name":"Checking","type":"Checking","on_budget":true,"closed":false,"note":null,"balance":990000}]}}'
+      string: '{"data":{"accounts":[{"id":"5982e895-98e5-41ca-9681-0b6de1036a1c","name":"Checking","type":"Checking","on_budget":true,"closed":false,"note":null,"balance":998000,"cleared_balance":1000000,"uncleared_balance":-2000}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/accounts
-  recorded_at: Wed, 06 Dec 2017 23:45:30 GMT
+      effective_url: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/accounts
+  recorded_at: Thu, 15 Feb 2018 18:59:57 GMT
 recorded_with: VCR 3.0.3

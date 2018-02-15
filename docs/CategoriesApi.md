@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 List categories
 
-Returns all categories grouped by category group
+Returns all categories grouped by category group.
 
 ### Example
 ```ruby
@@ -29,7 +29,7 @@ end
 
 api_instance = YnabApi::CategoriesApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
 
 begin
@@ -45,7 +45,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
 
 ### Return type
 
@@ -83,9 +83,9 @@ end
 
 api_instance = YnabApi::CategoriesApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
-category_id = "category_id_example" # String | ID of category
+category_id = "category_id_example" # String | The ID of the Category.
 
 
 begin
@@ -101,8 +101,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
- **category_id** | [**String**](.md)| ID of category | 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **category_id** | [**String**](.md)| The ID of the Category. | 
 
 ### Return type
 

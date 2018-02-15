@@ -25,8 +25,13 @@ module YnabApi
     # The payee for the transaction.  Transfer payees are not permitted and will be ignored if supplied.
     attr_accessor :payee_id
 
+    # The payee name.  If a payee_name value is provided and payee_id is not included or has a null value, payee_name will be used to create or use an existing payee.
+    attr_accessor :payee_name
+
     # The category for the transaction.  Split and Credit Card Payment categories are not permitted and will be ignored if supplied.
     attr_accessor :category_id
+
+    attr_accessor :memo
 
     # The cleared status of the transaction
     attr_accessor :cleared
@@ -34,7 +39,11 @@ module YnabApi
     # Whether or not the transaction is approved.  If not supplied, transaction will be unapproved by default.
     attr_accessor :approved
 
-    attr_accessor :memo
+    # The transaction flag
+    attr_accessor :flag_color
+
+    # If specified for a new transaction, the transaction will be treated as Imported and assigned this import_id.  If another transaction on the same account with this same import_id is later attempted to be created, it will be skipped to prevent duplication.  Transactions imported through File Based Import or Direct Import and not through the API, are assigned an import_id in the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurance]'.  For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.  Using a consistent format will prevent duplicates through Direct Import and File Based Import.  If import_id is specified as null, the transaction will be treated as a user entered transaction.
+    attr_accessor :import_id
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -65,10 +74,13 @@ module YnabApi
         :'date' => :'date',
         :'amount' => :'amount',
         :'payee_id' => :'payee_id',
+        :'payee_name' => :'payee_name',
         :'category_id' => :'category_id',
+        :'memo' => :'memo',
         :'cleared' => :'cleared',
         :'approved' => :'approved',
-        :'memo' => :'memo'
+        :'flag_color' => :'flag_color',
+        :'import_id' => :'import_id'
       }
     end
 
@@ -79,10 +91,13 @@ module YnabApi
         :'date' => :'Date',
         :'amount' => :'Float',
         :'payee_id' => :'String',
+        :'payee_name' => :'String',
         :'category_id' => :'String',
+        :'memo' => :'String',
         :'cleared' => :'String',
         :'approved' => :'BOOLEAN',
-        :'memo' => :'String'
+        :'flag_color' => :'String',
+        :'import_id' => :'String'
       }
     end
 
@@ -110,8 +125,16 @@ module YnabApi
         self.payee_id = attributes[:'payee_id']
       end
 
+      if attributes.has_key?(:'payee_name')
+        self.payee_name = attributes[:'payee_name']
+      end
+
       if attributes.has_key?(:'category_id')
         self.category_id = attributes[:'category_id']
+      end
+
+      if attributes.has_key?(:'memo')
+        self.memo = attributes[:'memo']
       end
 
       if attributes.has_key?(:'cleared')
@@ -122,8 +145,12 @@ module YnabApi
         self.approved = attributes[:'approved']
       end
 
-      if attributes.has_key?(:'memo')
-        self.memo = attributes[:'memo']
+      if attributes.has_key?(:'flag_color')
+        self.flag_color = attributes[:'flag_color']
+      end
+
+      if attributes.has_key?(:'import_id')
+        self.import_id = attributes[:'import_id']
       end
 
     end
@@ -155,6 +182,8 @@ module YnabApi
       return false if @amount.nil?
       cleared_validator = EnumAttributeValidator.new('String', ["Cleared", "Uncleared", "Reconciled"])
       return false unless cleared_validator.valid?(@cleared)
+      flag_color_validator = EnumAttributeValidator.new('String', ["red", "orange", "yellow", "green", "blue", "purple"])
+      return false unless flag_color_validator.valid?(@flag_color)
       return true
     end
 
@@ -168,6 +197,16 @@ module YnabApi
       @cleared = cleared
     end
 
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] flag_color Object to be assigned
+    def flag_color=(flag_color)
+      validator = EnumAttributeValidator.new('String', ["red", "orange", "yellow", "green", "blue", "purple"])
+      unless validator.valid?(flag_color)
+        fail ArgumentError, "invalid value for 'flag_color', must be one of #{validator.allowable_values}."
+      end
+      @flag_color = flag_color
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -177,10 +216,13 @@ module YnabApi
           date == o.date &&
           amount == o.amount &&
           payee_id == o.payee_id &&
+          payee_name == o.payee_name &&
           category_id == o.category_id &&
+          memo == o.memo &&
           cleared == o.cleared &&
           approved == o.approved &&
-          memo == o.memo
+          flag_color == o.flag_color &&
+          import_id == o.import_id
     end
 
     # @see the `==` method
@@ -192,7 +234,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [account_id, date, amount, payee_id, category_id, cleared, approved, memo].hash
+      [account_id, date, amount, payee_id, payee_name, category_id, memo, cleared, approved, flag_color, import_id].hash
     end
 
     # Builds the object from hash

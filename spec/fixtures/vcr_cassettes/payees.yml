@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/payees
+    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/payees
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       Accept:
       - application/json
       Authorization:
-      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      - Bearer 9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045
       Expect:
       - ''
   response:
@@ -27,25 +27,25 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       ETag:
-      - W/"542f6023288a4ee5064cc6358c693bc1"
+      - W/"e2f459e462e2bafaaf2ceef3fcd3a7c9"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3d0ba004-6a5b-477d-a682-a3563329f08c
+      - 15151992-e17b-4848-a6b5-72f4aa9d2a3e
       X-Runtime:
-      - '0.046336'
+      - '0.180255'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"payees":[{"id":"09e003bc-2e07-4248-9d94-60eae466c29e","name":"Starting
-        Balance","transfer_account_id":null},{"id":"b4b90ea9-d283-4cd7-9d26-72c099704e02","name":"Manual
-        Balance Adjustment","transfer_account_id":null},{"id":"1cdccd4d-27d0-4248-8d7b-ab53c304f162","name":"Reconciliation
-        Balance Adjustment","transfer_account_id":null},{"id":"3f2c09ba-176e-4cab-b94b-25c77ba81c11","name":"Transfer
-        : Checking","transfer_account_id":"515df7e3-d28a-4a50-a9b2-33814700e78a"},{"id":"0c102a79-7ddf-4b8a-bd20-69563fb2caec","name":"Test
+      string: '{"data":{"payees":[{"id":"2141b5d8-5b9b-4a17-be45-3f4a9ac397ec","name":"Starting
+        Balance","transfer_account_id":null},{"id":"7f786732-10c1-4618-aa0b-56199b2cea26","name":"Manual
+        Balance Adjustment","transfer_account_id":null},{"id":"f0c12109-c27a-4739-adc5-e598e33dd1dd","name":"Reconciliation
+        Balance Adjustment","transfer_account_id":null},{"id":"8a9a08ae-416d-436c-870a-a25e2d8f24cd","name":"Transfer
+        : Checking","transfer_account_id":"5982e895-98e5-41ca-9681-0b6de1036a1c"},{"id":"200e6eb1-02fc-4af6-be26-27c5740bb949","name":"Test
         Payee","transfer_account_id":null}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/payees
-  recorded_at: Thu, 07 Dec 2017 00:06:28 GMT
+      effective_url: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/payees
+  recorded_at: Thu, 15 Feb 2018 19:00:00 GMT
 recorded_with: VCR 3.0.3

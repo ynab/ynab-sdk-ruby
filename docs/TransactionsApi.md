@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **bulk_create_transactions**
-> BulkTransactionCreateResponse bulk_create_transactions(budget_id, transactions)
+> BulkResponse bulk_create_transactions(budget_id, transactions)
 
 Bulk create transactions
 
@@ -34,9 +34,9 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
-transactions = YnabApi::BulkTransactions.new # BulkTransactions | Transactions to create
+transactions = YnabApi::BulkTransactions.new # BulkTransactions | The list of Transactions to create.
 
 
 begin
@@ -52,12 +52,12 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
- **transactions** | [**BulkTransactions**](BulkTransactions.md)| Transactions to create | 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **transactions** | [**BulkTransactions**](BulkTransactions.md)| The list of Transactions to create. | 
 
 ### Return type
 
-[**BulkTransactionCreateResponse**](BulkTransactionCreateResponse.md)
+[**BulkResponse**](BulkResponse.md)
 
 ### Authorization
 
@@ -91,9 +91,9 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
-transaction = YnabApi::SaveTransaction.new # SaveTransaction | Transaction to create
+transaction = YnabApi::SaveTransactionWrapper.new # SaveTransactionWrapper | The Transaction to create.
 
 
 begin
@@ -109,8 +109,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
- **transaction** | [**SaveTransaction**](SaveTransaction.md)| Transaction to create | 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **transaction** | [**SaveTransactionWrapper**](SaveTransactionWrapper.md)| The Transaction to create. | 
 
 ### Return type
 
@@ -148,10 +148,10 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
 opts = { 
-  since_date: Date.parse("2013-10-20"), # Date | Only return transactions on or after this date
+  since_date: Date.parse("2013-10-20"), # Date | Only return transactions on or after this date.
   type: "type_example" # String | Only return transactions of a certain type (i.e. 'uncategorized', 'unapproved')
 }
 
@@ -168,8 +168,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
- **since_date** | **Date**| Only return transactions on or after this date | [optional] 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **since_date** | **Date**| Only return transactions on or after this date. | [optional] 
  **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
 
 ### Return type
@@ -208,12 +208,12 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
-account_id = "account_id_example" # String | ID of account
+account_id = "account_id_example" # String | The ID of the Account.
 
 opts = { 
-  since_date: Date.parse("2013-10-20") # Date | Only return transactions on or after this date
+  since_date: Date.parse("2013-10-20") # Date | Only return transactions on or after this date.
 }
 
 begin
@@ -229,9 +229,9 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
- **account_id** | [**String**](.md)| ID of account | 
- **since_date** | **Date**| Only return transactions on or after this date | [optional] 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **account_id** | [**String**](.md)| The ID of the Account. | 
+ **since_date** | **Date**| Only return transactions on or after this date. | [optional] 
 
 ### Return type
 
@@ -269,12 +269,12 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
-category_id = "category_id_example" # String | ID of category
+category_id = "category_id_example" # String | The ID of the Category.
 
 opts = { 
-  since_date: Date.parse("2013-10-20") # Date | Only return transactions on or after this date
+  since_date: Date.parse("2013-10-20") # Date | Only return transactions on or after this date.
 }
 
 begin
@@ -290,9 +290,9 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
- **category_id** | [**String**](.md)| ID of category | 
- **since_date** | **Date**| Only return transactions on or after this date | [optional] 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **category_id** | [**String**](.md)| The ID of the Category. | 
+ **since_date** | **Date**| Only return transactions on or after this date. | [optional] 
 
 ### Return type
 
@@ -330,9 +330,9 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
-transaction_id = "transaction_id_example" # String | ID of transaction
+transaction_id = "transaction_id_example" # String | The ID of the Transaction.
 
 
 begin
@@ -348,8 +348,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
- **transaction_id** | [**String**](.md)| ID of transaction | 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **transaction_id** | [**String**](.md)| The ID of the Transaction. | 
 
 ### Return type
 
@@ -387,11 +387,11 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
-transaction_id = "transaction_id_example" # String | ID of transaction
+transaction_id = "transaction_id_example" # String | The ID of the Transaction.
 
-transaction = YnabApi::SaveTransaction.new # SaveTransaction | Transaction to create
+transaction = YnabApi::SaveTransactionWrapper.new # SaveTransactionWrapper | The Transaction to update.
 
 
 begin
@@ -407,9 +407,9 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
- **transaction_id** | [**String**](.md)| ID of transaction | 
- **transaction** | [**SaveTransaction**](SaveTransaction.md)| Transaction to create | 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **transaction_id** | [**String**](.md)| The ID of the Transaction. | 
+ **transaction** | [**SaveTransactionWrapper**](SaveTransactionWrapper.md)| The Transaction to update. | 
 
 ### Return type
 

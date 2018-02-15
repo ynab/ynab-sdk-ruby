@@ -29,9 +29,9 @@ end
 
 api_instance = YnabApi::AccountsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
-account_id = "account_id_example" # String | ID of account
+account_id = "account_id_example" # String | The ID of the Account.
 
 
 begin
@@ -47,8 +47,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
- **account_id** | [**String**](.md)| ID of account | 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **account_id** | [**String**](.md)| The ID of the Account. | 
 
 ### Return type
 
@@ -86,7 +86,7 @@ end
 
 api_instance = YnabApi::AccountsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
 
 begin
@@ -102,7 +102,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
 
 ### Return type
 

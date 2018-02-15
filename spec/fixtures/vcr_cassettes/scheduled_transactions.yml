@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/scheduled_transactions
+    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/scheduled_transactions
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       Accept:
       - application/json
       Authorization:
-      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      - Bearer 9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045
       Expect:
       - ''
   response:
@@ -27,20 +27,20 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       ETag:
-      - W/"3b537d8b0813d8757058231d071e4c18"
+      - W/"fdf7787d55cba4f4d7531e7cca8d37b0"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c047f203-6249-4f4c-9c1c-39ee05a2efbb
+      - 37014650-d1fe-4fe9-b2cc-c56f08e83e40
       X-Runtime:
-      - '0.048846'
+      - '0.192982'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"scheduled_transactions":[{"id":"e03dc1f5-886f-4c61-aeeb-ff244181d092","date":"2017-12-03","frequency":"Daily","amount":-10000,"memo":"","flag":null,"account_id":"515df7e3-d28a-4a50-a9b2-33814700e78a","payee_id":null,"category_id":"b627c923-91e4-4a46-8249-0f1fa6876a5c","transfer_account_id":null}]}}'
+      string: '{"data":{"scheduled_transactions":[{"id":"1a8e4929-3ad1-4859-8443-2aeeab0684ab","date_first":"2018-02-16","date_next":"2018-02-16","frequency":"never","amount":-10000,"memo":null,"flag_color":null,"account_id":"5982e895-98e5-41ca-9681-0b6de1036a1c","payee_id":null,"category_id":null,"transfer_account_id":null,"subtransactions":[]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/scheduled_transactions
-  recorded_at: Thu, 07 Dec 2017 00:19:46 GMT
+      effective_url: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/scheduled_transactions
+  recorded_at: Thu, 15 Feb 2018 19:00:01 GMT
 recorded_with: VCR 3.0.3

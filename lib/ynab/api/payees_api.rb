@@ -22,8 +22,8 @@ module YnabApi
 
     # Single payee
     # Returns single payee
-    # @param budget_id ID of budget
-    # @param payee_id ID of payee
+    # @param budget_id The ID of the Budget.
+    # @param payee_id The ID of the Payee.
     # @param [Hash] opts the optional parameters
     # @return [PayeeResponse]
     def get_payee_by_id(budget_id, payee_id, opts = {})
@@ -33,8 +33,8 @@ module YnabApi
 
     # Single payee
     # Returns single payee
-    # @param budget_id ID of budget
-    # @param payee_id ID of payee
+    # @param budget_id The ID of the Budget.
+    # @param payee_id The ID of the Payee.
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayeeResponse, Fixnum, Hash)>] PayeeResponse data, response status code and response headers
     def get_payee_by_id_with_http_info(budget_id, payee_id, opts = {})
@@ -81,7 +81,7 @@ module YnabApi
 
     # List payees
     # Returns all payees
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
     # @return [PayeesResponse]
     def get_payees(budget_id, opts = {})
@@ -91,7 +91,7 @@ module YnabApi
 
     # List payees
     # Returns all payees
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayeesResponse, Fixnum, Hash)>] PayeesResponse data, response status code and response headers
     def get_payees_with_http_info(budget_id, opts = {})

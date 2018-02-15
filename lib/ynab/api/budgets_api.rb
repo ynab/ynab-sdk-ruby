@@ -22,9 +22,9 @@ module YnabApi
 
     # Single budget
     # Returns a single budget with all related entities.  This resource is effectively a full budget export.
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
-    # @option opts [Float] :last_knowledge_of_server Starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
+    # @option opts [Float] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [BudgetDetailResponse]
     def get_budget_by_id(budget_id, opts = {})
       data, _status_code, _headers = get_budget_by_id_with_http_info(budget_id, opts)
@@ -33,9 +33,9 @@ module YnabApi
 
     # Single budget
     # Returns a single budget with all related entities.  This resource is effectively a full budget export.
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
-    # @option opts [Float] :last_knowledge_of_server Starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
+    # @option opts [Float] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [Array<(BudgetDetailResponse, Fixnum, Hash)>] BudgetDetailResponse data, response status code and response headers
     def get_budget_by_id_with_http_info(budget_id, opts = {})
       if @api_client.config.debugging
@@ -77,7 +77,7 @@ module YnabApi
     end
 
     # List budgets
-    # Returns budgets list with summary information
+    # Returns budgets list with summary information.
     # @param [Hash] opts the optional parameters
     # @return [BudgetSummaryResponse]
     def get_budgets(opts = {})
@@ -86,7 +86,7 @@ module YnabApi
     end
 
     # List budgets
-    # Returns budgets list with summary information
+    # Returns budgets list with summary information.
     # @param [Hash] opts the optional parameters
     # @return [Array<(BudgetSummaryResponse, Fixnum, Hash)>] BudgetSummaryResponse data, response status code and response headers
     def get_budgets_with_http_info(opts = {})

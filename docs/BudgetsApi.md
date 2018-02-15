@@ -29,10 +29,10 @@ end
 
 api_instance = YnabApi::BudgetsApi.new
 
-budget_id = "budget_id_example" # String | ID of budget
+budget_id = "budget_id_example" # String | The ID of the Budget.
 
 opts = { 
-  last_knowledge_of_server: 8.14 # Float | Starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
+  last_knowledge_of_server: 8.14 # Float | The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
 }
 
 begin
@@ -48,8 +48,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| ID of budget | 
- **last_knowledge_of_server** | **Float**| Starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **last_knowledge_of_server** | **Float**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 List budgets
 
-Returns budgets list with summary information
+Returns budgets list with summary information.
 
 ### Example
 ```ruby

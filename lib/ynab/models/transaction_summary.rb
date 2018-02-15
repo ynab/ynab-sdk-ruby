@@ -30,7 +30,7 @@ module YnabApi
     # Whether or not the transaction is approved
     attr_accessor :approved
 
-    attr_accessor :flag
+    attr_accessor :flag_color
 
     attr_accessor :account_id
 
@@ -39,6 +39,9 @@ module YnabApi
     attr_accessor :category_id
 
     attr_accessor :transfer_account_id
+
+    # If the Transaction was imported, this field is a unique (by account) import identifier.  If this transaction was imported through File Based Import or Direct Import and not through the API, the import_id will have the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurance]'.  For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.
+    attr_accessor :import_id
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -71,11 +74,12 @@ module YnabApi
         :'memo' => :'memo',
         :'cleared' => :'cleared',
         :'approved' => :'approved',
-        :'flag' => :'flag',
+        :'flag_color' => :'flag_color',
         :'account_id' => :'account_id',
         :'payee_id' => :'payee_id',
         :'category_id' => :'category_id',
-        :'transfer_account_id' => :'transfer_account_id'
+        :'transfer_account_id' => :'transfer_account_id',
+        :'import_id' => :'import_id'
       }
     end
 
@@ -88,11 +92,12 @@ module YnabApi
         :'memo' => :'String',
         :'cleared' => :'String',
         :'approved' => :'BOOLEAN',
-        :'flag' => :'String',
+        :'flag_color' => :'String',
         :'account_id' => :'String',
         :'payee_id' => :'String',
         :'category_id' => :'String',
-        :'transfer_account_id' => :'String'
+        :'transfer_account_id' => :'String',
+        :'import_id' => :'String'
       }
     end
 
@@ -128,8 +133,8 @@ module YnabApi
         self.approved = attributes[:'approved']
       end
 
-      if attributes.has_key?(:'flag')
-        self.flag = attributes[:'flag']
+      if attributes.has_key?(:'flag_color')
+        self.flag_color = attributes[:'flag_color']
       end
 
       if attributes.has_key?(:'account_id')
@@ -146,6 +151,10 @@ module YnabApi
 
       if attributes.has_key?(:'transfer_account_id')
         self.transfer_account_id = attributes[:'transfer_account_id']
+      end
+
+      if attributes.has_key?(:'import_id')
+        self.import_id = attributes[:'import_id']
       end
 
     end
@@ -178,8 +187,8 @@ module YnabApi
         invalid_properties.push("invalid value for 'approved', approved cannot be nil.")
       end
 
-      if @flag.nil?
-        invalid_properties.push("invalid value for 'flag', flag cannot be nil.")
+      if @flag_color.nil?
+        invalid_properties.push("invalid value for 'flag_color', flag_color cannot be nil.")
       end
 
       if @account_id.nil?
@@ -198,6 +207,10 @@ module YnabApi
         invalid_properties.push("invalid value for 'transfer_account_id', transfer_account_id cannot be nil.")
       end
 
+      if @import_id.nil?
+        invalid_properties.push("invalid value for 'import_id', import_id cannot be nil.")
+      end
+
       return invalid_properties
     end
 
@@ -209,21 +222,22 @@ module YnabApi
       return false if @amount.nil?
       return false if @memo.nil?
       return false if @cleared.nil?
-      cleared_validator = EnumAttributeValidator.new('String', ["Cleared", "Uncleared", "Reconciled"])
+      cleared_validator = EnumAttributeValidator.new('String', ["cleared", "uncleared", "reconciled"])
       return false unless cleared_validator.valid?(@cleared)
       return false if @approved.nil?
-      return false if @flag.nil?
+      return false if @flag_color.nil?
       return false if @account_id.nil?
       return false if @payee_id.nil?
       return false if @category_id.nil?
       return false if @transfer_account_id.nil?
+      return false if @import_id.nil?
       return true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] cleared Object to be assigned
     def cleared=(cleared)
-      validator = EnumAttributeValidator.new('String', ["Cleared", "Uncleared", "Reconciled"])
+      validator = EnumAttributeValidator.new('String', ["cleared", "uncleared", "reconciled"])
       unless validator.valid?(cleared)
         fail ArgumentError, "invalid value for 'cleared', must be one of #{validator.allowable_values}."
       end
@@ -241,11 +255,12 @@ module YnabApi
           memo == o.memo &&
           cleared == o.cleared &&
           approved == o.approved &&
-          flag == o.flag &&
+          flag_color == o.flag_color &&
           account_id == o.account_id &&
           payee_id == o.payee_id &&
           category_id == o.category_id &&
-          transfer_account_id == o.transfer_account_id
+          transfer_account_id == o.transfer_account_id &&
+          import_id == o.import_id
     end
 
     # @see the `==` method
@@ -257,7 +272,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, date, amount, memo, cleared, approved, flag, account_id, payee_id, category_id, transfer_account_id].hash
+      [id, date, amount, memo, cleared, approved, flag_color, account_id, payee_id, category_id, transfer_account_id, import_id].hash
     end
 
     # Builds the object from hash

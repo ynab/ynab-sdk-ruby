@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/payee_locations/bd3219ea-e0c1-4c10-a881-e8e4d5697b6b
+    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/payee_locations/052c7814-1797-44ce-9519-020e864e4928
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       Accept:
       - application/json
       Authorization:
-      - Bearer d7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd
+      - Bearer 9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045
       Expect:
       - ''
   response:
@@ -27,20 +27,20 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       ETag:
-      - W/"8ae60c567b79ec34d28c396311b0e9fd"
+      - W/"979ae25047881aa45924b3fb32845a27"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 426a34dd-af52-4797-aec1-7832949f4438
+      - f8770b52-775c-40de-9e17-aa01c258f8fe
       X-Runtime:
-      - '0.023501'
+      - '0.190907'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"payee_location":{"id":"bd3219ea-e0c1-4c10-a881-e8e4d5697b6b","payee_id":"0c102a79-7ddf-4b8a-bd20-69563fb2caec","latitude":"40.7128","longitude":"74.006"}}}'
+      string: '{"data":{"payee_location":{"id":"052c7814-1797-44ce-9519-020e864e4928","payee_id":"200e6eb1-02fc-4af6-be26-27c5740bb949","latitude":"40.7128","longitude":"74.006"}}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://api.localhost:3000/v1/budgets/df5868f8-f44f-4bc5-84a1-02d3e35791ca/payee_locations/bd3219ea-e0c1-4c10-a881-e8e4d5697b6b
-  recorded_at: Thu, 07 Dec 2017 00:13:41 GMT
+      effective_url: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/payee_locations/052c7814-1797-44ce-9519-020e864e4928
+  recorded_at: Thu, 15 Feb 2018 19:00:00 GMT
 recorded_with: VCR 3.0.3

@@ -22,10 +22,10 @@ module YnabApi
 
     # Bulk create transactions
     # Creates multiple transactions
-    # @param budget_id ID of budget
-    # @param transactions Transactions to create
+    # @param budget_id The ID of the Budget.
+    # @param transactions The list of Transactions to create.
     # @param [Hash] opts the optional parameters
-    # @return [BulkTransactionCreateResponse]
+    # @return [BulkResponse]
     def bulk_create_transactions(budget_id, transactions, opts = {})
       data, _status_code, _headers = bulk_create_transactions_with_http_info(budget_id, transactions, opts)
       return data
@@ -33,10 +33,10 @@ module YnabApi
 
     # Bulk create transactions
     # Creates multiple transactions
-    # @param budget_id ID of budget
-    # @param transactions Transactions to create
+    # @param budget_id The ID of the Budget.
+    # @param transactions The list of Transactions to create.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(BulkTransactionCreateResponse, Fixnum, Hash)>] BulkTransactionCreateResponse data, response status code and response headers
+    # @return [Array<(BulkResponse, Fixnum, Hash)>] BulkResponse data, response status code and response headers
     def bulk_create_transactions_with_http_info(budget_id, transactions, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: TransactionsApi.bulk_create_transactions ..."
@@ -72,7 +72,7 @@ module YnabApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'BulkTransactionCreateResponse')
+        :return_type => 'BulkResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransactionsApi#bulk_create_transactions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -81,8 +81,8 @@ module YnabApi
 
     # Create new transaction
     # Creates a transaction
-    # @param budget_id ID of budget
-    # @param transaction Transaction to create
+    # @param budget_id The ID of the Budget.
+    # @param transaction The Transaction to create.
     # @param [Hash] opts the optional parameters
     # @return [TransactionResponse]
     def create_transaction(budget_id, transaction, opts = {})
@@ -92,8 +92,8 @@ module YnabApi
 
     # Create new transaction
     # Creates a transaction
-    # @param budget_id ID of budget
-    # @param transaction Transaction to create
+    # @param budget_id The ID of the Budget.
+    # @param transaction The Transaction to create.
     # @param [Hash] opts the optional parameters
     # @return [Array<(TransactionResponse, Fixnum, Hash)>] TransactionResponse data, response status code and response headers
     def create_transaction_with_http_info(budget_id, transaction, opts = {})
@@ -140,9 +140,9 @@ module YnabApi
 
     # List transactions
     # Returns budget transactions
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date
+    # @option opts [Date] :since_date Only return transactions on or after this date.
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [TransactionsResponse]
     def get_transactions(budget_id, opts = {})
@@ -152,9 +152,9 @@ module YnabApi
 
     # List transactions
     # Returns budget transactions
-    # @param budget_id ID of budget
+    # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date
+    # @option opts [Date] :since_date Only return transactions on or after this date.
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [Array<(TransactionsResponse, Fixnum, Hash)>] TransactionsResponse data, response status code and response headers
     def get_transactions_with_http_info(budget_id, opts = {})
@@ -202,10 +202,10 @@ module YnabApi
 
     # List account transactions
     # Returns all transactions for a specified account
-    # @param budget_id ID of budget
-    # @param account_id ID of account
+    # @param budget_id The ID of the Budget.
+    # @param account_id The ID of the Account.
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date
+    # @option opts [Date] :since_date Only return transactions on or after this date.
     # @return [TransactionsResponse]
     def get_transactions_by_account(budget_id, account_id, opts = {})
       data, _status_code, _headers = get_transactions_by_account_with_http_info(budget_id, account_id, opts)
@@ -214,10 +214,10 @@ module YnabApi
 
     # List account transactions
     # Returns all transactions for a specified account
-    # @param budget_id ID of budget
-    # @param account_id ID of account
+    # @param budget_id The ID of the Budget.
+    # @param account_id The ID of the Account.
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date
+    # @option opts [Date] :since_date Only return transactions on or after this date.
     # @return [Array<(TransactionsResponse, Fixnum, Hash)>] TransactionsResponse data, response status code and response headers
     def get_transactions_by_account_with_http_info(budget_id, account_id, opts = {})
       if @api_client.config.debugging
@@ -264,10 +264,10 @@ module YnabApi
 
     # List category transactions
     # Returns all transactions for a specified category
-    # @param budget_id ID of budget
-    # @param category_id ID of category
+    # @param budget_id The ID of the Budget.
+    # @param category_id The ID of the Category.
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date
+    # @option opts [Date] :since_date Only return transactions on or after this date.
     # @return [TransactionsResponse]
     def get_transactions_by_category(budget_id, category_id, opts = {})
       data, _status_code, _headers = get_transactions_by_category_with_http_info(budget_id, category_id, opts)
@@ -276,10 +276,10 @@ module YnabApi
 
     # List category transactions
     # Returns all transactions for a specified category
-    # @param budget_id ID of budget
-    # @param category_id ID of category
+    # @param budget_id The ID of the Budget.
+    # @param category_id The ID of the Category.
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date
+    # @option opts [Date] :since_date Only return transactions on or after this date.
     # @return [Array<(TransactionsResponse, Fixnum, Hash)>] TransactionsResponse data, response status code and response headers
     def get_transactions_by_category_with_http_info(budget_id, category_id, opts = {})
       if @api_client.config.debugging
@@ -326,8 +326,8 @@ module YnabApi
 
     # Single transaction
     # Returns a single transaction
-    # @param budget_id ID of budget
-    # @param transaction_id ID of transaction
+    # @param budget_id The ID of the Budget.
+    # @param transaction_id The ID of the Transaction.
     # @param [Hash] opts the optional parameters
     # @return [TransactionResponse]
     def get_transactions_by_id(budget_id, transaction_id, opts = {})
@@ -337,8 +337,8 @@ module YnabApi
 
     # Single transaction
     # Returns a single transaction
-    # @param budget_id ID of budget
-    # @param transaction_id ID of transaction
+    # @param budget_id The ID of the Budget.
+    # @param transaction_id The ID of the Transaction.
     # @param [Hash] opts the optional parameters
     # @return [Array<(TransactionResponse, Fixnum, Hash)>] TransactionResponse data, response status code and response headers
     def get_transactions_by_id_with_http_info(budget_id, transaction_id, opts = {})
@@ -385,9 +385,9 @@ module YnabApi
 
     # Updates an existing transaction
     # Updates a transaction
-    # @param budget_id ID of budget
-    # @param transaction_id ID of transaction
-    # @param transaction Transaction to create
+    # @param budget_id The ID of the Budget.
+    # @param transaction_id The ID of the Transaction.
+    # @param transaction The Transaction to update.
     # @param [Hash] opts the optional parameters
     # @return [TransactionResponse]
     def update_transaction(budget_id, transaction_id, transaction, opts = {})
@@ -397,9 +397,9 @@ module YnabApi
 
     # Updates an existing transaction
     # Updates a transaction
-    # @param budget_id ID of budget
-    # @param transaction_id ID of transaction
-    # @param transaction Transaction to create
+    # @param budget_id The ID of the Budget.
+    # @param transaction_id The ID of the Transaction.
+    # @param transaction The Transaction to update.
     # @param [Hash] opts the optional parameters
     # @return [Array<(TransactionResponse, Fixnum, Hash)>] TransactionResponse data, response status code and response headers
     def update_transaction_with_http_info(budget_id, transaction_id, transaction, opts = {})

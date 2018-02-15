@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe 'scheduled transactions' do
-  let(:access_token) { 'd7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd' }
-  let(:budget_id) { 'df5868f8-f44f-4bc5-84a1-02d3e35791ca' }
+  let(:access_token) { '9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045' }
+  let(:budget_id) { 'f419ac25-6217-4175-88dc-c3136ff5f6fd' }
   let(:client) { YnabApi::Client.new(access_token, 'api.localhost:3000', false) }
   let (:instance) { client.scheduled_transactions }
 
@@ -47,7 +47,7 @@ describe 'scheduled transactions' do
   describe 'GET /budgets/{budget_id}/transaction/{payee_id}' do
     it "returns a payee" do
       VCR.use_cassette("scheduled_transaction") do
-        response = instance.get_scheduled_transaction_by_id(budget_id, 'e03dc1f5-886f-4c61-aeeb-ff244181d092')
+        response = instance.get_scheduled_transaction_by_id(budget_id, '1a8e4929-3ad1-4859-8443-2aeeab0684ab')
         expect(response.data.scheduled_transaction).to be
         expect(response.data.scheduled_transaction.amount).to eq -10000
       end

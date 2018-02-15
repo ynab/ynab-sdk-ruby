@@ -17,7 +17,11 @@ module YnabApi
   class ScheduledTransactionSummary
     attr_accessor :id
 
-    attr_accessor :date
+    # The first date for which the Scheduled Transaction was scheduled.
+    attr_accessor :date_first
+
+    # The next date for which the Scheduled Transaction is scheduled.
+    attr_accessor :date_next
 
     attr_accessor :frequency
 
@@ -26,7 +30,7 @@ module YnabApi
 
     attr_accessor :memo
 
-    attr_accessor :flag
+    attr_accessor :flag_color
 
     attr_accessor :account_id
 
@@ -63,11 +67,12 @@ module YnabApi
     def self.attribute_map
       {
         :'id' => :'id',
-        :'date' => :'date',
+        :'date_first' => :'date_first',
+        :'date_next' => :'date_next',
         :'frequency' => :'frequency',
         :'amount' => :'amount',
         :'memo' => :'memo',
-        :'flag' => :'flag',
+        :'flag_color' => :'flag_color',
         :'account_id' => :'account_id',
         :'payee_id' => :'payee_id',
         :'category_id' => :'category_id',
@@ -79,11 +84,12 @@ module YnabApi
     def self.swagger_types
       {
         :'id' => :'String',
-        :'date' => :'Date',
+        :'date_first' => :'Date',
+        :'date_next' => :'Date',
         :'frequency' => :'String',
         :'amount' => :'Float',
         :'memo' => :'String',
-        :'flag' => :'String',
+        :'flag_color' => :'String',
         :'account_id' => :'String',
         :'payee_id' => :'String',
         :'category_id' => :'String',
@@ -103,8 +109,12 @@ module YnabApi
         self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'date')
-        self.date = attributes[:'date']
+      if attributes.has_key?(:'date_first')
+        self.date_first = attributes[:'date_first']
+      end
+
+      if attributes.has_key?(:'date_next')
+        self.date_next = attributes[:'date_next']
       end
 
       if attributes.has_key?(:'frequency')
@@ -119,8 +129,8 @@ module YnabApi
         self.memo = attributes[:'memo']
       end
 
-      if attributes.has_key?(:'flag')
-        self.flag = attributes[:'flag']
+      if attributes.has_key?(:'flag_color')
+        self.flag_color = attributes[:'flag_color']
       end
 
       if attributes.has_key?(:'account_id')
@@ -149,8 +159,12 @@ module YnabApi
         invalid_properties.push("invalid value for 'id', id cannot be nil.")
       end
 
-      if @date.nil?
-        invalid_properties.push("invalid value for 'date', date cannot be nil.")
+      if @date_first.nil?
+        invalid_properties.push("invalid value for 'date_first', date_first cannot be nil.")
+      end
+
+      if @date_next.nil?
+        invalid_properties.push("invalid value for 'date_next', date_next cannot be nil.")
       end
 
       if @frequency.nil?
@@ -165,8 +179,8 @@ module YnabApi
         invalid_properties.push("invalid value for 'memo', memo cannot be nil.")
       end
 
-      if @flag.nil?
-        invalid_properties.push("invalid value for 'flag', flag cannot be nil.")
+      if @flag_color.nil?
+        invalid_properties.push("invalid value for 'flag_color', flag_color cannot be nil.")
       end
 
       if @account_id.nil?
@@ -192,13 +206,14 @@ module YnabApi
     # @return true if the model is valid
     def valid?
       return false if @id.nil?
-      return false if @date.nil?
+      return false if @date_first.nil?
+      return false if @date_next.nil?
       return false if @frequency.nil?
-      frequency_validator = EnumAttributeValidator.new('String', ["Never", "Daily", "Weekly", "EveryOtherWeek", "TwiceAMonth", "Every4Weeks", "Monthly", "EveryOtherMonth", "Every3Months", "Every4Months", "TwiceAYear", "Yearly", "EveryOtherYear"])
+      frequency_validator = EnumAttributeValidator.new('String', ["never", "daily", "weekly", "everyOtherWeek", "twiceAMonth", "every4Weeks", "monthly", "everyOtherMonth", "every3Months", "every4Months", "twiceAYear", "yearly", "everyOtherYear"])
       return false unless frequency_validator.valid?(@frequency)
       return false if @amount.nil?
       return false if @memo.nil?
-      return false if @flag.nil?
+      return false if @flag_color.nil?
       return false if @account_id.nil?
       return false if @payee_id.nil?
       return false if @category_id.nil?
@@ -209,7 +224,7 @@ module YnabApi
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] frequency Object to be assigned
     def frequency=(frequency)
-      validator = EnumAttributeValidator.new('String', ["Never", "Daily", "Weekly", "EveryOtherWeek", "TwiceAMonth", "Every4Weeks", "Monthly", "EveryOtherMonth", "Every3Months", "Every4Months", "TwiceAYear", "Yearly", "EveryOtherYear"])
+      validator = EnumAttributeValidator.new('String', ["never", "daily", "weekly", "everyOtherWeek", "twiceAMonth", "every4Weeks", "monthly", "everyOtherMonth", "every3Months", "every4Months", "twiceAYear", "yearly", "everyOtherYear"])
       unless validator.valid?(frequency)
         fail ArgumentError, "invalid value for 'frequency', must be one of #{validator.allowable_values}."
       end
@@ -222,11 +237,12 @@ module YnabApi
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          date == o.date &&
+          date_first == o.date_first &&
+          date_next == o.date_next &&
           frequency == o.frequency &&
           amount == o.amount &&
           memo == o.memo &&
-          flag == o.flag &&
+          flag_color == o.flag_color &&
           account_id == o.account_id &&
           payee_id == o.payee_id &&
           category_id == o.category_id &&
@@ -242,7 +258,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, date, frequency, amount, memo, flag, account_id, payee_id, category_id, transfer_account_id].hash
+      [id, date_first, date_next, frequency, amount, memo, flag_color, account_id, payee_id, category_id, transfer_account_id].hash
     end
 
     # Builds the object from hash

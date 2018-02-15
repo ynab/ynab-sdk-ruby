@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe 'payees' do
-  let(:access_token) { 'd7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd' }
-  let(:budget_id) { 'df5868f8-f44f-4bc5-84a1-02d3e35791ca' }
+  let(:access_token) { '9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045' }
+  let(:budget_id) { 'f419ac25-6217-4175-88dc-c3136ff5f6fd' }
   let(:client) { YnabApi::Client.new(access_token, 'api.localhost:3000', false) }
   let (:instance) { client.payees }
 
@@ -47,7 +47,7 @@ describe 'payees' do
   describe 'GET /budgets/{budget_id}/payees/{payee_id}' do
     it "returns a payee" do
       VCR.use_cassette("payee") do
-        response = instance.get_payee_by_id(budget_id, '0c102a79-7ddf-4b8a-bd20-69563fb2caec')
+        response = instance.get_payee_by_id(budget_id, '200e6eb1-02fc-4af6-be26-27c5740bb949')
         expect(response.data.payee).to be
         expect(response.data.payee.name).to eq 'Test Payee'
       end

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe 'payee locations' do
-  let(:access_token) { 'd7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd' }
-  let(:budget_id) { 'df5868f8-f44f-4bc5-84a1-02d3e35791ca' }
+  let(:access_token) { '9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045' }
+  let(:budget_id) { 'f419ac25-6217-4175-88dc-c3136ff5f6fd' }
   let(:client) { YnabApi::Client.new(access_token, 'api.localhost:3000', false) }
   let (:instance) { client.payee_locations }
 
@@ -47,7 +47,7 @@ describe 'payee locations' do
   describe 'GET /budgets/{budget_id}/payee_locations/{payee_id}' do
     it "returns a payee location" do
       VCR.use_cassette("payee_location") do
-        response = instance.get_payee_location_by_id(budget_id, 'bd3219ea-e0c1-4c10-a881-e8e4d5697b6b')
+        response = instance.get_payee_location_by_id(budget_id, '052c7814-1797-44ce-9519-020e864e4928')
         expect(response.data.payee_location).to be
         expect(response.data.payee_location.latitude).to eq "40.7128"
         expect(response.data.payee_location.longitude).to eq "74.006"

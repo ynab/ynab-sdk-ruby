@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe 'accounts' do
-  let(:access_token) { 'd7b03d9727f5e7dc7031ea001fd9bcdc785f6960aba240a6a2299a79634e8cbd' }
-  let(:budget_id) { 'df5868f8-f44f-4bc5-84a1-02d3e35791ca' }
+  let(:access_token) { '9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045' }
+  let(:budget_id) { 'f419ac25-6217-4175-88dc-c3136ff5f6fd' }
   let(:client) { YnabApi::Client.new(access_token, 'api.localhost:3000', false) }
   let (:instance) { client.accounts }
 
@@ -47,7 +47,7 @@ describe 'accounts' do
   describe 'GET /budgets/{budget_id}/accounts/{account_id}' do
     it "returns an account" do
       VCR.use_cassette("account") do
-        response = instance.get_account_by_id(budget_id, '515df7e3-d28a-4a50-a9b2-33814700e78a')
+        response = instance.get_account_by_id(budget_id, '5982e895-98e5-41ca-9681-0b6de1036a1c')
         expect(response.data.account).to be
         expect(response.data.account.name).to eq "Checking"
       end
