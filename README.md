@@ -1,5 +1,7 @@
 # YNAB API Ruby Library
 
+**NOTE: The YNAB API is currently only available to Early Access users.  If you are interested in requesting access before the API is generally available, please fill out [this form](https://docs.google.com/forms/d/17plY-CE39Xl3pe2GqyVH1Unre8TjYKs-tkI6jVC4ko4/edit).**
+
 This is the Ruby client for the YNAB API.
 
 Please read the [YNAB API documentation](https://api.youneedabudget.com) for an
