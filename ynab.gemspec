@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-#
+
 =begin
 #YNAB API Endpoints
 
@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/ynab/ynab-sdk-ruby"
   s.summary     = "YNAB API Endpoints Ruby Gem"
   s.description = "Ruby gem wrapper for the YNAB API. Read the documentation at https://api.youneedabudget.com"
-  s.license     = "Apache-2.0"
+  s.license     = 'Apache-2.0'
   s.required_ruby_version = ">= 1.9"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
   s.add_development_dependency 'vcr', '~> 3.0', '>= 3.0.1'
 
-  s.files         = `find *`.split("\n").uniq.sort.select{|f| !f.empty? }
+  s.files         = `find *`.split("\n").uniq.sort.select { |f| !f.empty? }
   s.test_files    = `find spec/*`.split("\n")
   s.executables   = []
   s.require_paths = ["lib"]

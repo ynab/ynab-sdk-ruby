@@ -26,7 +26,6 @@ Rakefile
 git_push.sh
 Gemfile.lock
 README.md
-ynab.gemspec
 lib/ynab.rb
 spec/
 spec/**/*.rb
