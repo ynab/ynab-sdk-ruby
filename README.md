@@ -1,9 +1,13 @@
 # YNAB API Ruby Library
 
+**NOTE: The YNAB API is currently only available to Early Access users.  If you are interested in requesting access before the API is generally available, please fill out [this form](https://docs.google.com/forms/d/17plY-CE39Xl3pe2GqyVH1Unre8TjYKs-tkI6jVC4ko4/edit).**
+
 This is the Ruby client for the YNAB API.
 
 Please read the [YNAB API documentation](https://api.youneedabudget.com) for an
 overview of using the API and a complete list of available resources.
+
+This client is generated using the [Swagger Code Generator](https://github.com/swagger-api/swagger-codegen).
 
 ## Installation
 
@@ -38,29 +42,10 @@ end
 See the [examples folder](https://github.com/ynab/ynab-sdk-ruby/tree/master/examples) for, well, example usage scenarios.
 
 ## Development
-Install dependencies:
 
-```
-bundle
-```
-
-To generate latest client based on swagger spec:
-
-```
-rake generate
-```
-
-To run tests:
-
-```
-rake spec
-```
-
-or
-
-```
-rspec spec
-```
+- Install dependencies: `bundle`
+- Generate latest client based on swagger spec: `rake generate`
+- Run tests: `rake spec` or `rspec`
 
 ## License
 
