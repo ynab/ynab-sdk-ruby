@@ -9,6 +9,7 @@ rescue LoadError
 end
 task :default => [:spec]
 
+desc "Run Swagger Code Generator to update the client from the Swagger spec"
 task :generate do
   # Download latest swagger spec
   spec_filename = 'spec-v1-swagger.json'
