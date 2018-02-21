@@ -29,7 +29,7 @@ GEM
     rspec-support (3.7.1)
     typhoeus (1.3.0)
       ethon (>= 0.9.0)
-    vcr (4.0.0)
+    vcr (3.0.3)
 
 PLATFORMS
   ruby
@@ -37,7 +37,7 @@ PLATFORMS
 DEPENDENCIES
   rake (~> 12.0.0)
   rspec (~> 3.6, >= 3.6.0)
-  vcr (~> 4.0.0)
+  vcr (~> 3.0, >= 3.0.1)
   ynab!
 
 BUNDLED WITH
