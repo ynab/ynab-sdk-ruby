@@ -7,6 +7,7 @@ begin
 rescue LoadError
   # no rspec available
 end
+task :default => [:spec]
 
 task :generate do
   # Download latest swagger spec
