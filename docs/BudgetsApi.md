@@ -1,6 +1,6 @@
 # YnabApi::BudgetsApi
 
-All URIs are relative to *https://api.youneedabudget.com/papi/v1*
+All URIs are relative to *https://api.youneedabudget.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

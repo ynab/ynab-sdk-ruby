@@ -42,7 +42,7 @@ module YnabApi
     # The transaction flag
     attr_accessor :flag_color
 
-    # If specified for a new transaction, the transaction will be treated as Imported and assigned this import_id.  If another transaction on the same account with this same import_id is later attempted to be created, it will be skipped to prevent duplication.  Transactions imported through File Based Import or Direct Import and not through the API, are assigned an import_id in the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurance]'.  For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.  Using a consistent format will prevent duplicates through Direct Import and File Based Import.  If import_id is specified as null, the transaction will be treated as a user entered transaction.
+    # If specified for a new transaction, the transaction will be treated as Imported and assigned this import_id.  If another transaction on the same account with this same import_id is later attempted to be created, it will be skipped to prevent duplication.  Transactions imported through File Based Import or Direct Import and not through the API, are assigned an import_id in the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurrence]'.  For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.  Using a consistent format will prevent duplicates through Direct Import and File Based Import.  If import_id is specified as null, the transaction will be treated as a user entered transaction.
     attr_accessor :import_id
 
     class EnumAttributeValidator
@@ -180,7 +180,7 @@ module YnabApi
       return false if @account_id.nil?
       return false if @date.nil?
       return false if @amount.nil?
-      cleared_validator = EnumAttributeValidator.new('String', ["Cleared", "Uncleared", "Reconciled"])
+      cleared_validator = EnumAttributeValidator.new('String', ["cleared", "uncleared", "reconciled"])
       return false unless cleared_validator.valid?(@cleared)
       flag_color_validator = EnumAttributeValidator.new('String', ["red", "orange", "yellow", "green", "blue", "purple"])
       return false unless flag_color_validator.valid?(@flag_color)
@@ -190,7 +190,7 @@ module YnabApi
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] cleared Object to be assigned
     def cleared=(cleared)
-      validator = EnumAttributeValidator.new('String', ["Cleared", "Uncleared", "Reconciled"])
+      validator = EnumAttributeValidator.new('String', ["cleared", "uncleared", "reconciled"])
       unless validator.valid?(cleared)
         fail ArgumentError, "invalid value for 'cleared', must be one of #{validator.allowable_values}."
       end

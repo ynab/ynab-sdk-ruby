@@ -38,7 +38,7 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"accounts":[{"id":"5982e895-98e5-41ca-9681-0b6de1036a1c","name":"Checking","type":"Checking","on_budget":true,"closed":false,"note":null,"balance":998000,"cleared_balance":1000000,"uncleared_balance":-2000}]}}'
+      string: '{"data":{"accounts":[{"id":"5982e895-98e5-41ca-9681-0b6de1036a1c","name":"Checking","type":"checking","on_budget":true,"closed":false,"note":null,"balance":998000,"cleared_balance":1000000,"uncleared_balance":-2000}]}}'
     http_version: '1.1'
     adapter_metadata:
       effective_url: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/accounts
