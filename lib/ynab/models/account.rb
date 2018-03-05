@@ -185,7 +185,7 @@ module YnabApi
       return false if @id.nil?
       return false if @name.nil?
       return false if @type.nil?
-      type_validator = EnumAttributeValidator.new('String', ["checking", "savings", "creditCard"])
+      type_validator = EnumAttributeValidator.new('String', ["checking", "savings", "creditCard", "cash", "lineOfCredit", "merchantAccount", "investmentAccount", "mortgage", "otherAsset", "otherLiability"])
       return false unless type_validator.valid?(@type)
       return false if @on_budget.nil?
       return false if @closed.nil?
@@ -199,7 +199,7 @@ module YnabApi
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ["checking", "savings", "creditCard"])
+      validator = EnumAttributeValidator.new('String', ["checking", "savings", "creditCard", "cash", "lineOfCredit", "merchantAccount", "investmentAccount", "mortgage", "otherAsset", "otherLiability"])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for 'type', must be one of #{validator.allowable_values}."
       end
