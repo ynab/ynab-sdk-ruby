@@ -1294,7 +1294,18 @@
         },
         "type": {
           "type": "string",
-          "enum": ["checking", "savings", "creditCard"]
+          "enum": [
+            "checking",
+            "savings",
+            "creditCard",
+            "cash",
+            "lineOfCredit",
+            "merchantAccount",
+            "investmentAccount",
+            "mortgage",
+            "otherAsset",
+            "otherLiability"
+          ]
         },
         "on_budget": {
           "type": "boolean",
