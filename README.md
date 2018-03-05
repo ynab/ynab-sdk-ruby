@@ -42,7 +42,7 @@ end
 
 ## Examples
 
-See the [examples folder](https://github.com/ynab/ynab-sdk-ruby/tree/master/examples) for, well, example usage scenarios.
+See the [examples folder](https://github.com/ynab/ynab-sdk-ruby/tree/master/examples) for example usage scenarios.
 
 ## Methods
 
