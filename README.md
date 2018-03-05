@@ -49,7 +49,7 @@ See the [examples folder](https://github.com/ynab/ynab-sdk-ruby/tree/master/exam
 - Install dependencies: `bundle`
 - Generate latest client based on swagger spec: `rake generate`
 - Run tests: `rake spec` or `rspec`
-- Publish: Update `gemVersion` in config.json and then `rake generate && rspec && gem push`
+- Publish: Update `gemVersion` in config.json and then `rake generate && rspec && gem build ynab && gem push ynab`
 
 ## License
 
