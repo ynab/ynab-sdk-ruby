@@ -44,6 +44,35 @@ end
 
 See the [examples folder](https://github.com/ynab/ynab-sdk-ruby/tree/master/examples) for, well, example usage scenarios.
 
+## Methods
+
+The following methods are available in this library.
+
+|                       | Method                                                | Description                                                                                            |
+|------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| **Budgets**                | `budgets.get_budgets()`                                  | Returns budgets list with summary information                                                          |
+|                        | `budgets.get_budget_by_id(id)`                             | Returns a single budget with all related entities |
+| **Accounts**               | `accounts.get_accounts(budget_id)`                                | Returns all accounts                                                                                   |
+|                        | `accounts.get_account_by_id(budget_id, id)`                           | Returns a single account                                                                               |
+| **Categories**             | `categories.get_categories(budget_id)`                            | Returns all categories grouped by category group.                                                      |
+|                        | `categories.get_category_by_id(budget_id, id)`                        | Returns a single category                                                                              |
+| **Payees**                 | `payees.get_payees(budget_id)`                                    | Returns all payees                                                                                     |
+|                        | `payees.get_payee_by_id(budget_id, id)`                               | Returns single payee                                                                                   |
+| **Payee Locations**        | `payee_locations.get_payee_locations(budget_id)`                    | Returns all payee locations                                                                            |
+|                        | `payee_locations.get_payee_location_by_id(budget_id, id)`               | Returns a single payee location                                                                        |
+|                        | `payee_locations.get_payee_locations_by_payee(budget_id, id)`           | Returns all payee locations for the specified payee                                                    |
+| **Months**                 | `months.get_budget_months(budget_id)`                              | Returns all budget months                                                                              |
+|                        | `months.get_budget_month(budget_id, month)`                             | Returns a single budget month                                                                          |
+| **Transactions**           | `transactions.get_transactions(budget_id)`                        | Returns budget transactions                                                                            |
+|                        | `transactions.get_transactions_by_account(budget_id, id)`               | Returns all transactions for a specified account                                                       |
+|                        | `transactions.get_transactions_by_category(budget_id, id)`              | Returns all transactions for a specified category                                                      |
+|                        | `transactions.get_transactions_by_id(budget_id, id)`                  | Returns a single transaction                                                                           |
+|                        | `transactions.update_transaction(budget_id, id, transaction)`                      | Updates a transaction.  The                                                                                   |
+|                        | `transactions.create_transaction(budget_id, transaction)`                      | Creates a new transaction                                                                              |
+|                        | `transactions.bulk_create_transactions(budget_id, transactions)`                 | Creates multiple transactions                                                                          |
+| **Scheduled Transactions** | `scheduled_transactions.get_scheduled_transactions(budget_id)`      | Returns all scheduled transactions                                                                     |
+|                        | `scheduled_transactions.get_scheduled_transaction_by_id(budget_id, id)` | Returns a single scheduled transaction                                                                 |
+
 ## Development
 
 - Install dependencies: `bundle`
