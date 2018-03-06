@@ -67,7 +67,7 @@ The following methods are available in this library.
 |                        | `transactions.get_transactions_by_account(budget_id, id)`               | Returns all transactions for a specified account                                                       |
 |                        | `transactions.get_transactions_by_category(budget_id, id)`              | Returns all transactions for a specified category                                                      |
 |                        | `transactions.get_transactions_by_id(budget_id, id)`                  | Returns a single transaction                                                                           |
-|                        | `transactions.update_transaction(budget_id, id, transaction)`                      | Updates a transaction.  The                                                                                   |
+|                        | `transactions.update_transaction(budget_id, id, transaction)`                      | Updates a transaction                                                                                   |
 |                        | `transactions.create_transaction(budget_id, transaction)`                      | Creates a new transaction                                                                              |
 |                        | `transactions.bulk_create_transactions(budget_id, transactions)`                 | Creates multiple transactions                                                                          |
 | **Scheduled Transactions** | `scheduled_transactions.get_scheduled_transactions(budget_id)`      | Returns all scheduled transactions                                                                     |
