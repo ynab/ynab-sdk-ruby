@@ -21,7 +21,7 @@ gem install ynab
 ## Usage
 
 To use this client you must
-[obtain an access token](https://api.youneedabudget.com/#authentication) from
+[obtain an access token](https://api.youneedabudget.com/#authentication-overview) from
 your [My Account](https://app.youneedabudget.com/settings) page of the YNAB web
 app.
 
