@@ -383,6 +383,68 @@ module YnabApi
       return data, status_code, headers
     end
 
+    # List payee transactions
+    # Returns all transactions for a specified payee
+    # @param budget_id The ID of the Budget.
+    # @param payee_id The ID of the Payee.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @return [TransactionsResponse]
+    def get_transactions_by_payee(budget_id, payee_id, opts = {})
+      data, _status_code, _headers = get_transactions_by_payee_with_http_info(budget_id, payee_id, opts)
+      return data
+    end
+
+    # List payee transactions
+    # Returns all transactions for a specified payee
+    # @param budget_id The ID of the Budget.
+    # @param payee_id The ID of the Payee.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @return [Array<(TransactionsResponse, Fixnum, Hash)>] TransactionsResponse data, response status code and response headers
+    def get_transactions_by_payee_with_http_info(budget_id, payee_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: TransactionsApi.get_transactions_by_payee ..."
+      end
+      # verify the required parameter 'budget_id' is set
+      if @api_client.config.client_side_validation && budget_id.nil?
+        fail ArgumentError, "Missing the required parameter 'budget_id' when calling TransactionsApi.get_transactions_by_payee"
+      end
+      # verify the required parameter 'payee_id' is set
+      if @api_client.config.client_side_validation && payee_id.nil?
+        fail ArgumentError, "Missing the required parameter 'payee_id' when calling TransactionsApi.get_transactions_by_payee"
+      end
+      # resource path
+      local_var_path = "/budgets/{budget_id}/payees/{payee_id}/transactions".sub('{' + 'budget_id' + '}', budget_id.to_s).sub('{' + 'payee_id' + '}', payee_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['bearer']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'TransactionsResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TransactionsApi#get_transactions_by_payee\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Updates an existing transaction
     # Updates a transaction
     # @param budget_id The ID of the Budget.

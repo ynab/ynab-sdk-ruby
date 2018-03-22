@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **memo** | **String** |  | 
 **cleared** | **String** | The cleared status of the transaction | 
 **approved** | **BOOLEAN** | Whether or not the transaction is approved | 
-**flag_color** | **String** |  | 
+**flag_color** | **String** | The transaction flag | 
 **account_id** | **String** |  | 
 **payee_id** | **String** |  | 
 **category_id** | **String** |  | 

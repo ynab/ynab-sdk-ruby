@@ -1,7 +1,7 @@
 # YNAB API Ruby Library
 
 [![Build Status](https://travis-ci.org/ynab/ynab-sdk-ruby.svg?branch=master)](https://travis-ci.org/ynab/ynab-sdk-ruby)
-[![NPM Package](https://img.shields.io/gem/v/ynab.svg)](https://rubygems.org/gems/ynab)
+[![RubyGem](https://img.shields.io/gem/v/ynab.svg)](https://rubygems.org/gems/ynab)
 
 **NOTE: The YNAB API is currently only available to Early Access users.  If you are interested in requesting access before the API is generally available, please fill out [this form](https://docs.google.com/forms/d/17plY-CE39Xl3pe2GqyVH1Unre8TjYKs-tkI6jVC4ko4/edit).**
 
@@ -50,6 +50,7 @@ The following methods are available in this library.
 
 |                       | Method                                                | Description                                                                                            |
 |------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| **User**                | `budgets.get_user()`                                  | Returns authenticated user information
 | **Budgets**                | `budgets.get_budgets()`                                  | Returns budgets list with summary information                                                          |
 |                        | `budgets.get_budget_by_id(id)`                             | Returns a single budget with all related entities |
 | **Accounts**               | `accounts.get_accounts(budget_id)`                                | Returns all accounts                                                                                   |
