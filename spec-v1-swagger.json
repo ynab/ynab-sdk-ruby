@@ -11,6 +11,9 @@
   "basePath": "/v1",
   "tags": [
     {
+      "name": "User"
+    },
+    {
       "name": "Budgets"
     },
     {
@@ -50,6 +53,29 @@
     }
   ],
   "paths": {
+    "/user": {
+      "get": {
+        "tags": ["User"],
+        "summary": "User info",
+        "description": "Returns authenticated user information.",
+        "operationId": "getUser",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "The user info.",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          },
+          "default": {
+            "description": "An error occurred.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
     "/budgets": {
       "get": {
         "tags": ["Budgets"],
@@ -737,8 +763,7 @@
         ],
         "responses": {
           "201": {
-            "description":
-              "The bulk request was processed sucessfully.",
+            "description": "The bulk request was processed sucessfully.",
             "schema": {
               "$ref": "#/definitions/BulkResponse"
             }
@@ -827,6 +852,61 @@
             "name": "category_id",
             "in": "path",
             "description": "The ID of the Category.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "since_date",
+            "in": "query",
+            "description": "Only return transactions on or after this date.",
+            "required": false,
+            "type": "string",
+            "format": "date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of requested Transactions.",
+            "schema": {
+              "$ref": "#/definitions/TransactionsResponse"
+            }
+          },
+          "404": {
+            "description": "No Transactions were found.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "An error occurred.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/budgets/{budget_id}/payees/{payee_id}/transactions": {
+      "get": {
+        "tags": ["Transactions"],
+        "summary": "List payee transactions",
+        "description": "Returns all transactions for a specified payee",
+        "operationId": "getTransactionsByPayee",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "budget_id",
+            "in": "path",
+            "description": "The ID of the Budget.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "payee_id",
+            "in": "path",
+            "description": "The ID of the Payee.",
             "required": true,
             "type": "string",
             "format": "uuid"
@@ -1076,6 +1156,34 @@
         }
       }
     },
+    "UserResponse": {
+      "type": "object",
+      "required": ["data"],
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/UserWrapper"
+        }
+      }
+    },
+    "UserWrapper": {
+      "type": "object",
+      "required": ["user"],
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
     "BudgetSummaryResponse": {
       "type": "object",
       "required": ["data"],
@@ -1133,7 +1241,8 @@
         "last_modified_on": {
           "type": "string",
           "format": "date-time",
-          "description": "The last time any changes were made to the budget from either a web or mobile client."
+          "description":
+            "The last time any changes were made to the budget from either a web or mobile client."
         },
         "date_format": {
           "$ref": "#/definitions/DateFormat"
@@ -1301,6 +1410,7 @@
             "cash",
             "lineOfCredit",
             "merchantAccount",
+            "payPal",
             "investmentAccount",
             "mortgage",
             "otherAsset",
@@ -1656,7 +1766,9 @@
           "description": "Whether or not the transaction is approved"
         },
         "flag_color": {
-          "type": "string"
+          "type": "string",
+          "enum": ["red", "orange", "yellow", "green", "blue", "purple", null],
+          "description": "The transaction flag"
         },
         "account_id": {
           "type": "string",
@@ -1758,7 +1870,7 @@
         },
         "flag_color": {
           "type": "string",
-          "enum": ["red", "orange", "yellow", "green", "blue", "purple"],
+          "enum": ["red", "orange", "yellow", "green", "blue", "purple", null],
           "description": "The transaction flag"
         },
         "import_id": {
@@ -1961,7 +2073,9 @@
           "type": "string"
         },
         "flag_color": {
-          "type": "string"
+          "type": "string",
+          "enum": ["red", "orange", "yellow", "green", "blue", "purple", null],
+          "description": "The scheduled transaction flag"
         },
         "account_id": {
           "type": "string",

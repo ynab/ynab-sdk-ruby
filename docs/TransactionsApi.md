@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_transactions_by_account**](TransactionsApi.md#get_transactions_by_account) | **GET** /budgets/{budget_id}/accounts/{account_id}/transactions | List account transactions
 [**get_transactions_by_category**](TransactionsApi.md#get_transactions_by_category) | **GET** /budgets/{budget_id}/categories/{category_id}/transactions | List category transactions
 [**get_transactions_by_id**](TransactionsApi.md#get_transactions_by_id) | **GET** /budgets/{budget_id}/transactions/{transaction_id} | Single transaction
+[**get_transactions_by_payee**](TransactionsApi.md#get_transactions_by_payee) | **GET** /budgets/{budget_id}/payees/{payee_id}/transactions | List payee transactions
 [**update_transaction**](TransactionsApi.md#update_transaction) | **PUT** /budgets/{budget_id}/transactions/{transaction_id} | Updates an existing transaction
 
 
@@ -354,6 +355,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TransactionResponse**](TransactionResponse.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **get_transactions_by_payee**
+> TransactionsResponse get_transactions_by_payee(budget_id, payee_id, opts)
+
+List payee transactions
+
+Returns all transactions for a specified payee
+
+### Example
+```ruby
+# load the gem
+require 'ynab'
+# setup authorization
+YnabApi.configure do |config|
+  # Configure API key authorization: bearer
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = YnabApi::TransactionsApi.new
+
+budget_id = "budget_id_example" # String | The ID of the Budget.
+
+payee_id = "payee_id_example" # String | The ID of the Payee.
+
+opts = { 
+  since_date: Date.parse("2013-10-20") # Date | Only return transactions on or after this date.
+}
+
+begin
+  #List payee transactions
+  result = api_instance.get_transactions_by_payee(budget_id, payee_id, opts)
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling TransactionsApi->get_transactions_by_payee: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **payee_id** | [**String**](.md)| The ID of the Payee. | 
+ **since_date** | **Date**| Only return transactions on or after this date. | [optional] 
+
+### Return type
+
+[**TransactionsResponse**](TransactionsResponse.md)
 
 ### Authorization
 

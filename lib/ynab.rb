@@ -17,6 +17,7 @@ require 'ynab/version'
 require 'ynab/configuration'
 
 # Models
+require 'ynab/models/user'
 require 'ynab/models/account'
 require 'ynab/models/account_response'
 require 'ynab/models/account_wrapper'
@@ -75,6 +76,7 @@ require 'ynab/models/bulk_ids'
 require 'ynab/models/bulk_response'
 
 # APIs
+require 'ynab/api/user_api'
 require 'ynab/api/accounts_api'
 require 'ynab/api/budgets_api'
 require 'ynab/api/categories_api'
@@ -95,6 +97,10 @@ module YnabApi
       config.base_path = '/v1'
 
       @client = ApiClient.new(config)
+    end
+
+    def users
+      UserApi.new(@client)
     end
 
     def budgets

@@ -30,6 +30,7 @@ module YnabApi
     # Whether or not the transaction is approved
     attr_accessor :approved
 
+    # The transaction flag
     attr_accessor :flag_color
 
     attr_accessor :account_id
@@ -226,6 +227,8 @@ module YnabApi
       return false unless cleared_validator.valid?(@cleared)
       return false if @approved.nil?
       return false if @flag_color.nil?
+      flag_color_validator = EnumAttributeValidator.new('String', ["red", "orange", "yellow", "green", "blue", "purple"])
+      return false unless flag_color_validator.valid?(@flag_color)
       return false if @account_id.nil?
       return false if @payee_id.nil?
       return false if @category_id.nil?
@@ -242,6 +245,16 @@ module YnabApi
         fail ArgumentError, "invalid value for 'cleared', must be one of #{validator.allowable_values}."
       end
       @cleared = cleared
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] flag_color Object to be assigned
+    def flag_color=(flag_color)
+      validator = EnumAttributeValidator.new('String', ["red", "orange", "yellow", "green", "blue", "purple"])
+      unless validator.valid?(flag_color)
+        fail ArgumentError, "invalid value for 'flag_color', must be one of #{validator.allowable_values}."
+      end
+      @flag_color = flag_color
     end
 
     # Checks equality by comparing each attribute.
