@@ -1,0 +1,65 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "rspec (Current File)",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "command": "rspec",
+      "options": {
+        "cwd": "${cwd}"
+      },
+      "args": ["${file}"],
+      "problemMatcher": {
+        "owner": "ruby",
+        "fileLocation": ["relative", "${workspaceRoot}"],
+        "severity": "error",
+        "pattern": [
+          {
+            "regexp": "^\\s{7}(.*)$",
+            "message": 1
+          },
+          {
+            "regexp": "^\\s+#\\s(\\./.*):(\\d+):(in.*)$",
+            "file": 1,
+            "line": 2,
+            "code": 3
+          }
+        ]
+      }
+    },
+    {
+      "label": "rspec (Current Line)",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "command": "rspec",
+      "options": {
+        "cwd": "${cwd}"
+      },
+      "args": ["${file}:${lineNumber}"],
+      "problemMatcher": {
+        "owner": "ruby",
+        "fileLocation": ["relative", "${workspaceRoot}"],
+        "severity": "error",
+        "pattern": [
+          {
+            "regexp": "^\\s{7}(.*)$",
+            "message": 1
+          },
+          {
+            "regexp": "^\\s+#\\s(\\./.*):(\\d+):(in.*)$",
+            "file": 1,
+            "line": 2,
+            "code": 3
+          }
+        ]
+      }
+    }
+  ]
+}
