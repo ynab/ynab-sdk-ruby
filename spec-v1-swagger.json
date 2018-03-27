@@ -1823,8 +1823,16 @@
         },
         {
           "type": "object",
-          "required": ["payee_name", "category_name", "subtransactions"],
+          "required": [
+            "account_name",
+            "payee_name",
+            "category_name",
+            "subtransactions"
+          ],
           "properties": {
+            "account_name": {
+              "type": "string"
+            },
             "payee_name": {
               "type": "string"
             },
