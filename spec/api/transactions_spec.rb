@@ -4,6 +4,8 @@ require 'pp'
 describe 'transactions' do
   let(:access_token) { '9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045' }
   let(:budget_id) { 'f419ac25-6217-4175-88dc-c3136ff5f6fd' }
+  let(:category_id) { '84ffe61c-081c-44db-ad23-6ee809206c40' }
+  let(:payee_id) { '2676f959-c5de-4db2-8d3f-2503777b25fb' }
   let(:client) { YnabApi::Client.new(access_token, 'api.localhost:3000', false) }
   let (:instance) { client.transactions }
 
@@ -45,8 +47,28 @@ describe 'transactions' do
     end
   end
 
-  describe 'GET /budgets/{budget_id}/transaction/{payee_id}' do
-    it "returns a payee" do
+  describe 'GET /budgets/{budget_id}/category/{category_id}/transactions' do
+    it "returns a list of transactions for a category" do
+      VCR.use_cassette("category_transactions") do
+        response = instance.get_transactions_by_category(budget_id, category_id)
+        expect(client.last_request.response.options[:code]).to be 200
+        expect(response.data.transactions.length).to be 3
+      end
+    end
+  end
+
+  describe 'GET /budgets/{budget_id}/category/{payee_id}/transactions' do
+    it "returns a list of transactions for a payee" do
+      VCR.use_cassette("payee_transactions") do
+        response = instance.get_transactions_by_payee(budget_id, payee_id)
+        expect(client.last_request.response.options[:code]).to be 200
+        expect(response.data.transactions.length).to be 2
+      end
+    end
+  end
+
+  describe 'GET /budgets/{budget_id}/transaction/{transaction_id}' do
+    it "returns a transaction" do
       VCR.use_cassette("transaction") do
         response = instance.get_transactions_by_id(budget_id, '81c374ff-74ab-4d6d-8d5a-ba3ad3fa68e4')
         expect(response.data.transaction).to be
