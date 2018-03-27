@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 
 # **get_transactions_by_category**
-> TransactionsResponse get_transactions_by_category(budget_id, category_id, opts)
+> HybridTransactionsResponse get_transactions_by_category(budget_id, category_id, opts)
 
 List category transactions
 
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TransactionsResponse**](TransactionsResponse.md)
+[**HybridTransactionsResponse**](HybridTransactionsResponse.md)
 
 ### Authorization
 
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 
 # **get_transactions_by_payee**
-> TransactionsResponse get_transactions_by_payee(budget_id, payee_id, opts)
+> HybridTransactionsResponse get_transactions_by_payee(budget_id, payee_id, opts)
 
 List payee transactions
 
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TransactionsResponse**](TransactionsResponse.md)
+[**HybridTransactionsResponse**](HybridTransactionsResponse.md)
 
 ### Authorization
 

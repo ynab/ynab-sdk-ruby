@@ -14,6 +14,9 @@ Name | Type | Description | Notes
 **payee_id** | **String** |  | 
 **category_id** | **String** |  | 
 **transfer_account_id** | **String** | If a transfer, the account_id which the scheduled transaction transfers to | 
-**subtransactions** | [**Array&lt;ScheduledSubTransaction&gt;**](ScheduledSubTransaction.md) | If a split scheduled transaction, the sub-transactions. | 
+**account_name** | **String** |  | 
+**payee_name** | **String** |  | 
+**category_name** | **String** |  | 
+**subtransactions** | [**Array&lt;ScheduledSubTransaction&gt;**](ScheduledSubTransaction.md) | If a split scheduled transaction, the subtransactions. | 
 
 

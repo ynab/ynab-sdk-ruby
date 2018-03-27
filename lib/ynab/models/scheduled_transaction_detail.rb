@@ -42,7 +42,13 @@ module YnabApi
     # If a transfer, the account_id which the scheduled transaction transfers to
     attr_accessor :transfer_account_id
 
-    # If a split scheduled transaction, the sub-transactions.
+    attr_accessor :account_name
+
+    attr_accessor :payee_name
+
+    attr_accessor :category_name
+
+    # If a split scheduled transaction, the subtransactions.
     attr_accessor :subtransactions
 
     class EnumAttributeValidator
@@ -81,6 +87,9 @@ module YnabApi
         :'payee_id' => :'payee_id',
         :'category_id' => :'category_id',
         :'transfer_account_id' => :'transfer_account_id',
+        :'account_name' => :'account_name',
+        :'payee_name' => :'payee_name',
+        :'category_name' => :'category_name',
         :'subtransactions' => :'subtransactions'
       }
     end
@@ -99,6 +108,9 @@ module YnabApi
         :'payee_id' => :'String',
         :'category_id' => :'String',
         :'transfer_account_id' => :'String',
+        :'account_name' => :'String',
+        :'payee_name' => :'String',
+        :'category_name' => :'String',
         :'subtransactions' => :'Array<ScheduledSubTransaction>'
       }
     end
@@ -153,6 +165,18 @@ module YnabApi
 
       if attributes.has_key?(:'transfer_account_id')
         self.transfer_account_id = attributes[:'transfer_account_id']
+      end
+
+      if attributes.has_key?(:'account_name')
+        self.account_name = attributes[:'account_name']
+      end
+
+      if attributes.has_key?(:'payee_name')
+        self.payee_name = attributes[:'payee_name']
+      end
+
+      if attributes.has_key?(:'category_name')
+        self.category_name = attributes[:'category_name']
       end
 
       if attributes.has_key?(:'subtransactions')
@@ -211,6 +235,18 @@ module YnabApi
         invalid_properties.push("invalid value for 'transfer_account_id', transfer_account_id cannot be nil.")
       end
 
+      if @account_name.nil?
+        invalid_properties.push("invalid value for 'account_name', account_name cannot be nil.")
+      end
+
+      if @payee_name.nil?
+        invalid_properties.push("invalid value for 'payee_name', payee_name cannot be nil.")
+      end
+
+      if @category_name.nil?
+        invalid_properties.push("invalid value for 'category_name', category_name cannot be nil.")
+      end
+
       if @subtransactions.nil?
         invalid_properties.push("invalid value for 'subtransactions', subtransactions cannot be nil.")
       end
@@ -236,6 +272,9 @@ module YnabApi
       return false if @payee_id.nil?
       return false if @category_id.nil?
       return false if @transfer_account_id.nil?
+      return false if @account_name.nil?
+      return false if @payee_name.nil?
+      return false if @category_name.nil?
       return false if @subtransactions.nil?
       return true
     end
@@ -276,6 +315,9 @@ module YnabApi
           payee_id == o.payee_id &&
           category_id == o.category_id &&
           transfer_account_id == o.transfer_account_id &&
+          account_name == o.account_name &&
+          payee_name == o.payee_name &&
+          category_name == o.category_name &&
           subtransactions == o.subtransactions
     end
 
@@ -288,7 +330,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, date_first, date_next, frequency, amount, memo, flag_color, account_id, payee_id, category_id, transfer_account_id, subtransactions].hash
+      [id, date_first, date_next, frequency, amount, memo, flag_color, account_id, payee_id, category_id, transfer_account_id, account_name, payee_name, category_name, subtransactions].hash
     end
 
     # Builds the object from hash
