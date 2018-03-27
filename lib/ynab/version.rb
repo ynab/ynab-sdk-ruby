@@ -11,5 +11,5 @@ Swagger Codegen version: 2.3.1
 =end
 
 module YnabApi
-  VERSION = "0.4.0"
+  VERSION = "0.5.0"
 end
