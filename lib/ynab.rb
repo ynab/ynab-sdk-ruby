@@ -74,6 +74,10 @@ require 'ynab/models/transaction_detail'
 require 'ynab/models/bulk_id_wrapper'
 require 'ynab/models/bulk_ids'
 require 'ynab/models/bulk_response'
+require 'ynab/models/hybrid_transactions_response'
+require 'ynab/models/hybrid_transactions_wrapper'
+require 'ynab/models/hybrid_transaction'
+
 
 # APIs
 require 'ynab/api/user_api'
