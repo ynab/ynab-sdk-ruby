@@ -268,7 +268,7 @@ module YnabApi
     # @param category_id The ID of the Category.
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date.
-    # @return [TransactionsResponse]
+    # @return [HybridTransactionsResponse]
     def get_transactions_by_category(budget_id, category_id, opts = {})
       data, _status_code, _headers = get_transactions_by_category_with_http_info(budget_id, category_id, opts)
       return data
@@ -280,7 +280,7 @@ module YnabApi
     # @param category_id The ID of the Category.
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date.
-    # @return [Array<(TransactionsResponse, Fixnum, Hash)>] TransactionsResponse data, response status code and response headers
+    # @return [Array<(HybridTransactionsResponse, Fixnum, Hash)>] HybridTransactionsResponse data, response status code and response headers
     def get_transactions_by_category_with_http_info(budget_id, category_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: TransactionsApi.get_transactions_by_category ..."
@@ -317,7 +317,7 @@ module YnabApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'TransactionsResponse')
+        :return_type => 'HybridTransactionsResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransactionsApi#get_transactions_by_category\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -389,7 +389,7 @@ module YnabApi
     # @param payee_id The ID of the Payee.
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date.
-    # @return [TransactionsResponse]
+    # @return [HybridTransactionsResponse]
     def get_transactions_by_payee(budget_id, payee_id, opts = {})
       data, _status_code, _headers = get_transactions_by_payee_with_http_info(budget_id, payee_id, opts)
       return data
@@ -401,7 +401,7 @@ module YnabApi
     # @param payee_id The ID of the Payee.
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date.
-    # @return [Array<(TransactionsResponse, Fixnum, Hash)>] TransactionsResponse data, response status code and response headers
+    # @return [Array<(HybridTransactionsResponse, Fixnum, Hash)>] HybridTransactionsResponse data, response status code and response headers
     def get_transactions_by_payee_with_http_info(budget_id, payee_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: TransactionsApi.get_transactions_by_payee ..."
@@ -438,7 +438,7 @@ module YnabApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'TransactionsResponse')
+        :return_type => 'HybridTransactionsResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransactionsApi#get_transactions_by_payee\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

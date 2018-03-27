@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/categories/84ffe61c-081c-44db-ad23-6ee809206c40/transactions
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - api_client/ruby/0.4.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer 9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding, Origin
+      ETag:
+      - W/"34c52d2665519c44aa89bfb862b99e7e"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0e4f8e02-620d-4433-8a88-f776fdafc165
+      X-Runtime:
+      - '0.376111'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"transactions":[{"type":"subtransaction","id":"4a675c31-f5f1-43ba-8c9a-6cd7d5b0cac4","parent_transaction_id":"56a3ae86-ce55-4e23-923b-6cb59add860b","date":"2018-03-26","amount":-50000,"memo":"","cleared":"uncleared","approved":true,"flag_color":null,"account_id":"16addaa3-cfaf-4e57-933c-7e1645f000f0","payee_id":null,"category_id":"84ffe61c-081c-44db-ad23-6ee809206c40","transfer_account_id":null,"import_id":null},{"type":"subtransaction","id":"4c3f5877-b4b9-4d5a-9177-be7dfcd86c6e","parent_transaction_id":"910a79e1-29f5-4789-a2a0-2a69c2f94a2b","date":"2018-03-26","amount":-25000,"memo":"","cleared":"uncleared","approved":true,"flag_color":null,"account_id":"16addaa3-cfaf-4e57-933c-7e1645f000f0","payee_id":null,"category_id":"84ffe61c-081c-44db-ad23-6ee809206c40","transfer_account_id":null,"import_id":null},{"type":"transaction","id":"d477e91a-1f2b-4df5-8069-6b61dee51259","parent_transaction_id":null,"date":"2018-03-27","amount":-13000,"memo":"","cleared":"uncleared","approved":true,"flag_color":null,"account_id":"16addaa3-cfaf-4e57-933c-7e1645f000f0","payee_id":"2676f959-c5de-4db2-8d3f-2503777b25fb","category_id":"84ffe61c-081c-44db-ad23-6ee809206c40","transfer_account_id":null,"import_id":null}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://api.localhost:3000/v1/budgets/6e6aa585-8537-4afc-950f-93d55fac17fa/categories/84ffe61c-081c-44db-ad23-6ee809206c40/transactions
+  recorded_at: Tue, 27 Mar 2018 17:02:30 GMT
+recorded_with: VCR 3.0.3

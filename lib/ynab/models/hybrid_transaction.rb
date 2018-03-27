@@ -14,34 +14,81 @@ require 'date'
 
 module YnabApi
 
-  class SubTransaction
+  class HybridTransaction
     attr_accessor :id
 
-    attr_accessor :transaction_id
+    attr_accessor :date
 
-    # The subtransaction amount in milliunits format
+    # The transaction amount in milliunits format
     attr_accessor :amount
 
     attr_accessor :memo
+
+    # The cleared status of the transaction
+    attr_accessor :cleared
+
+    # Whether or not the transaction is approved
+    attr_accessor :approved
+
+    # The transaction flag
+    attr_accessor :flag_color
+
+    attr_accessor :account_id
 
     attr_accessor :payee_id
 
     attr_accessor :category_id
 
-    # If a transfer, the account_id which the subtransaction transfers to
     attr_accessor :transfer_account_id
 
+    # If the Transaction was imported, this field is a unique (by account) import identifier.  If this transaction was imported through File Based Import or Direct Import and not through the API, the import_id will have the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurrence]'.  For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.
+    attr_accessor :import_id
+
+    # Whether the hybrid transaction represents a regular transaction or a subtransaction
+    attr_accessor :type
+
+    # For subtransaction types, this is the id of the pararent transaction.  For transaction types, this id will be always be null.
+    attr_accessor :parent_transaction_id
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'transaction_id' => :'transaction_id',
+        :'date' => :'date',
         :'amount' => :'amount',
         :'memo' => :'memo',
+        :'cleared' => :'cleared',
+        :'approved' => :'approved',
+        :'flag_color' => :'flag_color',
+        :'account_id' => :'account_id',
         :'payee_id' => :'payee_id',
         :'category_id' => :'category_id',
-        :'transfer_account_id' => :'transfer_account_id'
+        :'transfer_account_id' => :'transfer_account_id',
+        :'import_id' => :'import_id',
+        :'type' => :'type',
+        :'parent_transaction_id' => :'parent_transaction_id'
       }
     end
 
@@ -49,12 +96,19 @@ module YnabApi
     def self.swagger_types
       {
         :'id' => :'String',
-        :'transaction_id' => :'String',
+        :'date' => :'Date',
         :'amount' => :'Float',
         :'memo' => :'String',
+        :'cleared' => :'String',
+        :'approved' => :'BOOLEAN',
+        :'flag_color' => :'String',
+        :'account_id' => :'String',
         :'payee_id' => :'String',
         :'category_id' => :'String',
-        :'transfer_account_id' => :'String'
+        :'transfer_account_id' => :'String',
+        :'import_id' => :'String',
+        :'type' => :'String',
+        :'parent_transaction_id' => :'String'
       }
     end
 
@@ -70,8 +124,8 @@ module YnabApi
         self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'transaction_id')
-        self.transaction_id = attributes[:'transaction_id']
+      if attributes.has_key?(:'date')
+        self.date = attributes[:'date']
       end
 
       if attributes.has_key?(:'amount')
@@ -80,6 +134,22 @@ module YnabApi
 
       if attributes.has_key?(:'memo')
         self.memo = attributes[:'memo']
+      end
+
+      if attributes.has_key?(:'cleared')
+        self.cleared = attributes[:'cleared']
+      end
+
+      if attributes.has_key?(:'approved')
+        self.approved = attributes[:'approved']
+      end
+
+      if attributes.has_key?(:'flag_color')
+        self.flag_color = attributes[:'flag_color']
+      end
+
+      if attributes.has_key?(:'account_id')
+        self.account_id = attributes[:'account_id']
       end
 
       if attributes.has_key?(:'payee_id')
@@ -94,6 +164,18 @@ module YnabApi
         self.transfer_account_id = attributes[:'transfer_account_id']
       end
 
+      if attributes.has_key?(:'import_id')
+        self.import_id = attributes[:'import_id']
+      end
+
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.has_key?(:'parent_transaction_id')
+        self.parent_transaction_id = attributes[:'parent_transaction_id']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -104,8 +186,8 @@ module YnabApi
         invalid_properties.push("invalid value for 'id', id cannot be nil.")
       end
 
-      if @transaction_id.nil?
-        invalid_properties.push("invalid value for 'transaction_id', transaction_id cannot be nil.")
+      if @date.nil?
+        invalid_properties.push("invalid value for 'date', date cannot be nil.")
       end
 
       if @amount.nil?
@@ -114,6 +196,22 @@ module YnabApi
 
       if @memo.nil?
         invalid_properties.push("invalid value for 'memo', memo cannot be nil.")
+      end
+
+      if @cleared.nil?
+        invalid_properties.push("invalid value for 'cleared', cleared cannot be nil.")
+      end
+
+      if @approved.nil?
+        invalid_properties.push("invalid value for 'approved', approved cannot be nil.")
+      end
+
+      if @flag_color.nil?
+        invalid_properties.push("invalid value for 'flag_color', flag_color cannot be nil.")
+      end
+
+      if @account_id.nil?
+        invalid_properties.push("invalid value for 'account_id', account_id cannot be nil.")
       end
 
       if @payee_id.nil?
@@ -128,6 +226,18 @@ module YnabApi
         invalid_properties.push("invalid value for 'transfer_account_id', transfer_account_id cannot be nil.")
       end
 
+      if @import_id.nil?
+        invalid_properties.push("invalid value for 'import_id', import_id cannot be nil.")
+      end
+
+      if @type.nil?
+        invalid_properties.push("invalid value for 'type', type cannot be nil.")
+      end
+
+      if @parent_transaction_id.nil?
+        invalid_properties.push("invalid value for 'parent_transaction_id', parent_transaction_id cannot be nil.")
+      end
+
       return invalid_properties
     end
 
@@ -135,13 +245,56 @@ module YnabApi
     # @return true if the model is valid
     def valid?
       return false if @id.nil?
-      return false if @transaction_id.nil?
+      return false if @date.nil?
       return false if @amount.nil?
       return false if @memo.nil?
+      return false if @cleared.nil?
+      cleared_validator = EnumAttributeValidator.new('String', ["cleared", "uncleared", "reconciled"])
+      return false unless cleared_validator.valid?(@cleared)
+      return false if @approved.nil?
+      return false if @flag_color.nil?
+      flag_color_validator = EnumAttributeValidator.new('String', ["red", "orange", "yellow", "green", "blue", "purple"])
+      return false unless flag_color_validator.valid?(@flag_color)
+      return false if @account_id.nil?
       return false if @payee_id.nil?
       return false if @category_id.nil?
       return false if @transfer_account_id.nil?
+      return false if @import_id.nil?
+      return false if @type.nil?
+      type_validator = EnumAttributeValidator.new('String', ["transaction", "subtransaction"])
+      return false unless type_validator.valid?(@type)
+      return false if @parent_transaction_id.nil?
       return true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] cleared Object to be assigned
+    def cleared=(cleared)
+      validator = EnumAttributeValidator.new('String', ["cleared", "uncleared", "reconciled"])
+      unless validator.valid?(cleared)
+        fail ArgumentError, "invalid value for 'cleared', must be one of #{validator.allowable_values}."
+      end
+      @cleared = cleared
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] flag_color Object to be assigned
+    def flag_color=(flag_color)
+      validator = EnumAttributeValidator.new('String', ["red", "orange", "yellow", "green", "blue", "purple"])
+      unless validator.valid?(flag_color)
+        fail ArgumentError, "invalid value for 'flag_color', must be one of #{validator.allowable_values}."
+      end
+      @flag_color = flag_color
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] type Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('String', ["transaction", "subtransaction"])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for 'type', must be one of #{validator.allowable_values}."
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -150,12 +303,19 @@ module YnabApi
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          transaction_id == o.transaction_id &&
+          date == o.date &&
           amount == o.amount &&
           memo == o.memo &&
+          cleared == o.cleared &&
+          approved == o.approved &&
+          flag_color == o.flag_color &&
+          account_id == o.account_id &&
           payee_id == o.payee_id &&
           category_id == o.category_id &&
-          transfer_account_id == o.transfer_account_id
+          transfer_account_id == o.transfer_account_id &&
+          import_id == o.import_id &&
+          type == o.type &&
+          parent_transaction_id == o.parent_transaction_id
     end
 
     # @see the `==` method
@@ -167,7 +327,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, transaction_id, amount, memo, payee_id, category_id, transfer_account_id].hash
+      [id, date, amount, memo, cleared, approved, flag_color, account_id, payee_id, category_id, transfer_account_id, import_id, type, parent_transaction_id].hash
     end
 
     # Builds the object from hash

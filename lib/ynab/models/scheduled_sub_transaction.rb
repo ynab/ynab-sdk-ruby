@@ -19,7 +19,7 @@ module YnabApi
 
     attr_accessor :scheduled_transaction_id
 
-    # The scheduled sub-transaction amount in milliunits format
+    # The scheduled subtransaction amount in milliunits format
     attr_accessor :amount
 
     attr_accessor :memo
