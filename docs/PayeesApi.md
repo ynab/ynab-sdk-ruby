@@ -29,9 +29,9 @@ end
 
 api_instance = YnabApi::PayeesApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
-payee_id = "payee_id_example" # String | The ID of the Payee.
+payee_id = 'payee_id_example' # String | The ID of the Payee.
 
 
 begin
@@ -86,7 +86,7 @@ end
 
 api_instance = YnabApi::PayeesApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
 
 begin

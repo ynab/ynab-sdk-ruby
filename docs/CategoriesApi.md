@@ -29,7 +29,7 @@ end
 
 api_instance = YnabApi::CategoriesApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
 
 begin
@@ -83,9 +83,9 @@ end
 
 api_instance = YnabApi::CategoriesApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
-category_id = "category_id_example" # String | The ID of the Category.
+category_id = 'category_id_example' # String | The ID of the Category.
 
 
 begin

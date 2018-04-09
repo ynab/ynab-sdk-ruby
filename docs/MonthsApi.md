@@ -29,9 +29,9 @@ end
 
 api_instance = YnabApi::MonthsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
-month = Date.parse("2013-10-20") # Date | The Budget Month.  \"current\" can also be used to specify the current calendar month (UTC).
+month = Date.parse('2013-10-20') # Date | The Budget Month.  \"current\" can also be used to specify the current calendar month (UTC).
 
 
 begin
@@ -86,7 +86,7 @@ end
 
 api_instance = YnabApi::MonthsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
 
 begin

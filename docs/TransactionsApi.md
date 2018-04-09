@@ -35,7 +35,7 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
 transactions = YnabApi::BulkTransactions.new # BulkTransactions | The list of Transactions to create.
 
@@ -92,7 +92,7 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
 transaction = YnabApi::SaveTransactionWrapper.new # SaveTransactionWrapper | The Transaction to create.
 
@@ -149,11 +149,11 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
 opts = { 
-  since_date: Date.parse("2013-10-20"), # Date | Only return transactions on or after this date.
-  type: "type_example" # String | Only return transactions of a certain type (i.e. 'uncategorized', 'unapproved')
+  since_date: Date.parse('2013-10-20'), # Date | Only return transactions on or after this date.
+  type: 'type_example' # String | Only return transactions of a certain type (i.e. 'uncategorized', 'unapproved')
 }
 
 begin
@@ -209,12 +209,12 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
-account_id = "account_id_example" # String | The ID of the Account.
+account_id = 'account_id_example' # String | The ID of the Account.
 
 opts = { 
-  since_date: Date.parse("2013-10-20") # Date | Only return transactions on or after this date.
+  since_date: Date.parse('2013-10-20') # Date | Only return transactions on or after this date.
 }
 
 begin
@@ -270,12 +270,12 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
-category_id = "category_id_example" # String | The ID of the Category.
+category_id = 'category_id_example' # String | The ID of the Category.
 
 opts = { 
-  since_date: Date.parse("2013-10-20") # Date | Only return transactions on or after this date.
+  since_date: Date.parse('2013-10-20') # Date | Only return transactions on or after this date.
 }
 
 begin
@@ -331,9 +331,9 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
-transaction_id = "transaction_id_example" # String | The ID of the Transaction.
+transaction_id = 'transaction_id_example' # String | The ID of the Transaction.
 
 
 begin
@@ -388,12 +388,12 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
-payee_id = "payee_id_example" # String | The ID of the Payee.
+payee_id = 'payee_id_example' # String | The ID of the Payee.
 
 opts = { 
-  since_date: Date.parse("2013-10-20") # Date | Only return transactions on or after this date.
+  since_date: Date.parse('2013-10-20') # Date | Only return transactions on or after this date.
 }
 
 begin
@@ -449,9 +449,9 @@ end
 
 api_instance = YnabApi::TransactionsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
-transaction_id = "transaction_id_example" # String | The ID of the Transaction.
+transaction_id = 'transaction_id_example' # String | The ID of the Transaction.
 
 transaction = YnabApi::SaveTransactionWrapper.new # SaveTransactionWrapper | The Transaction to update.
 

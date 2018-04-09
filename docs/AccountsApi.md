@@ -29,9 +29,9 @@ end
 
 api_instance = YnabApi::AccountsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
-account_id = "account_id_example" # String | The ID of the Account.
+account_id = 'account_id_example' # String | The ID of the Account.
 
 
 begin
@@ -86,7 +86,7 @@ end
 
 api_instance = YnabApi::AccountsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
 
 begin

@@ -29,9 +29,9 @@ end
 
 api_instance = YnabApi::ScheduledTransactionsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
-scheduled_transaction_id = "scheduled_transaction_id_example" # String | The ID of the Scheduled Transaction.
+scheduled_transaction_id = 'scheduled_transaction_id_example' # String | The ID of the Scheduled Transaction.
 
 
 begin
@@ -86,7 +86,7 @@ end
 
 api_instance = YnabApi::ScheduledTransactionsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
 
 begin
