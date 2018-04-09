@@ -17,29 +17,25 @@ Returns single payee
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::PayeesApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-payee_id = 'payee_id_example' # String | The ID of the Payee.
-
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #Single payee
-  result = api_instance.get_payee_by_id(budget_id, payee_id)
+  result = ynab.foobar.get_payee_by_id(budget_id, payee_id)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling PayeesApi->get_payee_by_id: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -54,17 +50,6 @@ Name | Type | Description  | Notes
 
 [**PayeeResponse**](PayeeResponse.md)
 
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **get_payees**
 > PayeesResponse get_payees(budget_id)
 
@@ -74,27 +59,25 @@ Returns all payees
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::PayeesApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #List payees
-  result = api_instance.get_payees(budget_id)
+  result = ynab.foobar.get_payees(budget_id)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling PayeesApi->get_payees: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -107,15 +90,4 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PayeesResponse**](PayeesResponse.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
 

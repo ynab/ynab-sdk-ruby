@@ -17,30 +17,25 @@ Returns a single budget with all related entities.  This resource is effectively
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::BudgetsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-opts = { 
-  last_knowledge_of_server: 8.14 # Float | The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
-}
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #Single budget
-  result = api_instance.get_budget_by_id(budget_id, opts)
+  result = ynab.foobar.get_budget_by_id(budget_id, opts)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling BudgetsApi->get_budget_by_id: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -55,17 +50,6 @@ Name | Type | Description  | Notes
 
 [**BudgetDetailResponse**](BudgetDetailResponse.md)
 
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **get_budgets**
 > BudgetSummaryResponse get_budgets
 
@@ -75,24 +59,25 @@ Returns budgets list with summary information.
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::BudgetsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
+
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #List budgets
-  result = api_instance.get_budgets
+  result = ynab.foobar.get_budgets
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling BudgetsApi->get_budgets: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -102,15 +87,4 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**BudgetSummaryResponse**](BudgetSummaryResponse.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
 

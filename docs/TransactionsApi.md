@@ -23,29 +23,25 @@ Creates multiple transactions
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::TransactionsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-transactions = YnabApi::BulkTransactions.new # BulkTransactions | The list of Transactions to create.
-
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #Bulk create transactions
-  result = api_instance.bulk_create_transactions(budget_id, transactions)
+  result = ynab.foobar.bulk_create_transactions(budget_id, transactions)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling TransactionsApi->bulk_create_transactions: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -60,17 +56,6 @@ Name | Type | Description  | Notes
 
 [**BulkResponse**](BulkResponse.md)
 
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **create_transaction**
 > TransactionResponse create_transaction(budget_id, transaction)
 
@@ -80,29 +65,25 @@ Creates a transaction
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::TransactionsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-transaction = YnabApi::SaveTransactionWrapper.new # SaveTransactionWrapper | The Transaction to create.
-
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #Create new transaction
-  result = api_instance.create_transaction(budget_id, transaction)
+  result = ynab.foobar.create_transaction(budget_id, transaction)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling TransactionsApi->create_transaction: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -117,17 +98,6 @@ Name | Type | Description  | Notes
 
 [**TransactionResponse**](TransactionResponse.md)
 
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **get_transactions**
 > TransactionsResponse get_transactions(budget_id, opts)
 
@@ -137,31 +107,25 @@ Returns budget transactions
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::TransactionsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-opts = { 
-  since_date: Date.parse('2013-10-20'), # Date | Only return transactions on or after this date.
-  type: 'type_example' # String | Only return transactions of a certain type (i.e. 'uncategorized', 'unapproved')
-}
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #List transactions
-  result = api_instance.get_transactions(budget_id, opts)
+  result = ynab.foobar.get_transactions(budget_id, opts)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling TransactionsApi->get_transactions: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -177,17 +141,6 @@ Name | Type | Description  | Notes
 
 [**TransactionsResponse**](TransactionsResponse.md)
 
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **get_transactions_by_account**
 > TransactionsResponse get_transactions_by_account(budget_id, account_id, opts)
 
@@ -197,32 +150,25 @@ Returns all transactions for a specified account
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::TransactionsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-account_id = 'account_id_example' # String | The ID of the Account.
-
-opts = { 
-  since_date: Date.parse('2013-10-20') # Date | Only return transactions on or after this date.
-}
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #List account transactions
-  result = api_instance.get_transactions_by_account(budget_id, account_id, opts)
+  result = ynab.foobar.get_transactions_by_account(budget_id, account_id, opts)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling TransactionsApi->get_transactions_by_account: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -238,17 +184,6 @@ Name | Type | Description  | Notes
 
 [**TransactionsResponse**](TransactionsResponse.md)
 
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **get_transactions_by_category**
 > HybridTransactionsResponse get_transactions_by_category(budget_id, category_id, opts)
 
@@ -258,32 +193,25 @@ Returns all transactions for a specified category
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::TransactionsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-category_id = 'category_id_example' # String | The ID of the Category.
-
-opts = { 
-  since_date: Date.parse('2013-10-20') # Date | Only return transactions on or after this date.
-}
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #List category transactions
-  result = api_instance.get_transactions_by_category(budget_id, category_id, opts)
+  result = ynab.foobar.get_transactions_by_category(budget_id, category_id, opts)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling TransactionsApi->get_transactions_by_category: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -299,17 +227,6 @@ Name | Type | Description  | Notes
 
 [**HybridTransactionsResponse**](HybridTransactionsResponse.md)
 
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **get_transactions_by_id**
 > TransactionResponse get_transactions_by_id(budget_id, transaction_id)
 
@@ -319,29 +236,25 @@ Returns a single transaction
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::TransactionsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-transaction_id = 'transaction_id_example' # String | The ID of the Transaction.
-
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #Single transaction
-  result = api_instance.get_transactions_by_id(budget_id, transaction_id)
+  result = ynab.foobar.get_transactions_by_id(budget_id, transaction_id)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling TransactionsApi->get_transactions_by_id: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -356,17 +269,6 @@ Name | Type | Description  | Notes
 
 [**TransactionResponse**](TransactionResponse.md)
 
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **get_transactions_by_payee**
 > HybridTransactionsResponse get_transactions_by_payee(budget_id, payee_id, opts)
 
@@ -376,32 +278,25 @@ Returns all transactions for a specified payee
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::TransactionsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-payee_id = 'payee_id_example' # String | The ID of the Payee.
-
-opts = { 
-  since_date: Date.parse('2013-10-20') # Date | Only return transactions on or after this date.
-}
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #List payee transactions
-  result = api_instance.get_transactions_by_payee(budget_id, payee_id, opts)
+  result = ynab.foobar.get_transactions_by_payee(budget_id, payee_id, opts)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling TransactionsApi->get_transactions_by_payee: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -417,17 +312,6 @@ Name | Type | Description  | Notes
 
 [**HybridTransactionsResponse**](HybridTransactionsResponse.md)
 
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **update_transaction**
 > TransactionResponse update_transaction(budget_id, transaction_id, transaction)
 
@@ -437,31 +321,25 @@ Updates a transaction
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::TransactionsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-transaction_id = 'transaction_id_example' # String | The ID of the Transaction.
-
-transaction = YnabApi::SaveTransactionWrapper.new # SaveTransactionWrapper | The Transaction to update.
-
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #Updates an existing transaction
-  result = api_instance.update_transaction(budget_id, transaction_id, transaction)
+  result = ynab.foobar.update_transaction(budget_id, transaction_id, transaction)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling TransactionsApi->update_transaction: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -476,15 +354,4 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TransactionResponse**](TransactionResponse.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
 

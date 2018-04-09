@@ -16,24 +16,25 @@ Returns authenticated user information.
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::UserApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
+
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #User info
-  result = api_instance.get_user
+  result = ynab.foobar.get_user
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling UserApi->get_user: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -43,15 +44,4 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**UserResponse**](UserResponse.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
 

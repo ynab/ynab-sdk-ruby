@@ -17,29 +17,25 @@ Returns a single budget month
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::MonthsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-month = Date.parse('2013-10-20') # Date | The Budget Month.  \"current\" can also be used to specify the current calendar month (UTC).
-
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #Single budget month
-  result = api_instance.get_budget_month(budget_id, month)
+  result = ynab.foobar.get_budget_month(budget_id, month)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling MonthsApi->get_budget_month: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -54,17 +50,6 @@ Name | Type | Description  | Notes
 
 [**MonthDetailResponse**](MonthDetailResponse.md)
 
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **get_budget_months**
 > MonthSummariesResponse get_budget_months(budget_id)
 
@@ -74,27 +59,25 @@ Returns all budget months
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::MonthsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #List budget months
-  result = api_instance.get_budget_months(budget_id)
+  result = ynab.foobar.get_budget_months(budget_id)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling MonthsApi->get_budget_months: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -107,15 +90,4 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**MonthSummariesResponse**](MonthSummariesResponse.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
 

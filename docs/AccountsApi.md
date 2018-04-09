@@ -17,29 +17,25 @@ Returns a single account
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::AccountsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-account_id = 'account_id_example' # String | The ID of the Account.
-
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #Single account
-  result = api_instance.get_account_by_id(budget_id, account_id)
+  result = ynab.foobar.get_account_by_id(budget_id, account_id)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling AccountsApi->get_account_by_id: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -54,17 +50,6 @@ Name | Type | Description  | Notes
 
 [**AccountResponse**](AccountResponse.md)
 
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **get_accounts**
 > AccountsResponse get_accounts(budget_id)
 
@@ -74,27 +59,25 @@ Returns all accounts
 
 ### Example
 ```ruby
-# load the gem
 require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
-api_instance = YnabApi::AccountsApi.new
+access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
+ynab = YnabApi::Client.new(access_token)
 
 begin
   #Account list
-  result = api_instance.get_accounts(budget_id)
+  result = ynab.foobar.get_accounts(budget_id)
   p result
 rescue YnabApi::ApiError => e
   puts "Exception when calling AccountsApi->get_accounts: #{e}"
+end
+
+begin
+  result = ynab.budgets.get_budgets
+  p result
+rescue YnabApi::ApiError => e
+  puts "Exception when calling CategoriesApi->get_categories: #{e}"
 end
 ```
 
@@ -107,15 +90,4 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AccountsResponse**](AccountsResponse.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
 
