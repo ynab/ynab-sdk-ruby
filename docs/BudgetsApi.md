@@ -15,30 +15,6 @@ Single budget
 
 Returns a single budget with all related entities.  This resource is effectively a full budget export.
 
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #Single budget
-  result = ynab.foobar.get_budget_by_id(budget_id, opts)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling BudgetsApi->get_budget_by_id: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -56,30 +32,6 @@ Name | Type | Description  | Notes
 List budgets
 
 Returns budgets list with summary information.
-
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #List budgets
-  result = ynab.foobar.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling BudgetsApi->get_budgets: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
 
 ### Parameters
 This endpoint does not need any parameter.

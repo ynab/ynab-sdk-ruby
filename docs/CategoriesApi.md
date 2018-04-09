@@ -15,30 +15,6 @@ List categories
 
 Returns all categories grouped by category group.
 
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #List categories
-  result = ynab.foobar.get_categories(budget_id)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -55,30 +31,6 @@ Name | Type | Description  | Notes
 Single category
 
 Returns a single category
-
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #Single category
-  result = ynab.foobar.get_category_by_id(budget_id, category_id)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_category_by_id: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
 
 ### Parameters
 

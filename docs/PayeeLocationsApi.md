@@ -16,30 +16,6 @@ Single payee location
 
 Returns a single payee location
 
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #Single payee location
-  result = ynab.foobar.get_payee_location_by_id(budget_id, payee_location_id)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling PayeeLocationsApi->get_payee_location_by_id: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -58,30 +34,6 @@ List payee locations
 
 Returns all payee locations
 
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #List payee locations
-  result = ynab.foobar.get_payee_locations(budget_id)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling PayeeLocationsApi->get_payee_locations: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -98,30 +50,6 @@ Name | Type | Description  | Notes
 List locations for a payee
 
 Returns all payee locations for the specified payee
-
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #List locations for a payee
-  result = ynab.foobar.get_payee_locations_by_payee(budget_id, payee_id)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling PayeeLocationsApi->get_payee_locations_by_payee: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
 
 ### Parameters
 

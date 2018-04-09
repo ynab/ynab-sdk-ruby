@@ -17,30 +17,6 @@ Method | HTTP request | Description
 
 {{{notes}}}{{/notes}}
 
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-{{#summary}}  #{{{.}}}
-{{/summary}}  {{#returnType}}result = {{/returnType}}ynab.foobar.{{{operationId}}}{{#hasParams}}({{#allParams}}{{#required}}{{{paramName}}}{{#vendorExtensions.x-codegen-hasMoreRequired}}, {{/vendorExtensions.x-codegen-hasMoreRequired}}{{/required}}{{/allParams}}{{#hasOptionalParams}}{{#vendorExtensions.x-codegen-hasRequiredParams}}, {{/vendorExtensions.x-codegen-hasRequiredParams}}opts{{/hasOptionalParams}}){{/hasParams}}{{#returnType}}
-  p result{{/returnType}}
-rescue {{{moduleName}}}::ApiError => e
-  puts "Exception when calling {{classname}}->{{{operationId}}}: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
-
 ### Parameters
 {{^allParams}}This endpoint does not need any parameter.{{/allParams}}{{#allParams}}{{#-last}}
 Name | Type | Description  | Notes

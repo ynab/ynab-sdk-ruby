@@ -15,30 +15,6 @@ Single payee
 
 Returns single payee
 
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #Single payee
-  result = ynab.foobar.get_payee_by_id(budget_id, payee_id)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling PayeesApi->get_payee_by_id: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -56,30 +32,6 @@ Name | Type | Description  | Notes
 List payees
 
 Returns all payees
-
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #List payees
-  result = ynab.foobar.get_payees(budget_id)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling PayeesApi->get_payees: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
 
 ### Parameters
 

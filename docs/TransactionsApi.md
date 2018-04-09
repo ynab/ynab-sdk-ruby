@@ -21,30 +21,6 @@ Bulk create transactions
 
 Creates multiple transactions
 
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #Bulk create transactions
-  result = ynab.foobar.bulk_create_transactions(budget_id, transactions)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling TransactionsApi->bulk_create_transactions: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -63,30 +39,6 @@ Create new transaction
 
 Creates a transaction
 
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #Create new transaction
-  result = ynab.foobar.create_transaction(budget_id, transaction)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling TransactionsApi->create_transaction: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -104,30 +56,6 @@ Name | Type | Description  | Notes
 List transactions
 
 Returns budget transactions
-
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #List transactions
-  result = ynab.foobar.get_transactions(budget_id, opts)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling TransactionsApi->get_transactions: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
 
 ### Parameters
 
@@ -148,30 +76,6 @@ List account transactions
 
 Returns all transactions for a specified account
 
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #List account transactions
-  result = ynab.foobar.get_transactions_by_account(budget_id, account_id, opts)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling TransactionsApi->get_transactions_by_account: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -190,30 +94,6 @@ Name | Type | Description  | Notes
 List category transactions
 
 Returns all transactions for a specified category
-
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #List category transactions
-  result = ynab.foobar.get_transactions_by_category(budget_id, category_id, opts)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling TransactionsApi->get_transactions_by_category: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
 
 ### Parameters
 
@@ -234,30 +114,6 @@ Single transaction
 
 Returns a single transaction
 
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #Single transaction
-  result = ynab.foobar.get_transactions_by_id(budget_id, transaction_id)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling TransactionsApi->get_transactions_by_id: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -275,30 +131,6 @@ Name | Type | Description  | Notes
 List payee transactions
 
 Returns all transactions for a specified payee
-
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #List payee transactions
-  result = ynab.foobar.get_transactions_by_payee(budget_id, payee_id, opts)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling TransactionsApi->get_transactions_by_payee: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
 
 ### Parameters
 
@@ -318,30 +150,6 @@ Name | Type | Description  | Notes
 Updates an existing transaction
 
 Updates a transaction
-
-### Example
-```ruby
-require 'ynab'
-
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-
-ynab = YnabApi::Client.new(access_token)
-
-begin
-  #Updates an existing transaction
-  result = ynab.foobar.update_transaction(budget_id, transaction_id, transaction)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling TransactionsApi->update_transaction: #{e}"
-end
-
-begin
-  result = ynab.budgets.get_budgets
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
 
 ### Parameters
 
