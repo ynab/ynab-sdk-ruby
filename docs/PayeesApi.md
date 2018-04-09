@@ -15,34 +15,6 @@ Single payee
 
 Returns single payee
 
-### Example
-```ruby
-# load the gem
-require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = YnabApi::PayeesApi.new
-
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-payee_id = 'payee_id_example' # String | The ID of the Payee.
-
-
-begin
-  #Single payee
-  result = api_instance.get_payee_by_id(budget_id, payee_id)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling PayeesApi->get_payee_by_id: #{e}"
-end
-```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -54,49 +26,12 @@ Name | Type | Description  | Notes
 
 [**PayeeResponse**](PayeeResponse.md)
 
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **get_payees**
 > PayeesResponse get_payees(budget_id)
 
 List payees
 
 Returns all payees
-
-### Example
-```ruby
-# load the gem
-require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = YnabApi::PayeesApi.new
-
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-
-begin
-  #List payees
-  result = api_instance.get_payees(budget_id)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling PayeesApi->get_payees: #{e}"
-end
-```
 
 ### Parameters
 
@@ -107,15 +42,4 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PayeesResponse**](PayeesResponse.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
 

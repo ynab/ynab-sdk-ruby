@@ -15,32 +15,6 @@ List categories
 
 Returns all categories grouped by category group.
 
-### Example
-```ruby
-# load the gem
-require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = YnabApi::CategoriesApi.new
-
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-
-begin
-  #List categories
-  result = api_instance.get_categories(budget_id)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_categories: #{e}"
-end
-```
-
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -51,51 +25,12 @@ Name | Type | Description  | Notes
 
 [**CategoriesResponse**](CategoriesResponse.md)
 
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
 # **get_category_by_id**
 > CategoryResponse get_category_by_id(budget_id, category_id)
 
 Single category
 
 Returns a single category
-
-### Example
-```ruby
-# load the gem
-require 'ynab'
-# setup authorization
-YnabApi.configure do |config|
-  # Configure API key authorization: bearer
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = YnabApi::CategoriesApi.new
-
-budget_id = 'budget_id_example' # String | The ID of the Budget.
-
-category_id = 'category_id_example' # String | The ID of the Category.
-
-
-begin
-  #Single category
-  result = api_instance.get_category_by_id(budget_id, category_id)
-  p result
-rescue YnabApi::ApiError => e
-  puts "Exception when calling CategoriesApi->get_category_by_id: #{e}"
-end
-```
 
 ### Parameters
 
@@ -107,15 +42,4 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CategoryResponse**](CategoryResponse.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
 
