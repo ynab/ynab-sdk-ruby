@@ -29,7 +29,7 @@ end
 
 api_instance = YnabApi::BudgetsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
 opts = { 
   last_knowledge_of_server: 8.14 # Float | The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.

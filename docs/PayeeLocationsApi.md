@@ -30,9 +30,9 @@ end
 
 api_instance = YnabApi::PayeeLocationsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
-payee_location_id = "payee_location_id_example" # String | ID of payee location
+payee_location_id = 'payee_location_id_example' # String | ID of payee location
 
 
 begin
@@ -87,7 +87,7 @@ end
 
 api_instance = YnabApi::PayeeLocationsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
 
 begin
@@ -141,9 +141,9 @@ end
 
 api_instance = YnabApi::PayeeLocationsApi.new
 
-budget_id = "budget_id_example" # String | The ID of the Budget.
+budget_id = 'budget_id_example' # String | The ID of the Budget.
 
-payee_id = "payee_id_example" # String | ID of payee
+payee_id = 'payee_id_example' # String | ID of payee
 
 
 begin
