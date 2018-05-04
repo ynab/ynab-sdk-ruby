@@ -727,7 +727,7 @@
           },
           "422": {
             "description":
-              "A transation with the same import_id already exists on the account so this transaction was not created.",
+              "A transaction with the same import_id already exists on the account so this transaction was not created.",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -1281,7 +1281,7 @@
           "type": "string"
         },
         "decimal_digits": {
-          "type": "string"
+          "type": "number"
         },
         "decimal_separator": {
           "type": "string"

@@ -49,7 +49,7 @@ module YnabApi
       {
         :'iso_code' => :'String',
         :'example_format' => :'String',
-        :'decimal_digits' => :'String',
+        :'decimal_digits' => :'Float',
         :'decimal_separator' => :'String',
         :'symbol_first' => :'BOOLEAN',
         :'group_separator' => :'String',
