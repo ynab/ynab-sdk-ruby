@@ -41,6 +41,9 @@ module YnabApi
     # If a transfer, the account_id which the scheduled transaction transfers to
     attr_accessor :transfer_account_id
 
+    # Whether or not the scheduled transaction has been deleted.  Deleted scheduled transactions will only be included in delta requests.
+    attr_accessor :deleted
+
     attr_accessor :account_name
 
     attr_accessor :payee_name
@@ -86,6 +89,7 @@ module YnabApi
         :'payee_id' => :'payee_id',
         :'category_id' => :'category_id',
         :'transfer_account_id' => :'transfer_account_id',
+        :'deleted' => :'deleted',
         :'account_name' => :'account_name',
         :'payee_name' => :'payee_name',
         :'category_name' => :'category_name',
@@ -107,6 +111,7 @@ module YnabApi
         :'payee_id' => :'String',
         :'category_id' => :'String',
         :'transfer_account_id' => :'String',
+        :'deleted' => :'BOOLEAN',
         :'account_name' => :'String',
         :'payee_name' => :'String',
         :'category_name' => :'String',
@@ -164,6 +169,10 @@ module YnabApi
 
       if attributes.has_key?(:'transfer_account_id')
         self.transfer_account_id = attributes[:'transfer_account_id']
+      end
+
+      if attributes.has_key?(:'deleted')
+        self.deleted = attributes[:'deleted']
       end
 
       if attributes.has_key?(:'account_name')
@@ -233,6 +242,10 @@ module YnabApi
         invalid_properties.push('invalid value for "transfer_account_id", transfer_account_id cannot be nil.')
       end
 
+      if @deleted.nil?
+        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
+      end
+
       if @account_name.nil?
         invalid_properties.push('invalid value for "account_name", account_name cannot be nil.')
       end
@@ -270,6 +283,7 @@ module YnabApi
       return false if @payee_id.nil?
       return false if @category_id.nil?
       return false if @transfer_account_id.nil?
+      return false if @deleted.nil?
       return false if @account_name.nil?
       return false if @payee_name.nil?
       return false if @category_name.nil?
@@ -313,6 +327,7 @@ module YnabApi
           payee_id == o.payee_id &&
           category_id == o.category_id &&
           transfer_account_id == o.transfer_account_id &&
+          deleted == o.deleted &&
           account_name == o.account_name &&
           payee_name == o.payee_name &&
           category_name == o.category_name &&
@@ -328,7 +343,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, date_first, date_next, frequency, amount, memo, flag_color, account_id, payee_id, category_id, transfer_account_id, account_name, payee_name, category_name, subtransactions].hash
+      [id, date_first, date_next, frequency, amount, memo, flag_color, account_id, payee_id, category_id, transfer_account_id, deleted, account_name, payee_name, category_name, subtransactions].hash
     end
 
     # Builds the object from hash

@@ -21,6 +21,9 @@ module YnabApi
     # Whether or not the category group is hidden
     attr_accessor :hidden
 
+    # Whether or not the category group has been deleted.  Deleted category groups will only be included in delta requests.
+    attr_accessor :deleted
+
     # Category group categories
     attr_accessor :categories
 
@@ -30,6 +33,7 @@ module YnabApi
         :'id' => :'id',
         :'name' => :'name',
         :'hidden' => :'hidden',
+        :'deleted' => :'deleted',
         :'categories' => :'categories'
       }
     end
@@ -40,6 +44,7 @@ module YnabApi
         :'id' => :'String',
         :'name' => :'String',
         :'hidden' => :'BOOLEAN',
+        :'deleted' => :'BOOLEAN',
         :'categories' => :'Array<Category>'
       }
     end
@@ -62,6 +67,10 @@ module YnabApi
 
       if attributes.has_key?(:'hidden')
         self.hidden = attributes[:'hidden']
+      end
+
+      if attributes.has_key?(:'deleted')
+        self.deleted = attributes[:'deleted']
       end
 
       if attributes.has_key?(:'categories')
@@ -87,6 +96,10 @@ module YnabApi
         invalid_properties.push('invalid value for "hidden", hidden cannot be nil.')
       end
 
+      if @deleted.nil?
+        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
+      end
+
       if @categories.nil?
         invalid_properties.push('invalid value for "categories", categories cannot be nil.')
       end
@@ -100,6 +113,7 @@ module YnabApi
       return false if @id.nil?
       return false if @name.nil?
       return false if @hidden.nil?
+      return false if @deleted.nil?
       return false if @categories.nil?
       true
     end
@@ -112,6 +126,7 @@ module YnabApi
           id == o.id &&
           name == o.name &&
           hidden == o.hidden &&
+          deleted == o.deleted &&
           categories == o.categories
     end
 
@@ -124,7 +139,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, hidden, categories].hash
+      [id, name, hidden, deleted, categories].hash
     end
 
     # Builds the object from hash

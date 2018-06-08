@@ -18,6 +18,7 @@ module YnabApi
 
     attr_accessor :name
 
+    # The type of account. Note: payPal, merchantAccount, investmentAccount, and mortgage types have been deprecated and will be removed in the future.
     attr_accessor :type
 
     # Whether this account is on budget or not
@@ -36,6 +37,9 @@ module YnabApi
 
     # The current uncleared balance of the account in milliunits format
     attr_accessor :uncleared_balance
+
+    # Whether or not the account has been deleted.  Deleted accounts will only be included in delta requests.
+    attr_accessor :deleted
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -70,7 +74,8 @@ module YnabApi
         :'note' => :'note',
         :'balance' => :'balance',
         :'cleared_balance' => :'cleared_balance',
-        :'uncleared_balance' => :'uncleared_balance'
+        :'uncleared_balance' => :'uncleared_balance',
+        :'deleted' => :'deleted'
       }
     end
 
@@ -85,7 +90,8 @@ module YnabApi
         :'note' => :'String',
         :'balance' => :'Float',
         :'cleared_balance' => :'Float',
-        :'uncleared_balance' => :'Float'
+        :'uncleared_balance' => :'Float',
+        :'deleted' => :'BOOLEAN'
       }
     end
 
@@ -132,6 +138,10 @@ module YnabApi
       if attributes.has_key?(:'uncleared_balance')
         self.uncleared_balance = attributes[:'uncleared_balance']
       end
+
+      if attributes.has_key?(:'deleted')
+        self.deleted = attributes[:'deleted']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -174,6 +184,10 @@ module YnabApi
         invalid_properties.push('invalid value for "uncleared_balance", uncleared_balance cannot be nil.')
       end
 
+      if @deleted.nil?
+        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -183,7 +197,7 @@ module YnabApi
       return false if @id.nil?
       return false if @name.nil?
       return false if @type.nil?
-      type_validator = EnumAttributeValidator.new('String', ['checking', 'savings', 'creditCard', 'cash', 'lineOfCredit', 'merchantAccount', 'payPal', 'investmentAccount', 'mortgage', 'otherAsset', 'otherLiability'])
+      type_validator = EnumAttributeValidator.new('String', ['checking', 'savings', 'cash', 'creditCard', 'lineOfCredit', 'otherAsset', 'otherLiability', 'payPal', 'merchantAccount', 'investmentAccount', 'mortgage'])
       return false unless type_validator.valid?(@type)
       return false if @on_budget.nil?
       return false if @closed.nil?
@@ -191,13 +205,14 @@ module YnabApi
       return false if @balance.nil?
       return false if @cleared_balance.nil?
       return false if @uncleared_balance.nil?
+      return false if @deleted.nil?
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ['checking', 'savings', 'creditCard', 'cash', 'lineOfCredit', 'merchantAccount', 'payPal', 'investmentAccount', 'mortgage', 'otherAsset', 'otherLiability'])
+      validator = EnumAttributeValidator.new('String', ['checking', 'savings', 'cash', 'creditCard', 'lineOfCredit', 'otherAsset', 'otherLiability', 'payPal', 'merchantAccount', 'investmentAccount', 'mortgage'])
       unless validator.valid?(type)
         fail ArgumentError, 'invalid value for "type", must be one of #{validator.allowable_values}.'
       end
@@ -217,7 +232,8 @@ module YnabApi
           note == o.note &&
           balance == o.balance &&
           cleared_balance == o.cleared_balance &&
-          uncleared_balance == o.uncleared_balance
+          uncleared_balance == o.uncleared_balance &&
+          deleted == o.deleted
     end
 
     # @see the `==` method
@@ -229,7 +245,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, type, on_budget, closed, note, balance, cleared_balance, uncleared_balance].hash
+      [id, name, type, on_budget, closed, note, balance, cleared_balance, uncleared_balance, deleted].hash
     end
 
     # Builds the object from hash

@@ -22,13 +22,17 @@ module YnabApi
 
     attr_accessor :longitude
 
+    # Whether or not the payee location has been deleted.  Deleted payee locations will only be included in delta requests.
+    attr_accessor :deleted
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
         :'payee_id' => :'payee_id',
         :'latitude' => :'latitude',
-        :'longitude' => :'longitude'
+        :'longitude' => :'longitude',
+        :'deleted' => :'deleted'
       }
     end
 
@@ -38,7 +42,8 @@ module YnabApi
         :'id' => :'String',
         :'payee_id' => :'String',
         :'latitude' => :'String',
-        :'longitude' => :'String'
+        :'longitude' => :'String',
+        :'deleted' => :'BOOLEAN'
       }
     end
 
@@ -65,6 +70,10 @@ module YnabApi
       if attributes.has_key?(:'longitude')
         self.longitude = attributes[:'longitude']
       end
+
+      if attributes.has_key?(:'deleted')
+        self.deleted = attributes[:'deleted']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -87,6 +96,10 @@ module YnabApi
         invalid_properties.push('invalid value for "longitude", longitude cannot be nil.')
       end
 
+      if @deleted.nil?
+        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -97,6 +110,7 @@ module YnabApi
       return false if @payee_id.nil?
       return false if @latitude.nil?
       return false if @longitude.nil?
+      return false if @deleted.nil?
       true
     end
 
@@ -108,7 +122,8 @@ module YnabApi
           id == o.id &&
           payee_id == o.payee_id &&
           latitude == o.latitude &&
-          longitude == o.longitude
+          longitude == o.longitude &&
+          deleted == o.deleted
     end
 
     # @see the `==` method
@@ -120,7 +135,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, payee_id, latitude, longitude].hash
+      [id, payee_id, latitude, longitude, deleted].hash
     end
 
     # Builds the object from hash

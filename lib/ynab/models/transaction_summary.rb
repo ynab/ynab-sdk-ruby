@@ -43,6 +43,9 @@ module YnabApi
     # If the Transaction was imported, this field is a unique (by account) import identifier.  If this transaction was imported through File Based Import or Direct Import and not through the API, the import_id will have the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurrence]'.  For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.
     attr_accessor :import_id
 
+    # Whether or not the transaction has been deleted.  Deleted transactions will only be included in delta requests.
+    attr_accessor :deleted
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -79,7 +82,8 @@ module YnabApi
         :'payee_id' => :'payee_id',
         :'category_id' => :'category_id',
         :'transfer_account_id' => :'transfer_account_id',
-        :'import_id' => :'import_id'
+        :'import_id' => :'import_id',
+        :'deleted' => :'deleted'
       }
     end
 
@@ -97,7 +101,8 @@ module YnabApi
         :'payee_id' => :'String',
         :'category_id' => :'String',
         :'transfer_account_id' => :'String',
-        :'import_id' => :'String'
+        :'import_id' => :'String',
+        :'deleted' => :'BOOLEAN'
       }
     end
 
@@ -156,6 +161,10 @@ module YnabApi
       if attributes.has_key?(:'import_id')
         self.import_id = attributes[:'import_id']
       end
+
+      if attributes.has_key?(:'deleted')
+        self.deleted = attributes[:'deleted']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -210,6 +219,10 @@ module YnabApi
         invalid_properties.push('invalid value for "import_id", import_id cannot be nil.')
       end
 
+      if @deleted.nil?
+        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -232,6 +245,7 @@ module YnabApi
       return false if @category_id.nil?
       return false if @transfer_account_id.nil?
       return false if @import_id.nil?
+      return false if @deleted.nil?
       true
     end
 
@@ -271,7 +285,8 @@ module YnabApi
           payee_id == o.payee_id &&
           category_id == o.category_id &&
           transfer_account_id == o.transfer_account_id &&
-          import_id == o.import_id
+          import_id == o.import_id &&
+          deleted == o.deleted
     end
 
     # @see the `==` method
@@ -283,7 +298,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, date, amount, memo, cleared, approved, flag_color, account_id, payee_id, category_id, transfer_account_id, import_id].hash
+      [id, date, amount, memo, cleared, approved, flag_color, account_id, payee_id, category_id, transfer_account_id, import_id, deleted].hash
     end
 
     # Builds the object from hash
