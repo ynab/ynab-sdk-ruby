@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **payee_id** | **String** |  | 
 **category_id** | **String** |  | 
 **transfer_account_id** | **String** | If a transfer, the account_id which the scheduled transaction transfers to | 
+**deleted** | **BOOLEAN** | Whether or not the scheduled transaction has been deleted.  Deleted scheduled transactions will only be included in delta requests. | 
 
 

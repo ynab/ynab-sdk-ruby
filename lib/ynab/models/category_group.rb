@@ -21,12 +21,16 @@ module YnabApi
     # Whether or not the category group is hidden
     attr_accessor :hidden
 
+    # Whether or not the category group has been deleted.  Deleted category groups will only be included in delta requests.
+    attr_accessor :deleted
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
         :'name' => :'name',
-        :'hidden' => :'hidden'
+        :'hidden' => :'hidden',
+        :'deleted' => :'deleted'
       }
     end
 
@@ -35,7 +39,8 @@ module YnabApi
       {
         :'id' => :'String',
         :'name' => :'String',
-        :'hidden' => :'BOOLEAN'
+        :'hidden' => :'BOOLEAN',
+        :'deleted' => :'BOOLEAN'
       }
     end
 
@@ -58,6 +63,10 @@ module YnabApi
       if attributes.has_key?(:'hidden')
         self.hidden = attributes[:'hidden']
       end
+
+      if attributes.has_key?(:'deleted')
+        self.deleted = attributes[:'deleted']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -76,6 +85,10 @@ module YnabApi
         invalid_properties.push('invalid value for "hidden", hidden cannot be nil.')
       end
 
+      if @deleted.nil?
+        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -85,6 +98,7 @@ module YnabApi
       return false if @id.nil?
       return false if @name.nil?
       return false if @hidden.nil?
+      return false if @deleted.nil?
       true
     end
 
@@ -95,7 +109,8 @@ module YnabApi
       self.class == o.class &&
           id == o.id &&
           name == o.name &&
-          hidden == o.hidden
+          hidden == o.hidden &&
+          deleted == o.deleted
     end
 
     # @see the `==` method
@@ -107,7 +122,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, hidden].hash
+      [id, name, hidden, deleted].hash
     end
 
     # Builds the object from hash

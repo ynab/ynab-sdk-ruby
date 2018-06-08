@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **memo** | **String** |  | 
 **payee_id** | **String** |  | 
 **category_id** | **String** |  | 
-**transfer_account_id** | **String** | If a transfer, the account_id which the scheduled sub transaction transfers to | 
+**transfer_account_id** | **String** | If a transfer, the account_id which the scheduled subtransaction transfers to | 
+**deleted** | **BOOLEAN** | Whether or not the scheduled subtransaction has been deleted.  Deleted scheduled subtransactions will only be included in delta requests. | 
 
 

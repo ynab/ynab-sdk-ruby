@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **payee_id** | **String** |  | 
 **category_id** | **String** |  | 
 **transfer_account_id** | **String** | If a transfer, the account_id which the subtransaction transfers to | 
+**deleted** | **BOOLEAN** | Whether or not the subtransaction has been deleted.  Deleted subtransactions will only be included in delta requests. | 
 
 

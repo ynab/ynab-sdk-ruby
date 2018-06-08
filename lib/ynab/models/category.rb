@@ -34,6 +34,9 @@ module YnabApi
     # Balance in current month in milliunits format
     attr_accessor :balance
 
+    # Whether or not the category has been deleted.  Deleted categories will only be included in delta requests.
+    attr_accessor :deleted
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -44,7 +47,8 @@ module YnabApi
         :'note' => :'note',
         :'budgeted' => :'budgeted',
         :'activity' => :'activity',
-        :'balance' => :'balance'
+        :'balance' => :'balance',
+        :'deleted' => :'deleted'
       }
     end
 
@@ -58,7 +62,8 @@ module YnabApi
         :'note' => :'String',
         :'budgeted' => :'Float',
         :'activity' => :'Float',
-        :'balance' => :'Float'
+        :'balance' => :'Float',
+        :'deleted' => :'BOOLEAN'
       }
     end
 
@@ -101,6 +106,10 @@ module YnabApi
       if attributes.has_key?(:'balance')
         self.balance = attributes[:'balance']
       end
+
+      if attributes.has_key?(:'deleted')
+        self.deleted = attributes[:'deleted']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -139,6 +148,10 @@ module YnabApi
         invalid_properties.push('invalid value for "balance", balance cannot be nil.')
       end
 
+      if @deleted.nil?
+        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -153,6 +166,7 @@ module YnabApi
       return false if @budgeted.nil?
       return false if @activity.nil?
       return false if @balance.nil?
+      return false if @deleted.nil?
       true
     end
 
@@ -168,7 +182,8 @@ module YnabApi
           note == o.note &&
           budgeted == o.budgeted &&
           activity == o.activity &&
-          balance == o.balance
+          balance == o.balance &&
+          deleted == o.deleted
     end
 
     # @see the `==` method
@@ -180,7 +195,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, category_group_id, name, hidden, note, budgeted, activity, balance].hash
+      [id, category_group_id, name, hidden, note, budgeted, activity, balance, deleted].hash
     end
 
     # Builds the object from hash
