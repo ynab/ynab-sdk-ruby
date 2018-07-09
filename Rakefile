@@ -32,7 +32,7 @@ task :generate do
 end
 
 task :commit_version_bump do
-  sh "git add lib/ynab/version.rb Gemfile.lock && git commit -m 'Bumping version for release'"
+  sh "git add lib/ynab/version.rb Gemfile.lock && git diff-index --quiet HEAD || git commit -m 'Bumping version for release'"
 end
 
 desc "Bump version, run specs build a gem and release on RubyGems"
