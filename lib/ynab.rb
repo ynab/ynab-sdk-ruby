@@ -96,8 +96,8 @@ require 'ynab/api/scheduled_transactions_api'
 require 'ynab/api/transactions_api'
 require 'ynab/api/user_api'
 
-module YnabApi
-  class Client
+module YNAB
+  class API
     def initialize(access_token, host = 'api.youneedabudget.com', useHttps = true)
       config = Configuration.default
       config.api_key['Authorization'] = access_token
@@ -148,5 +148,11 @@ module YnabApi
     def last_request
       @client.last_request
     end
+  end
+end
+
+# Support old interface: YnabApi::Client
+module YnabApi
+  class Client < YNAB::API
   end
 end

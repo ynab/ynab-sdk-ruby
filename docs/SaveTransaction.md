@@ -1,4 +1,4 @@
-# YnabApi::SaveTransaction
+# YNAB::SaveTransaction
 
 ## Properties
 Name | Type | Description | Notes

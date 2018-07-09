@@ -1,4 +1,4 @@
-# YnabApi::HybridTransactionsWrapper
+# YNAB::HybridTransactionsWrapper
 
 ## Properties
 Name | Type | Description | Notes

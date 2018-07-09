@@ -1,4 +1,4 @@
-# YnabApi::ScheduledSubTransaction
+# YNAB::ScheduledSubTransaction
 
 ## Properties
 Name | Type | Description | Notes

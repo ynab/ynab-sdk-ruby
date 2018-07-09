@@ -4,7 +4,7 @@ require 'date'
 
 def print_budget_month
   access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-  ynab = YnabApi::Client.new(access_token)
+  ynab = YNAB::API.new(access_token)
 
   budget_id = "f968197b-2863-not-real-c2406dbe7f0d"
   first_day_of_month_iso = Date.new(Date.today.year, Date.today.month, 1).iso8601

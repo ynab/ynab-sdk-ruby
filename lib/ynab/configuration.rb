@@ -12,7 +12,7 @@ Swagger Codegen version: 2.4.0-SNAPSHOT
 
 require 'uri'
 
-module YnabApi
+module YNAB
   class Configuration
     # Defines url scheme
     attr_accessor :scheme

@@ -1,4 +1,4 @@
-# YnabApi::BulkTransactions
+# YNAB::BulkTransactions
 
 ## Properties
 Name | Type | Description | Notes

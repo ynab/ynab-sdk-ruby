@@ -1,4 +1,4 @@
-# YnabApi::ScheduledTransactionResponse
+# YNAB::ScheduledTransactionResponse
 
 ## Properties
 Name | Type | Description | Notes

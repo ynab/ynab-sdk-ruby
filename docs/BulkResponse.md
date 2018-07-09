@@ -1,4 +1,4 @@
-# YnabApi::BulkResponse
+# YNAB::BulkResponse
 
 ## Properties
 Name | Type | Description | Notes

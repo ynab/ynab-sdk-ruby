@@ -1,4 +1,4 @@
-# YnabApi::ScheduledTransactionsApi
+# YNAB::ScheduledTransactionsApi
 
 All URIs are relative to *https://api.youneedabudget.com/v1*
 

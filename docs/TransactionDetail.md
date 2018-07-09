@@ -1,4 +1,4 @@
-# YnabApi::TransactionDetail
+# YNAB::TransactionDetail
 
 ## Properties
 Name | Type | Description | Notes

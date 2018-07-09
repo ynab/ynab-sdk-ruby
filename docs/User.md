@@ -1,4 +1,4 @@
-# YnabApi::User
+# YNAB::User
 
 ## Properties
 Name | Type | Description | Notes

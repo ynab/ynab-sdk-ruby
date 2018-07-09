@@ -1,4 +1,4 @@
-# YnabApi::Payee
+# YNAB::Payee
 
 ## Properties
 Name | Type | Description | Notes

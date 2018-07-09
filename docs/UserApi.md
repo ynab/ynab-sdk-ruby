@@ -1,4 +1,4 @@
-# YnabApi::UserApi
+# YNAB::UserApi
 
 All URIs are relative to *https://api.youneedabudget.com/v1*
 

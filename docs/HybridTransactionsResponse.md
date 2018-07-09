@@ -1,4 +1,4 @@
-# YnabApi::HybridTransactionsResponse
+# YNAB::HybridTransactionsResponse
 
 ## Properties
 Name | Type | Description | Notes

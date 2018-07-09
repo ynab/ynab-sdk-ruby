@@ -1,4 +1,4 @@
-# YnabApi::MonthSummary
+# YNAB::MonthSummary
 
 ## Properties
 Name | Type | Description | Notes

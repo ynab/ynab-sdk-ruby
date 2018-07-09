@@ -1,4 +1,4 @@
-# YnabApi::PayeesWrapper
+# YNAB::PayeesWrapper
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# YnabApi::TransactionsResponse
+# YNAB::TransactionsResponse
 
 ## Properties
 Name | Type | Description | Notes

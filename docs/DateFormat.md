@@ -1,4 +1,4 @@
-# YnabApi::DateFormat
+# YNAB::DateFormat
 
 ## Properties
 Name | Type | Description | Notes

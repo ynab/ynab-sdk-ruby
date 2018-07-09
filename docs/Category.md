@@ -1,4 +1,4 @@
-# YnabApi::Category
+# YNAB::Category
 
 ## Properties
 Name | Type | Description | Notes
