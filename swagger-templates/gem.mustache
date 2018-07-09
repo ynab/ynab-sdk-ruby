@@ -1,0 +1,77 @@
+=begin
+{{> api_info}}
+=end
+
+# Common files
+require '{{gemName}}/api_client'
+require '{{gemName}}/api_error'
+require '{{gemName}}/version'
+require '{{gemName}}/configuration'
+
+# Models
+{{#models}}
+{{#model}}
+require '{{gemName}}/{{modelPackage}}/{{classFilename}}'{{/model}}
+{{/models}}
+
+# APIs
+{{#apiInfo}}
+{{#apis}}
+require '{{importPath}}'
+{{/apis}}
+{{/apiInfo}}
+
+module {{moduleName}}
+  class API
+    def initialize(access_token, host = 'api.youneedabudget.com', useHttps = true)
+      config = Configuration.default
+      config.api_key['Authorization'] = access_token
+      config.api_key_prefix['Authorization'] = 'Bearer'
+      config.scheme = useHttps ? 'https' : 'http'
+      config.host = host
+      config.base_path = '/v1'
+
+      @client = ApiClient.new(config)
+    end
+
+    def users
+      UserApi.new(@client)
+    end
+
+    def budgets
+      BudgetsApi.new(@client)
+    end
+
+    def accounts
+      AccountsApi.new(@client)
+    end
+
+    def categories
+      CategoriesApi.new(@client)
+    end
+
+    def months
+      MonthsApi.new(@client)
+    end
+
+    def payees
+      PayeesApi.new(@client)
+    end
+
+    def payee_locations
+      PayeeLocationsApi.new(@client)
+    end
+
+    def transactions
+      TransactionsApi.new(@client)
+    end
+
+    def scheduled_transactions
+      ScheduledTransactionsApi.new(@client)
+    end
+
+    def last_request
+      @client.last_request
+    end
+  end
+end
