@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The ID of the Budget. | 
  **since_date** | **Date**| Only return transactions on or after this date. | [optional] 
- **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
+ **type** | **String**| Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported) | [optional] 
 
 ### Return type
 
@@ -83,6 +83,7 @@ Name | Type | Description  | Notes
  **budget_id** | [**String**](.md)| The ID of the Budget. | 
  **account_id** | [**String**](.md)| The ID of the Account. | 
  **since_date** | **Date**| Only return transactions on or after this date. | [optional] 
+ **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
 
 ### Return type
 
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
  **budget_id** | [**String**](.md)| The ID of the Budget. | 
  **category_id** | [**String**](.md)| The ID of the Category. | 
  **since_date** | **Date**| Only return transactions on or after this date. | [optional] 
+ **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
 
 ### Return type
 
@@ -139,6 +141,7 @@ Name | Type | Description  | Notes
  **budget_id** | [**String**](.md)| The ID of the Budget. | 
  **payee_id** | [**String**](.md)| The ID of the Payee. | 
  **since_date** | **Date**| Only return transactions on or after this date. | [optional] 
+ **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
 
 ### Return type
 

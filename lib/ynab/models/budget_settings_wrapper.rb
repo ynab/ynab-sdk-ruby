@@ -13,62 +13,20 @@ Swagger Codegen version: 2.4.0-SNAPSHOT
 require 'date'
 
 module YnabApi
-  class Category
-    attr_accessor :id
-
-    attr_accessor :category_group_id
-
-    attr_accessor :name
-
-    # Whether or not the category is hidden
-    attr_accessor :hidden
-
-    # If category is hidden this is the id of the category group it originally belonged to before it was hidden.
-    attr_accessor :original_category_group_id
-
-    attr_accessor :note
-
-    # Budgeted amount in current month in milliunits format
-    attr_accessor :budgeted
-
-    # Activity amount in current month in milliunits format
-    attr_accessor :activity
-
-    # Balance in current month in milliunits format
-    attr_accessor :balance
-
-    # Whether or not the category has been deleted.  Deleted categories will only be included in delta requests.
-    attr_accessor :deleted
+  class BudgetSettingsWrapper
+    attr_accessor :settings
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'category_group_id' => :'category_group_id',
-        :'name' => :'name',
-        :'hidden' => :'hidden',
-        :'original_category_group_id' => :'original_category_group_id',
-        :'note' => :'note',
-        :'budgeted' => :'budgeted',
-        :'activity' => :'activity',
-        :'balance' => :'balance',
-        :'deleted' => :'deleted'
+        :'settings' => :'settings'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
-        :'category_group_id' => :'String',
-        :'name' => :'String',
-        :'hidden' => :'BOOLEAN',
-        :'original_category_group_id' => :'String',
-        :'note' => :'String',
-        :'budgeted' => :'Float',
-        :'activity' => :'Float',
-        :'balance' => :'Float',
-        :'deleted' => :'BOOLEAN'
+        :'settings' => :'BudgetSettings'
       }
     end
 
@@ -80,44 +38,8 @@ module YnabApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'category_group_id')
-        self.category_group_id = attributes[:'category_group_id']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'hidden')
-        self.hidden = attributes[:'hidden']
-      end
-
-      if attributes.has_key?(:'original_category_group_id')
-        self.original_category_group_id = attributes[:'original_category_group_id']
-      end
-
-      if attributes.has_key?(:'note')
-        self.note = attributes[:'note']
-      end
-
-      if attributes.has_key?(:'budgeted')
-        self.budgeted = attributes[:'budgeted']
-      end
-
-      if attributes.has_key?(:'activity')
-        self.activity = attributes[:'activity']
-      end
-
-      if attributes.has_key?(:'balance')
-        self.balance = attributes[:'balance']
-      end
-
-      if attributes.has_key?(:'deleted')
-        self.deleted = attributes[:'deleted']
+      if attributes.has_key?(:'settings')
+        self.settings = attributes[:'settings']
       end
     end
 
@@ -125,40 +47,8 @@ module YnabApi
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @category_group_id.nil?
-        invalid_properties.push('invalid value for "category_group_id", category_group_id cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @hidden.nil?
-        invalid_properties.push('invalid value for "hidden", hidden cannot be nil.')
-      end
-
-      if @note.nil?
-        invalid_properties.push('invalid value for "note", note cannot be nil.')
-      end
-
-      if @budgeted.nil?
-        invalid_properties.push('invalid value for "budgeted", budgeted cannot be nil.')
-      end
-
-      if @activity.nil?
-        invalid_properties.push('invalid value for "activity", activity cannot be nil.')
-      end
-
-      if @balance.nil?
-        invalid_properties.push('invalid value for "balance", balance cannot be nil.')
-      end
-
-      if @deleted.nil?
-        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
+      if @settings.nil?
+        invalid_properties.push('invalid value for "settings", settings cannot be nil.')
       end
 
       invalid_properties
@@ -167,15 +57,7 @@ module YnabApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
-      return false if @category_group_id.nil?
-      return false if @name.nil?
-      return false if @hidden.nil?
-      return false if @note.nil?
-      return false if @budgeted.nil?
-      return false if @activity.nil?
-      return false if @balance.nil?
-      return false if @deleted.nil?
+      return false if @settings.nil?
       true
     end
 
@@ -184,16 +66,7 @@ module YnabApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          category_group_id == o.category_group_id &&
-          name == o.name &&
-          hidden == o.hidden &&
-          original_category_group_id == o.original_category_group_id &&
-          note == o.note &&
-          budgeted == o.budgeted &&
-          activity == o.activity &&
-          balance == o.balance &&
-          deleted == o.deleted
+          settings == o.settings
     end
 
     # @see the `==` method
@@ -205,7 +78,7 @@ module YnabApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, category_group_id, name, hidden, original_category_group_id, note, budgeted, activity, balance, deleted].hash
+      [settings].hash
     end
 
     # Builds the object from hash

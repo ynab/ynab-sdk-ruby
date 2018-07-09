@@ -140,7 +140,7 @@ module YnabApi
     # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date.
-    # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
+    # @option opts [String] :type Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported)
     # @return [TransactionsResponse]
     def get_transactions(budget_id, opts = {})
       data, _status_code, _headers = get_transactions_with_http_info(budget_id, opts)
@@ -152,7 +152,7 @@ module YnabApi
     # @param budget_id The ID of the Budget.
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date.
-    # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
+    # @option opts [String] :type Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported)
     # @return [Array<(TransactionsResponse, Fixnum, Hash)>] TransactionsResponse data, response status code and response headers
     def get_transactions_with_http_info(budget_id, opts = {})
       if @api_client.config.debugging
@@ -202,6 +202,7 @@ module YnabApi
     # @param account_id The ID of the Account.
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [TransactionsResponse]
     def get_transactions_by_account(budget_id, account_id, opts = {})
       data, _status_code, _headers = get_transactions_by_account_with_http_info(budget_id, account_id, opts)
@@ -214,6 +215,7 @@ module YnabApi
     # @param account_id The ID of the Account.
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [Array<(TransactionsResponse, Fixnum, Hash)>] TransactionsResponse data, response status code and response headers
     def get_transactions_by_account_with_http_info(budget_id, account_id, opts = {})
       if @api_client.config.debugging
@@ -227,12 +229,16 @@ module YnabApi
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling TransactionsApi.get_transactions_by_account"
       end
+      if @api_client.config.client_side_validation && opts[:'type'] && !['uncategorized', 'unapproved'].include?(opts[:'type'])
+        fail ArgumentError, 'invalid value for "type", must be one of uncategorized, unapproved'
+      end
       # resource path
       local_var_path = '/budgets/{budget_id}/accounts/{account_id}/transactions'.sub('{' + 'budget_id' + '}', budget_id.to_s).sub('{' + 'account_id' + '}', account_id.to_s)
 
       # query parameters
       query_params = {}
       query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
+      query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
 
       # header parameters
       header_params = {}
@@ -263,6 +269,7 @@ module YnabApi
     # @param category_id The ID of the Category.
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [HybridTransactionsResponse]
     def get_transactions_by_category(budget_id, category_id, opts = {})
       data, _status_code, _headers = get_transactions_by_category_with_http_info(budget_id, category_id, opts)
@@ -275,6 +282,7 @@ module YnabApi
     # @param category_id The ID of the Category.
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [Array<(HybridTransactionsResponse, Fixnum, Hash)>] HybridTransactionsResponse data, response status code and response headers
     def get_transactions_by_category_with_http_info(budget_id, category_id, opts = {})
       if @api_client.config.debugging
@@ -288,12 +296,16 @@ module YnabApi
       if @api_client.config.client_side_validation && category_id.nil?
         fail ArgumentError, "Missing the required parameter 'category_id' when calling TransactionsApi.get_transactions_by_category"
       end
+      if @api_client.config.client_side_validation && opts[:'type'] && !['uncategorized', 'unapproved'].include?(opts[:'type'])
+        fail ArgumentError, 'invalid value for "type", must be one of uncategorized, unapproved'
+      end
       # resource path
       local_var_path = '/budgets/{budget_id}/categories/{category_id}/transactions'.sub('{' + 'budget_id' + '}', budget_id.to_s).sub('{' + 'category_id' + '}', category_id.to_s)
 
       # query parameters
       query_params = {}
       query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
+      query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
 
       # header parameters
       header_params = {}
@@ -382,6 +394,7 @@ module YnabApi
     # @param payee_id The ID of the Payee.
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [HybridTransactionsResponse]
     def get_transactions_by_payee(budget_id, payee_id, opts = {})
       data, _status_code, _headers = get_transactions_by_payee_with_http_info(budget_id, payee_id, opts)
@@ -394,6 +407,7 @@ module YnabApi
     # @param payee_id The ID of the Payee.
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [Array<(HybridTransactionsResponse, Fixnum, Hash)>] HybridTransactionsResponse data, response status code and response headers
     def get_transactions_by_payee_with_http_info(budget_id, payee_id, opts = {})
       if @api_client.config.debugging
@@ -407,12 +421,16 @@ module YnabApi
       if @api_client.config.client_side_validation && payee_id.nil?
         fail ArgumentError, "Missing the required parameter 'payee_id' when calling TransactionsApi.get_transactions_by_payee"
       end
+      if @api_client.config.client_side_validation && opts[:'type'] && !['uncategorized', 'unapproved'].include?(opts[:'type'])
+        fail ArgumentError, 'invalid value for "type", must be one of uncategorized, unapproved'
+      end
       # resource path
       local_var_path = '/budgets/{budget_id}/payees/{payee_id}/transactions'.sub('{' + 'budget_id' + '}', budget_id.to_s).sub('{' + 'payee_id' + '}', payee_id.to_s)
 
       # query parameters
       query_params = {}
       query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
+      query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
 
       # header parameters
       header_params = {}
