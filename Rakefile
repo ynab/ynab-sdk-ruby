@@ -30,3 +30,11 @@ task :generate do
      " -c /local/config.json -o /local"\
      " -t /local/swagger-templates"
 end
+
+task :commit_version_bump
+  sh "git add lib/ynab/version.rb Gemfile.lock && git commit -m 'Bumping version for release'"
+end
+
+desc "Bump version, run specs build a gem and release on RubyGems"
+task :publish => ['generate', 'commit_version_bump', 'spec', 'release']
+
