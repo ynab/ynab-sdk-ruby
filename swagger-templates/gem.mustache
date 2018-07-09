@@ -22,7 +22,7 @@ require '{{importPath}}'
 {{/apiInfo}}
 
 module {{moduleName}}
-  class API
+  class Client
     def initialize(access_token, host = 'api.youneedabudget.com', useHttps = true)
       config = Configuration.default
       config.api_key['Authorization'] = access_token
