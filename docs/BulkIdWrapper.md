@@ -1,4 +1,4 @@
-# YnabApi::BulkIdWrapper
+# YNAB::BulkIdWrapper
 
 ## Properties
 Name | Type | Description | Notes

@@ -22,7 +22,7 @@ require '{{importPath}}'
 {{/apiInfo}}
 
 module {{moduleName}}
-  class Client
+  class API
     def initialize(access_token, host = 'api.youneedabudget.com', useHttps = true)
       config = Configuration.default
       config.api_key['Authorization'] = access_token
@@ -73,5 +73,11 @@ module {{moduleName}}
     def last_request
       @client.last_request
     end
+  end
+end
+
+# Support old interface: YnabApi::Client
+module YnabApi
+  class Client < {{moduleName}}::API
   end
 end

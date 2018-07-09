@@ -1,4 +1,4 @@
-# YnabApi::TransactionsWrapper
+# YNAB::TransactionsWrapper
 
 ## Properties
 Name | Type | Description | Notes

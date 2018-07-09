@@ -1,4 +1,4 @@
-# YnabApi::ScheduledTransactionWrapper
+# YNAB::ScheduledTransactionWrapper
 
 ## Properties
 Name | Type | Description | Notes

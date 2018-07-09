@@ -1,4 +1,4 @@
-# YnabApi::AccountResponse
+# YNAB::AccountResponse
 
 ## Properties
 Name | Type | Description | Notes

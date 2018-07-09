@@ -10,6 +10,6 @@ Swagger Codegen version: 2.4.0-SNAPSHOT
 
 =end
 
-module YnabApi
+module YNAB
   VERSION = '1.0.0'
 end

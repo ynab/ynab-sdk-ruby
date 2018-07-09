@@ -3,7 +3,7 @@ require 'ynab'
 
 def print_budget_list
   access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
-  ynab = YnabApi::Client.new(access_token)
+  ynab = YNAB::API.new(access_token)
 
   puts "Fetching budgets..."
   begin

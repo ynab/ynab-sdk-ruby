@@ -1,4 +1,4 @@
-# YnabApi::MonthDetailWrapper
+# YNAB::MonthDetailWrapper
 
 ## Properties
 Name | Type | Description | Notes

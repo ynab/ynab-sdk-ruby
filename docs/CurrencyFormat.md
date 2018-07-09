@@ -1,4 +1,4 @@
-# YnabApi::CurrencyFormat
+# YNAB::CurrencyFormat
 
 ## Properties
 Name | Type | Description | Notes

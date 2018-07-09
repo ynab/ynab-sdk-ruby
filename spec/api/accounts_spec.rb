@@ -3,12 +3,12 @@ require 'spec_helper'
 describe 'accounts' do
   let(:access_token) { '9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045' }
   let(:budget_id) { 'f419ac25-6217-4175-88dc-c3136ff5f6fd' }
-  let(:client) { YnabApi::Client.new(access_token, 'api.localhost:3000', false) }
+  let(:client) { YNAB::API.new(access_token, 'api.localhost:3000', false) }
   let (:instance) { client.accounts }
 
   describe 'test an instance of AccountsApi' do
     it 'should create an instance of AccountsApi' do
-      expect(instance).to be_instance_of(YnabApi::AccountsApi)
+      expect(instance).to be_instance_of(YNAB::AccountsApi)
     end
   end
 
@@ -23,10 +23,10 @@ describe 'accounts' do
 
     it "throws when unauthorized" do
       VCR.use_cassette("accounts_unauthorized") do
-        client = YnabApi::Client.new('not_valid_access_token', 'api.localhost:3000', false)
+        client = YNAB::API.new('not_valid_access_token', 'api.localhost:3000', false)
         begin
           response = client.accounts.get_accounts(budget_id)
-        rescue YnabApi::ApiError => e
+        rescue YNAB::ApiError => e
           expect(e.code).to be 401
           expect(client.last_request.response.options[:code]).to be 401
         end
@@ -51,6 +51,15 @@ describe 'accounts' do
         expect(response.data.account).to be
         expect(response.data.account.name).to eq "Checking"
       end
+    end
+  end
+
+  it "foobar" do
+    VCR.use_cassette("accounts") do
+      client = YnabApi::Client.new(access_token, 'api.localhost:3000', false)
+      response = client.accounts.get_accounts(budget_id)
+      expect(client.last_request.response.options[:code]).to be 200
+      expect(response.data.accounts.length).to be 1
     end
   end
 end

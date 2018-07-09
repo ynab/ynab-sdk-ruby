@@ -28,7 +28,7 @@ require 'ynab'
 
 access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
 
-ynab = YnabApi::Client.new(access_token)
+ynab = YNAB::API.new(access_token)
 
 budget_response = ynab.budgets.get_budgets
 budgets = budget_response.data.budgets

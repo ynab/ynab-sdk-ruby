@@ -1,4 +1,4 @@
-# YnabApi::BudgetSettings
+# YNAB::BudgetSettings
 
 ## Properties
 Name | Type | Description | Notes

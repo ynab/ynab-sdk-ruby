@@ -12,7 +12,7 @@ Swagger Codegen version: 2.3.1
 
 require 'date'
 
-module YnabApi
+module YNAB
 
   class BulkTransactionIds
     attr_accessor :transaction_ids
@@ -143,7 +143,7 @@ module YnabApi
           end
         end
       else # model
-        temp_model = YnabApi.const_get(type).new
+        temp_model = YNAB.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end
