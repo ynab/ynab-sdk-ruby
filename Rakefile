@@ -8,7 +8,11 @@ begin
 rescue LoadError
   # no rspec available
 end
+
 task :default => [:spec]
+
+desc "Generate from latest spec, build a gem and release on RubyGems"
+task :release => ['generate', 'spec', 'release']
 
 desc "Run Swagger Code Generator to update the client from the Swagger spec"
 task :generate do
