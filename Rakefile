@@ -31,7 +31,7 @@ task :generate do
      " -t /local/swagger-templates"
 end
 
-task :commit_version_bump
+task :commit_version_bump do
   sh "git add lib/ynab/version.rb Gemfile.lock && git commit -m 'Bumping version for release'"
 end
 
