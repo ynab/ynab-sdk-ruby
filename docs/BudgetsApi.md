@@ -5,6 +5,7 @@ All URIs are relative to *https://api.youneedabudget.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_budget_by_id**](BudgetsApi.md#get_budget_by_id) | **GET** /budgets/{budget_id} | Single budget
+[**get_budget_settings_by_id**](BudgetsApi.md#get_budget_settings_by_id) | **GET** /budgets/{budget_id}/settings | Budget Settings
 [**get_budgets**](BudgetsApi.md#get_budgets) | **GET** /budgets | List budgets
 
 
@@ -25,6 +26,23 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BudgetDetailResponse**](BudgetDetailResponse.md)
+
+# **get_budget_settings_by_id**
+> BudgetSettingsResponse get_budget_settings_by_id(budget_id)
+
+Budget Settings
+
+Returns settings for a budget.
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **budget_id** | [**String**](.md)| The ID of the Budget. | 
+
+### Return type
+
+[**BudgetSettingsResponse**](BudgetSettingsResponse.md)
 
 # **get_budgets**
 > BudgetSummaryResponse get_budgets

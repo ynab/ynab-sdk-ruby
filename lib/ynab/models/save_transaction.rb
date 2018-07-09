@@ -24,7 +24,7 @@ module YnabApi
     # The payee for the transaction.  Transfer payees are not permitted and will be ignored if supplied.
     attr_accessor :payee_id
 
-    # The payee name.  If a payee_name value is provided and payee_id is not included or has a null value, payee_name will be used to create or use an existing payee.
+    # The payee name.  If a payee_name value is provided and payee_id has a null value, the payee_name value will be used to resolve the payee by either (1) a matching payee rename rule (only if import_id is also specified) or (2) a payee with the same name or (3) creation of a new payee.
     attr_accessor :payee_name
 
     # The category for the transaction.  Split and Credit Card Payment categories are not permitted and will be ignored if supplied.
