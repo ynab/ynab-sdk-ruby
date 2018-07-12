@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_id** | **String** |  | 
 **date** | **Date** |  | 
-**amount** | **Float** | The transaction amount in milliunits format | 
+**amount** | **Integer** | The transaction amount in milliunits format | 
 **payee_id** | **String** | The payee for the transaction.  Transfer payees are not permitted and will be ignored if supplied. | [optional] 
 **payee_name** | **String** | The payee name.  If a payee_name value is provided and payee_id has a null value, the payee_name value will be used to resolve the payee by either (1) a matching payee rename rule (only if import_id is also specified) or (2) a payee with the same name or (3) creation of a new payee. | [optional] 
 **category_id** | **String** | The category for the transaction.  Split and Credit Card Payment categories are not permitted and will be ignored if supplied. | [optional] 
