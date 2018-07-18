@@ -88,9 +88,9 @@ module YNAB
         :'on_budget' => :'BOOLEAN',
         :'closed' => :'BOOLEAN',
         :'note' => :'String',
-        :'balance' => :'Float',
-        :'cleared_balance' => :'Float',
-        :'uncleared_balance' => :'Float',
+        :'balance' => :'Integer',
+        :'cleared_balance' => :'Integer',
+        :'uncleared_balance' => :'Integer',
         :'deleted' => :'BOOLEAN'
       }
     end

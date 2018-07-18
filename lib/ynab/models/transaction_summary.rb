@@ -92,7 +92,7 @@ module YNAB
       {
         :'id' => :'String',
         :'date' => :'Date',
-        :'amount' => :'Float',
+        :'amount' => :'Integer',
         :'memo' => :'String',
         :'cleared' => :'String',
         :'approved' => :'BOOLEAN',

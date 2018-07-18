@@ -37,8 +37,45 @@ module YNAB
     # Balance in current month in milliunits format
     attr_accessor :balance
 
+    # The type of goal, if the cagegory has a goal (TB=Target Category Balance, TBD=Target Category Balance by Date, MF=Monthly Funding)
+    attr_accessor :goal_type
+
+    # The month a goal was created
+    attr_accessor :goal_creation_month
+
+    # The goal target amount in milliunits
+    attr_accessor :goal_target
+
+    # If the goal type is 'TBD' (Target Category Balance by Date), this is the target month for the goal to be completed
+    attr_accessor :goal_target_month
+
+    # The percentage completion of the goal
+    attr_accessor :goal_percentage_complete
+
     # Whether or not the category has been deleted.  Deleted categories will only be included in delta requests.
     attr_accessor :deleted
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -52,6 +89,11 @@ module YNAB
         :'budgeted' => :'budgeted',
         :'activity' => :'activity',
         :'balance' => :'balance',
+        :'goal_type' => :'goal_type',
+        :'goal_creation_month' => :'goal_creation_month',
+        :'goal_target' => :'goal_target',
+        :'goal_target_month' => :'goal_target_month',
+        :'goal_percentage_complete' => :'goal_percentage_complete',
         :'deleted' => :'deleted'
       }
     end
@@ -65,9 +107,14 @@ module YNAB
         :'hidden' => :'BOOLEAN',
         :'original_category_group_id' => :'String',
         :'note' => :'String',
-        :'budgeted' => :'Float',
-        :'activity' => :'Float',
-        :'balance' => :'Float',
+        :'budgeted' => :'Integer',
+        :'activity' => :'Integer',
+        :'balance' => :'Integer',
+        :'goal_type' => :'String',
+        :'goal_creation_month' => :'Date',
+        :'goal_target' => :'Integer',
+        :'goal_target_month' => :'Date',
+        :'goal_percentage_complete' => :'Integer',
         :'deleted' => :'BOOLEAN'
       }
     end
@@ -116,6 +163,26 @@ module YNAB
         self.balance = attributes[:'balance']
       end
 
+      if attributes.has_key?(:'goal_type')
+        self.goal_type = attributes[:'goal_type']
+      end
+
+      if attributes.has_key?(:'goal_creation_month')
+        self.goal_creation_month = attributes[:'goal_creation_month']
+      end
+
+      if attributes.has_key?(:'goal_target')
+        self.goal_target = attributes[:'goal_target']
+      end
+
+      if attributes.has_key?(:'goal_target_month')
+        self.goal_target_month = attributes[:'goal_target_month']
+      end
+
+      if attributes.has_key?(:'goal_percentage_complete')
+        self.goal_percentage_complete = attributes[:'goal_percentage_complete']
+      end
+
       if attributes.has_key?(:'deleted')
         self.deleted = attributes[:'deleted']
       end
@@ -157,6 +224,26 @@ module YNAB
         invalid_properties.push('invalid value for "balance", balance cannot be nil.')
       end
 
+      if @goal_type.nil?
+        invalid_properties.push('invalid value for "goal_type", goal_type cannot be nil.')
+      end
+
+      if @goal_creation_month.nil?
+        invalid_properties.push('invalid value for "goal_creation_month", goal_creation_month cannot be nil.')
+      end
+
+      if @goal_target.nil?
+        invalid_properties.push('invalid value for "goal_target", goal_target cannot be nil.')
+      end
+
+      if @goal_target_month.nil?
+        invalid_properties.push('invalid value for "goal_target_month", goal_target_month cannot be nil.')
+      end
+
+      if @goal_percentage_complete.nil?
+        invalid_properties.push('invalid value for "goal_percentage_complete", goal_percentage_complete cannot be nil.')
+      end
+
       if @deleted.nil?
         invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
       end
@@ -175,8 +262,25 @@ module YNAB
       return false if @budgeted.nil?
       return false if @activity.nil?
       return false if @balance.nil?
+      return false if @goal_type.nil?
+      goal_type_validator = EnumAttributeValidator.new('String', ['TB', 'TBD', 'MF'])
+      return false unless goal_type_validator.valid?(@goal_type)
+      return false if @goal_creation_month.nil?
+      return false if @goal_target.nil?
+      return false if @goal_target_month.nil?
+      return false if @goal_percentage_complete.nil?
       return false if @deleted.nil?
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] goal_type Object to be assigned
+    def goal_type=(goal_type)
+      validator = EnumAttributeValidator.new('String', ['TB', 'TBD', 'MF'])
+      unless validator.valid?(goal_type)
+        fail ArgumentError, 'invalid value for "goal_type", must be one of #{validator.allowable_values}.'
+      end
+      @goal_type = goal_type
     end
 
     # Checks equality by comparing each attribute.
@@ -193,6 +297,11 @@ module YNAB
           budgeted == o.budgeted &&
           activity == o.activity &&
           balance == o.balance &&
+          goal_type == o.goal_type &&
+          goal_creation_month == o.goal_creation_month &&
+          goal_target == o.goal_target &&
+          goal_target_month == o.goal_target_month &&
+          goal_percentage_complete == o.goal_percentage_complete &&
           deleted == o.deleted
     end
 
@@ -205,7 +314,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, category_group_id, name, hidden, original_category_group_id, note, budgeted, activity, balance, deleted].hash
+      [id, category_group_id, name, hidden, original_category_group_id, note, budgeted, activity, balance, goal_type, goal_creation_month, goal_target, goal_target_month, goal_percentage_complete, deleted].hash
     end
 
     # Builds the object from hash

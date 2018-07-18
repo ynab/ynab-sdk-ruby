@@ -91,7 +91,7 @@ module YNAB
         :'date_first' => :'Date',
         :'date_next' => :'Date',
         :'frequency' => :'String',
-        :'amount' => :'Float',
+        :'amount' => :'Integer',
         :'memo' => :'String',
         :'flag_color' => :'String',
         :'account_id' => :'String',
