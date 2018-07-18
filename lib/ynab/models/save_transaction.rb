@@ -88,7 +88,7 @@ module YNAB
       {
         :'account_id' => :'String',
         :'date' => :'Date',
-        :'amount' => :'Float',
+        :'amount' => :'Integer',
         :'payee_id' => :'String',
         :'payee_name' => :'String',
         :'category_id' => :'String',

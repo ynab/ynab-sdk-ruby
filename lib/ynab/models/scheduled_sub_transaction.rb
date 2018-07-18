@@ -52,7 +52,7 @@ module YNAB
       {
         :'id' => :'String',
         :'scheduled_transaction_id' => :'String',
-        :'amount' => :'Float',
+        :'amount' => :'Integer',
         :'memo' => :'String',
         :'payee_id' => :'String',
         :'category_id' => :'String',

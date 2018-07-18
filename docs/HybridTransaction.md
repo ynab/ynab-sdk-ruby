@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
 **date** | **Date** |  | 
-**amount** | **Float** | The transaction amount in milliunits format | 
+**amount** | **Integer** | The transaction amount in milliunits format | 
 **memo** | **String** |  | 
 **cleared** | **String** | The cleared status of the transaction | 
 **approved** | **BOOLEAN** | Whether or not the transaction is approved | 

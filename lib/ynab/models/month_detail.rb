@@ -42,8 +42,8 @@ module YNAB
       {
         :'month' => :'Date',
         :'note' => :'String',
-        :'to_be_budgeted' => :'Float',
-        :'age_of_money' => :'Float',
+        :'to_be_budgeted' => :'Integer',
+        :'age_of_money' => :'Integer',
         :'categories' => :'Array<Category>'
       }
     end

@@ -31,7 +31,7 @@ module YNAB
     def self.swagger_types
       {
         :'budget' => :'BudgetDetail',
-        :'server_knowledge' => :'Float'
+        :'server_knowledge' => :'Integer'
       }
     end
 

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
 **transaction_id** | **String** |  | 
-**amount** | **Float** | The subtransaction amount in milliunits format | 
+**amount** | **Integer** | The subtransaction amount in milliunits format | 
 **memo** | **String** |  | 
 **payee_id** | **String** |  | 
 **category_id** | **String** |  | 
