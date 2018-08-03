@@ -32,4 +32,4 @@ def print_budget_month
   end
 end
 
-print_budget_month()
+print_budget_month

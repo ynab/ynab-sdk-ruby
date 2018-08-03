@@ -23,4 +23,4 @@ def print_category_info
   end
 end
 
-print_category_info()
+print_category_info

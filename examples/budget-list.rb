@@ -21,4 +21,4 @@ def print_budget_list
   end
 end
 
-print_budget_list()
+print_budget_list
