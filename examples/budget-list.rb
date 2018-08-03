@@ -1,4 +1,3 @@
-$:.unshift('../lib')
 require 'ynab'
 
 def print_budget_list
