@@ -28,3 +28,4 @@ Gemfile.lock
 README.md
 spec/
 spec/**/*.rb
+lib/ynab/api_error.rb

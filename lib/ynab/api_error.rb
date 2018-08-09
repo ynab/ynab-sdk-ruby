@@ -27,12 +27,38 @@ module YNAB
           super arg
         end
 
-        arg.each do |k, v|
-          instance_variable_set "@#{k}", v
+        arg.each do |key, value|
+          if respond_to?("#{key}=")
+            send "#{key}=", value
+          else
+            instance_variable_set "@#{key}", value
+          end
         end
       else
         super arg
       end
+    end
+
+    def response_body=(value)
+      @response_body = value
+
+      begin
+        @error_parsed = JSON.parse(value)
+      rescue
+        @error_parsed = nil
+      end
+    end
+
+    def id
+      (@error_parsed || {}).fetch('error', {})['id']
+    end
+
+    def name
+      (@error_parsed || {}).fetch('error', {})['name']
+    end
+
+    def detail
+      (@error_parsed || {}).fetch('error', {})['detail']
     end
   end
 end
