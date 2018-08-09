@@ -24,7 +24,7 @@ def create_transaction
       }
     })
   rescue => e
-    puts "ERROR: #{e}"
+    puts "ERROR: id=#{e.id}; name=#{e.name}; detail: #{e.detail}"
   end
 end
 
