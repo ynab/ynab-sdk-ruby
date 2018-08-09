@@ -50,15 +50,15 @@ module YNAB
     end
 
     def id
-      @error_parsed&.dig('error', 'id')
+      (@error_parsed || {}).fetch('error', {})['id']
     end
 
     def name
-      @error_parsed&.dig('error', 'name')
+      (@error_parsed || {}).fetch('error', {})['name']
     end
 
     def detail
-      @error_parsed&.dig('error', 'detail')
+      (@error_parsed || {}).fetch('error', {})['detail']
     end
   end
 end
