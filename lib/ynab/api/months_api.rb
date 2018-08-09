@@ -22,7 +22,7 @@ module YNAB
     # Single budget month
     # Returns a single budget month
     # @param budget_id The ID of the Budget.
-    # @param month The Budget Month.  \&quot;current\&quot; can also be used to specify the current calendar month (UTC).
+    # @param month The Budget Month in ISO format (e.g. 2016-12-01).    \&quot;current\&quot; can also be used to specify the current calendar month (UTC).
     # @param [Hash] opts the optional parameters
     # @return [MonthDetailResponse]
     def get_budget_month(budget_id, month, opts = {})
@@ -33,7 +33,7 @@ module YNAB
     # Single budget month
     # Returns a single budget month
     # @param budget_id The ID of the Budget.
-    # @param month The Budget Month.  \&quot;current\&quot; can also be used to specify the current calendar month (UTC).
+    # @param month The Budget Month in ISO format (e.g. 2016-12-01).    \&quot;current\&quot; can also be used to specify the current calendar month (UTC).
     # @param [Hash] opts the optional parameters
     # @return [Array<(MonthDetailResponse, Fixnum, Hash)>] MonthDetailResponse data, response status code and response headers
     def get_budget_month_with_http_info(budget_id, month, opts = {})
