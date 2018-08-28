@@ -21,7 +21,7 @@ module YNAB
     end
     # Single scheduled transaction
     # Returns a single scheduled transaction
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param scheduled_transaction_id The ID of the Scheduled Transaction.
     # @param [Hash] opts the optional parameters
     # @return [ScheduledTransactionResponse]
@@ -32,7 +32,7 @@ module YNAB
 
     # Single scheduled transaction
     # Returns a single scheduled transaction
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param scheduled_transaction_id The ID of the Scheduled Transaction.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ScheduledTransactionResponse, Fixnum, Hash)>] ScheduledTransactionResponse data, response status code and response headers
@@ -79,7 +79,7 @@ module YNAB
     end
     # List scheduled transactions
     # Returns all scheduled transactions
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param [Hash] opts the optional parameters
     # @return [ScheduledTransactionsResponse]
     def get_scheduled_transactions(budget_id, opts = {})
@@ -89,7 +89,7 @@ module YNAB
 
     # List scheduled transactions
     # Returns all scheduled transactions
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ScheduledTransactionsResponse, Fixnum, Hash)>] ScheduledTransactionsResponse data, response status code and response headers
     def get_scheduled_transactions_with_http_info(budget_id, opts = {})

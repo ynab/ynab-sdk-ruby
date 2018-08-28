@@ -19,7 +19,7 @@ Returns a single account
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
  **account_id** | [**String**](.md)| The ID of the Account. | 
 
 ### Return type
@@ -37,7 +37,7 @@ Returns all accounts
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget. | 
+ **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
 
 ### Return type
 

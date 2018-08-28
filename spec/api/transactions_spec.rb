@@ -70,7 +70,7 @@ describe 'transactions' do
   describe 'GET /budgets/{budget_id}/transaction/{transaction_id}' do
     it "returns a transaction" do
       VCR.use_cassette("transaction") do
-        response = instance.get_transactions_by_id(budget_id, '81c374ff-74ab-4d6d-8d5a-ba3ad3fa68e4')
+        response = instance.get_transaction_by_id(budget_id, '81c374ff-74ab-4d6d-8d5a-ba3ad3fa68e4')
         expect(response.data.transaction).to be
         expect(response.data.transaction.amount).to eq -2000
       end

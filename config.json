@@ -1,7 +1,7 @@
 {
   "gemName": "ynab",
   "moduleName": "YNAB",
-  "gemVersion": "1.4.0",
+  "gemVersion": "1.3.0",
   "gemDescription": "Ruby gem wrapper for the YNAB API. Read the documentation at https://api.youneedabudget.com",
   "gemHomepage": "https://github.com/ynab/ynab-sdk-ruby",
   "gemLicense": "Apache-2.0",

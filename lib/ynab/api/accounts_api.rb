@@ -21,7 +21,7 @@ module YNAB
     end
     # Single account
     # Returns a single account
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param account_id The ID of the Account.
     # @param [Hash] opts the optional parameters
     # @return [AccountResponse]
@@ -32,7 +32,7 @@ module YNAB
 
     # Single account
     # Returns a single account
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param account_id The ID of the Account.
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountResponse, Fixnum, Hash)>] AccountResponse data, response status code and response headers
@@ -79,7 +79,7 @@ module YNAB
     end
     # Account list
     # Returns all accounts
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param [Hash] opts the optional parameters
     # @return [AccountsResponse]
     def get_accounts(budget_id, opts = {})
@@ -89,7 +89,7 @@ module YNAB
 
     # Account list
     # Returns all accounts
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountsResponse, Fixnum, Hash)>] AccountsResponse data, response status code and response headers
     def get_accounts_with_http_info(budget_id, opts = {})

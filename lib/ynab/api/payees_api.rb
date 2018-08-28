@@ -21,7 +21,7 @@ module YNAB
     end
     # Single payee
     # Returns single payee
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param payee_id The ID of the Payee.
     # @param [Hash] opts the optional parameters
     # @return [PayeeResponse]
@@ -32,7 +32,7 @@ module YNAB
 
     # Single payee
     # Returns single payee
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param payee_id The ID of the Payee.
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayeeResponse, Fixnum, Hash)>] PayeeResponse data, response status code and response headers
@@ -79,7 +79,7 @@ module YNAB
     end
     # List payees
     # Returns all payees
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param [Hash] opts the optional parameters
     # @return [PayeesResponse]
     def get_payees(budget_id, opts = {})
@@ -89,7 +89,7 @@ module YNAB
 
     # List payees
     # Returns all payees
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayeesResponse, Fixnum, Hash)>] PayeesResponse data, response status code and response headers
     def get_payees_with_http_info(budget_id, opts = {})

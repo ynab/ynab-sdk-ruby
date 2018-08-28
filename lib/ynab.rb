@@ -109,7 +109,7 @@ module YNAB
       @client = ApiClient.new(config)
     end
 
-    def users
+    def user
       UserApi.new(@client)
     end
 

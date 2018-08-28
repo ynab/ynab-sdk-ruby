@@ -21,7 +21,7 @@ module YNAB
     end
     # List categories
     # Returns all categories grouped by category group.
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param [Hash] opts the optional parameters
     # @return [CategoriesResponse]
     def get_categories(budget_id, opts = {})
@@ -31,7 +31,7 @@ module YNAB
 
     # List categories
     # Returns all categories grouped by category group.
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param [Hash] opts the optional parameters
     # @return [Array<(CategoriesResponse, Fixnum, Hash)>] CategoriesResponse data, response status code and response headers
     def get_categories_with_http_info(budget_id, opts = {})
@@ -73,7 +73,7 @@ module YNAB
     end
     # Single category
     # Returns a single category
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param category_id The ID of the Category.
     # @param [Hash] opts the optional parameters
     # @return [CategoryResponse]
@@ -84,7 +84,7 @@ module YNAB
 
     # Single category
     # Returns a single category
-    # @param budget_id The ID of the Budget.
+    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
     # @param category_id The ID of the Category.
     # @param [Hash] opts the optional parameters
     # @return [Array<(CategoryResponse, Fixnum, Hash)>] CategoryResponse data, response status code and response headers
