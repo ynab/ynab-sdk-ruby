@@ -48,7 +48,7 @@ The following methods are available in this library.
 
 |                       | Method                                                | Description                                                                                            |
 |------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **User**                | [budgets.get_user()](https://github.com/ynab/ynab-sdk-ruby/blob/master/docs/UserApi.md#get_user)                                  | Returns authenticated user information
+| **User**                | [user.get_user()](https://github.com/ynab/ynab-sdk-ruby/blob/master/docs/UserApi.md#get_user)                                  | Returns authenticated user information
 | **Budgets**                | [budgets.get_budgets()](https://github.com/ynab/ynab-sdk-ruby/blob/master/docs/BudgetsApi.md#get_budgets)                                  | Returns budgets list with summary information                                                          |
 |                        | [budgets.get_budget_by_id(budget_id)](https://github.com/ynab/ynab-sdk-ruby/blob/master/docs/BudgetsApi.md#get_budget_by_id)                             | Returns a single budget with all related entities |
 |                        | [budgets.get_budget_settings_by_id(budget_id)](https://github.com/ynab/ynab-sdk-ruby/blob/master/docs/BudgetsApi.md#get_budget_settings_by_id)                             | Returns settings for a budget |
