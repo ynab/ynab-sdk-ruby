@@ -78,7 +78,13 @@ The following methods are available in this library.
 - Install dependencies: `bundle`
 - Generate latest client based on swagger spec: `rake generate`
 - Run tests: `rake spec` or `rspec`
-- Publish to RubyGems: Bump `gemVersion` in config.json and then run `rake publish`
+
+## Releasing
+
+- Generate latest with `rake generate`
+- Commit all changes
+- Bump `gemVersion` in config.json
+- Run `rake publish` to publish to RubyGems
 
 ## License
 
