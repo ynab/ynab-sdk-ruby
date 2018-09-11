@@ -17,12 +17,6 @@ task :generate do
   spec_filename = 'spec-v1-swagger.json'
   sh "rm #{spec_filename} && wget https://api.youneedabudget.com/papi/#{spec_filename}"
 
-  # Replace nullable types defined as i.e. ["string", "null"] in the spec to simply "string" as the generator does not understand the nullable format.
-  # Examples:
-  #   ["string", "null"] => "string"
-  #   ["number", "null"] => "number"
-  sh %Q[sed -E -i '' 's/\\\[\\"(string|number|integer|array|boolean)\\"\\, \\"null\\"\\\]/"\\1"/g' #{spec_filename}]
-
   # Use Docker to codegen ruby based on the swagger spec
   sh "docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli generate"\
      " -i /local/spec-v1-swagger.json"\
