@@ -7,7 +7,7 @@ def create_transaction
 
   ynab = YNAB::API.new(access_token)
 
-  budget_id = 'f968197b-2863-not-real-c2406dbe7f0d'
+  budget_id = ENV['YNAB_BUDGET_ID']
   account_id = 'f6fe07cb-c895-not-real-acfac0b7f026'
   category_id = 'a191ac84-de09-not-real-6c5ed8cfdabe'
 

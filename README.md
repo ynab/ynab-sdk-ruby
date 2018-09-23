@@ -20,7 +20,8 @@ gem install ynab
 
 | Variable | Description | Required |
 | -------- | ----------- | -------- |
-| YNAB_ACCESS_TOKEN | Your YNAB access token (Get it here) | Yes |
+| YNAB_ACCESS_TOKEN | Your YNAB access token | Yes |
+| YNAB_BUDGET_ID | Which YNAB budget to use | Yes |
 
 ## Usage
 To use this client you must
