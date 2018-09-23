@@ -16,8 +16,13 @@ This client is generated using the [Swagger Code Generator](https://github.com/s
 gem install ynab
 ```
 
-## Usage
+## Environment Variables
 
+| Variable | Description | Required |
+| -------- | ----------- | -------- |
+| YNAB_ACCESS_TOKEN | Your YNAB access token (Get it here) | Yes |
+
+## Usage
 To use this client you must
 [obtain an access token](https://api.youneedabudget.com/#authentication-overview) from
 your [My Account](https://app.youneedabudget.com/settings) page of the YNAB web
@@ -26,7 +31,8 @@ app.
 ```ruby
 require 'ynab'
 
-access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
+access_token = ENV['YNAB_ACCESS_TOKEN']
+puts "access_token = " + access_token
 
 ynab_api = YNAB::API.new(access_token)
 
