@@ -111,6 +111,37 @@ describe 'transactions' do
     end
   end
 
+  describe 'POST /budgets/{budget_id}/transactions' do
+    it "create multiple transactions" do
+      VCR.use_cassette("multiple_transactions") do
+        response = instance.create_transaction(budget_id, {
+          transactions: [
+            {
+              date: '2018-01-01',
+              account_id: 'c15e474a-fff6-459f-82de-8e7ea1a3819e',
+              amount: 10000
+            },
+            {
+              date: '2018-01-02',
+              account_id: 'c15e474a-fff6-459f-82de-8e7ea1a3819e',
+              amount: 20000
+            },
+            {
+              date: '2018-01-03',
+              account_id: 'c15e474a-fff6-459f-82de-8e7ea1a3819e',
+              amount: 30000,
+              import_id: '123456'
+            }
+          ]
+        })
+        expect(client.last_request.response.options[:code]).to be 201
+        expect(response.data.transactions).to be
+        expect(response.data.transaction_ids.length).to eq 3
+        expect(response.data.duplicate_import_ids.length).to eq 0
+      end
+    end
+  end
+
   describe 'POST /budgets/{budget_id}/transactions/bulk' do
     it "bulk creations transactions" do
       VCR.use_cassette("bulk_transactions") do
