@@ -21,7 +21,7 @@ module YNAB
     end
     # Single payee location
     # Returns a single payee location
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param payee_location_id ID of payee location
     # @param [Hash] opts the optional parameters
     # @return [PayeeLocationResponse]
@@ -32,7 +32,7 @@ module YNAB
 
     # Single payee location
     # Returns a single payee location
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param payee_location_id ID of payee location
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayeeLocationResponse, Fixnum, Hash)>] PayeeLocationResponse data, response status code and response headers
@@ -79,7 +79,7 @@ module YNAB
     end
     # List payee locations
     # Returns all payee locations
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param [Hash] opts the optional parameters
     # @return [PayeeLocationsResponse]
     def get_payee_locations(budget_id, opts = {})
@@ -89,7 +89,7 @@ module YNAB
 
     # List payee locations
     # Returns all payee locations
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayeeLocationsResponse, Fixnum, Hash)>] PayeeLocationsResponse data, response status code and response headers
     def get_payee_locations_with_http_info(budget_id, opts = {})
@@ -131,8 +131,8 @@ module YNAB
     end
     # List locations for a payee
     # Returns all payee locations for the specified payee
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param payee_id ID of payee
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param payee_id id of payee
     # @param [Hash] opts the optional parameters
     # @return [PayeeLocationsResponse]
     def get_payee_locations_by_payee(budget_id, payee_id, opts = {})
@@ -142,8 +142,8 @@ module YNAB
 
     # List locations for a payee
     # Returns all payee locations for the specified payee
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param payee_id ID of payee
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param payee_id id of payee
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayeeLocationsResponse, Fixnum, Hash)>] PayeeLocationsResponse data, response status code and response headers
     def get_payee_locations_by_payee_with_http_info(budget_id, payee_id, opts = {})

@@ -19,8 +19,8 @@ Returns single payee
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
- **payee_id** | [**String**](.md)| The ID of the Payee. | 
+ **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **payee_id** | [**String**](.md)| The id of the payee | 
 
 ### Return type
 
@@ -37,7 +37,7 @@ Returns all payees
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
+ **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
 
 ### Return type
 

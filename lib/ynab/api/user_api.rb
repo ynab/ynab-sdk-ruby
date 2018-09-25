@@ -20,7 +20,7 @@ module YNAB
       @api_client = api_client
     end
     # User info
-    # Returns authenticated user information.
+    # Returns authenticated user information
     # @param [Hash] opts the optional parameters
     # @return [UserResponse]
     def get_user(opts = {})
@@ -29,7 +29,7 @@ module YNAB
     end
 
     # User info
-    # Returns authenticated user information.
+    # Returns authenticated user information
     # @param [Hash] opts the optional parameters
     # @return [Array<(UserResponse, Fixnum, Hash)>] UserResponse data, response status code and response headers
     def get_user_with_http_info(opts = {})

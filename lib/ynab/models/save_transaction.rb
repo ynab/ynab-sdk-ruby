@@ -21,13 +21,13 @@ module YNAB
     # The transaction amount in milliunits format
     attr_accessor :amount
 
-    # The payee for the transaction.  Transfer payees are not permitted and will be ignored if supplied.
+    # The payee for the transaction
     attr_accessor :payee_id
 
     # The payee name.  If a payee_name value is provided and payee_id has a null value, the payee_name value will be used to resolve the payee by either (1) a matching payee rename rule (only if import_id is also specified) or (2) a payee with the same name or (3) creation of a new payee.
     attr_accessor :payee_name
 
-    # The category for the transaction.  Split and Credit Card Payment categories are not permitted and will be ignored if supplied.
+    # The category for the transaction.  Split and Credit Card Payment categories are not permitted and will be ignored if supplied.  If an existing transaction has a Split category it cannot be changed.
     attr_accessor :category_id
 
     attr_accessor :memo

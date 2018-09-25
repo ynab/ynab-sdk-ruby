@@ -38,6 +38,9 @@ module YNAB
     # The current uncleared balance of the account in milliunits format
     attr_accessor :uncleared_balance
 
+    # The payee id which should be used when transferring to this account
+    attr_accessor :transfer_payee_id
+
     # Whether or not the account has been deleted.  Deleted accounts will only be included in delta requests.
     attr_accessor :deleted
 
@@ -75,6 +78,7 @@ module YNAB
         :'balance' => :'balance',
         :'cleared_balance' => :'cleared_balance',
         :'uncleared_balance' => :'uncleared_balance',
+        :'transfer_payee_id' => :'transfer_payee_id',
         :'deleted' => :'deleted'
       }
     end
@@ -91,6 +95,7 @@ module YNAB
         :'balance' => :'Integer',
         :'cleared_balance' => :'Integer',
         :'uncleared_balance' => :'Integer',
+        :'transfer_payee_id' => :'String',
         :'deleted' => :'BOOLEAN'
       }
     end
@@ -139,6 +144,10 @@ module YNAB
         self.uncleared_balance = attributes[:'uncleared_balance']
       end
 
+      if attributes.has_key?(:'transfer_payee_id')
+        self.transfer_payee_id = attributes[:'transfer_payee_id']
+      end
+
       if attributes.has_key?(:'deleted')
         self.deleted = attributes[:'deleted']
       end
@@ -184,6 +193,10 @@ module YNAB
         invalid_properties.push('invalid value for "uncleared_balance", uncleared_balance cannot be nil.')
       end
 
+      if @transfer_payee_id.nil?
+        invalid_properties.push('invalid value for "transfer_payee_id", transfer_payee_id cannot be nil.')
+      end
+
       if @deleted.nil?
         invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
       end
@@ -205,6 +218,7 @@ module YNAB
       return false if @balance.nil?
       return false if @cleared_balance.nil?
       return false if @uncleared_balance.nil?
+      return false if @transfer_payee_id.nil?
       return false if @deleted.nil?
       true
     end
@@ -233,6 +247,7 @@ module YNAB
           balance == o.balance &&
           cleared_balance == o.cleared_balance &&
           uncleared_balance == o.uncleared_balance &&
+          transfer_payee_id == o.transfer_payee_id &&
           deleted == o.deleted
     end
 
@@ -245,7 +260,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, type, on_budget, closed, note, balance, cleared_balance, uncleared_balance, deleted].hash
+      [id, name, type, on_budget, closed, note, balance, cleared_balance, uncleared_balance, transfer_payee_id, deleted].hash
     end
 
     # Builds the object from hash

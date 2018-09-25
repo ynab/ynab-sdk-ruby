@@ -21,8 +21,8 @@ module YNAB
     end
     # Bulk create transactions
     # Creates multiple transactions
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param transactions The list of Transactions to create.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param transactions The list of transactions to create
     # @param [Hash] opts the optional parameters
     # @return [BulkResponse]
     def bulk_create_transactions(budget_id, transactions, opts = {})
@@ -32,8 +32,8 @@ module YNAB
 
     # Bulk create transactions
     # Creates multiple transactions
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param transactions The list of Transactions to create.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param transactions The list of transactions to create
     # @param [Hash] opts the optional parameters
     # @return [Array<(BulkResponse, Fixnum, Hash)>] BulkResponse data, response status code and response headers
     def bulk_create_transactions_with_http_info(budget_id, transactions, opts = {})
@@ -77,24 +77,24 @@ module YNAB
       end
       return data, status_code, headers
     end
-    # Create new transaction
-    # Creates a transaction
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param transaction The Transaction to create.
+    # Create a single transaction or multiple transactions
+    # Creates a single transaction or multiple transactions.  If you provide a body containing a 'transaction' object, a single transaction will be created and if you provide a body containing a 'transactions' array, multiple transactions will be created.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param save_transactions The transaction or transactions to create
     # @param [Hash] opts the optional parameters
-    # @return [TransactionResponse]
-    def create_transaction(budget_id, transaction, opts = {})
-      data, _status_code, _headers = create_transaction_with_http_info(budget_id, transaction, opts)
+    # @return [SaveTransactionsResponse]
+    def create_transaction(budget_id, save_transactions, opts = {})
+      data, _status_code, _headers = create_transaction_with_http_info(budget_id, save_transactions, opts)
       data
     end
 
-    # Create new transaction
-    # Creates a transaction
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param transaction The Transaction to create.
+    # Create a single transaction or multiple transactions
+    # Creates a single transaction or multiple transactions.  If you provide a body containing a &#39;transaction&#39; object, a single transaction will be created and if you provide a body containing a &#39;transactions&#39; array, multiple transactions will be created.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param save_transactions The transaction or transactions to create
     # @param [Hash] opts the optional parameters
-    # @return [Array<(TransactionResponse, Fixnum, Hash)>] TransactionResponse data, response status code and response headers
-    def create_transaction_with_http_info(budget_id, transaction, opts = {})
+    # @return [Array<(SaveTransactionsResponse, Fixnum, Hash)>] SaveTransactionsResponse data, response status code and response headers
+    def create_transaction_with_http_info(budget_id, save_transactions, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransactionsApi.create_transaction ...'
       end
@@ -102,9 +102,9 @@ module YNAB
       if @api_client.config.client_side_validation && budget_id.nil?
         fail ArgumentError, "Missing the required parameter 'budget_id' when calling TransactionsApi.create_transaction"
       end
-      # verify the required parameter 'transaction' is set
-      if @api_client.config.client_side_validation && transaction.nil?
-        fail ArgumentError, "Missing the required parameter 'transaction' when calling TransactionsApi.create_transaction"
+      # verify the required parameter 'save_transactions' is set
+      if @api_client.config.client_side_validation && save_transactions.nil?
+        fail ArgumentError, "Missing the required parameter 'save_transactions' when calling TransactionsApi.create_transaction"
       end
       # resource path
       local_var_path = '/budgets/{budget_id}/transactions'.sub('{' + 'budget_id' + '}', budget_id.to_s)
@@ -121,7 +121,7 @@ module YNAB
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(transaction)
+      post_body = @api_client.object_to_http_body(save_transactions)
       auth_names = ['bearer']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -129,7 +129,7 @@ module YNAB
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'TransactionResponse')
+        :return_type => 'SaveTransactionsResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransactionsApi#create_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -137,8 +137,8 @@ module YNAB
     end
     # Single transaction
     # Returns a single transaction
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param transaction_id The ID of the Transaction.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param transaction_id The id of the transaction
     # @param [Hash] opts the optional parameters
     # @return [TransactionResponse]
     def get_transaction_by_id(budget_id, transaction_id, opts = {})
@@ -148,8 +148,8 @@ module YNAB
 
     # Single transaction
     # Returns a single transaction
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param transaction_id The ID of the Transaction.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param transaction_id The id of the transaction
     # @param [Hash] opts the optional parameters
     # @return [Array<(TransactionResponse, Fixnum, Hash)>] TransactionResponse data, response status code and response headers
     def get_transaction_by_id_with_http_info(budget_id, transaction_id, opts = {})
@@ -195,9 +195,9 @@ module YNAB
     end
     # List transactions
     # Returns budget transactions
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported)
     # @return [TransactionsResponse]
     def get_transactions(budget_id, opts = {})
@@ -207,9 +207,9 @@ module YNAB
 
     # List transactions
     # Returns budget transactions
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported)
     # @return [Array<(TransactionsResponse, Fixnum, Hash)>] TransactionsResponse data, response status code and response headers
     def get_transactions_with_http_info(budget_id, opts = {})
@@ -256,10 +256,10 @@ module YNAB
     end
     # List account transactions
     # Returns all transactions for a specified account
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param account_id The ID of the Account.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param account_id The id of the account
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [TransactionsResponse]
     def get_transactions_by_account(budget_id, account_id, opts = {})
@@ -269,10 +269,10 @@ module YNAB
 
     # List account transactions
     # Returns all transactions for a specified account
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param account_id The ID of the Account.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param account_id The id of the account
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [Array<(TransactionsResponse, Fixnum, Hash)>] TransactionsResponse data, response status code and response headers
     def get_transactions_by_account_with_http_info(budget_id, account_id, opts = {})
@@ -323,10 +323,10 @@ module YNAB
     end
     # List category transactions
     # Returns all transactions for a specified category
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param category_id The ID of the Category.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param category_id The id of the category
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [HybridTransactionsResponse]
     def get_transactions_by_category(budget_id, category_id, opts = {})
@@ -336,10 +336,10 @@ module YNAB
 
     # List category transactions
     # Returns all transactions for a specified category
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param category_id The ID of the Category.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param category_id The id of the category
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [Array<(HybridTransactionsResponse, Fixnum, Hash)>] HybridTransactionsResponse data, response status code and response headers
     def get_transactions_by_category_with_http_info(budget_id, category_id, opts = {})
@@ -390,10 +390,10 @@ module YNAB
     end
     # List payee transactions
     # Returns all transactions for a specified payee
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param payee_id The ID of the Payee.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param payee_id The id of the payee
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [HybridTransactionsResponse]
     def get_transactions_by_payee(budget_id, payee_id, opts = {})
@@ -403,10 +403,10 @@ module YNAB
 
     # List payee transactions
     # Returns all transactions for a specified payee
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param payee_id The ID of the Payee.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param payee_id The id of the payee
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date Only return transactions on or after this date.
+    # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
     # @return [Array<(HybridTransactionsResponse, Fixnum, Hash)>] HybridTransactionsResponse data, response status code and response headers
     def get_transactions_by_payee_with_http_info(budget_id, payee_id, opts = {})
@@ -457,9 +457,9 @@ module YNAB
     end
     # Updates an existing transaction
     # Updates a transaction
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param transaction_id The ID of the Transaction.
-    # @param transaction The Transaction to update.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param transaction_id The id of the transaction
+    # @param transaction The transaction to update
     # @param [Hash] opts the optional parameters
     # @return [TransactionResponse]
     def update_transaction(budget_id, transaction_id, transaction, opts = {})
@@ -469,9 +469,9 @@ module YNAB
 
     # Updates an existing transaction
     # Updates a transaction
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param transaction_id The ID of the Transaction.
-    # @param transaction The Transaction to update.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param transaction_id The id of the transaction
+    # @param transaction The transaction to update
     # @param [Hash] opts the optional parameters
     # @return [Array<(TransactionResponse, Fixnum, Hash)>] TransactionResponse data, response status code and response headers
     def update_transaction_with_http_info(budget_id, transaction_id, transaction, opts = {})
