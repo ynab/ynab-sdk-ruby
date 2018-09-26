@@ -27,7 +27,7 @@ module YNAB
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'budgeted' => :'String'
+        :'budgeted' => :'Integer'
       }
     end
 

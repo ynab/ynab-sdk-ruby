@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**budgeted** | **String** | Budgeted amount in milliunits format | 
+**budgeted** | **Integer** | Budgeted amount in milliunits format | 
 
 
