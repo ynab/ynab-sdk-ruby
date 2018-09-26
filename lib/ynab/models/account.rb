@@ -38,6 +38,9 @@ module YNAB
     # The current uncleared balance of the account in milliunits format
     attr_accessor :uncleared_balance
 
+    # The payee_id of this account
+    attr_accessor :transfer_payee_id
+
     # Whether or not the account has been deleted.  Deleted accounts will only be included in delta requests.
     attr_accessor :deleted
 
