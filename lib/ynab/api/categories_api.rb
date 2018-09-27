@@ -20,8 +20,8 @@ module YNAB
       @api_client = api_client
     end
     # List categories
-    # Returns all categories grouped by category group.
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
+    # Returns all categories grouped by category group
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param [Hash] opts the optional parameters
     # @return [CategoriesResponse]
     def get_categories(budget_id, opts = {})
@@ -30,8 +30,8 @@ module YNAB
     end
 
     # List categories
-    # Returns all categories grouped by category group.
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
+    # Returns all categories grouped by category group
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param [Hash] opts the optional parameters
     # @return [Array<(CategoriesResponse, Fixnum, Hash)>] CategoriesResponse data, response status code and response headers
     def get_categories_with_http_info(budget_id, opts = {})
@@ -73,8 +73,8 @@ module YNAB
     end
     # Single category
     # Returns a single category
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param category_id The ID of the Category.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param category_id The id of the category
     # @param [Hash] opts the optional parameters
     # @return [CategoryResponse]
     def get_category_by_id(budget_id, category_id, opts = {})
@@ -84,8 +84,8 @@ module YNAB
 
     # Single category
     # Returns a single category
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param category_id The ID of the Category.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param category_id The id of the category
     # @param [Hash] opts the optional parameters
     # @return [Array<(CategoryResponse, Fixnum, Hash)>] CategoryResponse data, response status code and response headers
     def get_category_by_id_with_http_info(budget_id, category_id, opts = {})
@@ -126,6 +126,140 @@ module YNAB
         :return_type => 'CategoryResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CategoriesApi#get_category_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Single category for a specific budget month
+    # Returns a single category for a specific budget month
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param month the budget month in ISO format (e.g. 2016-12-30). (\&quot;current\&quot; can also be used to specify the current calendar month (UTC))
+    # @param category_id The id of the category
+    # @param [Hash] opts the optional parameters
+    # @return [CategoryResponse]
+    def get_month_category_by_id(budget_id, month, category_id, opts = {})
+      data, _status_code, _headers = get_month_category_by_id_with_http_info(budget_id, month, category_id, opts)
+      data
+    end
+
+    # Single category for a specific budget month
+    # Returns a single category for a specific budget month
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param month the budget month in ISO format (e.g. 2016-12-30). (\&quot;current\&quot; can also be used to specify the current calendar month (UTC))
+    # @param category_id The id of the category
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CategoryResponse, Fixnum, Hash)>] CategoryResponse data, response status code and response headers
+    def get_month_category_by_id_with_http_info(budget_id, month, category_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CategoriesApi.get_month_category_by_id ...'
+      end
+      # verify the required parameter 'budget_id' is set
+      if @api_client.config.client_side_validation && budget_id.nil?
+        fail ArgumentError, "Missing the required parameter 'budget_id' when calling CategoriesApi.get_month_category_by_id"
+      end
+      # verify the required parameter 'month' is set
+      if @api_client.config.client_side_validation && month.nil?
+        fail ArgumentError, "Missing the required parameter 'month' when calling CategoriesApi.get_month_category_by_id"
+      end
+      # verify the required parameter 'category_id' is set
+      if @api_client.config.client_side_validation && category_id.nil?
+        fail ArgumentError, "Missing the required parameter 'category_id' when calling CategoriesApi.get_month_category_by_id"
+      end
+      # resource path
+      local_var_path = '/budgets/{budget_id}/months/{month}/categories/{category_id}'.sub('{' + 'budget_id' + '}', budget_id.to_s).sub('{' + 'month' + '}', month.to_s).sub('{' + 'category_id' + '}', category_id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['bearer']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'CategoryResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CategoriesApi#get_month_category_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update an existing month category
+    # Update an existing month category
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param month the budget month in ISO format (e.g. 2016-12-01).  \&quot;current\&quot; can also be used to specify the current calendar month (UTC).
+    # @param category_id The id of the category
+    # @param month_category The month category to update
+    # @param [Hash] opts the optional parameters
+    # @return [CategoryResponse]
+    def update_month_category(budget_id, month, category_id, month_category, opts = {})
+      data, _status_code, _headers = update_month_category_with_http_info(budget_id, month, category_id, month_category, opts)
+      data
+    end
+
+    # Update an existing month category
+    # Update an existing month category
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param month the budget month in ISO format (e.g. 2016-12-01).  \&quot;current\&quot; can also be used to specify the current calendar month (UTC).
+    # @param category_id The id of the category
+    # @param month_category The month category to update
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CategoryResponse, Fixnum, Hash)>] CategoryResponse data, response status code and response headers
+    def update_month_category_with_http_info(budget_id, month, category_id, month_category, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CategoriesApi.update_month_category ...'
+      end
+      # verify the required parameter 'budget_id' is set
+      if @api_client.config.client_side_validation && budget_id.nil?
+        fail ArgumentError, "Missing the required parameter 'budget_id' when calling CategoriesApi.update_month_category"
+      end
+      # verify the required parameter 'month' is set
+      if @api_client.config.client_side_validation && month.nil?
+        fail ArgumentError, "Missing the required parameter 'month' when calling CategoriesApi.update_month_category"
+      end
+      # verify the required parameter 'category_id' is set
+      if @api_client.config.client_side_validation && category_id.nil?
+        fail ArgumentError, "Missing the required parameter 'category_id' when calling CategoriesApi.update_month_category"
+      end
+      # verify the required parameter 'month_category' is set
+      if @api_client.config.client_side_validation && month_category.nil?
+        fail ArgumentError, "Missing the required parameter 'month_category' when calling CategoriesApi.update_month_category"
+      end
+      # resource path
+      local_var_path = '/budgets/{budget_id}/months/{month}/categories/{category_id}'.sub('{' + 'budget_id' + '}', budget_id.to_s).sub('{' + 'month' + '}', month.to_s).sub('{' + 'category_id' + '}', category_id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(month_category)
+      auth_names = ['bearer']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'CategoryResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CategoriesApi#update_month_category\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

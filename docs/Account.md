@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **balance** | **Integer** | The current balance of the account in milliunits format | 
 **cleared_balance** | **Integer** | The current cleared balance of the account in milliunits format | 
 **uncleared_balance** | **Integer** | The current uncleared balance of the account in milliunits format | 
+**transfer_payee_id** | **String** | The payee id which should be used when transferring to this account | 
 **deleted** | **BOOLEAN** | Whether or not the account has been deleted.  Deleted accounts will only be included in delta requests. | 
 
 

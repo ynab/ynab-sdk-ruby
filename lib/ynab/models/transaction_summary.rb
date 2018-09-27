@@ -38,7 +38,11 @@ module YNAB
 
     attr_accessor :category_id
 
+    # If a transfer transaction, the account to which it transfers
     attr_accessor :transfer_account_id
+
+    # If a transfer transaction, the id of transaction on the other side of the transfer
+    attr_accessor :transfer_transaction_id
 
     # If the Transaction was imported, this field is a unique (by account) import identifier.  If this transaction was imported through File Based Import or Direct Import and not through the API, the import_id will have the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurrence]'.  For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.
     attr_accessor :import_id
@@ -82,6 +86,7 @@ module YNAB
         :'payee_id' => :'payee_id',
         :'category_id' => :'category_id',
         :'transfer_account_id' => :'transfer_account_id',
+        :'transfer_transaction_id' => :'transfer_transaction_id',
         :'import_id' => :'import_id',
         :'deleted' => :'deleted'
       }
@@ -101,6 +106,7 @@ module YNAB
         :'payee_id' => :'String',
         :'category_id' => :'String',
         :'transfer_account_id' => :'String',
+        :'transfer_transaction_id' => :'String',
         :'import_id' => :'String',
         :'deleted' => :'BOOLEAN'
       }
@@ -156,6 +162,10 @@ module YNAB
 
       if attributes.has_key?(:'transfer_account_id')
         self.transfer_account_id = attributes[:'transfer_account_id']
+      end
+
+      if attributes.has_key?(:'transfer_transaction_id')
+        self.transfer_transaction_id = attributes[:'transfer_transaction_id']
       end
 
       if attributes.has_key?(:'import_id')
@@ -215,6 +225,10 @@ module YNAB
         invalid_properties.push('invalid value for "transfer_account_id", transfer_account_id cannot be nil.')
       end
 
+      if @transfer_transaction_id.nil?
+        invalid_properties.push('invalid value for "transfer_transaction_id", transfer_transaction_id cannot be nil.')
+      end
+
       if @import_id.nil?
         invalid_properties.push('invalid value for "import_id", import_id cannot be nil.')
       end
@@ -244,6 +258,7 @@ module YNAB
       return false if @payee_id.nil?
       return false if @category_id.nil?
       return false if @transfer_account_id.nil?
+      return false if @transfer_transaction_id.nil?
       return false if @import_id.nil?
       return false if @deleted.nil?
       true
@@ -285,6 +300,7 @@ module YNAB
           payee_id == o.payee_id &&
           category_id == o.category_id &&
           transfer_account_id == o.transfer_account_id &&
+          transfer_transaction_id == o.transfer_transaction_id &&
           import_id == o.import_id &&
           deleted == o.deleted
     end
@@ -298,7 +314,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, date, amount, memo, cleared, approved, flag_color, account_id, payee_id, category_id, transfer_account_id, import_id, deleted].hash
+      [id, date, amount, memo, cleared, approved, flag_color, account_id, payee_id, category_id, transfer_account_id, transfer_transaction_id, import_id, deleted].hash
     end
 
     # Builds the object from hash

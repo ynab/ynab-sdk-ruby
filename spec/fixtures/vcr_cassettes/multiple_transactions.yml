@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/transactions
+    body:
+      encoding: UTF-8
+      string: '{"transactions":[{"date":"2018-01-01","account_id":"c15e474a-fff6-459f-82de-8e7ea1a3819e","amount":10000},{"date":"2018-01-02","account_id":"c15e474a-fff6-459f-82de-8e7ea1a3819e","amount":20000},{"date":"2018-01-03","account_id":"c15e474a-fff6-459f-82de-8e7ea1a3819e","amount":30000,"import_id":"123456"}]}'
+    headers:
+      User-Agent:
+      - api_client/ruby/1.4.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer 9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding, Origin
+      ETag:
+      - W/"fd90fca6fa3aed56cada484393903b3f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 5e0ae946-ad77-4f25-8475-a2deed9758da
+      X-Runtime:
+      - '0.592970'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"transaction_ids":["8006058e-880d-454a-b872-ac1f4e57fa83","f666fa17-f96d-4b53-ada1-0191d6fb4fa2","fb14edc0-5492-4c57-9acd-2f2795f02624"],"duplicate_import_ids":[],"transactions":[{"id":"8006058e-880d-454a-b872-ac1f4e57fa83","date":"2018-01-01","amount":10000,"memo":null,"cleared":"uncleared","approved":false,"flag_color":null,"account_id":"c15e474a-fff6-459f-82de-8e7ea1a3819e","account_name":"Checking","payee_id":null,"payee_name":null,"category_id":null,"category_name":null,"transfer_account_id":null,"transfer_transaction_id":null,"import_id":null,"deleted":false,"subtransactions":[]},{"id":"f666fa17-f96d-4b53-ada1-0191d6fb4fa2","date":"2018-01-02","amount":20000,"memo":null,"cleared":"uncleared","approved":false,"flag_color":null,"account_id":"c15e474a-fff6-459f-82de-8e7ea1a3819e","account_name":"Checking","payee_id":null,"payee_name":null,"category_id":null,"category_name":null,"transfer_account_id":null,"transfer_transaction_id":null,"import_id":null,"deleted":false,"subtransactions":[]},{"id":"fb14edc0-5492-4c57-9acd-2f2795f02624","date":"2018-01-03","amount":30000,"memo":null,"cleared":"uncleared","approved":false,"flag_color":null,"account_id":"c15e474a-fff6-459f-82de-8e7ea1a3819e","account_name":"Checking","payee_id":null,"payee_name":null,"category_id":null,"category_name":null,"transfer_account_id":null,"transfer_transaction_id":null,"import_id":"123456","deleted":false,"subtransactions":[]}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://api.localhost:3000/v1/budgets/44656099-a8c8-4625-8fef-7c4549e696a7/transactions
+  recorded_at: Tue, 25 Sep 2018 21:32:45 GMT
+recorded_with: VCR 3.0.3

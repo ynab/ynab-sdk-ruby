@@ -21,8 +21,8 @@ module YNAB
     end
     # Single account
     # Returns a single account
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param account_id The ID of the Account.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param account_id The id of the account
     # @param [Hash] opts the optional parameters
     # @return [AccountResponse]
     def get_account_by_id(budget_id, account_id, opts = {})
@@ -32,8 +32,8 @@ module YNAB
 
     # Single account
     # Returns a single account
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
-    # @param account_id The ID of the Account.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param account_id The id of the account
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountResponse, Fixnum, Hash)>] AccountResponse data, response status code and response headers
     def get_account_by_id_with_http_info(budget_id, account_id, opts = {})
@@ -79,7 +79,7 @@ module YNAB
     end
     # Account list
     # Returns all accounts
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param [Hash] opts the optional parameters
     # @return [AccountsResponse]
     def get_accounts(budget_id, opts = {})
@@ -89,7 +89,7 @@ module YNAB
 
     # Account list
     # Returns all accounts
-    # @param budget_id The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget.
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountsResponse, Fixnum, Hash)>] AccountsResponse data, response status code and response headers
     def get_accounts_with_http_info(budget_id, opts = {})

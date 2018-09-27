@@ -13,54 +13,36 @@ Swagger Codegen version: 2.4.0-SNAPSHOT
 require 'date'
 
 module YNAB
-  class MonthDetail
-    attr_accessor :month
+  class SaveTransactionsResponseData
+    # The transaction ids that were saved
+    attr_accessor :transaction_ids
 
-    attr_accessor :note
+    # If a single transaction was specified, the transaction that was saved
+    attr_accessor :transaction
 
-    # The total amount in transactions categorized to 'Inflow: To be Budgeted' in the month
-    attr_accessor :income
+    # If multiple transactions were specified, the transactions that were saved
+    attr_accessor :transactions
 
-    # The total amount budgeted in the month
-    attr_accessor :budgeted
-
-    # The total amount in transactions in the month, excluding those categorized to 'Inflow: To be Budgeted'
-    attr_accessor :activity
-
-    # The available amount for 'To be Budgeted'
-    attr_accessor :to_be_budgeted
-
-    # The Age of Money as of the month
-    attr_accessor :age_of_money
-
-    # the budget month categories
-    attr_accessor :categories
+    # If multiple transactions were specified, a list of import_ids that were not were created because of an existing import_id found on the same account
+    attr_accessor :duplicate_import_ids
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'month' => :'month',
-        :'note' => :'note',
-        :'income' => :'income',
-        :'budgeted' => :'budgeted',
-        :'activity' => :'activity',
-        :'to_be_budgeted' => :'to_be_budgeted',
-        :'age_of_money' => :'age_of_money',
-        :'categories' => :'categories'
+        :'transaction_ids' => :'transaction_ids',
+        :'transaction' => :'transaction',
+        :'transactions' => :'transactions',
+        :'duplicate_import_ids' => :'duplicate_import_ids'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'month' => :'Date',
-        :'note' => :'String',
-        :'income' => :'Integer',
-        :'budgeted' => :'Integer',
-        :'activity' => :'Integer',
-        :'to_be_budgeted' => :'Integer',
-        :'age_of_money' => :'Integer',
-        :'categories' => :'Array<Category>'
+        :'transaction_ids' => :'Array<String>',
+        :'transaction' => :'TransactionDetail',
+        :'transactions' => :'Array<TransactionDetail>',
+        :'duplicate_import_ids' => :'Array<String>'
       }
     end
 
@@ -72,37 +54,25 @@ module YNAB
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'month')
-        self.month = attributes[:'month']
+      if attributes.has_key?(:'transaction_ids')
+        if (value = attributes[:'transaction_ids']).is_a?(Array)
+          self.transaction_ids = value
+        end
       end
 
-      if attributes.has_key?(:'note')
-        self.note = attributes[:'note']
+      if attributes.has_key?(:'transaction')
+        self.transaction = attributes[:'transaction']
       end
 
-      if attributes.has_key?(:'income')
-        self.income = attributes[:'income']
+      if attributes.has_key?(:'transactions')
+        if (value = attributes[:'transactions']).is_a?(Array)
+          self.transactions = value
+        end
       end
 
-      if attributes.has_key?(:'budgeted')
-        self.budgeted = attributes[:'budgeted']
-      end
-
-      if attributes.has_key?(:'activity')
-        self.activity = attributes[:'activity']
-      end
-
-      if attributes.has_key?(:'to_be_budgeted')
-        self.to_be_budgeted = attributes[:'to_be_budgeted']
-      end
-
-      if attributes.has_key?(:'age_of_money')
-        self.age_of_money = attributes[:'age_of_money']
-      end
-
-      if attributes.has_key?(:'categories')
-        if (value = attributes[:'categories']).is_a?(Array)
-          self.categories = value
+      if attributes.has_key?(:'duplicate_import_ids')
+        if (value = attributes[:'duplicate_import_ids']).is_a?(Array)
+          self.duplicate_import_ids = value
         end
       end
     end
@@ -111,36 +81,8 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @month.nil?
-        invalid_properties.push('invalid value for "month", month cannot be nil.')
-      end
-
-      if @note.nil?
-        invalid_properties.push('invalid value for "note", note cannot be nil.')
-      end
-
-      if @income.nil?
-        invalid_properties.push('invalid value for "income", income cannot be nil.')
-      end
-
-      if @budgeted.nil?
-        invalid_properties.push('invalid value for "budgeted", budgeted cannot be nil.')
-      end
-
-      if @activity.nil?
-        invalid_properties.push('invalid value for "activity", activity cannot be nil.')
-      end
-
-      if @to_be_budgeted.nil?
-        invalid_properties.push('invalid value for "to_be_budgeted", to_be_budgeted cannot be nil.')
-      end
-
-      if @age_of_money.nil?
-        invalid_properties.push('invalid value for "age_of_money", age_of_money cannot be nil.')
-      end
-
-      if @categories.nil?
-        invalid_properties.push('invalid value for "categories", categories cannot be nil.')
+      if @transaction_ids.nil?
+        invalid_properties.push('invalid value for "transaction_ids", transaction_ids cannot be nil.')
       end
 
       invalid_properties
@@ -149,14 +91,7 @@ module YNAB
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @month.nil?
-      return false if @note.nil?
-      return false if @income.nil?
-      return false if @budgeted.nil?
-      return false if @activity.nil?
-      return false if @to_be_budgeted.nil?
-      return false if @age_of_money.nil?
-      return false if @categories.nil?
+      return false if @transaction_ids.nil?
       true
     end
 
@@ -165,14 +100,10 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          month == o.month &&
-          note == o.note &&
-          income == o.income &&
-          budgeted == o.budgeted &&
-          activity == o.activity &&
-          to_be_budgeted == o.to_be_budgeted &&
-          age_of_money == o.age_of_money &&
-          categories == o.categories
+          transaction_ids == o.transaction_ids &&
+          transaction == o.transaction &&
+          transactions == o.transactions &&
+          duplicate_import_ids == o.duplicate_import_ids
     end
 
     # @see the `==` method
@@ -184,7 +115,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [month, note, income, budgeted, activity, to_be_budgeted, age_of_money, categories].hash
+      [transaction_ids, transaction, transactions, duplicate_import_ids].hash
     end
 
     # Builds the object from hash

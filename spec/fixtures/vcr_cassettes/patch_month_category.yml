@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: patch
+    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/months/2018-02-01/categories/acd2a771-0a56-4dba-97bd-3952b0879282
+    body:
+      encoding: UTF-8
+      string: '{"month_category":{"budgeted":20382}}'
+    headers:
+      User-Agent:
+      - api_client/ruby/1.4.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer 9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding, Origin
+      ETag:
+      - W/"bb47a0ec2db8e9a65487078a80518278"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e9d2b5ad-bee5-4735-9a43-5f8b8bdca3ac
+      X-Runtime:
+      - '0.559140'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"category":{"id":"acd2a771-0a56-4dba-97bd-3952b0879282","category_group_id":"ed6f4c0e-2c5a-45d9-b887-b68a60ea724a","name":"Groceries","hidden":false,"original_category_group_id":null,"note":null,"budgeted":20382,"activity":0,"balance":20382,"goal_type":null,"goal_creation_month":null,"goal_target":0,"goal_target_month":null,"goal_percentage_complete":0,"deleted":false}}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://api.localhost:3000/v1/budgets/44656099-a8c8-4625-8fef-7c4549e696a7/months/2018-02-01/categories/acd2a771-0a56-4dba-97bd-3952b0879282
+  recorded_at: Tue, 25 Sep 2018 22:35:32 GMT
+recorded_with: VCR 3.0.3

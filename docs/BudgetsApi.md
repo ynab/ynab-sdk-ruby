@@ -20,7 +20,7 @@ Returns a single budget with all related entities.  This resource is effectively
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
+ **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
  **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
@@ -32,13 +32,13 @@ Name | Type | Description  | Notes
 
 Budget Settings
 
-Returns settings for a budget.
+Returns settings for a budget
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
+ **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
 
 ### Return type
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 List budgets
 
-Returns budgets list with summary information.
+Returns budgets list with summary information
 
 ### Parameters
 This endpoint does not need any parameter.

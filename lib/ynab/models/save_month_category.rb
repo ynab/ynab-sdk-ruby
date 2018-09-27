@@ -13,54 +13,21 @@ Swagger Codegen version: 2.4.0-SNAPSHOT
 require 'date'
 
 module YNAB
-  class MonthDetail
-    attr_accessor :month
-
-    attr_accessor :note
-
-    # The total amount in transactions categorized to 'Inflow: To be Budgeted' in the month
-    attr_accessor :income
-
-    # The total amount budgeted in the month
+  class SaveMonthCategory
+    # Budgeted amount in milliunits format
     attr_accessor :budgeted
-
-    # The total amount in transactions in the month, excluding those categorized to 'Inflow: To be Budgeted'
-    attr_accessor :activity
-
-    # The available amount for 'To be Budgeted'
-    attr_accessor :to_be_budgeted
-
-    # The Age of Money as of the month
-    attr_accessor :age_of_money
-
-    # the budget month categories
-    attr_accessor :categories
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'month' => :'month',
-        :'note' => :'note',
-        :'income' => :'income',
-        :'budgeted' => :'budgeted',
-        :'activity' => :'activity',
-        :'to_be_budgeted' => :'to_be_budgeted',
-        :'age_of_money' => :'age_of_money',
-        :'categories' => :'categories'
+        :'budgeted' => :'budgeted'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'month' => :'Date',
-        :'note' => :'String',
-        :'income' => :'Integer',
-        :'budgeted' => :'Integer',
-        :'activity' => :'Integer',
-        :'to_be_budgeted' => :'Integer',
-        :'age_of_money' => :'Integer',
-        :'categories' => :'Array<Category>'
+        :'budgeted' => :'Integer'
       }
     end
 
@@ -72,38 +39,8 @@ module YNAB
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'month')
-        self.month = attributes[:'month']
-      end
-
-      if attributes.has_key?(:'note')
-        self.note = attributes[:'note']
-      end
-
-      if attributes.has_key?(:'income')
-        self.income = attributes[:'income']
-      end
-
       if attributes.has_key?(:'budgeted')
         self.budgeted = attributes[:'budgeted']
-      end
-
-      if attributes.has_key?(:'activity')
-        self.activity = attributes[:'activity']
-      end
-
-      if attributes.has_key?(:'to_be_budgeted')
-        self.to_be_budgeted = attributes[:'to_be_budgeted']
-      end
-
-      if attributes.has_key?(:'age_of_money')
-        self.age_of_money = attributes[:'age_of_money']
-      end
-
-      if attributes.has_key?(:'categories')
-        if (value = attributes[:'categories']).is_a?(Array)
-          self.categories = value
-        end
       end
     end
 
@@ -111,36 +48,8 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @month.nil?
-        invalid_properties.push('invalid value for "month", month cannot be nil.')
-      end
-
-      if @note.nil?
-        invalid_properties.push('invalid value for "note", note cannot be nil.')
-      end
-
-      if @income.nil?
-        invalid_properties.push('invalid value for "income", income cannot be nil.')
-      end
-
       if @budgeted.nil?
         invalid_properties.push('invalid value for "budgeted", budgeted cannot be nil.')
-      end
-
-      if @activity.nil?
-        invalid_properties.push('invalid value for "activity", activity cannot be nil.')
-      end
-
-      if @to_be_budgeted.nil?
-        invalid_properties.push('invalid value for "to_be_budgeted", to_be_budgeted cannot be nil.')
-      end
-
-      if @age_of_money.nil?
-        invalid_properties.push('invalid value for "age_of_money", age_of_money cannot be nil.')
-      end
-
-      if @categories.nil?
-        invalid_properties.push('invalid value for "categories", categories cannot be nil.')
       end
 
       invalid_properties
@@ -149,14 +58,7 @@ module YNAB
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @month.nil?
-      return false if @note.nil?
-      return false if @income.nil?
       return false if @budgeted.nil?
-      return false if @activity.nil?
-      return false if @to_be_budgeted.nil?
-      return false if @age_of_money.nil?
-      return false if @categories.nil?
       true
     end
 
@@ -165,14 +67,7 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          month == o.month &&
-          note == o.note &&
-          income == o.income &&
-          budgeted == o.budgeted &&
-          activity == o.activity &&
-          to_be_budgeted == o.to_be_budgeted &&
-          age_of_money == o.age_of_money &&
-          categories == o.categories
+          budgeted == o.budgeted
     end
 
     # @see the `==` method
@@ -184,7 +79,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [month, note, income, budgeted, activity, to_be_budgeted, age_of_money, categories].hash
+      [budgeted].hash
     end
 
     # Builds the object from hash

@@ -5,7 +5,7 @@ All URIs are relative to *https://api.youneedabudget.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**bulk_create_transactions**](TransactionsApi.md#bulk_create_transactions) | **POST** /budgets/{budget_id}/transactions/bulk | Bulk create transactions
-[**create_transaction**](TransactionsApi.md#create_transaction) | **POST** /budgets/{budget_id}/transactions | Create new transaction
+[**create_transaction**](TransactionsApi.md#create_transaction) | **POST** /budgets/{budget_id}/transactions | Create a single transaction or multiple transactions
 [**get_transaction_by_id**](TransactionsApi.md#get_transaction_by_id) | **GET** /budgets/{budget_id}/transactions/{transaction_id} | Single transaction
 [**get_transactions**](TransactionsApi.md#get_transactions) | **GET** /budgets/{budget_id}/transactions | List transactions
 [**get_transactions_by_account**](TransactionsApi.md#get_transactions_by_account) | **GET** /budgets/{budget_id}/accounts/{account_id}/transactions | List account transactions
@@ -25,30 +25,30 @@ Creates multiple transactions
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
- **transactions** | [**BulkTransactions**](BulkTransactions.md)| The list of Transactions to create. | 
+ **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **transactions** | [**BulkTransactions**](BulkTransactions.md)| The list of transactions to create | 
 
 ### Return type
 
 [**BulkResponse**](BulkResponse.md)
 
 # **create_transaction**
-> TransactionResponse create_transaction(budget_id, transaction)
+> SaveTransactionsResponse create_transaction(budget_id, save_transactions)
 
-Create new transaction
+Create a single transaction or multiple transactions
 
-Creates a transaction
+Creates a single transaction or multiple transactions.  If you provide a body containing a 'transaction' object, a single transaction will be created and if you provide a body containing a 'transactions' array, multiple transactions will be created.
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
- **transaction** | [**SaveTransactionWrapper**](SaveTransactionWrapper.md)| The Transaction to create. | 
+ **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **save_transactions** | [**SaveTransactionsWrapper**](SaveTransactionsWrapper.md)| The transaction or transactions to create | 
 
 ### Return type
 
-[**TransactionResponse**](TransactionResponse.md)
+[**SaveTransactionsResponse**](SaveTransactionsResponse.md)
 
 # **get_transaction_by_id**
 > TransactionResponse get_transaction_by_id(budget_id, transaction_id)
@@ -61,8 +61,8 @@ Returns a single transaction
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
- **transaction_id** | [**String**](.md)| The ID of the Transaction. | 
+ **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **transaction_id** | [**String**](.md)| The id of the transaction | 
 
 ### Return type
 
@@ -79,8 +79,8 @@ Returns budget transactions
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
- **since_date** | **Date**| Only return transactions on or after this date. | [optional] 
+ **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **since_date** | **Date**| Only return transactions on or after this date | [optional] 
  **type** | **String**| Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported) | [optional] 
 
 ### Return type
@@ -98,9 +98,9 @@ Returns all transactions for a specified account
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
- **account_id** | [**String**](.md)| The ID of the Account. | 
- **since_date** | **Date**| Only return transactions on or after this date. | [optional] 
+ **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **account_id** | [**String**](.md)| The id of the account | 
+ **since_date** | **Date**| Only return transactions on or after this date | [optional] 
  **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
 
 ### Return type
@@ -118,9 +118,9 @@ Returns all transactions for a specified category
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
- **category_id** | [**String**](.md)| The ID of the Category. | 
- **since_date** | **Date**| Only return transactions on or after this date. | [optional] 
+ **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **category_id** | [**String**](.md)| The id of the category | 
+ **since_date** | **Date**| Only return transactions on or after this date | [optional] 
  **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
 
 ### Return type
@@ -138,9 +138,9 @@ Returns all transactions for a specified payee
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
- **payee_id** | [**String**](.md)| The ID of the Payee. | 
- **since_date** | **Date**| Only return transactions on or after this date. | [optional] 
+ **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **payee_id** | [**String**](.md)| The id of the payee | 
+ **since_date** | **Date**| Only return transactions on or after this date | [optional] 
  **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
 
 ### Return type
@@ -158,9 +158,9 @@ Updates a transaction
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The ID of the Budget.  \&quot;last-used\&quot; can also be used to specify the last used budget. | 
- **transaction_id** | [**String**](.md)| The ID of the Transaction. | 
- **transaction** | [**SaveTransactionWrapper**](SaveTransactionWrapper.md)| The Transaction to update. | 
+ **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **transaction_id** | [**String**](.md)| The id of the transaction | 
+ **transaction** | [**SaveTransactionWrapper**](SaveTransactionWrapper.md)| The transaction to update | 
 
 ### Return type
 
