@@ -5,14 +5,14 @@ def print_budget_list
   puts "access_token = " + access_token
   ynab = YNAB::API.new(access_token)
 
-  puts "Fetching budgets..."
+  puts 'Fetching budgets...'
   begin
     budget_response = ynab.budgets.get_budgets
     budgets = budget_response.data.budgets
 
-    puts "==========="
-    puts "BUDGET LIST"
-    puts "==========="
+    puts '==========='
+    puts 'BUDGET LIST'
+    puts '==========='
 
     budgets.each do |budget|
       puts "[id: #{budget.id}, name: #{budget.name}]"
