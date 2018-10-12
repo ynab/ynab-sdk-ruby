@@ -3,8 +3,6 @@ require 'date'
 
 def print_budget_month
   access_token = ENV['YNAB_ACCESS_TOKEN']
-  puts "access_token = " + access_token
-
   ynab = YNAB::API.new(access_token)
 
   budget_id = ENV['YNAB_BUDGET_ID']

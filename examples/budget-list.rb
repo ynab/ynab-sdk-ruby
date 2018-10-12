@@ -2,7 +2,6 @@ require 'ynab'
 
 def print_budget_list
   access_token = ENV['YNAB_ACCESS_TOKEN']
-  puts "access_token = " + access_token
   ynab = YNAB::API.new(access_token)
 
   puts 'Fetching budgets...'
