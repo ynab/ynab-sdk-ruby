@@ -16,13 +16,6 @@ This client is generated using the [Swagger Code Generator](https://github.com/s
 gem install ynab
 ```
 
-## Environment Variables
-
-| Variable | Description | Required |
-| -------- | ----------- | -------- |
-| YNAB_ACCESS_TOKEN | Your YNAB access token | Yes |
-| YNAB_BUDGET_ID | Which YNAB budget to use | Yes |
-
 ## Usage
 To use this client you must
 [obtain an access token](https://api.youneedabudget.com/#authentication-overview) from
