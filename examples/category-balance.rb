@@ -1,10 +1,12 @@
 require 'ynab'
 
 def print_category_info
-  access_token = 'bf0cbb14b4330-not-real-3de12e66a389eaafe2'
+  access_token = ENV['YNAB_ACCESS_TOKEN']
+  puts "access_token = " + access_token
+
   ynab = YNAB::API.new(access_token)
 
-  budget_id = "f968197b-2863-not-real-c2406dbe7f0d"
+  budget_id = ENV['YNAB_BUDGET_ID']
   category_id = "a191ac84-de09-not-real-6c5ed8cfdabe"
 
   begin
