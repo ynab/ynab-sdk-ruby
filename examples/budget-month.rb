@@ -3,15 +3,13 @@ require 'date'
 
 def print_budget_month
   access_token = ENV['YNAB_ACCESS_TOKEN']
-  puts "access_token = " + access_token
-
   ynab = YNAB::API.new(access_token)
 
   budget_id = ENV['YNAB_BUDGET_ID']
   first_day_of_month_iso = Date.new(Date.today.year, Date.today.month, 1).iso8601
 
   begin
-    puts "Fetching month..."
+    puts 'Fetching month...'
     current_date = Date.today
     first_day_of_month = Date.new(current_date.year, current_date.month, 1)
     month_response = ynab.months.get_budget_month(budget_id, first_day_of_month_iso)
