@@ -807,6 +807,13 @@
             "required": false,
             "type": "string",
             "enum": ["uncategorized", "unapproved"]
+          },
+          {
+            "name": "last_knowledge_of_server",
+            "in": "query",
+            "description": "The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -958,6 +965,13 @@
             "required": false,
             "type": "string",
             "enum": ["uncategorized", "unapproved"]
+          },
+          {
+            "name": "last_knowledge_of_server",
+            "in": "query",
+            "description": "The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -1021,6 +1035,13 @@
             "required": false,
             "type": "string",
             "enum": ["uncategorized", "unapproved"]
+          },
+          {
+            "name": "last_knowledge_of_server",
+            "in": "query",
+            "description": "The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -1084,6 +1105,13 @@
             "required": false,
             "type": "string",
             "enum": ["uncategorized", "unapproved"]
+          },
+          {
+            "name": "last_knowledge_of_server",
+            "in": "query",
+            "description": "The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -1982,13 +2010,17 @@
     },
     "TransactionsWrapper": {
       "type": "object",
-      "required": ["transactions"],
+      "required": ["transactions", "server_knowledge"],
       "properties": {
         "transactions": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/TransactionDetail"
           }
+        },
+        "server_knowledge": {
+          "type": "integer",
+          "description": "The knowledge of the server"
         }
       }
     },

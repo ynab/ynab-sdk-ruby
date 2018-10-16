@@ -63,6 +63,7 @@ Name | Type | Description  | Notes
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
  **since_date** | **Date**| Only return transactions on or after this date | [optional] 
  **type** | **String**| Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported) | [optional] 
+ **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
 
@@ -83,6 +84,7 @@ Name | Type | Description  | Notes
  **account_id** | [**String**](.md)| The id of the account | 
  **since_date** | **Date**| Only return transactions on or after this date | [optional] 
  **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
+ **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
 
@@ -103,6 +105,7 @@ Name | Type | Description  | Notes
  **category_id** | [**String**](.md)| The id of the category | 
  **since_date** | **Date**| Only return transactions on or after this date | [optional] 
  **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
+ **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
 
@@ -123,6 +126,7 @@ Name | Type | Description  | Notes
  **payee_id** | [**String**](.md)| The id of the payee | 
  **since_date** | **Date**| Only return transactions on or after this date | [optional] 
  **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
+ **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
 

@@ -141,6 +141,7 @@ module YNAB
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported)
+    # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [TransactionsResponse]
     def get_transactions(budget_id, opts = {})
       data, _status_code, _headers = get_transactions_with_http_info(budget_id, opts)
@@ -153,6 +154,7 @@ module YNAB
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported)
+    # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [Array<(TransactionsResponse, Fixnum, Hash)>] TransactionsResponse data, response status code and response headers
     def get_transactions_with_http_info(budget_id, opts = {})
       if @api_client.config.debugging
@@ -172,6 +174,7 @@ module YNAB
       query_params = {}
       query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
       query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
+      query_params[:'last_knowledge_of_server'] = opts[:'last_knowledge_of_server'] if !opts[:'last_knowledge_of_server'].nil?
 
       # header parameters
       header_params = {}
@@ -203,6 +206,7 @@ module YNAB
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
+    # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [TransactionsResponse]
     def get_transactions_by_account(budget_id, account_id, opts = {})
       data, _status_code, _headers = get_transactions_by_account_with_http_info(budget_id, account_id, opts)
@@ -216,6 +220,7 @@ module YNAB
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
+    # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [Array<(TransactionsResponse, Fixnum, Hash)>] TransactionsResponse data, response status code and response headers
     def get_transactions_by_account_with_http_info(budget_id, account_id, opts = {})
       if @api_client.config.debugging
@@ -239,6 +244,7 @@ module YNAB
       query_params = {}
       query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
       query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
+      query_params[:'last_knowledge_of_server'] = opts[:'last_knowledge_of_server'] if !opts[:'last_knowledge_of_server'].nil?
 
       # header parameters
       header_params = {}
@@ -270,6 +276,7 @@ module YNAB
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
+    # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [HybridTransactionsResponse]
     def get_transactions_by_category(budget_id, category_id, opts = {})
       data, _status_code, _headers = get_transactions_by_category_with_http_info(budget_id, category_id, opts)
@@ -283,6 +290,7 @@ module YNAB
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
+    # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [Array<(HybridTransactionsResponse, Fixnum, Hash)>] HybridTransactionsResponse data, response status code and response headers
     def get_transactions_by_category_with_http_info(budget_id, category_id, opts = {})
       if @api_client.config.debugging
@@ -306,6 +314,7 @@ module YNAB
       query_params = {}
       query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
       query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
+      query_params[:'last_knowledge_of_server'] = opts[:'last_knowledge_of_server'] if !opts[:'last_knowledge_of_server'].nil?
 
       # header parameters
       header_params = {}
@@ -337,6 +346,7 @@ module YNAB
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
+    # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [HybridTransactionsResponse]
     def get_transactions_by_payee(budget_id, payee_id, opts = {})
       data, _status_code, _headers = get_transactions_by_payee_with_http_info(budget_id, payee_id, opts)
@@ -350,6 +360,7 @@ module YNAB
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date Only return transactions on or after this date
     # @option opts [String] :type Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)
+    # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [Array<(HybridTransactionsResponse, Fixnum, Hash)>] HybridTransactionsResponse data, response status code and response headers
     def get_transactions_by_payee_with_http_info(budget_id, payee_id, opts = {})
       if @api_client.config.debugging
@@ -373,6 +384,7 @@ module YNAB
       query_params = {}
       query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
       query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
+      query_params[:'last_knowledge_of_server'] = opts[:'last_knowledge_of_server'] if !opts[:'last_knowledge_of_server'].nil?
 
       # header parameters
       header_params = {}
