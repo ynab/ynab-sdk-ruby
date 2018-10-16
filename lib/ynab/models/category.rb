@@ -28,13 +28,13 @@ module YNAB
 
     attr_accessor :note
 
-    # Budgeted amount in current month in milliunits format
+    # Budgeted amount in milliunits format
     attr_accessor :budgeted
 
-    # Activity amount in current month in milliunits format
+    # Activity amount in milliunits format
     attr_accessor :activity
 
-    # Balance in current month in milliunits format
+    # Balance in milliunits format
     attr_accessor :balance
 
     # The type of goal, if the cagegory has a goal (TB=Target Category Balance, TBD=Target Category Balance by Date, MF=Monthly Funding)

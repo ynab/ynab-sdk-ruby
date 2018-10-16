@@ -21,7 +21,7 @@ Returns a single payee location
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
- **payee_location_id** | [**String**](.md)| ID of payee location | 
+ **payee_location_id** | [**String**](.md)| id of payee location | 
 
 ### Return type
 

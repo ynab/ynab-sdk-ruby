@@ -4,7 +4,6 @@ All URIs are relative to *https://api.youneedabudget.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bulk_create_transactions**](TransactionsApi.md#bulk_create_transactions) | **POST** /budgets/{budget_id}/transactions/bulk | Bulk create transactions
 [**create_transaction**](TransactionsApi.md#create_transaction) | **POST** /budgets/{budget_id}/transactions | Create a single transaction or multiple transactions
 [**get_transaction_by_id**](TransactionsApi.md#get_transaction_by_id) | **GET** /budgets/{budget_id}/transactions/{transaction_id} | Single transaction
 [**get_transactions**](TransactionsApi.md#get_transactions) | **GET** /budgets/{budget_id}/transactions | List transactions
@@ -13,24 +12,6 @@ Method | HTTP request | Description
 [**get_transactions_by_payee**](TransactionsApi.md#get_transactions_by_payee) | **GET** /budgets/{budget_id}/payees/{payee_id}/transactions | List payee transactions
 [**update_transaction**](TransactionsApi.md#update_transaction) | **PUT** /budgets/{budget_id}/transactions/{transaction_id} | Updates an existing transaction
 
-
-# **bulk_create_transactions**
-> BulkResponse bulk_create_transactions(budget_id, transactions)
-
-Bulk create transactions
-
-Creates multiple transactions
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
- **transactions** | [**BulkTransactions**](BulkTransactions.md)| The list of transactions to create | 
-
-### Return type
-
-[**BulkResponse**](BulkResponse.md)
 
 # **create_transaction**
 > SaveTransactionsResponse create_transaction(budget_id, save_transactions)
@@ -82,6 +63,7 @@ Name | Type | Description  | Notes
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
  **since_date** | **Date**| Only return transactions on or after this date | [optional] 
  **type** | **String**| Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported) | [optional] 
+ **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
 
@@ -102,6 +84,7 @@ Name | Type | Description  | Notes
  **account_id** | [**String**](.md)| The id of the account | 
  **since_date** | **Date**| Only return transactions on or after this date | [optional] 
  **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
+ **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
 
@@ -122,6 +105,7 @@ Name | Type | Description  | Notes
  **category_id** | [**String**](.md)| The id of the category | 
  **since_date** | **Date**| Only return transactions on or after this date | [optional] 
  **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
+ **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
 
@@ -142,6 +126,7 @@ Name | Type | Description  | Notes
  **payee_id** | [**String**](.md)| The id of the payee | 
  **since_date** | **Date**| Only return transactions on or after this date | [optional] 
  **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
+ **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
 

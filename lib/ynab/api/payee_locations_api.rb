@@ -22,7 +22,7 @@ module YNAB
     # Single payee location
     # Returns a single payee location
     # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
-    # @param payee_location_id ID of payee location
+    # @param payee_location_id id of payee location
     # @param [Hash] opts the optional parameters
     # @return [PayeeLocationResponse]
     def get_payee_location_by_id(budget_id, payee_location_id, opts = {})
@@ -33,7 +33,7 @@ module YNAB
     # Single payee location
     # Returns a single payee location
     # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
-    # @param payee_location_id ID of payee location
+    # @param payee_location_id id of payee location
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayeeLocationResponse, Fixnum, Hash)>] PayeeLocationResponse data, response status code and response headers
     def get_payee_location_by_id_with_http_info(budget_id, payee_location_id, opts = {})

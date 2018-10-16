@@ -94,12 +94,15 @@ require 'ynab/models/transaction_detail'
 require 'ynab/api/accounts_api'
 require 'ynab/api/budgets_api'
 require 'ynab/api/categories_api'
+require 'ynab/api/deprecated_api'
 require 'ynab/api/months_api'
 require 'ynab/api/payee_locations_api'
 require 'ynab/api/payees_api'
 require 'ynab/api/scheduled_transactions_api'
 require 'ynab/api/transactions_api'
 require 'ynab/api/user_api'
+
+require 'ynab/overrides/transactions_api'
 
 module YNAB
   class API
@@ -143,7 +146,7 @@ module YNAB
     end
 
     def transactions
-      TransactionsApi.new(@client)
+      YNAB::Overrides::TransactionsApi.new(@client)
     end
 
     def scheduled_transactions
