@@ -24,7 +24,7 @@ module YNAB
     # Whether or not the category group has been deleted.  Deleted category groups will only be included in delta requests.
     attr_accessor :deleted
 
-    # Category group categories
+    # Category group categories.  Amounts (budgeted, activity, balance, etc.) are specific to the current budget month (UTC).
     attr_accessor :categories
 
     # Attribute mapping from ruby-style variable name to JSON key.

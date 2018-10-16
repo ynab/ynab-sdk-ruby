@@ -11,7 +11,7 @@ describe 'transactions' do
 
   describe 'test an instance of TransactionsApi' do
     it 'should create an instance of TransactionApi' do
-      expect(instance).to be_instance_of(YNAB::TransactionsApi)
+      expect(instance).to be_instance_of(YNAB::Overrides::TransactionsApi)
     end
   end
 
@@ -86,6 +86,28 @@ describe 'transactions' do
             account_id: '5982e895-98e5-41ca-9681-0b6de1036a1c',
             amount: 20000
           }
+        })
+        expect(client.last_request.response.options[:code]).to be 201
+        expect(response.data.transaction).to be
+        expect(response.data.transaction.amount).to eq 20000
+      end
+    end
+
+    it "creates multiple transactions" do
+      VCR.use_cassette("create_transaction") do
+        response = instance.create_transactions(budget_id, {
+          transactions: [
+            {
+              date: '2018-01-01',
+              account_id: '5982e895-98e5-41ca-9681-0b6de1036a1c',
+              amount: 20000
+            },
+            {
+              date: '2018-01-02',
+              account_id: '5982e895-98e5-41ca-9681-0b6de1036a1c',
+              amount: 30000
+            },
+          ]
         })
         expect(client.last_request.response.options[:code]).to be 201
         expect(response.data.transaction).to be

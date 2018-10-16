@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 List categories
 
-Returns all categories grouped by category group
+Returns all categories grouped by category group.  Amounts (budgeted, activity, balance, etc.) are specific to the current budget month (UTC).
 
 ### Parameters
 
@@ -32,7 +32,7 @@ Name | Type | Description  | Notes
 
 Single category
 
-Returns a single category
+Returns a single category.  Amounts (budgeted, activity, balance, etc.) are specific to the current budget month (UTC).
 
 ### Parameters
 
@@ -50,14 +50,14 @@ Name | Type | Description  | Notes
 
 Single category for a specific budget month
 
-Returns a single category for a specific budget month
+Returns a single category for a specific budget month.  Amounts (budgeted, activity, balance, etc.) are specific to the current budget month (UTC).
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
- **month** | **Date**| the budget month in ISO format (e.g. 2016-12-30). (\&quot;current\&quot; can also be used to specify the current calendar month (UTC)) | 
+ **month** | **Date**| The budget month in ISO format (e.g. 2016-12-30) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC)) | 
  **category_id** | [**String**](.md)| The id of the category | 
 
 ### Return type
@@ -76,7 +76,7 @@ Update an existing month category
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
- **month** | **Date**| the budget month in ISO format (e.g. 2016-12-01).  \&quot;current\&quot; can also be used to specify the current calendar month (UTC). | 
+ **month** | **Date**| The budget month in ISO format (e.g. 2016-12-30) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC)) | 
  **category_id** | [**String**](.md)| The id of the category | 
  **month_category** | [**SaveMonthCategoryWrapper**](SaveMonthCategoryWrapper.md)| The month category to update | 
 

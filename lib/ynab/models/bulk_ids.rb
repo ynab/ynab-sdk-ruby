@@ -14,7 +14,7 @@ require 'date'
 
 module YNAB
   class BulkIds
-    # The list of Transaction IDs that were created.
+    # The list of Transaction ids that were created.
     attr_accessor :transaction_ids
 
     # If any Transactions were not created because they had an import_id matching a transaction already on the same account, the specified import_id(s) will be included in this list.

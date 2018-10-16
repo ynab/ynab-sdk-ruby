@@ -33,7 +33,7 @@ module YNAB
     # The Age of Money as of the month
     attr_accessor :age_of_money
 
-    # the budget month categories
+    # The budget month categories.  Amounts (budgeted, activity, balance, etc.) are specific to the {month} parameter specified.
     attr_accessor :categories
 
     # Attribute mapping from ruby-style variable name to JSON key.
