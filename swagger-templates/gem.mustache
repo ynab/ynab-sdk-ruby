@@ -21,6 +21,8 @@ require '{{importPath}}'
 {{/apis}}
 {{/apiInfo}}
 
+require 'ynab/overrides/transactions_api'
+
 module {{moduleName}}
   class API
     def initialize(access_token, host = 'api.youneedabudget.com', useHttps = true)
@@ -63,7 +65,7 @@ module {{moduleName}}
     end
 
     def transactions
-      TransactionsApi.new(@client)
+      YNAB::Overrides::TransactionsApi.new(@client)
     end
 
     def scheduled_transactions
