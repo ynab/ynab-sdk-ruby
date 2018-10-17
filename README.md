@@ -85,7 +85,7 @@ The following methods are available in this library.
 ## Releasing
 
 - Commit all changes
-- Bump `gemVersion` in `lib/ynab/version.rb`
+- Bump VERSION in `lib/ynab/version.rb`
 - Run `rake publish` to publish to RubyGems
 
 ## License
