@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.version     = YNAB::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['You Need A Budget, LLC']
-  s.email       = ['help@youneedabudget.com']
+  s.email       = ['api@youneedabudget.com']
   s.homepage    = 'https://github.com/ynab/ynab-sdk-ruby'
   s.summary     = 'YNAB API Endpoints Ruby Gem'
   s.description = 'Ruby gem wrapper for the YNAB API. Read the documentation at https://api.youneedabudget.com'
