@@ -26,7 +26,6 @@ app.
 require 'ynab'
 
 access_token = ENV['YNAB_ACCESS_TOKEN']
-
 ynab_api = YNAB::API.new(access_token)
 
 budget_response = ynab_api.budgets.get_budgets
