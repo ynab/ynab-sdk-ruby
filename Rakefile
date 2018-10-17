@@ -30,5 +30,5 @@ task :commit_version_bump do
 end
 
 desc "Bump version, run specs build a gem and release on RubyGems"
-task :publish => ['generate', 'commit_version_bump', 'spec', 'release']
+task :publish => ['generate', 'spec', 'commit_version_bump', 'release']
 
