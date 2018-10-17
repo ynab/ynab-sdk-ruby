@@ -26,9 +26,9 @@ task :generate do
 end
 
 task :commit_version_bump do
-  sh "git add config.json lib/ynab/version.rb Gemfile.lock && git diff-index --quiet HEAD || git commit -m 'Bumping version for release'"
+  sh "git add lib/ynab/version.rb Gemfile.lock && git diff-index --quiet HEAD || git commit -m 'Bumping version for release'"
 end
 
 desc "Bump version, run specs build a gem and release on RubyGems"
-task :publish => ['generate', 'spec', 'commit_version_bump', 'clobber', 'release']
+task :publish => ['spec', 'commit_version_bump', 'clobber', 'release']
 
