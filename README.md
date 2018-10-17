@@ -26,7 +26,6 @@ app.
 require 'ynab'
 
 access_token = ENV['YNAB_ACCESS_TOKEN']
-puts "access_token = " + access_token
 
 ynab_api = YNAB::API.new(access_token)
 
