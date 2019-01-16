@@ -13,6 +13,7 @@ Swagger Codegen version: 2.4.0-SNAPSHOT
 require 'date'
 
 module YNAB
+  # The currency format setting for the budget.  In some cases the format will not be available and will be specified as null.
   class CurrencyFormat
     attr_accessor :iso_code
 

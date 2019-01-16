@@ -133,6 +133,30 @@ describe 'transactions' do
     end
   end
 
+  describe 'PATCH /budgets/{budget_id}/transactions' do
+    it "updates multiple transactions" do
+      VCR.use_cassette("update_transactions") do
+        response = instance.update_transactions(budget_id, {
+          transactions: [
+            {
+              date: '2018-01-02',
+              account_id: '5982e895-98e5-41ca-9681-0b6de1036a1c',
+              amount: 30000
+            },
+            {
+              date: '2018-01-03',
+              account_id: '5982e895-98e5-41ca-9681-0b6de1036a1c',
+              amount: 40000
+            }
+          ]
+        })
+        expect(client.last_request.response.options[:code]).to be 200
+        expect(response.data.transactions).to be
+        expect(response.data.transactions.length).to eq 2
+      end
+    end
+  end
+
   describe 'POST /budgets/{budget_id}/transactions' do
     it "create multiple transactions" do
       VCR.use_cassette("multiple_transactions") do
