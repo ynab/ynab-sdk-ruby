@@ -22,11 +22,11 @@ module YNAB
       # Create a single transaction or multiple transactions
       # Creates a single transaction or multiple transactions.  If you provide a body containing a 'transaction' object, a single transaction will be created and if you provide a body containing a 'transactions' array, multiple transactions will be created.
       # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
-      # @param save_transactions The transaction or transactions to create
+      # @param data The transaction or transactions to create
       # @param [Hash] opts the optional parameters
       # @return [SaveTransactionsResponse]
-      def create_transactions(budget_id, save_transactions, opts = {})
-        data, _status_code, _headers = create_transaction_with_http_info(budget_id, save_transactions, opts)
+      def create_transactions(budget_id, data, opts = {})
+        data, _status_code, _headers = create_transaction_with_http_info(budget_id, data, opts)
         data
       end
 

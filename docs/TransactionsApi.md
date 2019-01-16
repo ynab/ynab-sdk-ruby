@@ -11,10 +11,11 @@ Method | HTTP request | Description
 [**get_transactions_by_category**](TransactionsApi.md#get_transactions_by_category) | **GET** /budgets/{budget_id}/categories/{category_id}/transactions | List category transactions
 [**get_transactions_by_payee**](TransactionsApi.md#get_transactions_by_payee) | **GET** /budgets/{budget_id}/payees/{payee_id}/transactions | List payee transactions
 [**update_transaction**](TransactionsApi.md#update_transaction) | **PUT** /budgets/{budget_id}/transactions/{transaction_id} | Updates an existing transaction
+[**update_transactions**](TransactionsApi.md#update_transactions) | **PATCH** /budgets/{budget_id}/transactions | Update multiple transactions
 
 
 # **create_transaction**
-> SaveTransactionsResponse create_transaction(budget_id, save_transactions)
+> SaveTransactionsResponse create_transaction(budget_id, data)
 
 Create a single transaction or multiple transactions
 
@@ -25,7 +26,7 @@ Creates a single transaction or multiple transactions.  If you provide a body co
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
- **save_transactions** | [**SaveTransactionsWrapper**](SaveTransactionsWrapper.md)| The transaction or transactions to create | 
+ **data** | [**SaveTransactionsWrapper**](SaveTransactionsWrapper.md)| The transaction or transactions to create.  To create a single transaction you can specify a value for the &#39;transaction&#39; object and to create multiple transactions you can specify an array of &#39;transactions&#39;.  It is expected that you will only provide a value for one of these objects. | 
 
 ### Return type
 
@@ -43,7 +44,7 @@ Returns a single transaction
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
- **transaction_id** | [**String**](.md)| The id of the transaction | 
+ **transaction_id** | **String**| The id of the transaction | 
 
 ### Return type
 
@@ -61,8 +62,8 @@ Returns budget transactions
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
- **since_date** | **Date**| Only return transactions on or after this date | [optional] 
- **type** | **String**| Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported) | [optional] 
+ **since_date** | **Date**| If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). | [optional] 
+ **type** | **String**| If specified, only transactions of the specified type will be included. &#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported. | [optional] 
  **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
@@ -82,8 +83,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
  **account_id** | [**String**](.md)| The id of the account | 
- **since_date** | **Date**| Only return transactions on or after this date | [optional] 
- **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
+ **since_date** | **Date**| If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). | [optional] 
+ **type** | **String**| If specified, only transactions of the specified type will be included. &#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported. | [optional] 
  **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
@@ -103,8 +104,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
  **category_id** | [**String**](.md)| The id of the category | 
- **since_date** | **Date**| Only return transactions on or after this date | [optional] 
- **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
+ **since_date** | **Date**| If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). | [optional] 
+ **type** | **String**| If specified, only transactions of the specified type will be included. &#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported. | [optional] 
  **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
@@ -124,8 +125,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
  **payee_id** | [**String**](.md)| The id of the payee | 
- **since_date** | **Date**| Only return transactions on or after this date | [optional] 
- **type** | **String**| Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;) | [optional] 
+ **since_date** | **Date**| If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). | [optional] 
+ **type** | **String**| If specified, only transactions of the specified type will be included. &#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported. | [optional] 
  **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
@@ -133,7 +134,7 @@ Name | Type | Description  | Notes
 [**HybridTransactionsResponse**](HybridTransactionsResponse.md)
 
 # **update_transaction**
-> TransactionResponse update_transaction(budget_id, transaction_id, transaction)
+> TransactionResponse update_transaction(budget_id, transaction_id, data)
 
 Updates an existing transaction
 
@@ -144,10 +145,28 @@ Updates a transaction
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
- **transaction_id** | [**String**](.md)| The id of the transaction | 
- **transaction** | [**SaveTransactionWrapper**](SaveTransactionWrapper.md)| The transaction to update | 
+ **transaction_id** | **String**| The id of the transaction | 
+ **data** | [**SaveTransactionWrapper**](SaveTransactionWrapper.md)| The transaction to update | 
 
 ### Return type
 
 [**TransactionResponse**](TransactionResponse.md)
+
+# **update_transactions**
+> SaveTransactionsResponse update_transactions(budget_id, data)
+
+Update multiple transactions
+
+Updates multiple transactions, by 'id' or 'import_id'.
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **data** | [**SaveTransactionsWrapper**](SaveTransactionsWrapper.md)| The transactions to update.  Optionally, transaction &#39;id&#39; value(s) can be specified as null and an &#39;import_id&#39; value can be provided which will allow transaction(s) to updated by their import_id. | 
+
+### Return type
+
+[**SaveTransactionsResponse**](SaveTransactionsResponse.md)
 
