@@ -18,8 +18,8 @@ def print_category_info
     puts "      Name: #{category.name}"
     puts "  Budgeted: #{category.budgeted}"
     puts "   Balance: #{category.balance}"
-  rescue => e
-    puts "ERROR: #{e}"
+  rescue YNAB::ApiError => e
+    puts "ERROR: id=#{e.id}; name=#{e.name}; detail: #{e.detail}"
   end
 end
 

@@ -36,7 +36,7 @@ def create_multiple_transactions
        }
       ]
     })
-  rescue => e
+  rescue YNAB::ApiError => e
     puts "ERROR: id=#{e.id}; name=#{e.name}; detail: #{e.detail}"
   end
 end
