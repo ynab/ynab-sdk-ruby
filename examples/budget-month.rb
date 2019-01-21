@@ -27,8 +27,8 @@ def print_budget_month
     budget_month.categories.each do |category|
       puts "                #{category.name} - $#{category.balance}"
     end
-  rescue => e
-    puts "ERROR: #{e}"
+  rescue YNAB::ApiError => e
+    puts "ERROR: id=#{e.id}; name=#{e.name}; detail: #{e.detail}"
   end
 end
 

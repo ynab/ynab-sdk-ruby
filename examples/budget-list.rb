@@ -16,8 +16,8 @@ def print_budget_list
     budgets.each do |budget|
       puts "[id: #{budget.id}, name: #{budget.name}]"
     end
-  rescue => e
-    puts "ERROR: #{e}"
+  rescue YNAB::ApiError => e
+    puts "ERROR: id=#{e.id}; name=#{e.name}; detail: #{e.detail}"
   end
 end
 

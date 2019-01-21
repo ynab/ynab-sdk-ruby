@@ -15,7 +15,7 @@ def update_category_budgeted
     response = ynab.categories.update_month_category(budget_id, '2018-09-01', category_id, month_category: month_category)
     month_category_response = response.data.category
     puts "[budgeted: #{month_category_response.budgeted}, balance: #{month_category_response.balance}]"
-  rescue => e
+  rescue YNAB::ApiError => e
     puts "ERROR: id=#{e.id}; name=#{e.name}; detail: #{e.detail}"
   end
 end

@@ -23,7 +23,7 @@ def create_transaction
         amount: 20000
       }
     })
-  rescue => e
+  rescue YNAB::ApiError => e
     puts "ERROR: id=#{e.id}; name=#{e.name}; detail: #{e.detail}"
   end
 end
