@@ -1,31 +1,30 @@
 require 'date'
 require 'ynab'
 
-def create_transaction
-  access_token = ENV['YNAB_ACCESS_TOKEN']
-  ynab = YNAB::API.new(access_token)
+access_token = ENV['YNAB_ACCESS_TOKEN']
+ynab = YNAB::API.new(access_token)
 
-  budget_id = ENV['YNAB_BUDGET_ID']
-  account_id = 'f6fe07cb-c895-not-real-acfac0b7f026'
-  category_id = 'a191ac84-de09-not-real-6c5ed8cfdabe'
+budget_id = ENV['YNAB_BUDGET_ID']
+account_id = 'f6fe07cb-c895-not-real-acfac0b7f026'
+category_id = 'a191ac84-de09-not-real-6c5ed8cfdabe'
 
-  begin
-    ynab.transactions.create_transaction(budget_id, {
-      transaction: {
-        account_id: account_id,
-        category_id: category_id,
-        date: Date.today,
-        payee_name: 'A Test Payee',
-        memo: 'I was created through the API',
-        cleared: 'Cleared',
-        approved: true,
-        flag_color: 'Blue',
-        amount: 20000
-      }
-    })
-  rescue YNAB::ApiError => e
-    puts "ERROR: id=#{e.id}; name=#{e.name}; detail: #{e.detail}"
-  end
+data = {
+  transaction: {
+    account_id: account_id,
+    category_id: category_id,
+    date: Date.today,
+    payee_name: 'A Test Payee',
+    memo: 'I was created through the API',
+    cleared: 'Cleared',
+    approved: true,
+    flag_color: 'Blue',
+    amount: 20000
+  }
+}
+
+begin
+  ynab.transactions.create_transaction(budget_id, data)
+rescue YNAB::ApiError => e
+  puts "ERROR: id=#{e.id}; name=#{e.name}; detail: #{e.detail}"
 end
 
-create_transaction
