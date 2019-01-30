@@ -27,7 +27,7 @@ Name | Type | Description  | Notes
 [**MonthDetailResponse**](MonthDetailResponse.md)
 
 # **get_budget_months**
-> MonthSummariesResponse get_budget_months(budget_id)
+> MonthSummariesResponse get_budget_months(budget_id, opts)
 
 List budget months
 
@@ -38,6 +38,7 @@ Returns all budget months
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
 

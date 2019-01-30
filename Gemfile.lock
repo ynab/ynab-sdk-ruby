@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ynab (1.8.0)
+    ynab (1.10.0)
       json (~> 2.1, >= 2.1.0)
       typhoeus (~> 1.0, >= 1.0.1)
 

@@ -74,19 +74,11 @@ The following methods are available in this library.
 | **Scheduled Transactions** | [scheduled_transactions.get_scheduled_transactions(budget_id)](https://github.com/ynab/ynab-sdk-ruby/blob/master/docs/ScheduledTransactionsApi.md#get_scheduled_transactions)                                     | Returns all scheduled transactions                    |
 |                            | [scheduled_transactions.get_scheduled_transaction_by_id(budget_id, scheduled_transaction_id)](https://github.com/ynab/ynab-sdk-ruby/blob/master/docs/ScheduledTransactionsApi.md#get_scheduled_transaction_by_id) | Returns a single scheduled transaction                |
 
-
-
 ## Development
 
 - Install dependencies: `bundle`
 - Generate latest client based on swagger spec: `rake generate`
 - Run tests: `rake spec` or `rspec`
-
-## Releasing
-
-- Commit all changes
-- Bump VERSION in `lib/ynab/version.rb`
-- Run `rake publish` to publish to RubyGems
 
 ## License
 

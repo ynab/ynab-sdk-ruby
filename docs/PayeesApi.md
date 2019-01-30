@@ -27,7 +27,7 @@ Name | Type | Description  | Notes
 [**PayeeResponse**](PayeeResponse.md)
 
 # **get_payees**
-> PayeesResponse get_payees(budget_id)
+> PayeesResponse get_payees(budget_id, opts)
 
 List payees
 
@@ -38,6 +38,7 @@ Returns all payees
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
 

@@ -27,7 +27,7 @@ Name | Type | Description  | Notes
 [**AccountResponse**](AccountResponse.md)
 
 # **get_accounts**
-> AccountsResponse get_accounts(budget_id)
+> AccountsResponse get_accounts(budget_id, opts)
 
 Account list
 
@@ -38,6 +38,7 @@ Returns all accounts
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
 
