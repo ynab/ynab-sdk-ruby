@@ -81,6 +81,7 @@ module YNAB
     # Returns all accounts
     # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [AccountsResponse]
     def get_accounts(budget_id, opts = {})
       data, _status_code, _headers = get_accounts_with_http_info(budget_id, opts)
@@ -91,6 +92,7 @@ module YNAB
     # Returns all accounts
     # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [Array<(AccountsResponse, Fixnum, Hash)>] AccountsResponse data, response status code and response headers
     def get_accounts_with_http_info(budget_id, opts = {})
       if @api_client.config.debugging
@@ -105,6 +107,7 @@ module YNAB
 
       # query parameters
       query_params = {}
+      query_params[:'last_knowledge_of_server'] = opts[:'last_knowledge_of_server'] if !opts[:'last_knowledge_of_server'].nil?
 
       # header parameters
       header_params = {}

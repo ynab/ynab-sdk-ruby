@@ -16,17 +16,22 @@ module YNAB
   class MonthSummariesWrapper
     attr_accessor :months
 
+    # The knowledge of the server
+    attr_accessor :server_knowledge
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'months' => :'months'
+        :'months' => :'months',
+        :'server_knowledge' => :'server_knowledge'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'months' => :'Array<MonthSummary>'
+        :'months' => :'Array<MonthSummary>',
+        :'server_knowledge' => :'Integer'
       }
     end
 
@@ -43,6 +48,10 @@ module YNAB
           self.months = value
         end
       end
+
+      if attributes.has_key?(:'server_knowledge')
+        self.server_knowledge = attributes[:'server_knowledge']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -53,6 +62,10 @@ module YNAB
         invalid_properties.push('invalid value for "months", months cannot be nil.')
       end
 
+      if @server_knowledge.nil?
+        invalid_properties.push('invalid value for "server_knowledge", server_knowledge cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -60,6 +73,7 @@ module YNAB
     # @return true if the model is valid
     def valid?
       return false if @months.nil?
+      return false if @server_knowledge.nil?
       true
     end
 
@@ -68,7 +82,8 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          months == o.months
+          months == o.months &&
+          server_knowledge == o.server_knowledge
     end
 
     # @see the `==` method
@@ -80,7 +95,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [months].hash
+      [months, server_knowledge].hash
     end
 
     # Builds the object from hash

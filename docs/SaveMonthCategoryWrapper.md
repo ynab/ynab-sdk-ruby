@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**month_category** | [**SaveMonthCategory**](SaveMonthCategory.md) |  | 
+**category** | [**SaveMonthCategory**](SaveMonthCategory.md) |  | 
 
 

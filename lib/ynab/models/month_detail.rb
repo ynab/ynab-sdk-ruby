@@ -33,6 +33,9 @@ module YNAB
     # The Age of Money as of the month
     attr_accessor :age_of_money
 
+    # Whether or not the month has been deleted.  Deleted months will only be included in delta requests.
+    attr_accessor :deleted
+
     # The budget month categories.  Amounts (budgeted, activity, balance, etc.) are specific to the {month} parameter specified.
     attr_accessor :categories
 
@@ -46,6 +49,7 @@ module YNAB
         :'activity' => :'activity',
         :'to_be_budgeted' => :'to_be_budgeted',
         :'age_of_money' => :'age_of_money',
+        :'deleted' => :'deleted',
         :'categories' => :'categories'
       }
     end
@@ -60,6 +64,7 @@ module YNAB
         :'activity' => :'Integer',
         :'to_be_budgeted' => :'Integer',
         :'age_of_money' => :'Integer',
+        :'deleted' => :'BOOLEAN',
         :'categories' => :'Array<Category>'
       }
     end
@@ -98,6 +103,10 @@ module YNAB
 
       if attributes.has_key?(:'age_of_money')
         self.age_of_money = attributes[:'age_of_money']
+      end
+
+      if attributes.has_key?(:'deleted')
+        self.deleted = attributes[:'deleted']
       end
 
       if attributes.has_key?(:'categories')
@@ -139,6 +148,10 @@ module YNAB
         invalid_properties.push('invalid value for "age_of_money", age_of_money cannot be nil.')
       end
 
+      if @deleted.nil?
+        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
+      end
+
       if @categories.nil?
         invalid_properties.push('invalid value for "categories", categories cannot be nil.')
       end
@@ -156,6 +169,7 @@ module YNAB
       return false if @activity.nil?
       return false if @to_be_budgeted.nil?
       return false if @age_of_money.nil?
+      return false if @deleted.nil?
       return false if @categories.nil?
       true
     end
@@ -172,6 +186,7 @@ module YNAB
           activity == o.activity &&
           to_be_budgeted == o.to_be_budgeted &&
           age_of_money == o.age_of_money &&
+          deleted == o.deleted &&
           categories == o.categories
     end
 
@@ -184,7 +199,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [month, note, income, budgeted, activity, to_be_budgeted, age_of_money, categories].hash
+      [month, note, income, budgeted, activity, to_be_budgeted, age_of_money, deleted, categories].hash
     end
 
     # Builds the object from hash

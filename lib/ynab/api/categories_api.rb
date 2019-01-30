@@ -23,6 +23,7 @@ module YNAB
     # Returns all categories grouped by category group.  Amounts (budgeted, activity, balance, etc.) are specific to the current budget month (UTC).
     # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [CategoriesResponse]
     def get_categories(budget_id, opts = {})
       data, _status_code, _headers = get_categories_with_http_info(budget_id, opts)
@@ -33,6 +34,7 @@ module YNAB
     # Returns all categories grouped by category group.  Amounts (budgeted, activity, balance, etc.) are specific to the current budget month (UTC).
     # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [Array<(CategoriesResponse, Fixnum, Hash)>] CategoriesResponse data, response status code and response headers
     def get_categories_with_http_info(budget_id, opts = {})
       if @api_client.config.debugging
@@ -47,6 +49,7 @@ module YNAB
 
       # query parameters
       query_params = {}
+      query_params[:'last_knowledge_of_server'] = opts[:'last_knowledge_of_server'] if !opts[:'last_knowledge_of_server'].nil?
 
       # header parameters
       header_params = {}
@@ -193,28 +196,28 @@ module YNAB
       end
       return data, status_code, headers
     end
-    # Update an existing month category
-    # Update an existing month category
+    # Update a category for a specific month
+    # Update a category for a specific month
     # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param month The budget month in ISO format (e.g. 2016-12-01) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC))
     # @param category_id The id of the category
-    # @param month_category The month category to update
+    # @param data The category to update
     # @param [Hash] opts the optional parameters
     # @return [CategoryResponse]
-    def update_month_category(budget_id, month, category_id, month_category, opts = {})
-      data, _status_code, _headers = update_month_category_with_http_info(budget_id, month, category_id, month_category, opts)
+    def update_month_category(budget_id, month, category_id, data, opts = {})
+      data, _status_code, _headers = update_month_category_with_http_info(budget_id, month, category_id, data, opts)
       data
     end
 
-    # Update an existing month category
-    # Update an existing month category
+    # Update a category for a specific month
+    # Update a category for a specific month
     # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
     # @param month The budget month in ISO format (e.g. 2016-12-01) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC))
     # @param category_id The id of the category
-    # @param month_category The month category to update
+    # @param data The category to update
     # @param [Hash] opts the optional parameters
     # @return [Array<(CategoryResponse, Fixnum, Hash)>] CategoryResponse data, response status code and response headers
-    def update_month_category_with_http_info(budget_id, month, category_id, month_category, opts = {})
+    def update_month_category_with_http_info(budget_id, month, category_id, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CategoriesApi.update_month_category ...'
       end
@@ -230,9 +233,9 @@ module YNAB
       if @api_client.config.client_side_validation && category_id.nil?
         fail ArgumentError, "Missing the required parameter 'category_id' when calling CategoriesApi.update_month_category"
       end
-      # verify the required parameter 'month_category' is set
-      if @api_client.config.client_side_validation && month_category.nil?
-        fail ArgumentError, "Missing the required parameter 'month_category' when calling CategoriesApi.update_month_category"
+      # verify the required parameter 'data' is set
+      if @api_client.config.client_side_validation && data.nil?
+        fail ArgumentError, "Missing the required parameter 'data' when calling CategoriesApi.update_month_category"
       end
       # resource path
       local_var_path = '/budgets/{budget_id}/months/{month}/categories/{category_id}'.sub('{' + 'budget_id' + '}', budget_id.to_s).sub('{' + 'month' + '}', month.to_s).sub('{' + 'category_id' + '}', category_id.to_s)
@@ -249,7 +252,7 @@ module YNAB
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(month_category)
+      post_body = @api_client.object_to_http_body(data)
       auth_names = ['bearer']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,

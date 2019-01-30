@@ -14,19 +14,19 @@ require 'date'
 
 module YNAB
   class SaveMonthCategoryWrapper
-    attr_accessor :month_category
+    attr_accessor :category
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'month_category' => :'month_category'
+        :'category' => :'category'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'month_category' => :'SaveMonthCategory'
+        :'category' => :'SaveMonthCategory'
       }
     end
 
@@ -38,8 +38,8 @@ module YNAB
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'month_category')
-        self.month_category = attributes[:'month_category']
+      if attributes.has_key?(:'category')
+        self.category = attributes[:'category']
       end
     end
 
@@ -47,8 +47,8 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @month_category.nil?
-        invalid_properties.push('invalid value for "month_category", month_category cannot be nil.')
+      if @category.nil?
+        invalid_properties.push('invalid value for "category", category cannot be nil.')
       end
 
       invalid_properties
@@ -57,7 +57,7 @@ module YNAB
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @month_category.nil?
+      return false if @category.nil?
       true
     end
 
@@ -66,7 +66,7 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          month_category == o.month_category
+          category == o.category
     end
 
     # @see the `==` method
@@ -78,7 +78,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [month_category].hash
+      [category].hash
     end
 
     # Builds the object from hash
