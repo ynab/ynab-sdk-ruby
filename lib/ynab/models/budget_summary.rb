@@ -18,8 +18,14 @@ module YNAB
 
     attr_accessor :name
 
-    # The last time any changes were made to the budget from either a web or mobile client.
+    # The last time any changes were made to the budget from either a web or mobile client
     attr_accessor :last_modified_on
+
+    # The earliest budget month
+    attr_accessor :first_month
+
+    # The latest budget month
+    attr_accessor :last_month
 
     attr_accessor :date_format
 
@@ -31,6 +37,8 @@ module YNAB
         :'id' => :'id',
         :'name' => :'name',
         :'last_modified_on' => :'last_modified_on',
+        :'first_month' => :'first_month',
+        :'last_month' => :'last_month',
         :'date_format' => :'date_format',
         :'currency_format' => :'currency_format'
       }
@@ -42,6 +50,8 @@ module YNAB
         :'id' => :'String',
         :'name' => :'String',
         :'last_modified_on' => :'DateTime',
+        :'first_month' => :'Date',
+        :'last_month' => :'Date',
         :'date_format' => :'DateFormat',
         :'currency_format' => :'CurrencyFormat'
       }
@@ -65,6 +75,14 @@ module YNAB
 
       if attributes.has_key?(:'last_modified_on')
         self.last_modified_on = attributes[:'last_modified_on']
+      end
+
+      if attributes.has_key?(:'first_month')
+        self.first_month = attributes[:'first_month']
+      end
+
+      if attributes.has_key?(:'last_month')
+        self.last_month = attributes[:'last_month']
       end
 
       if attributes.has_key?(:'date_format')
@@ -107,6 +125,8 @@ module YNAB
           id == o.id &&
           name == o.name &&
           last_modified_on == o.last_modified_on &&
+          first_month == o.first_month &&
+          last_month == o.last_month &&
           date_format == o.date_format &&
           currency_format == o.currency_format
     end
@@ -120,7 +140,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, last_modified_on, date_format, currency_format].hash
+      [id, name, last_modified_on, first_month, last_month, date_format, currency_format].hash
     end
 
     # Builds the object from hash

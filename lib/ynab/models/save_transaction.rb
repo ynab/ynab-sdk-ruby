@@ -16,9 +16,10 @@ module YNAB
   class SaveTransaction
     attr_accessor :account_id
 
+    # The transaction date in ISO format (e.g. 2016-12-01).  Future dates (scheduled transactions) are not permitted.  Split transaction dates cannot be changed and if a different date is supplied it will be ignored.
     attr_accessor :date
 
-    # The transaction amount in milliunits format
+    # The transaction amount in milliunits format.  Split transaction amounts cannot be changed and if a different amount is supplied it will be ignored.
     attr_accessor :amount
 
     # The payee for the transaction
@@ -41,7 +42,7 @@ module YNAB
     # The transaction flag
     attr_accessor :flag_color
 
-    # If specified for a new transaction, the transaction will be treated as Imported and assigned this import_id.  If another transaction on the same account with this same import_id is later attempted to be created, it will be skipped to prevent duplication.  Transactions imported through File Based Import or Direct Import and not through the API, are assigned an import_id in the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurrence]'.  For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.  Using a consistent format will prevent duplicates through Direct Import and File Based Import.  If import_id is specified as null, the transaction will be treated as a user entered transaction.
+    # If specified, the new transaction will be assigned this import_id and considered \"imported\". *At the time of import* we will attempt to match \"imported\" transactions with non-imported (i.e. \"user-entered\") transactions.<br><br>Transactions imported through File Based Import or Direct Import (not through the API) are assigned an import_id in the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurrence]'. For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.  Using a consistent format will prevent duplicates through Direct Import and File Based Import.<br><br>If import_id is omitted or specified as null, the transaction will be treated as a \"user-entered\" transaction. As such, it will be eligible to be matched against transactions later being imported (via DI, FBI, or API).
     attr_accessor :import_id
 
     class EnumAttributeValidator
@@ -169,6 +170,18 @@ module YNAB
         invalid_properties.push('invalid value for "amount", amount cannot be nil.')
       end
 
+      if !@payee_name.nil? && @payee_name.to_s.length > 50
+        invalid_properties.push('invalid value for "payee_name", the character length must be smaller than or equal to 50.')
+      end
+
+      if !@memo.nil? && @memo.to_s.length > 200
+        invalid_properties.push('invalid value for "memo", the character length must be smaller than or equal to 200.')
+      end
+
+      if !@import_id.nil? && @import_id.to_s.length > 36
+        invalid_properties.push('invalid value for "import_id", the character length must be smaller than or equal to 36.')
+      end
+
       invalid_properties
     end
 
@@ -178,11 +191,34 @@ module YNAB
       return false if @account_id.nil?
       return false if @date.nil?
       return false if @amount.nil?
+      return false if !@payee_name.nil? && @payee_name.to_s.length > 50
+      return false if !@memo.nil? && @memo.to_s.length > 200
       cleared_validator = EnumAttributeValidator.new('String', ['cleared', 'uncleared', 'reconciled'])
       return false unless cleared_validator.valid?(@cleared)
       flag_color_validator = EnumAttributeValidator.new('String', ['red', 'orange', 'yellow', 'green', 'blue', 'purple'])
       return false unless flag_color_validator.valid?(@flag_color)
+      return false if !@import_id.nil? && @import_id.to_s.length > 36
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] payee_name Value to be assigned
+    def payee_name=(payee_name)
+      if !payee_name.nil? && payee_name.to_s.length > 50
+        fail ArgumentError, 'invalid value for "payee_name", the character length must be smaller than or equal to 50.'
+      end
+
+      @payee_name = payee_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] memo Value to be assigned
+    def memo=(memo)
+      if !memo.nil? && memo.to_s.length > 200
+        fail ArgumentError, 'invalid value for "memo", the character length must be smaller than or equal to 200.'
+      end
+
+      @memo = memo
     end
 
     # Custom attribute writer method checking allowed values (enum).
@@ -203,6 +239,16 @@ module YNAB
         fail ArgumentError, 'invalid value for "flag_color", must be one of #{validator.allowable_values}.'
       end
       @flag_color = flag_color
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] import_id Value to be assigned
+    def import_id=(import_id)
+      if !import_id.nil? && import_id.to_s.length > 36
+        fail ArgumentError, 'invalid value for "import_id", the character length must be smaller than or equal to 36.'
+      end
+
+      @import_id = import_id
     end
 
     # Checks equality by comparing each attribute.

@@ -16,17 +16,22 @@ module YNAB
   class CategoryWrapper
     attr_accessor :category
 
+    # The knowledge of the server
+    attr_accessor :server_knowledge
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'category' => :'category'
+        :'category' => :'category',
+        :'server_knowledge' => :'server_knowledge'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'category' => :'Category'
+        :'category' => :'Category',
+        :'server_knowledge' => :'Integer'
       }
     end
 
@@ -41,6 +46,10 @@ module YNAB
       if attributes.has_key?(:'category')
         self.category = attributes[:'category']
       end
+
+      if attributes.has_key?(:'server_knowledge')
+        self.server_knowledge = attributes[:'server_knowledge']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -51,6 +60,10 @@ module YNAB
         invalid_properties.push('invalid value for "category", category cannot be nil.')
       end
 
+      if @server_knowledge.nil?
+        invalid_properties.push('invalid value for "server_knowledge", server_knowledge cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -58,6 +71,7 @@ module YNAB
     # @return true if the model is valid
     def valid?
       return false if @category.nil?
+      return false if @server_knowledge.nil?
       true
     end
 
@@ -66,7 +80,8 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          category == o.category
+          category == o.category &&
+          server_knowledge == o.server_knowledge
     end
 
     # @see the `==` method
@@ -78,7 +93,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [category].hash
+      [category, server_knowledge].hash
     end
 
     # Builds the object from hash
