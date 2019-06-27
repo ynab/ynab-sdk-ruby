@@ -21,7 +21,7 @@ module YNAB
     end
     # Single budget month
     # Returns a single budget month
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
     # @param month The budget month in ISO format (e.g. 2016-12-01) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC))
     # @param [Hash] opts the optional parameters
     # @return [MonthDetailResponse]
@@ -32,7 +32,7 @@ module YNAB
 
     # Single budget month
     # Returns a single budget month
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
     # @param month The budget month in ISO format (e.g. 2016-12-01) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC))
     # @param [Hash] opts the optional parameters
     # @return [Array<(MonthDetailResponse, Fixnum, Hash)>] MonthDetailResponse data, response status code and response headers
@@ -79,7 +79,7 @@ module YNAB
     end
     # List budget months
     # Returns all budget months
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [MonthSummariesResponse]
@@ -90,7 +90,7 @@ module YNAB
 
     # List budget months
     # Returns all budget months
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [Array<(MonthSummariesResponse, Fixnum, Hash)>] MonthSummariesResponse data, response status code and response headers

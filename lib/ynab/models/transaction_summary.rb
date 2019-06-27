@@ -16,6 +16,7 @@ module YNAB
   class TransactionSummary
     attr_accessor :id
 
+    # The transaction date in ISO format (e.g. 2016-12-01)
     attr_accessor :date
 
     # The transaction amount in milliunits format

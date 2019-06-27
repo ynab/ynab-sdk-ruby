@@ -16,17 +16,22 @@ module YNAB
   class BudgetSummaryWrapper
     attr_accessor :budgets
 
+    # The default budget, if the associated application is configured to support specifying it
+    attr_accessor :default_budget
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'budgets' => :'budgets'
+        :'budgets' => :'budgets',
+        :'default_budget' => :'default_budget'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'budgets' => :'Array<BudgetSummary>'
+        :'budgets' => :'Array<BudgetSummary>',
+        :'default_budget' => :'BudgetSummary'
       }
     end
 
@@ -43,6 +48,10 @@ module YNAB
           self.budgets = value
         end
       end
+
+      if attributes.has_key?(:'default_budget')
+        self.default_budget = attributes[:'default_budget']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -53,6 +62,10 @@ module YNAB
         invalid_properties.push('invalid value for "budgets", budgets cannot be nil.')
       end
 
+      if @default_budget.nil?
+        invalid_properties.push('invalid value for "default_budget", default_budget cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -60,6 +73,7 @@ module YNAB
     # @return true if the model is valid
     def valid?
       return false if @budgets.nil?
+      return false if @default_budget.nil?
       true
     end
 
@@ -68,7 +82,8 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          budgets == o.budgets
+          budgets == o.budgets &&
+          default_budget == o.default_budget
     end
 
     # @see the `==` method
@@ -80,7 +95,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [budgets].hash
+      [budgets, default_budget].hash
     end
 
     # Builds the object from hash

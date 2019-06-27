@@ -23,8 +23,11 @@ module YNAB
     # If multiple transactions were specified, the transactions that were saved
     attr_accessor :transactions
 
-    # If multiple transactions were specified, a list of import_ids that were not were created because of an existing import_id found on the same account
+    # If multiple transactions were specified, a list of import_ids that were not created because of an existing import_id found on the same account
     attr_accessor :duplicate_import_ids
+
+    # The knowledge of the server
+    attr_accessor :server_knowledge
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -32,7 +35,8 @@ module YNAB
         :'transaction_ids' => :'transaction_ids',
         :'transaction' => :'transaction',
         :'transactions' => :'transactions',
-        :'duplicate_import_ids' => :'duplicate_import_ids'
+        :'duplicate_import_ids' => :'duplicate_import_ids',
+        :'server_knowledge' => :'server_knowledge'
       }
     end
 
@@ -42,7 +46,8 @@ module YNAB
         :'transaction_ids' => :'Array<String>',
         :'transaction' => :'TransactionDetail',
         :'transactions' => :'Array<TransactionDetail>',
-        :'duplicate_import_ids' => :'Array<String>'
+        :'duplicate_import_ids' => :'Array<String>',
+        :'server_knowledge' => :'Integer'
       }
     end
 
@@ -75,6 +80,10 @@ module YNAB
           self.duplicate_import_ids = value
         end
       end
+
+      if attributes.has_key?(:'server_knowledge')
+        self.server_knowledge = attributes[:'server_knowledge']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -85,6 +94,10 @@ module YNAB
         invalid_properties.push('invalid value for "transaction_ids", transaction_ids cannot be nil.')
       end
 
+      if @server_knowledge.nil?
+        invalid_properties.push('invalid value for "server_knowledge", server_knowledge cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -92,6 +105,7 @@ module YNAB
     # @return true if the model is valid
     def valid?
       return false if @transaction_ids.nil?
+      return false if @server_knowledge.nil?
       true
     end
 
@@ -103,7 +117,8 @@ module YNAB
           transaction_ids == o.transaction_ids &&
           transaction == o.transaction &&
           transactions == o.transactions &&
-          duplicate_import_ids == o.duplicate_import_ids
+          duplicate_import_ids == o.duplicate_import_ids &&
+          server_knowledge == o.server_knowledge
     end
 
     # @see the `==` method
@@ -115,7 +130,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [transaction_ids, transaction, transactions, duplicate_import_ids].hash
+      [transaction_ids, transaction, transactions, duplicate_import_ids, server_knowledge].hash
     end
 
     # Builds the object from hash

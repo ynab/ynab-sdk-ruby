@@ -21,7 +21,7 @@ module YNAB
     end
     # Single account
     # Returns a single account
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
     # @param account_id The id of the account
     # @param [Hash] opts the optional parameters
     # @return [AccountResponse]
@@ -32,7 +32,7 @@ module YNAB
 
     # Single account
     # Returns a single account
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
     # @param account_id The id of the account
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountResponse, Fixnum, Hash)>] AccountResponse data, response status code and response headers
@@ -79,7 +79,7 @@ module YNAB
     end
     # Account list
     # Returns all accounts
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [AccountsResponse]
@@ -90,7 +90,7 @@ module YNAB
 
     # Account list
     # Returns all accounts
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)
+    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.
     # @return [Array<(AccountsResponse, Fixnum, Hash)>] AccountsResponse data, response status code and response headers

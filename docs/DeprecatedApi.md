@@ -18,7 +18,7 @@ Creates multiple transactions.  Although this endpoint is still supported, it is
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **budget_id** | [**String**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
+ **budget_id** | **String**| The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget) | 
  **transactions** | [**BulkTransactions**](BulkTransactions.md)| The list of transactions to create | 
 
 ### Return type

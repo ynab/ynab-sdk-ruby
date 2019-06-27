@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
-**date** | **Date** |  | 
+**date** | **Date** | The transaction date in ISO format (e.g. 2016-12-01) | 
 **amount** | **Integer** | The transaction amount in milliunits format | 
 **memo** | **String** |  | 
 **cleared** | **String** | The cleared status of the transaction | 
