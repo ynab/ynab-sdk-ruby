@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**AccountWrapper**](AccountWrapper.md) |  | 
+**data** | [**AccountResponseData**](AccountResponseData.md) |  | 
 
 

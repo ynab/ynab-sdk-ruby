@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**BulkIdWrapper**](BulkIdWrapper.md) |  | 
+**data** | [**BulkResponseData**](BulkResponseData.md) |  | 
 
 

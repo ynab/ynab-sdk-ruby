@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**CategoryWrapper**](CategoryWrapper.md) |  | 
+**data** | [**CategoryResponseData**](CategoryResponseData.md) |  | 
 
 

@@ -203,7 +203,7 @@ module YNAB
     # @param category_id The id of the category
     # @param data The category to update
     # @param [Hash] opts the optional parameters
-    # @return [CategoryResponse]
+    # @return [SaveCategoryResponse]
     def update_month_category(budget_id, month, category_id, data, opts = {})
       data, _status_code, _headers = update_month_category_with_http_info(budget_id, month, category_id, data, opts)
       data
@@ -216,7 +216,7 @@ module YNAB
     # @param category_id The id of the category
     # @param data The category to update
     # @param [Hash] opts the optional parameters
-    # @return [Array<(CategoryResponse, Fixnum, Hash)>] CategoryResponse data, response status code and response headers
+    # @return [Array<(SaveCategoryResponse, Fixnum, Hash)>] SaveCategoryResponse data, response status code and response headers
     def update_month_category_with_http_info(budget_id, month, category_id, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CategoriesApi.update_month_category ...'
@@ -260,7 +260,7 @@ module YNAB
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'CategoryResponse')
+        :return_type => 'SaveCategoryResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CategoriesApi#update_month_category\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
