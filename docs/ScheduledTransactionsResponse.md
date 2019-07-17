@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**ScheduledTransactionsWrapper**](ScheduledTransactionsWrapper.md) |  | 
+**data** | [**ScheduledTransactionsResponseData**](ScheduledTransactionsResponseData.md) |  | 
 
 

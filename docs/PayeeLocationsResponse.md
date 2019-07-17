@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PayeeLocationsWrapper**](PayeeLocationsWrapper.md) |  | 
+**data** | [**PayeeLocationsResponseData**](PayeeLocationsResponseData.md) |  | 
 
 

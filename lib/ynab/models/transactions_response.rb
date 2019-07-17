@@ -26,7 +26,7 @@ module YNAB
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'data' => :'TransactionsWrapper'
+        :'data' => :'TransactionsResponseData'
       }
     end
 

@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**HybridTransactionsWrapper**](HybridTransactionsWrapper.md) |  | 
+**data** | [**HybridTransactionsResponseData**](HybridTransactionsResponseData.md) |  | 
 
 

@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**BudgetDetailWrapper**](BudgetDetailWrapper.md) |  | 
+**data** | [**BudgetDetailResponseData**](BudgetDetailResponseData.md) |  | 
 
 

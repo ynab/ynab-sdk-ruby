@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**TransactionsWrapper**](TransactionsWrapper.md) |  | 
+**data** | [**TransactionsResponseData**](TransactionsResponseData.md) |  | 
 
 

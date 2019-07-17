@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 [**CategoryResponse**](CategoryResponse.md)
 
 # **update_month_category**
-> CategoryResponse update_month_category(budget_id, month, category_id, data)
+> SaveCategoryResponse update_month_category(budget_id, month, category_id, data)
 
 Update a category for a specific month
 
@@ -83,5 +83,5 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CategoryResponse**](CategoryResponse.md)
+[**SaveCategoryResponse**](SaveCategoryResponse.md)
 
