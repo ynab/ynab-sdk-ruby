@@ -27,7 +27,7 @@ Name | Type | Description  | Notes
 [**ScheduledTransactionResponse**](ScheduledTransactionResponse.md)
 
 # **get_scheduled_transactions**
-> ScheduledTransactionsResponse get_scheduled_transactions(budget_id)
+> ScheduledTransactionsResponse get_scheduled_transactions(budget_id, opts)
 
 List scheduled transactions
 
@@ -38,6 +38,7 @@ Returns all scheduled transactions
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | **String**| The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget) | 
+ **last_knowledge_of_server** | **Integer**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
 
 ### Return type
 
