@@ -113,10 +113,6 @@ module YNAB
         invalid_properties.push('invalid value for "month", month cannot be nil.')
       end
 
-      if @note.nil?
-        invalid_properties.push('invalid value for "note", note cannot be nil.')
-      end
-
       if @income.nil?
         invalid_properties.push('invalid value for "income", income cannot be nil.')
       end
@@ -133,10 +129,6 @@ module YNAB
         invalid_properties.push('invalid value for "to_be_budgeted", to_be_budgeted cannot be nil.')
       end
 
-      if @age_of_money.nil?
-        invalid_properties.push('invalid value for "age_of_money", age_of_money cannot be nil.')
-      end
-
       if @deleted.nil?
         invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
       end
@@ -148,12 +140,10 @@ module YNAB
     # @return true if the model is valid
     def valid?
       return false if @month.nil?
-      return false if @note.nil?
       return false if @income.nil?
       return false if @budgeted.nil?
       return false if @activity.nil?
       return false if @to_be_budgeted.nil?
-      return false if @age_of_money.nil?
       return false if @deleted.nil?
       true
     end

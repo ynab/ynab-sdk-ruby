@@ -81,10 +81,6 @@ module YNAB
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @transfer_account_id.nil?
-        invalid_properties.push('invalid value for "transfer_account_id", transfer_account_id cannot be nil.')
-      end
-
       if @deleted.nil?
         invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
       end
@@ -97,7 +93,6 @@ module YNAB
     def valid?
       return false if @id.nil?
       return false if @name.nil?
-      return false if @transfer_account_id.nil?
       return false if @deleted.nil?
       true
     end

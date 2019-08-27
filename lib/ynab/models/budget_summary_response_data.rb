@@ -62,10 +62,6 @@ module YNAB
         invalid_properties.push('invalid value for "budgets", budgets cannot be nil.')
       end
 
-      if @default_budget.nil?
-        invalid_properties.push('invalid value for "default_budget", default_budget cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -73,7 +69,6 @@ module YNAB
     # @return true if the model is valid
     def valid?
       return false if @budgets.nil?
-      return false if @default_budget.nil?
       true
     end
 

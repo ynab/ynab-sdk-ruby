@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **budgeted** | **Integer** | Budgeted amount in milliunits format | 
 **activity** | **Integer** | Activity amount in milliunits format | 
 **balance** | **Integer** | Balance in milliunits format | 
-**goal_type** | **String** | The type of goal, if the cagegory has a goal (TB&#x3D;Target Category Balance, TBD&#x3D;Target Category Balance by Date, MF&#x3D;Monthly Funding) | 
+**goal_type** | **String** | The type of goal, if the category has a goal (TB&#x3D;Target Category Balance, TBD&#x3D;Target Category Balance by Date, MF&#x3D;Monthly Funding) | 
 **goal_creation_month** | **Date** | The month a goal was created | 
 **goal_target** | **Integer** | The goal target amount in milliunits | 
 **goal_target_month** | **Date** | If the goal type is &#39;TBD&#39; (Target Category Balance by Date), this is the target month for the goal to be completed | 

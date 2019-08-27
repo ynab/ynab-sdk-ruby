@@ -118,22 +118,6 @@ module YNAB
         invalid_properties.push('invalid value for "amount", amount cannot be nil.')
       end
 
-      if @memo.nil?
-        invalid_properties.push('invalid value for "memo", memo cannot be nil.')
-      end
-
-      if @payee_id.nil?
-        invalid_properties.push('invalid value for "payee_id", payee_id cannot be nil.')
-      end
-
-      if @category_id.nil?
-        invalid_properties.push('invalid value for "category_id", category_id cannot be nil.')
-      end
-
-      if @transfer_account_id.nil?
-        invalid_properties.push('invalid value for "transfer_account_id", transfer_account_id cannot be nil.')
-      end
-
       if @deleted.nil?
         invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
       end
@@ -147,10 +131,6 @@ module YNAB
       return false if @id.nil?
       return false if @scheduled_transaction_id.nil?
       return false if @amount.nil?
-      return false if @memo.nil?
-      return false if @payee_id.nil?
-      return false if @category_id.nil?
-      return false if @transfer_account_id.nil?
       return false if @deleted.nil?
       true
     end

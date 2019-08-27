@@ -238,10 +238,6 @@ module YNAB
         invalid_properties.push('invalid value for "amount", amount cannot be nil.')
       end
 
-      if @memo.nil?
-        invalid_properties.push('invalid value for "memo", memo cannot be nil.')
-      end
-
       if @cleared.nil?
         invalid_properties.push('invalid value for "cleared", cleared cannot be nil.')
       end
@@ -250,36 +246,8 @@ module YNAB
         invalid_properties.push('invalid value for "approved", approved cannot be nil.')
       end
 
-      if @flag_color.nil?
-        invalid_properties.push('invalid value for "flag_color", flag_color cannot be nil.')
-      end
-
       if @account_id.nil?
         invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
-      if @payee_id.nil?
-        invalid_properties.push('invalid value for "payee_id", payee_id cannot be nil.')
-      end
-
-      if @category_id.nil?
-        invalid_properties.push('invalid value for "category_id", category_id cannot be nil.')
-      end
-
-      if @transfer_account_id.nil?
-        invalid_properties.push('invalid value for "transfer_account_id", transfer_account_id cannot be nil.')
-      end
-
-      if @transfer_transaction_id.nil?
-        invalid_properties.push('invalid value for "transfer_transaction_id", transfer_transaction_id cannot be nil.')
-      end
-
-      if @matched_transaction_id.nil?
-        invalid_properties.push('invalid value for "matched_transaction_id", matched_transaction_id cannot be nil.')
-      end
-
-      if @import_id.nil?
-        invalid_properties.push('invalid value for "import_id", import_id cannot be nil.')
       end
 
       if @deleted.nil?
@@ -288,14 +256,6 @@ module YNAB
 
       if @account_name.nil?
         invalid_properties.push('invalid value for "account_name", account_name cannot be nil.')
-      end
-
-      if @payee_name.nil?
-        invalid_properties.push('invalid value for "payee_name", payee_name cannot be nil.')
-      end
-
-      if @category_name.nil?
-        invalid_properties.push('invalid value for "category_name", category_name cannot be nil.')
       end
 
       if @subtransactions.nil?
@@ -311,25 +271,15 @@ module YNAB
       return false if @id.nil?
       return false if @date.nil?
       return false if @amount.nil?
-      return false if @memo.nil?
       return false if @cleared.nil?
       cleared_validator = EnumAttributeValidator.new('String', ['cleared', 'uncleared', 'reconciled'])
       return false unless cleared_validator.valid?(@cleared)
       return false if @approved.nil?
-      return false if @flag_color.nil?
       flag_color_validator = EnumAttributeValidator.new('String', ['red', 'orange', 'yellow', 'green', 'blue', 'purple'])
       return false unless flag_color_validator.valid?(@flag_color)
       return false if @account_id.nil?
-      return false if @payee_id.nil?
-      return false if @category_id.nil?
-      return false if @transfer_account_id.nil?
-      return false if @transfer_transaction_id.nil?
-      return false if @matched_transaction_id.nil?
-      return false if @import_id.nil?
       return false if @deleted.nil?
       return false if @account_name.nil?
-      return false if @payee_name.nil?
-      return false if @category_name.nil?
       return false if @subtransactions.nil?
       true
     end
