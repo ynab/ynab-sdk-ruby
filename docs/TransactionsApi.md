@@ -164,7 +164,7 @@ Updates multiple transactions, by 'id' or 'import_id'.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | **String**| The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget) | 
- **data** | [**SaveTransactionsWrapper**](SaveTransactionsWrapper.md)| The transactions to update.  Optionally, transaction &#39;id&#39; value(s) can be specified as null and an &#39;import_id&#39; value can be provided which will allow transaction(s) to updated by their import_id. | 
+ **data** | [**UpdateTransactionsWrapper**](UpdateTransactionsWrapper.md)| The transactions to update. Each transaction must have either an &#39;id&#39; or &#39;import_id&#39; specified. If &#39;id&#39; is specified as null an &#39;import_id&#39; value can be provided which will allow transaction(s) to be updated by their import_id. If an id is specified, it will always be used for lookup. | 
 
 ### Return type
 

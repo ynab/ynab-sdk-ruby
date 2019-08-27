@@ -183,28 +183,8 @@ module YNAB
         invalid_properties.push('invalid value for "amount", amount cannot be nil.')
       end
 
-      if @memo.nil?
-        invalid_properties.push('invalid value for "memo", memo cannot be nil.')
-      end
-
-      if @flag_color.nil?
-        invalid_properties.push('invalid value for "flag_color", flag_color cannot be nil.')
-      end
-
       if @account_id.nil?
         invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
-      if @payee_id.nil?
-        invalid_properties.push('invalid value for "payee_id", payee_id cannot be nil.')
-      end
-
-      if @category_id.nil?
-        invalid_properties.push('invalid value for "category_id", category_id cannot be nil.')
-      end
-
-      if @transfer_account_id.nil?
-        invalid_properties.push('invalid value for "transfer_account_id", transfer_account_id cannot be nil.')
       end
 
       if @deleted.nil?
@@ -224,14 +204,9 @@ module YNAB
       frequency_validator = EnumAttributeValidator.new('String', ['never', 'daily', 'weekly', 'everyOtherWeek', 'twiceAMonth', 'every4Weeks', 'monthly', 'everyOtherMonth', 'every3Months', 'every4Months', 'twiceAYear', 'yearly', 'everyOtherYear'])
       return false unless frequency_validator.valid?(@frequency)
       return false if @amount.nil?
-      return false if @memo.nil?
-      return false if @flag_color.nil?
       flag_color_validator = EnumAttributeValidator.new('String', ['red', 'orange', 'yellow', 'green', 'blue', 'purple'])
       return false unless flag_color_validator.valid?(@flag_color)
       return false if @account_id.nil?
-      return false if @payee_id.nil?
-      return false if @category_id.nil?
-      return false if @transfer_account_id.nil?
       return false if @deleted.nil?
       true
     end

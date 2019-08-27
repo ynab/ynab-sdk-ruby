@@ -13,51 +13,20 @@ Swagger Codegen version: 2.4.0-SNAPSHOT
 require 'date'
 
 module YNAB
-  class SubTransaction
-    attr_accessor :id
-
-    attr_accessor :transaction_id
-
-    # The subtransaction amount in milliunits format
-    attr_accessor :amount
-
-    attr_accessor :memo
-
-    attr_accessor :payee_id
-
-    attr_accessor :category_id
-
-    # If a transfer, the account_id which the subtransaction transfers to
-    attr_accessor :transfer_account_id
-
-    # Whether or not the subtransaction has been deleted.  Deleted subtransactions will only be included in delta requests.
-    attr_accessor :deleted
+  class UpdateTransactionsWrapper
+    attr_accessor :transactions
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'transaction_id' => :'transaction_id',
-        :'amount' => :'amount',
-        :'memo' => :'memo',
-        :'payee_id' => :'payee_id',
-        :'category_id' => :'category_id',
-        :'transfer_account_id' => :'transfer_account_id',
-        :'deleted' => :'deleted'
+        :'transactions' => :'transactions'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
-        :'transaction_id' => :'String',
-        :'amount' => :'Integer',
-        :'memo' => :'String',
-        :'payee_id' => :'String',
-        :'category_id' => :'String',
-        :'transfer_account_id' => :'String',
-        :'deleted' => :'BOOLEAN'
+        :'transactions' => :'Array<UpdateTransaction>'
       }
     end
 
@@ -69,36 +38,10 @@ module YNAB
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'transaction_id')
-        self.transaction_id = attributes[:'transaction_id']
-      end
-
-      if attributes.has_key?(:'amount')
-        self.amount = attributes[:'amount']
-      end
-
-      if attributes.has_key?(:'memo')
-        self.memo = attributes[:'memo']
-      end
-
-      if attributes.has_key?(:'payee_id')
-        self.payee_id = attributes[:'payee_id']
-      end
-
-      if attributes.has_key?(:'category_id')
-        self.category_id = attributes[:'category_id']
-      end
-
-      if attributes.has_key?(:'transfer_account_id')
-        self.transfer_account_id = attributes[:'transfer_account_id']
-      end
-
-      if attributes.has_key?(:'deleted')
-        self.deleted = attributes[:'deleted']
+      if attributes.has_key?(:'transactions')
+        if (value = attributes[:'transactions']).is_a?(Array)
+          self.transactions = value
+        end
       end
     end
 
@@ -106,20 +49,8 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @transaction_id.nil?
-        invalid_properties.push('invalid value for "transaction_id", transaction_id cannot be nil.')
-      end
-
-      if @amount.nil?
-        invalid_properties.push('invalid value for "amount", amount cannot be nil.')
-      end
-
-      if @deleted.nil?
-        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
+      if @transactions.nil?
+        invalid_properties.push('invalid value for "transactions", transactions cannot be nil.')
       end
 
       invalid_properties
@@ -128,10 +59,7 @@ module YNAB
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
-      return false if @transaction_id.nil?
-      return false if @amount.nil?
-      return false if @deleted.nil?
+      return false if @transactions.nil?
       true
     end
 
@@ -140,14 +68,7 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          transaction_id == o.transaction_id &&
-          amount == o.amount &&
-          memo == o.memo &&
-          payee_id == o.payee_id &&
-          category_id == o.category_id &&
-          transfer_account_id == o.transfer_account_id &&
-          deleted == o.deleted
+          transactions == o.transactions
     end
 
     # @see the `==` method
@@ -159,7 +80,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, transaction_id, amount, memo, payee_id, category_id, transfer_account_id, deleted].hash
+      [transactions].hash
     end
 
     # Builds the object from hash

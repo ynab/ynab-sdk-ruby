@@ -476,7 +476,7 @@ module YNAB
     # Update multiple transactions
     # Updates multiple transactions, by 'id' or 'import_id'.
     # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
-    # @param data The transactions to update.  Optionally, transaction &#39;id&#39; value(s) can be specified as null and an &#39;import_id&#39; value can be provided which will allow transaction(s) to updated by their import_id.
+    # @param data The transactions to update. Each transaction must have either an &#39;id&#39; or &#39;import_id&#39; specified. If &#39;id&#39; is specified as null an &#39;import_id&#39; value can be provided which will allow transaction(s) to be updated by their import_id. If an id is specified, it will always be used for lookup.
     # @param [Hash] opts the optional parameters
     # @return [SaveTransactionsResponse]
     def update_transactions(budget_id, data, opts = {})
@@ -487,7 +487,7 @@ module YNAB
     # Update multiple transactions
     # Updates multiple transactions, by &#39;id&#39; or &#39;import_id&#39;.
     # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
-    # @param data The transactions to update.  Optionally, transaction &#39;id&#39; value(s) can be specified as null and an &#39;import_id&#39; value can be provided which will allow transaction(s) to updated by their import_id.
+    # @param data The transactions to update. Each transaction must have either an &#39;id&#39; or &#39;import_id&#39; specified. If &#39;id&#39; is specified as null an &#39;import_id&#39; value can be provided which will allow transaction(s) to be updated by their import_id. If an id is specified, it will always be used for lookup.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SaveTransactionsResponse, Fixnum, Hash)>] SaveTransactionsResponse data, response status code and response headers
     def update_transactions_with_http_info(budget_id, data, opts = {})

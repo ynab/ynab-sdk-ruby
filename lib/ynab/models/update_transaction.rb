@@ -13,58 +13,39 @@ Swagger Codegen version: 2.4.0-SNAPSHOT
 require 'date'
 
 module YNAB
-  class HybridTransaction
-    attr_accessor :id
+  class UpdateTransaction
+    attr_accessor :account_id
 
-    # The transaction date in ISO format (e.g. 2016-12-01)
+    # The transaction date in ISO format (e.g. 2016-12-01).  Future dates (scheduled transactions) are not permitted.  Split transaction dates cannot be changed and if a different date is supplied it will be ignored.
     attr_accessor :date
 
-    # The transaction amount in milliunits format
+    # The transaction amount in milliunits format.  Split transaction amounts cannot be changed and if a different amount is supplied it will be ignored.
     attr_accessor :amount
+
+    # The payee for the transaction.  To create a transfer between two accounts, use the account transfer payee pointing to the target account.  Account transfer payees are specified as tranfer_payee_id on the account resource.
+    attr_accessor :payee_id
+
+    # The payee name.  If a payee_name value is provided and payee_id has a null value, the payee_name value will be used to resolve the payee by either (1) a matching payee rename rule (only if import_id is also specified) or (2) a payee with the same name or (3) creation of a new payee.
+    attr_accessor :payee_name
+
+    # The category for the transaction.  Split and Credit Card Payment categories are not permitted and will be ignored if supplied.  If an existing transaction has a Split category it cannot be changed.
+    attr_accessor :category_id
 
     attr_accessor :memo
 
     # The cleared status of the transaction
     attr_accessor :cleared
 
-    # Whether or not the transaction is approved
+    # Whether or not the transaction is approved.  If not supplied, transaction will be unapproved by default.
     attr_accessor :approved
 
     # The transaction flag
     attr_accessor :flag_color
 
-    attr_accessor :account_id
-
-    attr_accessor :payee_id
-
-    attr_accessor :category_id
-
-    # If a transfer transaction, the account to which it transfers
-    attr_accessor :transfer_account_id
-
-    # If a transfer transaction, the id of transaction on the other side of the transfer
-    attr_accessor :transfer_transaction_id
-
-    # If transaction is matched, the id of the matched transaction
-    attr_accessor :matched_transaction_id
-
-    # If the Transaction was imported, this field is a unique (by account) import identifier.  If this transaction was imported through File Based Import or Direct Import and not through the API, the import_id will have the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurrence]'.  For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.
+    # If specified, the new transaction will be assigned this import_id and considered \"imported\".  We will also attempt to match this imported transaction to an existing \"user-entered\" transation on the same account, with the same amount, and with a date +/-10 days from the imported transaction date.<br><br>Transactions imported through File Based Import or Direct Import (not through the API) are assigned an import_id in the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurrence]'. For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.  Using a consistent format will prevent duplicates through Direct Import and File Based Import.<br><br>If import_id is omitted or specified as null, the transaction will be treated as a \"user-entered\" transaction. As such, it will be eligible to be matched against transactions later being imported (via DI, FBI, or API).
     attr_accessor :import_id
 
-    # Whether or not the transaction has been deleted.  Deleted transactions will only be included in delta requests.
-    attr_accessor :deleted
-
-    # Whether the hybrid transaction represents a regular transaction or a subtransaction
-    attr_accessor :type
-
-    # For subtransaction types, this is the id of the parent transaction.  For transaction types, this id will be always be null.
-    attr_accessor :parent_transaction_id
-
-    attr_accessor :account_name
-
-    attr_accessor :payee_name
-
-    attr_accessor :category_name
+    attr_accessor :id
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -91,52 +72,36 @@ module YNAB
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
+        :'account_id' => :'account_id',
         :'date' => :'date',
         :'amount' => :'amount',
+        :'payee_id' => :'payee_id',
+        :'payee_name' => :'payee_name',
+        :'category_id' => :'category_id',
         :'memo' => :'memo',
         :'cleared' => :'cleared',
         :'approved' => :'approved',
         :'flag_color' => :'flag_color',
-        :'account_id' => :'account_id',
-        :'payee_id' => :'payee_id',
-        :'category_id' => :'category_id',
-        :'transfer_account_id' => :'transfer_account_id',
-        :'transfer_transaction_id' => :'transfer_transaction_id',
-        :'matched_transaction_id' => :'matched_transaction_id',
         :'import_id' => :'import_id',
-        :'deleted' => :'deleted',
-        :'type' => :'type',
-        :'parent_transaction_id' => :'parent_transaction_id',
-        :'account_name' => :'account_name',
-        :'payee_name' => :'payee_name',
-        :'category_name' => :'category_name'
+        :'id' => :'id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
+        :'account_id' => :'String',
         :'date' => :'Date',
         :'amount' => :'Integer',
+        :'payee_id' => :'String',
+        :'payee_name' => :'String',
+        :'category_id' => :'String',
         :'memo' => :'String',
         :'cleared' => :'String',
         :'approved' => :'BOOLEAN',
         :'flag_color' => :'String',
-        :'account_id' => :'String',
-        :'payee_id' => :'String',
-        :'category_id' => :'String',
-        :'transfer_account_id' => :'String',
-        :'transfer_transaction_id' => :'String',
-        :'matched_transaction_id' => :'String',
         :'import_id' => :'String',
-        :'deleted' => :'BOOLEAN',
-        :'type' => :'String',
-        :'parent_transaction_id' => :'String',
-        :'account_name' => :'String',
-        :'payee_name' => :'String',
-        :'category_name' => :'String'
+        :'id' => :'String'
       }
     end
 
@@ -148,8 +113,8 @@ module YNAB
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'account_id')
+        self.account_id = attributes[:'account_id']
       end
 
       if attributes.has_key?(:'date')
@@ -158,6 +123,18 @@ module YNAB
 
       if attributes.has_key?(:'amount')
         self.amount = attributes[:'amount']
+      end
+
+      if attributes.has_key?(:'payee_id')
+        self.payee_id = attributes[:'payee_id']
+      end
+
+      if attributes.has_key?(:'payee_name')
+        self.payee_name = attributes[:'payee_name']
+      end
+
+      if attributes.has_key?(:'category_id')
+        self.category_id = attributes[:'category_id']
       end
 
       if attributes.has_key?(:'memo')
@@ -176,56 +153,12 @@ module YNAB
         self.flag_color = attributes[:'flag_color']
       end
 
-      if attributes.has_key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
-
-      if attributes.has_key?(:'payee_id')
-        self.payee_id = attributes[:'payee_id']
-      end
-
-      if attributes.has_key?(:'category_id')
-        self.category_id = attributes[:'category_id']
-      end
-
-      if attributes.has_key?(:'transfer_account_id')
-        self.transfer_account_id = attributes[:'transfer_account_id']
-      end
-
-      if attributes.has_key?(:'transfer_transaction_id')
-        self.transfer_transaction_id = attributes[:'transfer_transaction_id']
-      end
-
-      if attributes.has_key?(:'matched_transaction_id')
-        self.matched_transaction_id = attributes[:'matched_transaction_id']
-      end
-
       if attributes.has_key?(:'import_id')
         self.import_id = attributes[:'import_id']
       end
 
-      if attributes.has_key?(:'deleted')
-        self.deleted = attributes[:'deleted']
-      end
-
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.has_key?(:'parent_transaction_id')
-        self.parent_transaction_id = attributes[:'parent_transaction_id']
-      end
-
-      if attributes.has_key?(:'account_name')
-        self.account_name = attributes[:'account_name']
-      end
-
-      if attributes.has_key?(:'payee_name')
-        self.payee_name = attributes[:'payee_name']
-      end
-
-      if attributes.has_key?(:'category_name')
-        self.category_name = attributes[:'category_name']
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
     end
 
@@ -233,8 +166,8 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      if @account_id.nil?
+        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
       end
 
       if @date.nil?
@@ -245,28 +178,20 @@ module YNAB
         invalid_properties.push('invalid value for "amount", amount cannot be nil.')
       end
 
-      if @cleared.nil?
-        invalid_properties.push('invalid value for "cleared", cleared cannot be nil.')
+      if !@payee_name.nil? && @payee_name.to_s.length > 50
+        invalid_properties.push('invalid value for "payee_name", the character length must be smaller than or equal to 50.')
       end
 
-      if @approved.nil?
-        invalid_properties.push('invalid value for "approved", approved cannot be nil.')
+      if !@memo.nil? && @memo.to_s.length > 200
+        invalid_properties.push('invalid value for "memo", the character length must be smaller than or equal to 200.')
       end
 
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
+      if !@import_id.nil? && @import_id.to_s.length > 36
+        invalid_properties.push('invalid value for "import_id", the character length must be smaller than or equal to 36.')
       end
 
-      if @deleted.nil?
-        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
-      end
-
-      if @type.nil?
-        invalid_properties.push('invalid value for "type", type cannot be nil.')
-      end
-
-      if @account_name.nil?
-        invalid_properties.push('invalid value for "account_name", account_name cannot be nil.')
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
       invalid_properties
@@ -275,22 +200,38 @@ module YNAB
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
+      return false if @account_id.nil?
       return false if @date.nil?
       return false if @amount.nil?
-      return false if @cleared.nil?
+      return false if !@payee_name.nil? && @payee_name.to_s.length > 50
+      return false if !@memo.nil? && @memo.to_s.length > 200
       cleared_validator = EnumAttributeValidator.new('String', ['cleared', 'uncleared', 'reconciled'])
       return false unless cleared_validator.valid?(@cleared)
-      return false if @approved.nil?
       flag_color_validator = EnumAttributeValidator.new('String', ['red', 'orange', 'yellow', 'green', 'blue', 'purple'])
       return false unless flag_color_validator.valid?(@flag_color)
-      return false if @account_id.nil?
-      return false if @deleted.nil?
-      return false if @type.nil?
-      type_validator = EnumAttributeValidator.new('String', ['transaction', 'subtransaction'])
-      return false unless type_validator.valid?(@type)
-      return false if @account_name.nil?
+      return false if !@import_id.nil? && @import_id.to_s.length > 36
+      return false if @id.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] payee_name Value to be assigned
+    def payee_name=(payee_name)
+      if !payee_name.nil? && payee_name.to_s.length > 50
+        fail ArgumentError, 'invalid value for "payee_name", the character length must be smaller than or equal to 50.'
+      end
+
+      @payee_name = payee_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] memo Value to be assigned
+    def memo=(memo)
+      if !memo.nil? && memo.to_s.length > 200
+        fail ArgumentError, 'invalid value for "memo", the character length must be smaller than or equal to 200.'
+      end
+
+      @memo = memo
     end
 
     # Custom attribute writer method checking allowed values (enum).
@@ -313,14 +254,14 @@ module YNAB
       @flag_color = flag_color
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] type Object to be assigned
-    def type=(type)
-      validator = EnumAttributeValidator.new('String', ['transaction', 'subtransaction'])
-      unless validator.valid?(type)
-        fail ArgumentError, 'invalid value for "type", must be one of #{validator.allowable_values}.'
+    # Custom attribute writer method with validation
+    # @param [Object] import_id Value to be assigned
+    def import_id=(import_id)
+      if !import_id.nil? && import_id.to_s.length > 36
+        fail ArgumentError, 'invalid value for "import_id", the character length must be smaller than or equal to 36.'
       end
-      @type = type
+
+      @import_id = import_id
     end
 
     # Checks equality by comparing each attribute.
@@ -328,26 +269,18 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
+          account_id == o.account_id &&
           date == o.date &&
           amount == o.amount &&
+          payee_id == o.payee_id &&
+          payee_name == o.payee_name &&
+          category_id == o.category_id &&
           memo == o.memo &&
           cleared == o.cleared &&
           approved == o.approved &&
           flag_color == o.flag_color &&
-          account_id == o.account_id &&
-          payee_id == o.payee_id &&
-          category_id == o.category_id &&
-          transfer_account_id == o.transfer_account_id &&
-          transfer_transaction_id == o.transfer_transaction_id &&
-          matched_transaction_id == o.matched_transaction_id &&
           import_id == o.import_id &&
-          deleted == o.deleted &&
-          type == o.type &&
-          parent_transaction_id == o.parent_transaction_id &&
-          account_name == o.account_name &&
-          payee_name == o.payee_name &&
-          category_name == o.category_name
+          id == o.id
     end
 
     # @see the `==` method
@@ -359,7 +292,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, date, amount, memo, cleared, approved, flag_color, account_id, payee_id, category_id, transfer_account_id, transfer_transaction_id, matched_transaction_id, import_id, deleted, type, parent_transaction_id, account_name, payee_name, category_name].hash
+      [account_id, date, amount, payee_id, payee_name, category_id, memo, cleared, approved, flag_color, import_id, id].hash
     end
 
     # Builds the object from hash

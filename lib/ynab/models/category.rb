@@ -37,7 +37,7 @@ module YNAB
     # Balance in milliunits format
     attr_accessor :balance
 
-    # The type of goal, if the cagegory has a goal (TB=Target Category Balance, TBD=Target Category Balance by Date, MF=Monthly Funding)
+    # The type of goal, if the category has a goal (TB=Target Category Balance, TBD=Target Category Balance by Date, MF=Monthly Funding)
     attr_accessor :goal_type
 
     # The month a goal was created
@@ -263,7 +263,7 @@ module YNAB
       return false if @activity.nil?
       return false if @balance.nil?
       return false if @goal_type.nil?
-      goal_type_validator = EnumAttributeValidator.new('String', ['TB', 'TBD', 'MF'])
+      goal_type_validator = EnumAttributeValidator.new('String', ['TB', 'TBD', 'MF', 'NEED'])
       return false unless goal_type_validator.valid?(@goal_type)
       return false if @goal_creation_month.nil?
       return false if @goal_target.nil?
@@ -276,7 +276,7 @@ module YNAB
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] goal_type Object to be assigned
     def goal_type=(goal_type)
-      validator = EnumAttributeValidator.new('String', ['TB', 'TBD', 'MF'])
+      validator = EnumAttributeValidator.new('String', ['TB', 'TBD', 'MF', 'NEED'])
       unless validator.valid?(goal_type)
         fail ArgumentError, 'invalid value for "goal_type", must be one of #{validator.allowable_values}.'
       end
