@@ -177,10 +177,6 @@ module YNAB
         invalid_properties.push('invalid value for "closed", closed cannot be nil.')
       end
 
-      if @note.nil?
-        invalid_properties.push('invalid value for "note", note cannot be nil.')
-      end
-
       if @balance.nil?
         invalid_properties.push('invalid value for "balance", balance cannot be nil.')
       end
@@ -214,7 +210,6 @@ module YNAB
       return false unless type_validator.valid?(@type)
       return false if @on_budget.nil?
       return false if @closed.nil?
-      return false if @note.nil?
       return false if @balance.nil?
       return false if @cleared_balance.nil?
       return false if @uncleared_balance.nil?

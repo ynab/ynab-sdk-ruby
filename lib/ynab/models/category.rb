@@ -208,10 +208,6 @@ module YNAB
         invalid_properties.push('invalid value for "hidden", hidden cannot be nil.')
       end
 
-      if @note.nil?
-        invalid_properties.push('invalid value for "note", note cannot be nil.')
-      end
-
       if @budgeted.nil?
         invalid_properties.push('invalid value for "budgeted", budgeted cannot be nil.')
       end
@@ -222,26 +218,6 @@ module YNAB
 
       if @balance.nil?
         invalid_properties.push('invalid value for "balance", balance cannot be nil.')
-      end
-
-      if @goal_type.nil?
-        invalid_properties.push('invalid value for "goal_type", goal_type cannot be nil.')
-      end
-
-      if @goal_creation_month.nil?
-        invalid_properties.push('invalid value for "goal_creation_month", goal_creation_month cannot be nil.')
-      end
-
-      if @goal_target.nil?
-        invalid_properties.push('invalid value for "goal_target", goal_target cannot be nil.')
-      end
-
-      if @goal_target_month.nil?
-        invalid_properties.push('invalid value for "goal_target_month", goal_target_month cannot be nil.')
-      end
-
-      if @goal_percentage_complete.nil?
-        invalid_properties.push('invalid value for "goal_percentage_complete", goal_percentage_complete cannot be nil.')
       end
 
       if @deleted.nil?
@@ -258,17 +234,11 @@ module YNAB
       return false if @category_group_id.nil?
       return false if @name.nil?
       return false if @hidden.nil?
-      return false if @note.nil?
       return false if @budgeted.nil?
       return false if @activity.nil?
       return false if @balance.nil?
-      return false if @goal_type.nil?
       goal_type_validator = EnumAttributeValidator.new('String', ['TB', 'TBD', 'MF', 'NEED'])
       return false unless goal_type_validator.valid?(@goal_type)
-      return false if @goal_creation_month.nil?
-      return false if @goal_target.nil?
-      return false if @goal_target_month.nil?
-      return false if @goal_percentage_complete.nil?
       return false if @deleted.nil?
       true
     end
