@@ -16,5 +16,3 @@ jobs:
           bundle install --jobs 4 --retry 3
       - name: Run tests
         run: bundle exec rspec
-        env:
-          CI: true
