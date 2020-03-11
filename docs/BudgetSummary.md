@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **last_month** | **Date** | The latest budget month | [optional] 
 **date_format** | [**DateFormat**](DateFormat.md) |  | [optional] 
 **currency_format** | [**CurrencyFormat**](CurrencyFormat.md) |  | [optional] 
+**accounts** | [**Array&lt;Account&gt;**](Account.md) | The budget accounts (only included if &#x60;include_accounts&#x3D;true&#x60; specified as query parameter) | [optional] 
 
 

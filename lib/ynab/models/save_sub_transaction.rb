@@ -13,20 +13,40 @@ Swagger Codegen version: 2.4.12
 require 'date'
 
 module YNAB
-  class SaveCategoryResponse
-    attr_accessor :data
+  class SaveSubTransaction
+    # The subtransaction amount in milliunits format.
+    attr_accessor :amount
+
+    # The payee for the subtransaction.  Transfer payees are not allowed.
+    attr_accessor :payee_id
+
+    # The payee name.  If a `payee_name` value is provided and `payee_id` has a null value, the `payee_name` value will be used to resolve the payee by either (1) a matching payee rename rule (only if import_id is also specified on parent transaction) or (2) a payee with the same name or (3) creation of a new payee.
+    attr_accessor :payee_name
+
+    # The category for the subtransaction.  Credit Card Payment categories are not permitted and will be ignored if supplied.
+    attr_accessor :category_id
+
+    attr_accessor :memo
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'data' => :'data'
+        :'amount' => :'amount',
+        :'payee_id' => :'payee_id',
+        :'payee_name' => :'payee_name',
+        :'category_id' => :'category_id',
+        :'memo' => :'memo'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'data' => :'SaveCategoryResponseData'
+        :'amount' => :'Integer',
+        :'payee_id' => :'String',
+        :'payee_name' => :'String',
+        :'category_id' => :'String',
+        :'memo' => :'String'
       }
     end
 
@@ -38,8 +58,24 @@ module YNAB
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.has_key?(:'amount')
+        self.amount = attributes[:'amount']
+      end
+
+      if attributes.has_key?(:'payee_id')
+        self.payee_id = attributes[:'payee_id']
+      end
+
+      if attributes.has_key?(:'payee_name')
+        self.payee_name = attributes[:'payee_name']
+      end
+
+      if attributes.has_key?(:'category_id')
+        self.category_id = attributes[:'category_id']
+      end
+
+      if attributes.has_key?(:'memo')
+        self.memo = attributes[:'memo']
       end
     end
 
@@ -47,8 +83,16 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @data.nil?
-        invalid_properties.push('invalid value for "data", data cannot be nil.')
+      if @amount.nil?
+        invalid_properties.push('invalid value for "amount", amount cannot be nil.')
+      end
+
+      if !@payee_name.nil? && @payee_name.to_s.length > 50
+        invalid_properties.push('invalid value for "payee_name", the character length must be smaller than or equal to 50.')
+      end
+
+      if !@memo.nil? && @memo.to_s.length > 200
+        invalid_properties.push('invalid value for "memo", the character length must be smaller than or equal to 200.')
       end
 
       invalid_properties
@@ -57,8 +101,30 @@ module YNAB
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @data.nil?
+      return false if @amount.nil?
+      return false if !@payee_name.nil? && @payee_name.to_s.length > 50
+      return false if !@memo.nil? && @memo.to_s.length > 200
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] payee_name Value to be assigned
+    def payee_name=(payee_name)
+      if !payee_name.nil? && payee_name.to_s.length > 50
+        fail ArgumentError, 'invalid value for "payee_name", the character length must be smaller than or equal to 50.'
+      end
+
+      @payee_name = payee_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] memo Value to be assigned
+    def memo=(memo)
+      if !memo.nil? && memo.to_s.length > 200
+        fail ArgumentError, 'invalid value for "memo", the character length must be smaller than or equal to 200.'
+      end
+
+      @memo = memo
     end
 
     # Checks equality by comparing each attribute.
@@ -66,7 +132,11 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data
+          amount == o.amount &&
+          payee_id == o.payee_id &&
+          payee_name == o.payee_name &&
+          category_id == o.category_id &&
+          memo == o.memo
     end
 
     # @see the `==` method
@@ -78,7 +148,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [data].hash
+      [amount, payee_id, payee_name, category_id, memo].hash
     end
 
     # Builds the object from hash

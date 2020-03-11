@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **budgeted** | **Integer** | Budgeted amount in milliunits format | 
 **activity** | **Integer** | Activity amount in milliunits format | 
 **balance** | **Integer** | Balance in milliunits format | 
-**goal_type** | **String** | The type of goal, if the category has a goal (TB&#x3D;Target Category Balance, TBD&#x3D;Target Category Balance by Date, MF&#x3D;Monthly Funding) | [optional] 
+**goal_type** | **String** | The type of goal, if the category has a goal (TB&#x3D;&#39;Target Category Balance&#39;, TBD&#x3D;&#39;Target Category Balance by Date&#39;, MF&#x3D;&#39;Monthly Funding&#39;, NEED&#x3D;&#39;Plan Your Spending&#39;) | [optional] 
 **goal_creation_month** | **Date** | The month a goal was created | [optional] 
 **goal_target** | **Integer** | The goal target amount in milliunits | [optional] 
-**goal_target_month** | **Date** | If the goal type is &#39;TBD&#39; (Target Category Balance by Date), this is the target month for the goal to be completed | [optional] 
+**goal_target_month** | **Date** | The target month for the goal to be completed.  Only some goal types specify this date. | [optional] 
 **goal_percentage_complete** | **Integer** | The percentage completion of the goal | [optional] 
 **deleted** | **BOOLEAN** | Whether or not the category has been deleted.  Deleted categories will only be included in delta requests. | 
 
