@@ -9,7 +9,7 @@ jobs:
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.6
+          ruby-version: 2.6.x
       - name: Run tests
         run: bundle exec rspec
         env:
