@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_transactions_by_account**](TransactionsApi.md#get_transactions_by_account) | **GET** /budgets/{budget_id}/accounts/{account_id}/transactions | List account transactions
 [**get_transactions_by_category**](TransactionsApi.md#get_transactions_by_category) | **GET** /budgets/{budget_id}/categories/{category_id}/transactions | List category transactions
 [**get_transactions_by_payee**](TransactionsApi.md#get_transactions_by_payee) | **GET** /budgets/{budget_id}/payees/{payee_id}/transactions | List payee transactions
+[**import_transactions**](TransactionsApi.md#import_transactions) | **POST** /budgets/{budget_id}/transactions/import | Import transactions
 [**update_transaction**](TransactionsApi.md#update_transaction) | **PUT** /budgets/{budget_id}/transactions/{transaction_id} | Updates an existing transaction
 [**update_transactions**](TransactionsApi.md#update_transactions) | **PATCH** /budgets/{budget_id}/transactions | Update multiple transactions
 
@@ -132,6 +133,23 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**HybridTransactionsResponse**](HybridTransactionsResponse.md)
+
+# **import_transactions**
+> TransactionsImportResponse import_transactions(budget_id)
+
+Import transactions
+
+Imports transactions.
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **budget_id** | **String**| The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget) | 
+
+### Return type
+
+[**TransactionsImportResponse**](TransactionsImportResponse.md)
 
 # **update_transaction**
 > TransactionResponse update_transaction(budget_id, transaction_id, data)
