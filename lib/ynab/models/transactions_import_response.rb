@@ -13,24 +13,20 @@ Swagger Codegen version: 2.4.13
 require 'date'
 
 module YNAB
-  class SaveTransactionsWrapper
-    attr_accessor :transaction
-
-    attr_accessor :transactions
+  class TransactionsImportResponse
+    attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'transaction' => :'transaction',
-        :'transactions' => :'transactions'
+        :'data' => :'data'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'transaction' => :'SaveTransaction',
-        :'transactions' => :'Array<SaveTransaction>'
+        :'data' => :'TransactionsImportResponseData'
       }
     end
 
@@ -42,14 +38,8 @@ module YNAB
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'transaction')
-        self.transaction = attributes[:'transaction']
-      end
-
-      if attributes.has_key?(:'transactions')
-        if (value = attributes[:'transactions']).is_a?(Array)
-          self.transactions = value
-        end
+      if attributes.has_key?(:'data')
+        self.data = attributes[:'data']
       end
     end
 
@@ -57,12 +47,17 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @data.nil?
+        invalid_properties.push('invalid value for "data", data cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @data.nil?
       true
     end
 
@@ -71,8 +66,7 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          transaction == o.transaction &&
-          transactions == o.transactions
+          data == o.data
     end
 
     # @see the `==` method
@@ -84,7 +78,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [transaction, transactions].hash
+      [data].hash
     end
 
     # Builds the object from hash
