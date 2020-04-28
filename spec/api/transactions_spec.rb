@@ -188,6 +188,17 @@ describe 'transactions' do
     end
   end
 
+  describe 'POST /budgets/{budget_id}/transactions/import' do
+    it "import transactions" do
+      VCR.use_cassette("import_transactions") do
+        response = instance.import_transactions(budget_id)
+        expect(client.last_request.response.options[:code]).to be 201
+        expect(response.data.transaction_ids.length).to eq 1
+        expect(response.data.transaction_ids).to include '07b68f11-98bd-4184-8866-83268a654318'
+      end
+    end
+  end
+
   describe 'POST /budgets/{budget_id}/transactions/bulk' do
     it "bulk creations transactions" do
       VCR.use_cassette("bulk_transactions") do
