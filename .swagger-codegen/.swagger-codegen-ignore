@@ -24,6 +24,7 @@
 
 Rakefile
 git_push.sh
+.rubocop.yml
 Gemfile.lock
 README.md
 spec/

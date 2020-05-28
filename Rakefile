@@ -15,14 +15,22 @@ desc "Run Swagger Code Generator to update the client from the Swagger spec"
 task :generate do
   # Download latest swagger spec
   spec_filename = 'spec-v1-swagger.json'
-  sh "rm #{spec_filename} && wget https://api.youneedabudget.com/papi/#{spec_filename}"
+  sh "wget https://api.youneedabudget.com/papi/#{spec_filename} -O ./.swagger-codegen/#{spec_filename}"
+
+  # Copy ignore file to root (workaround for ignore-file-override option not working)
+  sh "cp ./.swagger-codegen/.swagger-codegen-ignore ./"
 
   # Use Docker to codegen ruby based on the swagger spec
-  sh "docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli generate"\
-     " -i /local/spec-v1-swagger.json"\
+  sh "docker pull swaggerapi/swagger-codegen-cli && docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli generate"\
+     " -i /local/.swagger-codegen/#{spec_filename}"\
      " -l ruby"\
-     " -c /local/config.json -o /local"\
-     " -t /local/swagger-templates"
+     " -c /local/.swagger-codegen/config.json"\
+     " -t /local/.swagger-codegen/templates"\
+     " -o /local"
+
+  # Remove ignore file from root
+  sh "rm ./.swagger-codegen-ignore"
+
 end
 
 task :commit_version_bump do
