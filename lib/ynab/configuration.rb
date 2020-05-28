@@ -10,8 +10,6 @@ Swagger Codegen version: 2.4.13
 
 =end
 
-require 'uri'
-
 module YNAB
   class Configuration
     # Defines url scheme
@@ -174,8 +172,7 @@ module YNAB
     end
 
     def base_url
-      url = "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, '')
-      URI.encode(url)
+      "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, '')
     end
 
     # Gets API key (with prefix if set).
