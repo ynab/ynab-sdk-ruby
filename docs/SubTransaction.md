@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **category_id** | **String** |  | [optional] 
 **category_name** | **String** |  | [optional] 
 **transfer_account_id** | **String** | If a transfer, the account_id which the subtransaction transfers to | [optional] 
+**transfer_transaction_id** | **String** | If a transfer, the id of transaction on the other side of the transfer | [optional] 
 **deleted** | **BOOLEAN** | Whether or not the subtransaction has been deleted.  Deleted subtransactions will only be included in delta requests. | 
 
 
