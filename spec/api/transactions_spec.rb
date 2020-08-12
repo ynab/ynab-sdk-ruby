@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'pp'
 
 describe 'transactions' do
   let(:access_token) { '9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045' }
