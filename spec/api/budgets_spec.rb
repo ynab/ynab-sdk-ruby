@@ -12,7 +12,7 @@ describe 'budgets' do
   end
 
   describe 'authorization' do
-    it "sets the Bearer Auth header correctly" do
+    it 'sets the Bearer Auth header correctly' do
       VCR.use_cassette("budgets") do
         response = instance.get_budgets
         expect(client.last_request.options[:headers]["Authorization"]).to eq "Bearer #{access_token}"
@@ -20,7 +20,7 @@ describe 'budgets' do
       end
     end
 
-    it "throws when unauthorized" do
+    it 'throws when unauthorized' do
       VCR.use_cassette("budgets_unauthorized") do
         client = YNAB::API.new('not_valid_access_token', 'api.localhost:3000', false)
         begin
@@ -34,7 +34,7 @@ describe 'budgets' do
   end
 
   describe 'GET /budgets' do
-    it "returns a list of budgets" do
+    it 'returns a list of budgets' do
       VCR.use_cassette("budgets") do
         response = instance.get_budgets
         expect(client.last_request.response.options[:code]).to be 200
@@ -44,7 +44,7 @@ describe 'budgets' do
   end
 
   describe 'GET /budgets/{budget_id}' do
-    it "returns a budget" do
+    it 'returns a budget' do
       VCR.use_cassette("budget") do
         response = instance.get_budget_by_id('f419ac25-6217-4175-88dc-c3136ff5f6fd')
         expect(response.data.budget).to be

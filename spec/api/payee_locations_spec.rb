@@ -13,7 +13,7 @@ describe 'payee locations' do
   end
 
   describe 'authorization' do
-    it "sets the Bearer Auth header correctly" do
+    it 'sets the Bearer Auth header correctly' do
       VCR.use_cassette("payee_locations") do
         response = instance.get_payee_locations(budget_id)
         expect(client.last_request.options[:headers]["Authorization"]).to eq "Bearer #{access_token}"
@@ -21,7 +21,7 @@ describe 'payee locations' do
       end
     end
 
-    it "throws when unauthorized" do
+    it 'throws when unauthorized' do
       VCR.use_cassette("payee_locations_unauthorized") do
         client = YNAB::API.new('not_valid_access_token', 'api.localhost:3000', false)
         begin
@@ -35,7 +35,7 @@ describe 'payee locations' do
   end
 
   describe 'GET /budgets/{budget_id}/payee_location' do
-    it "returns a list of payee locations" do
+    it 'returns a list of payee locations' do
       VCR.use_cassette("payee_locations") do
         response = instance.get_payee_locations(budget_id)
         expect(client.last_request.response.options[:code]).to be 200
@@ -45,7 +45,7 @@ describe 'payee locations' do
   end
 
   describe 'GET /budgets/{budget_id}/payee_locations/{payee_id}' do
-    it "returns a payee location" do
+    it 'returns a payee location' do
       VCR.use_cassette("payee_location") do
         response = instance.get_payee_location_by_id(budget_id, '052c7814-1797-44ce-9519-020e864e4928')
         expect(response.data.payee_location).to be

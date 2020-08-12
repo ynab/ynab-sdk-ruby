@@ -14,7 +14,7 @@ describe 'categories' do
   end
 
   describe 'authorization' do
-    it "sets the Bearer Auth header correctly" do
+    it 'sets the Bearer Auth header correctly' do
       VCR.use_cassette("categories") do
         response = instance.get_categories(budget_id)
         expect(client.last_request.options[:headers]["Authorization"]).to eq "Bearer #{access_token}"
@@ -22,7 +22,7 @@ describe 'categories' do
       end
     end
 
-    it "throws when unauthorized" do
+    it 'throws when unauthorized' do
       VCR.use_cassette("categories_unauthorized") do
         client = YNAB::API.new('not_valid_access_token', 'api.localhost:3000', false)
         begin
@@ -36,7 +36,7 @@ describe 'categories' do
   end
 
   describe 'GET /budgets/{budget_id}/categories' do
-    it "returns a list of categories" do
+    it 'returns a list of categories' do
       VCR.use_cassette("categories") do
         response = instance.get_categories(budget_id)
         expect(client.last_request.response.options[:code]).to be 200
@@ -47,7 +47,7 @@ describe 'categories' do
   end
 
   describe 'GET /budgets/{budget_id}/categories/{category_id}' do
-    it "returns a category" do
+    it 'returns a category' do
       VCR.use_cassette("category") do
         response = instance.get_category_by_id(budget_id, category_id)
         expect(response.data.category).to be
@@ -57,7 +57,7 @@ describe 'categories' do
   end
 
   describe 'PATCH /budgets/{budget_id}/months/{month}/categories/{category_id}' do
-    it "returns a category" do
+    it 'returns a category' do
       VCR.use_cassette("patch_month_category") do
         response = instance.update_month_category(budget_id, '2018-02-01', category_id, month_category: { budgeted: 20382 })
         expect(response.data.category).to be
