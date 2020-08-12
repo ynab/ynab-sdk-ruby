@@ -21,7 +21,7 @@ module YNAB
     end
     # Create a single transaction or multiple transactions
     # Creates a single transaction or multiple transactions.  If you provide a body containing a `transaction` object, a single transaction will be created and if you provide a body containing a `transactions` array, multiple transactions will be created.  Scheduled transactions cannot be created on this endpoint.
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param data The transaction or transactions to create.  To create a single transaction you can specify a value for the &#x60;transaction&#x60; object and to create multiple transactions you can specify an array of &#x60;transactions&#x60;.  It is expected that you will only provide a value for one of these objects.
     # @param [Hash] opts the optional parameters
     # @return [SaveTransactionsResponse]
@@ -32,7 +32,7 @@ module YNAB
 
     # Create a single transaction or multiple transactions
     # Creates a single transaction or multiple transactions.  If you provide a body containing a &#x60;transaction&#x60; object, a single transaction will be created and if you provide a body containing a &#x60;transactions&#x60; array, multiple transactions will be created.  Scheduled transactions cannot be created on this endpoint.
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param data The transaction or transactions to create.  To create a single transaction you can specify a value for the &#x60;transaction&#x60; object and to create multiple transactions you can specify an array of &#x60;transactions&#x60;.  It is expected that you will only provide a value for one of these objects.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SaveTransactionsResponse, Fixnum, Hash)>] SaveTransactionsResponse data, response status code and response headers
@@ -79,7 +79,7 @@ module YNAB
     end
     # Single transaction
     # Returns a single transaction
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param transaction_id The id of the transaction
     # @param [Hash] opts the optional parameters
     # @return [TransactionResponse]
@@ -90,7 +90,7 @@ module YNAB
 
     # Single transaction
     # Returns a single transaction
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param transaction_id The id of the transaction
     # @param [Hash] opts the optional parameters
     # @return [Array<(TransactionResponse, Fixnum, Hash)>] TransactionResponse data, response status code and response headers
@@ -137,7 +137,7 @@ module YNAB
     end
     # List transactions
     # Returns budget transactions
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
     # @option opts [String] :type If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported.
@@ -150,7 +150,7 @@ module YNAB
 
     # List transactions
     # Returns budget transactions
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
     # @option opts [String] :type If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported.
@@ -201,7 +201,7 @@ module YNAB
     end
     # List account transactions
     # Returns all transactions for a specified account
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param account_id The id of the account
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
@@ -215,7 +215,7 @@ module YNAB
 
     # List account transactions
     # Returns all transactions for a specified account
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param account_id The id of the account
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
@@ -271,7 +271,7 @@ module YNAB
     end
     # List category transactions
     # Returns all transactions for a specified category
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param category_id The id of the category
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
@@ -285,7 +285,7 @@ module YNAB
 
     # List category transactions
     # Returns all transactions for a specified category
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param category_id The id of the category
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
@@ -341,7 +341,7 @@ module YNAB
     end
     # List payee transactions
     # Returns all transactions for a specified payee
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param payee_id The id of the payee
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
@@ -355,7 +355,7 @@ module YNAB
 
     # List payee transactions
     # Returns all transactions for a specified payee
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param payee_id The id of the payee
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
@@ -411,7 +411,7 @@ module YNAB
     end
     # Import transactions
     # Imports transactions.
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param [Hash] opts the optional parameters
     # @return [TransactionsImportResponse]
     def import_transactions(budget_id, opts = {})
@@ -421,7 +421,7 @@ module YNAB
 
     # Import transactions
     # Imports transactions.
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param [Hash] opts the optional parameters
     # @return [Array<(TransactionsImportResponse, Fixnum, Hash)>] TransactionsImportResponse data, response status code and response headers
     def import_transactions_with_http_info(budget_id, opts = {})
@@ -463,7 +463,7 @@ module YNAB
     end
     # Updates an existing transaction
     # Updates a transaction
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param transaction_id The id of the transaction
     # @param data The transaction to update
     # @param [Hash] opts the optional parameters
@@ -475,7 +475,7 @@ module YNAB
 
     # Updates an existing transaction
     # Updates a transaction
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param transaction_id The id of the transaction
     # @param data The transaction to update
     # @param [Hash] opts the optional parameters
@@ -527,7 +527,7 @@ module YNAB
     end
     # Update multiple transactions
     # Updates multiple transactions, by `id` or `import_id`.
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param data The transactions to update. Each transaction must have either an &#x60;id&#x60; or &#x60;import_id&#x60; specified. If &#x60;id&#x60; is specified as null an &#x60;import_id&#x60; value can be provided which will allow transaction(s) to be updated by their &#x60;import_id&#x60;. If an &#x60;id&#x60; is specified, it will always be used for lookup.
     # @param [Hash] opts the optional parameters
     # @return [SaveTransactionsResponse]
@@ -538,7 +538,7 @@ module YNAB
 
     # Update multiple transactions
     # Updates multiple transactions, by &#x60;id&#x60; or &#x60;import_id&#x60;.
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param data The transactions to update. Each transaction must have either an &#x60;id&#x60; or &#x60;import_id&#x60; specified. If &#x60;id&#x60; is specified as null an &#x60;import_id&#x60; value can be provided which will allow transaction(s) to be updated by their &#x60;import_id&#x60;. If an &#x60;id&#x60; is specified, it will always be used for lookup.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SaveTransactionsResponse, Fixnum, Hash)>] SaveTransactionsResponse data, response status code and response headers

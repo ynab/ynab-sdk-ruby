@@ -21,7 +21,7 @@ module YNAB
     end
     # Bulk create transactions
     # Creates multiple transactions.  Although this endpoint is still supported, it is recommended to use 'POST /budgets/{budget_id}/transactions' to create multiple transactions.
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param transactions The list of transactions to create
     # @param [Hash] opts the optional parameters
     # @return [BulkResponse]
@@ -32,7 +32,7 @@ module YNAB
 
     # Bulk create transactions
     # Creates multiple transactions.  Although this endpoint is still supported, it is recommended to use &#39;POST /budgets/{budget_id}/transactions&#39; to create multiple transactions.
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param transactions The list of transactions to create
     # @param [Hash] opts the optional parameters
     # @return [Array<(BulkResponse, Fixnum, Hash)>] BulkResponse data, response status code and response headers

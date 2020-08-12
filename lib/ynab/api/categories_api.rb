@@ -21,7 +21,7 @@ module YNAB
     end
     # List categories
     # Returns all categories grouped by category group.  Amounts (budgeted, activity, balance, etc.) are specific to the current budget month (UTC).
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [CategoriesResponse]
@@ -32,7 +32,7 @@ module YNAB
 
     # List categories
     # Returns all categories grouped by category group.  Amounts (budgeted, activity, balance, etc.) are specific to the current budget month (UTC).
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [Array<(CategoriesResponse, Fixnum, Hash)>] CategoriesResponse data, response status code and response headers
@@ -76,7 +76,7 @@ module YNAB
     end
     # Single category
     # Returns a single category.  Amounts (budgeted, activity, balance, etc.) are specific to the current budget month (UTC).
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param category_id The id of the category
     # @param [Hash] opts the optional parameters
     # @return [CategoryResponse]
@@ -87,7 +87,7 @@ module YNAB
 
     # Single category
     # Returns a single category.  Amounts (budgeted, activity, balance, etc.) are specific to the current budget month (UTC).
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param category_id The id of the category
     # @param [Hash] opts the optional parameters
     # @return [Array<(CategoryResponse, Fixnum, Hash)>] CategoryResponse data, response status code and response headers
@@ -134,7 +134,7 @@ module YNAB
     end
     # Single category for a specific budget month
     # Returns a single category for a specific budget month.  Amounts (budgeted, activity, balance, etc.) are specific to the current budget month (UTC).
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param month The budget month in ISO format (e.g. 2016-12-01) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC))
     # @param category_id The id of the category
     # @param [Hash] opts the optional parameters
@@ -146,7 +146,7 @@ module YNAB
 
     # Single category for a specific budget month
     # Returns a single category for a specific budget month.  Amounts (budgeted, activity, balance, etc.) are specific to the current budget month (UTC).
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param month The budget month in ISO format (e.g. 2016-12-01) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC))
     # @param category_id The id of the category
     # @param [Hash] opts the optional parameters
@@ -198,7 +198,7 @@ module YNAB
     end
     # Update a category for a specific month
     # Update a category for a specific month.  Only `budgeted` amount can be updated.
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param month The budget month in ISO format (e.g. 2016-12-01) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC))
     # @param category_id The id of the category
     # @param data The category to update.  Only &#x60;budgeted&#x60; amount can be updated and any other fields specified will be ignored.
@@ -211,7 +211,7 @@ module YNAB
 
     # Update a category for a specific month
     # Update a category for a specific month.  Only &#x60;budgeted&#x60; amount can be updated.
-    # @param budget_id The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
     # @param month The budget month in ISO format (e.g. 2016-12-01) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC))
     # @param category_id The id of the category
     # @param data The category to update.  Only &#x60;budgeted&#x60; amount can be updated and any other fields specified will be ignored.
