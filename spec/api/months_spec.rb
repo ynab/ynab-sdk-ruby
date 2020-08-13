@@ -13,7 +13,7 @@ describe 'months' do
   end
 
   describe 'authorization' do
-    it "sets the Bearer Auth header correctly" do
+    it 'sets the Bearer Auth header correctly' do
       VCR.use_cassette("months") do
         response = instance.get_budget_months(budget_id)
         expect(client.last_request.options[:headers]["Authorization"]).to eq "Bearer #{access_token}"
@@ -21,7 +21,7 @@ describe 'months' do
       end
     end
 
-    it "throws when unauthorized" do
+    it 'throws when unauthorized' do
       VCR.use_cassette("months_unauthorized") do
         client = YNAB::API.new('not_valid_access_token', 'api.localhost:3000', false)
         begin
@@ -35,7 +35,7 @@ describe 'months' do
   end
 
   describe 'GET /budgets/{budget_id}/months' do
-    it "returns a list of months" do
+    it 'returns a list of months' do
       VCR.use_cassette("months") do
         response = instance.get_budget_months(budget_id)
         expect(client.last_request.response.options[:code]).to be 200
@@ -45,7 +45,7 @@ describe 'months' do
   end
 
   describe 'GET /budgets/{budget_id}/months/{month}' do
-    it "returns a month" do
+    it 'returns a month' do
       VCR.use_cassette("month") do
         response = instance.get_budget_month(budget_id, '2018-02-01')
         expect(response.data.month).to be

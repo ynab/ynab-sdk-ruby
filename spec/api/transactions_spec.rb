@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'pp'
 
 describe 'transactions' do
   let(:access_token) { '9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045' }
@@ -16,7 +15,7 @@ describe 'transactions' do
   end
 
   describe 'authorization' do
-    it "sets the Bearer Auth header correctly" do
+    it 'sets the Bearer Auth header correctly' do
       VCR.use_cassette("transactions") do
         response = instance.get_transactions(budget_id)
         expect(client.last_request.options[:headers]["Authorization"]).to eq "Bearer #{access_token}"
@@ -24,7 +23,7 @@ describe 'transactions' do
       end
     end
 
-    it "throws when unauthorized" do
+    it 'throws when unauthorized' do
       VCR.use_cassette("transactions_unauthorized") do
         client = YNAB::API.new('not_valid_access_token', 'api.localhost:3000', false)
         begin
@@ -38,7 +37,7 @@ describe 'transactions' do
   end
 
   describe 'GET /budgets/{budget_id}/transactions' do
-    it "returns a list of transactions" do
+    it 'returns a list of transactions' do
       VCR.use_cassette("transactions") do
         response = instance.get_transactions(budget_id)
         expect(client.last_request.response.options[:code]).to be 200
@@ -48,7 +47,7 @@ describe 'transactions' do
   end
 
   describe 'GET /budgets/{budget_id}/category/{category_id}/transactions' do
-    it "returns a list of transactions for a category" do
+    it 'returns a list of transactions for a category' do
       VCR.use_cassette("category_transactions") do
         response = instance.get_transactions_by_category(budget_id, category_id)
         expect(client.last_request.response.options[:code]).to be 200
@@ -58,7 +57,7 @@ describe 'transactions' do
   end
 
   describe 'GET /budgets/{budget_id}/category/{payee_id}/transactions' do
-    it "returns a list of transactions for a payee" do
+    it 'returns a list of transactions for a payee' do
       VCR.use_cassette("payee_transactions") do
         response = instance.get_transactions_by_payee(budget_id, payee_id)
         expect(client.last_request.response.options[:code]).to be 200
@@ -68,7 +67,7 @@ describe 'transactions' do
   end
 
   describe 'GET /budgets/{budget_id}/transaction/{transaction_id}' do
-    it "returns a transaction" do
+    it 'returns a transaction' do
       VCR.use_cassette("transaction") do
         response = instance.get_transaction_by_id(budget_id, '81c374ff-74ab-4d6d-8d5a-ba3ad3fa68e4')
         expect(response.data.transaction).to be
@@ -78,7 +77,7 @@ describe 'transactions' do
   end
 
   describe 'POST /budgets/{budget_id}/transactions' do
-    it "creates a transaction" do
+    it 'creates a transaction' do
       VCR.use_cassette("create_transaction") do
         response = instance.create_transaction(budget_id, {
           transaction: {
@@ -93,7 +92,7 @@ describe 'transactions' do
       end
     end
 
-    it "creates multiple transactions" do
+    it 'creates multiple transactions' do
       VCR.use_cassette("create_transaction") do
         response = instance.create_transactions(budget_id, {
           transactions: [
@@ -117,7 +116,7 @@ describe 'transactions' do
   end
 
   describe 'PUT /budgets/{budget_id}/transactions/{transaction_id}' do
-    it "updates a transaction" do
+    it 'updates a transaction' do
       VCR.use_cassette("update_transaction") do
         response = instance.update_transaction(budget_id, '4cd63d34-3814-4f50-abd0-59ce05b40d91', {
           transaction: {
@@ -134,7 +133,7 @@ describe 'transactions' do
   end
 
   describe 'PATCH /budgets/{budget_id}/transactions' do
-    it "updates multiple transactions" do
+    it 'updates multiple transactions' do
       VCR.use_cassette("update_transactions") do
         response = instance.update_transactions(budget_id, {
           transactions: [
@@ -158,7 +157,7 @@ describe 'transactions' do
   end
 
   describe 'POST /budgets/{budget_id}/transactions' do
-    it "create multiple transactions" do
+    it 'create multiple transactions' do
       VCR.use_cassette("multiple_transactions") do
         response = instance.create_transaction(budget_id, {
           transactions: [
@@ -189,7 +188,7 @@ describe 'transactions' do
   end
 
   describe 'POST /budgets/{budget_id}/transactions/import' do
-    it "import transactions" do
+    it 'import transactions' do
       VCR.use_cassette("import_transactions") do
         response = instance.import_transactions(budget_id)
         expect(client.last_request.response.options[:code]).to be 201
@@ -200,7 +199,7 @@ describe 'transactions' do
   end
 
   describe 'POST /budgets/{budget_id}/transactions/bulk' do
-    it "bulk creations transactions" do
+    it 'bulk creations transactions' do
       VCR.use_cassette("bulk_transactions") do
         response = instance.bulk_create_transactions(budget_id, {
           transactions: [

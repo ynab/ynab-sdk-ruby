@@ -13,7 +13,7 @@ describe 'scheduled transactions' do
   end
 
   describe 'authorization' do
-    it "sets the Bearer Auth header correctly" do
+    it 'sets the Bearer Auth header correctly' do
       VCR.use_cassette("scheduled_transactions") do
         response = instance.get_scheduled_transactions(budget_id)
         expect(client.last_request.options[:headers]["Authorization"]).to eq "Bearer #{access_token}"
@@ -21,7 +21,7 @@ describe 'scheduled transactions' do
       end
     end
 
-    it "throws when unauthorized" do
+    it 'throws when unauthorized' do
       VCR.use_cassette("scheduled_transactions_unauthorized") do
         client = YNAB::API.new('not_valid_access_token', 'api.localhost:3000', false)
         begin
@@ -35,7 +35,7 @@ describe 'scheduled transactions' do
   end
 
   describe 'GET /budgets/{budget_id}/transactions' do
-    it "returns a list of transactions" do
+    it 'returns a list of transactions' do
       VCR.use_cassette("scheduled_transactions") do
         response = instance.get_scheduled_transactions(budget_id)
         expect(client.last_request.response.options[:code]).to be 200
@@ -45,7 +45,7 @@ describe 'scheduled transactions' do
   end
 
   describe 'GET /budgets/{budget_id}/transaction/{payee_id}' do
-    it "returns a payee" do
+    it 'returns a payee' do
       VCR.use_cassette("scheduled_transaction") do
         response = instance.get_scheduled_transaction_by_id(budget_id, '1a8e4929-3ad1-4859-8443-2aeeab0684ab')
         expect(response.data.scheduled_transaction).to be

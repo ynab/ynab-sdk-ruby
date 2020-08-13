@@ -13,7 +13,7 @@ describe 'accounts' do
   end
 
   describe 'authorization' do
-    it "sets the Bearer Auth header correctly" do
+    it 'sets the Bearer Auth header correctly' do
       VCR.use_cassette("accounts") do
         response = instance.get_accounts(budget_id)
         expect(client.last_request.options[:headers]["Authorization"]).to eq "Bearer #{access_token}"
@@ -21,7 +21,7 @@ describe 'accounts' do
       end
     end
 
-    it "throws when unauthorized" do
+    it 'throws when unauthorized' do
       VCR.use_cassette("accounts_unauthorized") do
         client = YNAB::API.new('not_valid_access_token', 'api.localhost:3000', false)
         begin
@@ -35,7 +35,7 @@ describe 'accounts' do
   end
 
   describe 'GET /budgets/{budget_id}/accounts' do
-    it "returns a list of accounts" do
+    it 'returns a list of accounts' do
       VCR.use_cassette("accounts") do
         response = instance.get_accounts(budget_id)
         expect(client.last_request.response.options[:code]).to be 200
@@ -45,7 +45,7 @@ describe 'accounts' do
   end
 
   describe 'GET /budgets/{budget_id}/accounts/{account_id}' do
-    it "returns an account" do
+    it 'returns an account' do
       VCR.use_cassette("account") do
         response = instance.get_account_by_id(budget_id, '5982e895-98e5-41ca-9681-0b6de1036a1c')
         expect(response.data.account).to be
@@ -54,12 +54,21 @@ describe 'accounts' do
     end
   end
 
-  it "foobar" do
-    VCR.use_cassette("accounts") do
-      client = YnabApi::Client.new(access_token, 'api.localhost:3000', false)
-      response = client.accounts.get_accounts(budget_id)
-      expect(client.last_request.response.options[:code]).to be 200
-      expect(response.data.accounts.length).to be 1
+  describe 'POST /budgets/{budget_id}/accounts' do
+    it 'creates an account' do
+      VCR.use_cassette("create_account") do
+        response = instance.create_account(budget_id, {
+          account: {
+            name: 'New Checking Account',
+            type: 'checking',
+            balance: 215000
+          }
+        })
+
+        expect(client.last_request.response.options[:code]).to be 201
+        expect(response.data.account).to be
+        expect(response.data.account.balance).to eq 215000
+      end
     end
   end
 end
