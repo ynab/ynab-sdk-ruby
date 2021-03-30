@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 List locations for a payee
 
-Returns all payee locations for the specified payee
+Returns all payee locations for a specified payee
 
 ### Parameters
 

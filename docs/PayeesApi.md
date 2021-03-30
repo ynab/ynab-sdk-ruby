@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Single payee
 
-Returns single payee
+Returns a single payee
 
 ### Parameters
 

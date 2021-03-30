@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Create a new account
 
-Creates a new account.
+Creates a new account
 
 ### Parameters
 
