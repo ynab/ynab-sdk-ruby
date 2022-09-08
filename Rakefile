@@ -21,7 +21,8 @@ task :generate do
   sh "cp ./.swagger-codegen/.swagger-codegen-ignore ./"
 
   # Use Docker to codegen ruby based on the swagger spec
-  sh "docker pull swaggerapi/swagger-codegen-cli && docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli generate"\
+  swagger_codegen_image_name = "ynabdev/swagger-codegen-cli:2.4.14"
+  sh "docker pull #{swagger_codegen_image_name} && docker run --rm -v ${PWD}:/local #{swagger_codegen_image_name} generate"\
      " -i /local/.swagger-codegen/#{spec_filename}"\
      " -l ruby"\
      " -c /local/.swagger-codegen/config.json"\

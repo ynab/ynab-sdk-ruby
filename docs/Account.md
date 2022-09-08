@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
 **name** | **String** |  | 
-**type** | **String** | The type of account. Note: payPal, merchantAccount, investmentAccount, and mortgage types have been deprecated and will be removed in the future. | 
+**type** | [**AccountType**](AccountType.md) |  | 
 **on_budget** | **BOOLEAN** | Whether this account is on budget or not | 
 **closed** | **BOOLEAN** | Whether this account is closed or not | 
 **note** | **String** |  | [optional] 

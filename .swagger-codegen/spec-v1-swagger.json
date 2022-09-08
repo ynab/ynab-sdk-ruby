@@ -33,7 +33,7 @@
     },
     {
       "name": "Months",
-      "description": "Each budget contains one or more months, which is where To be Budgeted, Age of Money and category (budgeted / activity / balances) amounts are available."
+      "description": "Each budget contains one or more months, which is where Ready to Assign, Age of Money and category (budgeted / activity / balances) amounts are available."
     },
     {
       "name": "Transactions",
@@ -1801,21 +1801,7 @@
           "type": "string"
         },
         "type": {
-          "type": "string",
-          "description": "The type of account. Note: payPal, merchantAccount, investmentAccount, and mortgage types have been deprecated and will be removed in the future.",
-          "enum": [
-            "checking",
-            "savings",
-            "cash",
-            "creditCard",
-            "lineOfCredit",
-            "otherAsset",
-            "otherLiability",
-            "payPal",
-            "merchantAccount",
-            "investmentAccount",
-            "mortgage"
-          ]
+          "$ref": "#/definitions/AccountType"
         },
         "on_budget": {
           "type": "boolean",
@@ -1880,9 +1866,7 @@
           "description": "The name of the account"
         },
         "type": {
-          "type": "string",
-          "enum": ["checking", "savings", "creditCard", "cash", "lineOfCredit", "otherAsset", "otherLiability"],
-          "description": "The account type"
+          "$ref": "#/definitions/AccountType"
         },
         "balance": {
           "type": "integer",
@@ -1890,6 +1874,25 @@
           "description": "The current balance of the account in milliunits format"
         }
       }
+    },
+    "AccountType": {
+      "type": "string",
+      "description": "The type of account",
+      "enum": [
+        "checking",
+        "savings",
+        "cash",
+        "creditCard",
+        "lineOfCredit",
+        "otherAsset",
+        "otherLiability",
+        "mortgage",
+        "autoLoan",
+        "studentLoan",
+        "personalLoan",
+        "medicalDebt",
+        "otherDebt"
+      ]
     },
     "CategoriesResponse": {
       "type": "object",
@@ -2014,7 +2017,7 @@
         },
         "goal_type": {
           "type": "string",
-          "enum": ["TB", "TBD", "MF", "NEED", null],
+          "enum": ["TB", "TBD", "MF", "NEED", "DEBT", null],
           "description": "The type of goal, if the category has a goal (TB='Target Category Balance', TBD='Target Category Balance by Date', MF='Monthly Funding', NEED='Plan Your Spending')"
         },
         "goal_creation_month": {
@@ -2932,7 +2935,7 @@
         "income": {
           "type": "integer",
           "format": "int64",
-          "description": "The total amount of transactions categorized to 'Inflow: To be Budgeted' in the month"
+          "description": "The total amount of transactions categorized to 'Inflow: Ready to Assign' in the month"
         },
         "budgeted": {
           "type": "integer",
@@ -2942,12 +2945,12 @@
         "activity": {
           "type": "integer",
           "format": "int64",
-          "description": "The total amount of transactions in the month, excluding those categorized to 'Inflow: To be Budgeted'"
+          "description": "The total amount of transactions in the month, excluding those categorized to 'Inflow: Ready to Assign'"
         },
         "to_be_budgeted": {
           "type": "integer",
           "format": "int64",
-          "description": "The available amount for 'To be Budgeted'"
+          "description": "The available amount for 'Ready to Assign'"
         },
         "age_of_money": {
           "type": "integer",
