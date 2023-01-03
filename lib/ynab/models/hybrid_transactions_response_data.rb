@@ -16,17 +16,22 @@ module YNAB
   class HybridTransactionsResponseData
     attr_accessor :transactions
 
+    # The knowledge of the server
+    attr_accessor :server_knowledge
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'transactions' => :'transactions'
+        :'transactions' => :'transactions',
+        :'server_knowledge' => :'server_knowledge'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'transactions' => :'Array<HybridTransaction>'
+        :'transactions' => :'Array<HybridTransaction>',
+        :'server_knowledge' => :'Integer'
       }
     end
 
@@ -42,6 +47,10 @@ module YNAB
         if (value = attributes[:'transactions']).is_a?(Array)
           self.transactions = value
         end
+      end
+
+      if attributes.has_key?(:'server_knowledge')
+        self.server_knowledge = attributes[:'server_knowledge']
       end
     end
 
@@ -68,7 +77,8 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          transactions == o.transactions
+          transactions == o.transactions &&
+          server_knowledge == o.server_knowledge
     end
 
     # @see the `==` method
@@ -80,7 +90,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [transactions].hash
+      [transactions, server_knowledge].hash
     end
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
