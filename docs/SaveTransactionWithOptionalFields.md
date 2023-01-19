@@ -1,4 +1,4 @@
-# YNAB::SaveTransaction
+# YNAB::SaveTransactionWithOptionalFields
 
 ## Properties
 Name | Type | Description | Notes

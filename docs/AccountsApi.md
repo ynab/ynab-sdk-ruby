@@ -21,7 +21,7 @@ Creates a new account
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budget_id** | **String**| The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget) | 
- **data** | [**SaveAccountWrapper**](SaveAccountWrapper.md)| The account to create. | 
+ **data** | [**PostAccountWrapper**](PostAccountWrapper.md)| The account to create. | 
 
 ### Return type
 
