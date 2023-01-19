@@ -169,18 +169,6 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
-      if @date.nil?
-        invalid_properties.push('invalid value for "date", date cannot be nil.')
-      end
-
-      if @amount.nil?
-        invalid_properties.push('invalid value for "amount", amount cannot be nil.')
-      end
-
       if !@payee_name.nil? && @payee_name.to_s.length > 50
         invalid_properties.push('invalid value for "payee_name", the character length must be smaller than or equal to 50.')
       end
@@ -199,9 +187,6 @@ module YNAB
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
-      return false if @date.nil?
-      return false if @amount.nil?
       return false if !@payee_name.nil? && @payee_name.to_s.length > 50
       return false if !@memo.nil? && @memo.to_s.length > 200
       cleared_validator = EnumAttributeValidator.new('String', ['cleared', 'uncleared', 'reconciled'])

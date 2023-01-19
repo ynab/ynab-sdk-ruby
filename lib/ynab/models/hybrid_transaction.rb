@@ -48,8 +48,14 @@ module YNAB
     # If transaction is matched, the id of the matched transaction
     attr_accessor :matched_transaction_id
 
-    # If the Transaction was imported, this field is a unique (by account) import identifier.  If this transaction was imported through File Based Import or Direct Import and not through the API, the import_id will have the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurrence]'.  For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.
+    # If the transaction was imported, this field is a unique (by account) import identifier.  If this transaction was imported through File Based Import or Direct Import and not through the API, the import_id will have the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurrence]'.  For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.
     attr_accessor :import_id
+
+    # If the transaction was imported, the payee name that was used when importing and before applying any payee rename rules
+    attr_accessor :import_payee_name
+
+    # If the transaction was imported, the original payee name as it appeared on the statement
+    attr_accessor :import_payee_name_original
 
     # Whether or not the transaction has been deleted.  Deleted transactions will only be included in delta requests.
     attr_accessor :deleted
@@ -105,6 +111,8 @@ module YNAB
         :'transfer_transaction_id' => :'transfer_transaction_id',
         :'matched_transaction_id' => :'matched_transaction_id',
         :'import_id' => :'import_id',
+        :'import_payee_name' => :'import_payee_name',
+        :'import_payee_name_original' => :'import_payee_name_original',
         :'deleted' => :'deleted',
         :'type' => :'type',
         :'parent_transaction_id' => :'parent_transaction_id',
@@ -131,6 +139,8 @@ module YNAB
         :'transfer_transaction_id' => :'String',
         :'matched_transaction_id' => :'String',
         :'import_id' => :'String',
+        :'import_payee_name' => :'String',
+        :'import_payee_name_original' => :'String',
         :'deleted' => :'BOOLEAN',
         :'type' => :'String',
         :'parent_transaction_id' => :'String',
@@ -204,6 +214,14 @@ module YNAB
         self.import_id = attributes[:'import_id']
       end
 
+      if attributes.has_key?(:'import_payee_name')
+        self.import_payee_name = attributes[:'import_payee_name']
+      end
+
+      if attributes.has_key?(:'import_payee_name_original')
+        self.import_payee_name_original = attributes[:'import_payee_name_original']
+      end
+
       if attributes.has_key?(:'deleted')
         self.deleted = attributes[:'deleted']
       end
@@ -257,6 +275,14 @@ module YNAB
         invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
       end
 
+      if !@import_payee_name.nil? && @import_payee_name.to_s.length > 200
+        invalid_properties.push('invalid value for "import_payee_name", the character length must be smaller than or equal to 200.')
+      end
+
+      if !@import_payee_name_original.nil? && @import_payee_name_original.to_s.length > 200
+        invalid_properties.push('invalid value for "import_payee_name_original", the character length must be smaller than or equal to 200.')
+      end
+
       if @deleted.nil?
         invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
       end
@@ -285,6 +311,8 @@ module YNAB
       flag_color_validator = EnumAttributeValidator.new('String', ['red', 'orange', 'yellow', 'green', 'blue', 'purple'])
       return false unless flag_color_validator.valid?(@flag_color)
       return false if @account_id.nil?
+      return false if !@import_payee_name.nil? && @import_payee_name.to_s.length > 200
+      return false if !@import_payee_name_original.nil? && @import_payee_name_original.to_s.length > 200
       return false if @deleted.nil?
       return false if @type.nil?
       type_validator = EnumAttributeValidator.new('String', ['transaction', 'subtransaction'])
@@ -303,6 +331,26 @@ module YNAB
     # @param [Object] flag_color Object to be assigned
     def flag_color=(flag_color)
       @flag_color = flag_color
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] import_payee_name Value to be assigned
+    def import_payee_name=(import_payee_name)
+      if !import_payee_name.nil? && import_payee_name.to_s.length > 200
+        fail ArgumentError, 'invalid value for "import_payee_name", the character length must be smaller than or equal to 200.'
+      end
+
+      @import_payee_name = import_payee_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] import_payee_name_original Value to be assigned
+    def import_payee_name_original=(import_payee_name_original)
+      if !import_payee_name_original.nil? && import_payee_name_original.to_s.length > 200
+        fail ArgumentError, 'invalid value for "import_payee_name_original", the character length must be smaller than or equal to 200.'
+      end
+
+      @import_payee_name_original = import_payee_name_original
     end
 
     # Custom attribute writer method checking allowed values (enum).
@@ -330,6 +378,8 @@ module YNAB
           transfer_transaction_id == o.transfer_transaction_id &&
           matched_transaction_id == o.matched_transaction_id &&
           import_id == o.import_id &&
+          import_payee_name == o.import_payee_name &&
+          import_payee_name_original == o.import_payee_name_original &&
           deleted == o.deleted &&
           type == o.type &&
           parent_transaction_id == o.parent_transaction_id &&
@@ -347,7 +397,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, date, amount, memo, cleared, approved, flag_color, account_id, payee_id, category_id, transfer_account_id, transfer_transaction_id, matched_transaction_id, import_id, deleted, type, parent_transaction_id, account_name, payee_name, category_name].hash
+      [id, date, amount, memo, cleared, approved, flag_color, account_id, payee_id, category_id, transfer_account_id, transfer_transaction_id, matched_transaction_id, import_id, import_payee_name, import_payee_name_original, deleted, type, parent_transaction_id, account_name, payee_name, category_name].hash
     end
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash

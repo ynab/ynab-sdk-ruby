@@ -6,7 +6,7 @@
 - Generate latest client based on swagger spec: `rake generate`
 - Run tests: `rake spec` or `rspec`
 
-## Releasing
+## Publishing
 
 - Commit all changes
 - Bump VERSION in `lib/ynab/version.rb`
