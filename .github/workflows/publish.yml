@@ -28,7 +28,7 @@ jobs:
         with:
           ruby-version: 2.6.10
       - name: Upgrade RubyGems version
-      - run: gem update --system
+        run: gem update --system
       - name: Install gems
         run: |
           gem install bundler
