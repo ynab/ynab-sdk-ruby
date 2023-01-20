@@ -10,9 +10,6 @@ on:
         - major
         - minor
         - patch
-      rubygems_otp:
-        description: OTP Code
-        required: true
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -46,7 +43,7 @@ jobs:
         env:
           GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
       - name: Publish to RubyGems
-        run: bundle exec rake publish --otp ${{ github.event.inputs.rubygems_otp }}
+        run: rake publish
       - name: Create release tag and push to GitHub
         id: push
         run: |
