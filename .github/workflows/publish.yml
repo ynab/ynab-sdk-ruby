@@ -51,11 +51,6 @@ jobs:
         run: rake publish
         env:
           GEM_HOST_OTP_CODE: ${{ github.event.inputs.rubygems_otp }}
-      - name: Create release tag and push to GitHub
-        id: push
-        run: |
-          git tag ${{ steps.bump_version.outputs.new_version }}
-          git push gh-origin HEAD:main --tags
       - name: Create a Release
         uses: softprops/action-gh-release@v1
         with:
