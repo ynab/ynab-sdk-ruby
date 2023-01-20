@@ -8,9 +8,7 @@
 
 ## Publishing
 
-- Commit all changes
-- Bump VERSION in `lib/ynab/version.rb`
-- Run `rake publish` to publish to RubyGems
+Run the "Publish" GitHub Actions workflow
 
 ## Docker Image
 

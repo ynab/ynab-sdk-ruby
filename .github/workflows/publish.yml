@@ -1,0 +1,48 @@
+name: Publish
+on:
+  workflow_dispatch:
+    inputs:
+      version_type:
+        type: choice
+        description: Version type
+        default: minor
+        options:
+        - major
+        - minor
+        - patch
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup git repo
+        run: |
+          git config user.name $GITHUB_ACTOR
+          git config user.email gh-actions-${GITHUB_ACTOR}@github.com
+          git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6.10
+      - name: Install gems
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+      - name: Bump Version
+        id: bump_version
+        run: |
+          NEW_VERSION=$(rake "bump_version_number[${{ github.event.inputs.version_type }}]")
+          echo "NEW_VERSION=$NEW_VERSION"
+          echo "new_version=$(echo $NEW_VERSION)" >> $GITHUB_OUTPUT
+      - name: Publish to RubyGems
+        run: rake publish
+      - name: Create release tag and push to GitHub
+        id: push
+        run: |
+          git tag ${{ steps.bump_version.outputs.new_version }}
+          git push gh-origin HEAD:main --tags
+      - name: Create a Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.bump_version.outputs.new_version }}
+          generate_release_notes: true
