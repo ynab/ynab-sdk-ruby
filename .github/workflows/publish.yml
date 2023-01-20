@@ -10,6 +10,9 @@ on:
         - major
         - minor
         - patch
+      rubygems_otp:
+        description: OTP Code
+        required: true
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -34,8 +37,20 @@ jobs:
           NEW_VERSION=$(rake "bump_version_number[${{ github.event.inputs.version_type }}]")
           echo "NEW_VERSION=$NEW_VERSION"
           echo "new_version=$(echo $NEW_VERSION)" >> $GITHUB_OUTPUT
+      - name: Configure authentication to RubyGems
+        run: |
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+          gem build *.gemspec
+          gem push *.gem
+        env:
+          # Make sure to update the secret name
+          # if yours isn't named RUBYGEMS_AUTH_TOKEN
+          GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
       - name: Publish to RubyGems
-        run: rake publish
+        run: rake publish --otp ${{ github.event.inputs.rubygems_otp }}
       - name: Create release tag and push to GitHub
         id: push
         run: |
