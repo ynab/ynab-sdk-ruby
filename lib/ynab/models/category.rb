@@ -40,6 +40,15 @@ module YNAB
     # The type of goal, if the category has a goal (TB='Target Category Balance', TBD='Target Category Balance by Date', MF='Monthly Funding', NEED='Plan Your Spending')
     attr_accessor :goal_type
 
+    # The day of the goal
+    attr_accessor :goal_day
+
+    # The goal cadence
+    attr_accessor :goal_cadence
+
+    # The goal cadence frequency
+    attr_accessor :goal_cadence_frequency
+
     # The month a goal was created
     attr_accessor :goal_creation_month
 
@@ -102,6 +111,9 @@ module YNAB
         :'activity' => :'activity',
         :'balance' => :'balance',
         :'goal_type' => :'goal_type',
+        :'goal_day' => :'goal_day',
+        :'goal_cadence' => :'goal_cadence',
+        :'goal_cadence_frequency' => :'goal_cadence_frequency',
         :'goal_creation_month' => :'goal_creation_month',
         :'goal_target' => :'goal_target',
         :'goal_target_month' => :'goal_target_month',
@@ -127,6 +139,9 @@ module YNAB
         :'activity' => :'Integer',
         :'balance' => :'Integer',
         :'goal_type' => :'String',
+        :'goal_day' => :'Integer',
+        :'goal_cadence' => :'Integer',
+        :'goal_cadence_frequency' => :'Integer',
         :'goal_creation_month' => :'Date',
         :'goal_target' => :'Integer',
         :'goal_target_month' => :'Date',
@@ -185,6 +200,18 @@ module YNAB
 
       if attributes.has_key?(:'goal_type')
         self.goal_type = attributes[:'goal_type']
+      end
+
+      if attributes.has_key?(:'goal_day')
+        self.goal_day = attributes[:'goal_day']
+      end
+
+      if attributes.has_key?(:'goal_cadence')
+        self.goal_cadence = attributes[:'goal_cadence']
+      end
+
+      if attributes.has_key?(:'goal_cadence_frequency')
+        self.goal_cadence_frequency = attributes[:'goal_cadence_frequency']
       end
 
       if attributes.has_key?(:'goal_creation_month')
@@ -300,6 +327,9 @@ module YNAB
           activity == o.activity &&
           balance == o.balance &&
           goal_type == o.goal_type &&
+          goal_day == o.goal_day &&
+          goal_cadence == o.goal_cadence &&
+          goal_cadence_frequency == o.goal_cadence_frequency &&
           goal_creation_month == o.goal_creation_month &&
           goal_target == o.goal_target &&
           goal_target_month == o.goal_target_month &&
@@ -320,7 +350,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, category_group_id, name, hidden, original_category_group_id, note, budgeted, activity, balance, goal_type, goal_creation_month, goal_target, goal_target_month, goal_percentage_complete, goal_months_to_budget, goal_under_funded, goal_overall_funded, goal_overall_left, deleted].hash
+      [id, category_group_id, name, hidden, original_category_group_id, note, budgeted, activity, balance, goal_type, goal_day, goal_cadence, goal_cadence_frequency, goal_creation_month, goal_target, goal_target_month, goal_percentage_complete, goal_months_to_budget, goal_under_funded, goal_overall_funded, goal_overall_left, deleted].hash
     end
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash

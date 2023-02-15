@@ -15,6 +15,11 @@ Name | Type | Description | Notes
 **transfer_payee_id** | **String** | The payee id which should be used when transferring to this account | 
 **direct_import_linked** | **BOOLEAN** | Whether or not the account is linked to a financial institution for automatic transaction import. | [optional] 
 **direct_import_in_error** | **BOOLEAN** | If an account linked to a financial institution (direct_import_linked&#x3D;true) and the linked connection is not in a healthy state, this will be true. | [optional] 
+**last_reconciled_at** | **DateTime** | A date/time specifying when the account was last reconciled. | [optional] 
+**debt_original_balance** | **Integer** | The original debt/loan account balance, specified in milliunits format. | [optional] 
+**debt_interest_rates** | [**LoanAccountPeriodicValue**](LoanAccountPeriodicValue.md) | The debt/loan account interest rate(s), by effective date. | [optional] 
+**debt_minimum_payments** | [**LoanAccountPeriodicValue**](LoanAccountPeriodicValue.md) | The minimum payment amount(s) for the debt/loan account, by effective date.  The amounts are specified in milliunits format. | [optional] 
+**debt_escrow_amounts** | [**LoanAccountPeriodicValue**](LoanAccountPeriodicValue.md) | The escrow value(s) for the debt/loan account, by effective date.  The amounts are specified in milliunits format. | [optional] 
 **deleted** | **BOOLEAN** | Whether or not the account has been deleted.  Deleted accounts will only be included in delta requests. | 
 
 

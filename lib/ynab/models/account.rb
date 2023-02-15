@@ -46,6 +46,21 @@ module YNAB
     # If an account linked to a financial institution (direct_import_linked=true) and the linked connection is not in a healthy state, this will be true.
     attr_accessor :direct_import_in_error
 
+    # A date/time specifying when the account was last reconciled.
+    attr_accessor :last_reconciled_at
+
+    # The original debt/loan account balance, specified in milliunits format.
+    attr_accessor :debt_original_balance
+
+    # The debt/loan account interest rate(s), by effective date.
+    attr_accessor :debt_interest_rates
+
+    # The minimum payment amount(s) for the debt/loan account, by effective date.  The amounts are specified in milliunits format.
+    attr_accessor :debt_minimum_payments
+
+    # The escrow value(s) for the debt/loan account, by effective date.  The amounts are specified in milliunits format.
+    attr_accessor :debt_escrow_amounts
+
     # Whether or not the account has been deleted.  Deleted accounts will only be included in delta requests.
     attr_accessor :deleted
 
@@ -64,6 +79,11 @@ module YNAB
         :'transfer_payee_id' => :'transfer_payee_id',
         :'direct_import_linked' => :'direct_import_linked',
         :'direct_import_in_error' => :'direct_import_in_error',
+        :'last_reconciled_at' => :'last_reconciled_at',
+        :'debt_original_balance' => :'debt_original_balance',
+        :'debt_interest_rates' => :'debt_interest_rates',
+        :'debt_minimum_payments' => :'debt_minimum_payments',
+        :'debt_escrow_amounts' => :'debt_escrow_amounts',
         :'deleted' => :'deleted'
       }
     end
@@ -83,6 +103,11 @@ module YNAB
         :'transfer_payee_id' => :'String',
         :'direct_import_linked' => :'BOOLEAN',
         :'direct_import_in_error' => :'BOOLEAN',
+        :'last_reconciled_at' => :'DateTime',
+        :'debt_original_balance' => :'Integer',
+        :'debt_interest_rates' => :'LoanAccountPeriodicValue',
+        :'debt_minimum_payments' => :'LoanAccountPeriodicValue',
+        :'debt_escrow_amounts' => :'LoanAccountPeriodicValue',
         :'deleted' => :'BOOLEAN'
       }
     end
@@ -141,6 +166,26 @@ module YNAB
 
       if attributes.has_key?(:'direct_import_in_error')
         self.direct_import_in_error = attributes[:'direct_import_in_error']
+      end
+
+      if attributes.has_key?(:'last_reconciled_at')
+        self.last_reconciled_at = attributes[:'last_reconciled_at']
+      end
+
+      if attributes.has_key?(:'debt_original_balance')
+        self.debt_original_balance = attributes[:'debt_original_balance']
+      end
+
+      if attributes.has_key?(:'debt_interest_rates')
+        self.debt_interest_rates = attributes[:'debt_interest_rates']
+      end
+
+      if attributes.has_key?(:'debt_minimum_payments')
+        self.debt_minimum_payments = attributes[:'debt_minimum_payments']
+      end
+
+      if attributes.has_key?(:'debt_escrow_amounts')
+        self.debt_escrow_amounts = attributes[:'debt_escrow_amounts']
       end
 
       if attributes.has_key?(:'deleted')
@@ -228,6 +273,11 @@ module YNAB
           transfer_payee_id == o.transfer_payee_id &&
           direct_import_linked == o.direct_import_linked &&
           direct_import_in_error == o.direct_import_in_error &&
+          last_reconciled_at == o.last_reconciled_at &&
+          debt_original_balance == o.debt_original_balance &&
+          debt_interest_rates == o.debt_interest_rates &&
+          debt_minimum_payments == o.debt_minimum_payments &&
+          debt_escrow_amounts == o.debt_escrow_amounts &&
           deleted == o.deleted
     end
 
@@ -240,7 +290,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, type, on_budget, closed, note, balance, cleared_balance, uncleared_balance, transfer_payee_id, direct_import_linked, direct_import_in_error, deleted].hash
+      [id, name, type, on_budget, closed, note, balance, cleared_balance, uncleared_balance, transfer_payee_id, direct_import_linked, direct_import_in_error, last_reconciled_at, debt_original_balance, debt_interest_rates, debt_minimum_payments, debt_escrow_amounts, deleted].hash
     end
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash

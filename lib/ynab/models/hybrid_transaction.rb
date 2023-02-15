@@ -57,6 +57,9 @@ module YNAB
     # If the transaction was imported, the original payee name as it appeared on the statement
     attr_accessor :import_payee_name_original
 
+    # If the transaction is a debt/loan account transaction, the type of transaction
+    attr_accessor :debt_transaction_type
+
     # Whether or not the transaction has been deleted.  Deleted transactions will only be included in delta requests.
     attr_accessor :deleted
 
@@ -113,6 +116,7 @@ module YNAB
         :'import_id' => :'import_id',
         :'import_payee_name' => :'import_payee_name',
         :'import_payee_name_original' => :'import_payee_name_original',
+        :'debt_transaction_type' => :'debt_transaction_type',
         :'deleted' => :'deleted',
         :'type' => :'type',
         :'parent_transaction_id' => :'parent_transaction_id',
@@ -141,6 +145,7 @@ module YNAB
         :'import_id' => :'String',
         :'import_payee_name' => :'String',
         :'import_payee_name_original' => :'String',
+        :'debt_transaction_type' => :'String',
         :'deleted' => :'BOOLEAN',
         :'type' => :'String',
         :'parent_transaction_id' => :'String',
@@ -220,6 +225,10 @@ module YNAB
 
       if attributes.has_key?(:'import_payee_name_original')
         self.import_payee_name_original = attributes[:'import_payee_name_original']
+      end
+
+      if attributes.has_key?(:'debt_transaction_type')
+        self.debt_transaction_type = attributes[:'debt_transaction_type']
       end
 
       if attributes.has_key?(:'deleted')
@@ -313,6 +322,8 @@ module YNAB
       return false if @account_id.nil?
       return false if !@import_payee_name.nil? && @import_payee_name.to_s.length > 200
       return false if !@import_payee_name_original.nil? && @import_payee_name_original.to_s.length > 200
+      debt_transaction_type_validator = EnumAttributeValidator.new('String', ['payment', 'refund', 'fee', 'interest', 'escrow', 'balancedAdjustment', 'credit', 'charge'])
+      return false unless debt_transaction_type_validator.valid?(@debt_transaction_type)
       return false if @deleted.nil?
       return false if @type.nil?
       type_validator = EnumAttributeValidator.new('String', ['transaction', 'subtransaction'])
@@ -354,6 +365,12 @@ module YNAB
     end
 
     # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] debt_transaction_type Object to be assigned
+    def debt_transaction_type=(debt_transaction_type)
+      @debt_transaction_type = debt_transaction_type
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
       @type = type
@@ -380,6 +397,7 @@ module YNAB
           import_id == o.import_id &&
           import_payee_name == o.import_payee_name &&
           import_payee_name_original == o.import_payee_name_original &&
+          debt_transaction_type == o.debt_transaction_type &&
           deleted == o.deleted &&
           type == o.type &&
           parent_transaction_id == o.parent_transaction_id &&
@@ -397,7 +415,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, date, amount, memo, cleared, approved, flag_color, account_id, payee_id, category_id, transfer_account_id, transfer_transaction_id, matched_transaction_id, import_id, import_payee_name, import_payee_name_original, deleted, type, parent_transaction_id, account_name, payee_name, category_name].hash
+      [id, date, amount, memo, cleared, approved, flag_color, account_id, payee_id, category_id, transfer_account_id, transfer_transaction_id, matched_transaction_id, import_id, import_payee_name, import_payee_name_original, debt_transaction_type, deleted, type, parent_transaction_id, account_name, payee_name, category_name].hash
     end
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
