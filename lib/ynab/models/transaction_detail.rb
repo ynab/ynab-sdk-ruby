@@ -277,14 +277,6 @@ module YNAB
         invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
       end
 
-      if !@import_payee_name.nil? && @import_payee_name.to_s.length > 200
-        invalid_properties.push('invalid value for "import_payee_name", the character length must be smaller than or equal to 200.')
-      end
-
-      if !@import_payee_name_original.nil? && @import_payee_name_original.to_s.length > 200
-        invalid_properties.push('invalid value for "import_payee_name_original", the character length must be smaller than or equal to 200.')
-      end
-
       if @deleted.nil?
         invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
       end
@@ -313,8 +305,6 @@ module YNAB
       flag_color_validator = EnumAttributeValidator.new('String', ['red', 'orange', 'yellow', 'green', 'blue', 'purple'])
       return false unless flag_color_validator.valid?(@flag_color)
       return false if @account_id.nil?
-      return false if !@import_payee_name.nil? && @import_payee_name.to_s.length > 200
-      return false if !@import_payee_name_original.nil? && @import_payee_name_original.to_s.length > 200
       debt_transaction_type_validator = EnumAttributeValidator.new('String', ['payment', 'refund', 'fee', 'interest', 'escrow', 'balancedAdjustment', 'credit', 'charge'])
       return false unless debt_transaction_type_validator.valid?(@debt_transaction_type)
       return false if @deleted.nil?
@@ -333,26 +323,6 @@ module YNAB
     # @param [Object] flag_color Object to be assigned
     def flag_color=(flag_color)
       @flag_color = flag_color
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] import_payee_name Value to be assigned
-    def import_payee_name=(import_payee_name)
-      if !import_payee_name.nil? && import_payee_name.to_s.length > 200
-        fail ArgumentError, 'invalid value for "import_payee_name", the character length must be smaller than or equal to 200.'
-      end
-
-      @import_payee_name = import_payee_name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] import_payee_name_original Value to be assigned
-    def import_payee_name_original=(import_payee_name_original)
-      if !import_payee_name_original.nil? && import_payee_name_original.to_s.length > 200
-        fail ArgumentError, 'invalid value for "import_payee_name_original", the character length must be smaller than or equal to 200.'
-      end
-
-      @import_payee_name_original = import_payee_name_original
     end
 
     # Custom attribute writer method checking allowed values (enum).

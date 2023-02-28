@@ -2605,12 +2605,10 @@
         },
         "import_payee_name": {
           "type": "string",
-          "maxLength": 200,
           "description": "If the transaction was imported, the payee name that was used when importing and before applying any payee rename rules"
         },
         "import_payee_name_original": {
           "type": "string",
-          "maxLength": 200,
           "description": "If the transaction was imported, the original payee name as it appeared on the statement"
         },
         "debt_transaction_type": {
