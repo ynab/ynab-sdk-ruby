@@ -129,7 +129,7 @@ module YNAB
 
     def initialize
       @scheme = 'https'
-      @host = 'api.youneedabudget.com'
+      @host = 'api.ynab.com'
       @base_path = '/v1'
       @api_key = {}
       @api_key_prefix = {}

@@ -5,7 +5,7 @@
 
 This is the Ruby client for the YNAB API.
 
-Please read the [YNAB API documentation](https://api.youneedabudget.com) for an
+Please read the [YNAB API documentation](https://api.ynab.com) for an
 overview of using the API and a complete list of available resources.
 
 This client is generated using the [Swagger Code Generator](https://github.com/swagger-api/swagger-codegen).
@@ -18,8 +18,8 @@ gem install ynab
 
 ## Usage
 To use this client you must
-[obtain an access token](https://api.youneedabudget.com/#authentication-overview) from
-your [Account Settings](https://app.youneedabudget.com/settings) page of the YNAB web
+[obtain an access token](https://api.ynab.com/#authentication-overview) from
+your [Account Settings](https://app.ynab.com/settings) page of the YNAB web
 app.
 
 ```ruby
