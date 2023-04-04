@@ -1,7 +1,7 @@
 =begin
 #YNAB API Endpoints
 
-#Our API uses a REST based design, leverages the JSON data format, and relies upon HTTPS for transport. We respond with meaningful HTTP response codes and if an error occurs, we include error details in the response body.  API Documentation is at https://api.youneedabudget.com
+#Our API uses a REST based design, leverages the JSON data format, and relies upon HTTPS for transport. We respond with meaningful HTTP response codes and if an error occurs, we include error details in the response body.  API Documentation is at https://api.ynab.com
 
 OpenAPI spec version: 1.0.0
 
@@ -129,7 +129,7 @@ module YNAB
 
     def initialize
       @scheme = 'https'
-      @host = 'api.youneedabudget.com'
+      @host = 'api.ynab.com'
       @base_path = '/v1'
       @api_key = {}
       @api_key_prefix = {}

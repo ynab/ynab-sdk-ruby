@@ -16,7 +16,7 @@ desc "Run Swagger Code Generator to update the client from the Swagger spec"
 task :generate do
   # Download latest swagger spec
   spec_filename = 'spec-v1-swagger.json'
-  sh "wget https://api.youneedabudget.com/papi/#{spec_filename} -O ./.swagger-codegen/#{spec_filename}"
+  sh "wget https://api.ynab.com/papi/#{spec_filename} -O ./.swagger-codegen/#{spec_filename}"
 
   # Copy ignore file to root (workaround for ignore-file-override option not working)
   sh "cp ./.swagger-codegen/.swagger-codegen-ignore ./"

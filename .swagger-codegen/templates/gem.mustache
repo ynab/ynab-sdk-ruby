@@ -25,7 +25,7 @@ require 'ynab/overrides/transactions_api'
 
 module {{moduleName}}
   class API
-    def initialize(access_token, host = 'api.youneedabudget.com', useHttps = true)
+    def initialize(access_token, host = 'api.ynab.com', useHttps = true)
       config = Configuration.default
       config.api_key['Authorization'] = access_token
       config.api_key_prefix['Authorization'] = 'Bearer'
