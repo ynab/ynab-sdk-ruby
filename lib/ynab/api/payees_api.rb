@@ -1,7 +1,7 @@
 =begin
 #YNAB API Endpoints
 
-#Our API uses a REST based design, leverages the JSON data format, and relies upon HTTPS for transport. We respond with meaningful HTTP response codes and if an error occurs, we include error details in the response body.  API Documentation is at https://api.youneedabudget.com
+#Our API uses a REST based design, leverages the JSON data format, and relies upon HTTPS for transport. We respond with meaningful HTTP response codes and if an error occurs, we include error details in the response body.  API Documentation is at https://api.ynab.com
 
 OpenAPI spec version: 1.0.0
 
@@ -21,7 +21,7 @@ module YNAB
     end
     # Single payee
     # Returns a single payee
-    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
     # @param payee_id The id of the payee
     # @param [Hash] opts the optional parameters
     # @return [PayeeResponse]
@@ -32,7 +32,7 @@ module YNAB
 
     # Single payee
     # Returns a single payee
-    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
     # @param payee_id The id of the payee
     # @param [Hash] opts the optional parameters
     # @return [Array<(PayeeResponse, Fixnum, Hash)>] PayeeResponse data, response status code and response headers
@@ -79,7 +79,7 @@ module YNAB
     end
     # List payees
     # Returns all payees
-    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [PayeesResponse]
@@ -90,7 +90,7 @@ module YNAB
 
     # List payees
     # Returns all payees
-    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
+    # @param budget_id The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [Array<(PayeesResponse, Fixnum, Hash)>] PayeesResponse data, response status code and response headers

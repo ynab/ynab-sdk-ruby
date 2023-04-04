@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **deleted** | **BOOLEAN** | Whether or not the transaction has been deleted.  Deleted transactions will only be included in delta requests. | 
 **account_name** | **String** |  | 
 **payee_name** | **String** |  | [optional] 
-**category_name** | **String** |  | [optional] 
+**category_name** | **String** | The name of the category.  If a split transaction, this will be &#39;Split&#39;. | [optional] 
 **subtransactions** | [**Array&lt;SubTransaction&gt;**](SubTransaction.md) | If a split transaction, the subtransactions. | 
 
 

@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "Our API uses a REST based design, leverages the JSON data format, and relies upon HTTPS for transport. We respond with meaningful HTTP response codes and if an error occurs, we include error details in the response body.  API Documentation is at https://api.youneedabudget.com",
+    "description": "Our API uses a REST based design, leverages the JSON data format, and relies upon HTTPS for transport. We respond with meaningful HTTP response codes and if an error occurs, we include error details in the response body.  API Documentation is at https://api.ynab.com",
     "version": "1.0.0",
     "title": "YNAB API Endpoints"
   },
   "schemes": ["https"],
-  "host": "api.youneedabudget.com",
+  "host": "api.ynab.com",
   "basePath": "/v1",
   "tags": [
     {
@@ -122,7 +122,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -168,7 +168,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           }
@@ -206,7 +206,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -250,7 +250,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget (\"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget)",
+            "description": "The id of the budget (\"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget)",
             "required": true,
             "type": "string"
           },
@@ -291,7 +291,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -337,7 +337,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -383,7 +383,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -428,7 +428,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -479,7 +479,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -535,7 +535,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -581,7 +581,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -626,7 +626,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           }
@@ -664,7 +664,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -709,7 +709,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -754,7 +754,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -800,7 +800,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -846,7 +846,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -906,7 +906,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -951,7 +951,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -992,7 +992,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           }
@@ -1030,7 +1030,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -1073,7 +1073,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -1119,7 +1119,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -1158,7 +1158,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -1199,7 +1199,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -1268,7 +1268,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -1337,7 +1337,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -1406,7 +1406,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -1452,7 +1452,7 @@
           {
             "name": "budget_id",
             "in": "path",
-            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).",
+            "description": "The id of the budget. \"last-used\" can be used to specify the last used budget and \"default\" can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).",
             "required": true,
             "type": "string"
           },
@@ -2648,7 +2648,8 @@
               "type": "string"
             },
             "category_name": {
-              "type": "string"
+              "type": "string",
+              "description": "The name of the category.  If a split transaction, this will be 'Split'."
             },
             "subtransactions": {
               "type": "array",
@@ -2686,7 +2687,8 @@
               "type": "string"
             },
             "category_name": {
-              "type": "string"
+              "type": "string",
+              "description": "The name of the category.  If a split transaction, this will be 'Split'."
             }
           }
         }
@@ -2948,7 +2950,8 @@
               "type": "string"
             },
             "category_name": {
-              "type": "string"
+              "type": "string",
+              "description": "The name of the category.  If a split scheduled transaction, this will be 'Split'."
             },
             "subtransactions": {
               "type": "array",
