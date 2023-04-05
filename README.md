@@ -1,6 +1,6 @@
 # YNAB API Ruby Library
 
-[![Build Status](https://travis-ci.org/ynab/ynab-sdk-ruby.svg?branch=master)](https://travis-ci.org/ynab/ynab-sdk-ruby)
+[![Continuous Integration](https://github.com/ynab/ynab-sdk-ruby/actions/workflows/ci.yml/badge.svg)](https://github.com/ynab/ynab-sdk-ruby/actions/workflows/ci.yml)
 [![Gem Version](https://badge.fury.io/rb/ynab.svg)](https://rubygems.org/gems/ynab)
 
 This is the Ruby client for the YNAB API.
