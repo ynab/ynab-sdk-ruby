@@ -1,8 +1,8 @@
 # YNAB::PatchTransactionsWrapper
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**transactions** | [**Array&lt;SaveTransactionWithId&gt;**](SaveTransactionWithId.md) |  | 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **transactions** | [**Array&lt;SaveTransactionWithId&gt;**](SaveTransactionWithId.md) |  |  |
 

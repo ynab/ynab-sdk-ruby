@@ -1,9 +1,9 @@
 # YNAB::PostTransactionsWrapper
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**transaction** | [**SaveTransaction**](SaveTransaction.md) |  | [optional] 
-**transactions** | [**Array&lt;SaveTransaction&gt;**](SaveTransaction.md) |  | [optional] 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **transaction** | [**SaveTransaction**](SaveTransaction.md) |  | [optional] |
+| **transactions** | [**Array&lt;SaveTransaction&gt;**](SaveTransaction.md) |  | [optional] |
 

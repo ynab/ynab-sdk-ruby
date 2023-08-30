@@ -1,8 +1,8 @@
 # YNAB::TransactionsImportResponse
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**TransactionsImportResponseData**](TransactionsImportResponseData.md) |  | 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data** | [**TransactionsImportResponseData**](TransactionsImportResponseData.md) |  |  |
 

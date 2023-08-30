@@ -1,8 +1,8 @@
 # YNAB::CategoryResponse
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**CategoryResponseData**](CategoryResponseData.md) |  | 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data** | [**CategoryResponseData**](CategoryResponseData.md) |  |  |
 

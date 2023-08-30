@@ -1,8 +1,8 @@
 # YNAB::UserResponseData
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**user** | [**User**](User.md) |  | 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user** | [**User**](User.md) |  |  |
 

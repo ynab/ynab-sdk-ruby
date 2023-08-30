@@ -1,8 +1,8 @@
 # YNAB::ErrorResponse
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**error** | [**ErrorDetail**](ErrorDetail.md) |  | 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **error** | [**ErrorDetail**](ErrorDetail.md) |  |  |
 
