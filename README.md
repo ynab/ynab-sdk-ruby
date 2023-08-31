@@ -8,7 +8,7 @@ This is the Ruby client for the YNAB API.
 Please read the [YNAB API documentation](https://api.ynab.com) for an
 overview of using the API and a complete list of available resources.
 
-This client is generated using the [Swagger Code Generator](https://github.com/swagger-api/swagger-codegen).
+This client is generated using the [OpenAPI Generator](https://openapi-generator.tech/).
 
 ## Installation
 
