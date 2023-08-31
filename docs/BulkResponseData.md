@@ -1,8 +1,8 @@
 # YNAB::BulkResponseData
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**bulk** | [**BulkResponseDataBulk**](BulkResponseDataBulk.md) |  | 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **bulk** | [**BulkResponseDataBulk**](BulkResponseDataBulk.md) |  |  |
 

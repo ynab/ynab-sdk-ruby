@@ -1,8 +1,8 @@
 # YNAB::PayeeResponseData
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**payee** | [**Payee**](Payee.md) |  | 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **payee** | [**Payee**](Payee.md) |  |  |
 

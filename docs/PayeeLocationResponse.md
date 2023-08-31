@@ -1,8 +1,8 @@
 # YNAB::PayeeLocationResponse
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**PayeeLocationResponseData**](PayeeLocationResponseData.md) |  | 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data** | [**PayeeLocationResponseData**](PayeeLocationResponseData.md) |  |  |
 

@@ -27,8 +27,7 @@ module {{moduleName}}
   class API
     def initialize(access_token, host = 'api.ynab.com', useHttps = true)
       config = Configuration.default
-      config.api_key['Authorization'] = access_token
-      config.api_key_prefix['Authorization'] = 'Bearer'
+      config.access_token = access_token
       config.scheme = useHttps ? 'https' : 'http'
       config.host = host
       config.base_path = '/v1'

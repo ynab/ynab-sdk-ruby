@@ -1,8 +1,7 @@
 PATH
   remote: .
   specs:
-    ynab (1.30.0)
-      json (~> 2.1, >= 2.1.0)
+    ynab (1.31.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
 GEM
@@ -12,7 +11,6 @@ GEM
     ethon (0.16.0)
       ffi (>= 1.15.0)
     ffi (1.15.5)
-    json (2.6.3)
     rake (13.0.1)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
@@ -29,7 +27,7 @@ GEM
     rspec-support (3.8.0)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
-    vcr (3.0.3)
+    vcr (6.2.0)
 
 PLATFORMS
   ruby
@@ -37,7 +35,7 @@ PLATFORMS
 DEPENDENCIES
   rake (>= 12.3.3)
   rspec (~> 3.6, >= 3.6.0)
-  vcr (~> 3.0, >= 3.0.1)
+  vcr (>= 3.0.3)
   ynab!
 
 BUNDLED WITH

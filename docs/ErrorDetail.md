@@ -1,10 +1,10 @@
 # YNAB::ErrorDetail
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**name** | **String** |  | 
-**detail** | **String** |  | 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** |  |  |
+| **name** | **String** |  |  |
+| **detail** | **String** |  |  |
 
