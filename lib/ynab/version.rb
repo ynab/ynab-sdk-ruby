@@ -11,5 +11,5 @@ Swagger Codegen version: 2.4.0-SNAPSHOT
 =end
 
 module YNAB
-  VERSION = '2.31.0'
+  VERSION = '3.31.0'
 end
