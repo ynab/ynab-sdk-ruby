@@ -149,34 +149,6 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @month.nil?
-        invalid_properties.push('invalid value for "month", month cannot be nil.')
-      end
-
-      if @income.nil?
-        invalid_properties.push('invalid value for "income", income cannot be nil.')
-      end
-
-      if @budgeted.nil?
-        invalid_properties.push('invalid value for "budgeted", budgeted cannot be nil.')
-      end
-
-      if @activity.nil?
-        invalid_properties.push('invalid value for "activity", activity cannot be nil.')
-      end
-
-      if @to_be_budgeted.nil?
-        invalid_properties.push('invalid value for "to_be_budgeted", to_be_budgeted cannot be nil.')
-      end
-
-      if @deleted.nil?
-        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
-      end
-
-      if @categories.nil?
-        invalid_properties.push('invalid value for "categories", categories cannot be nil.')
-      end
-
       invalid_properties
     end
 

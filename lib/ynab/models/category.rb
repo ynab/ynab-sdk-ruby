@@ -296,38 +296,6 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @category_group_id.nil?
-        invalid_properties.push('invalid value for "category_group_id", category_group_id cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @hidden.nil?
-        invalid_properties.push('invalid value for "hidden", hidden cannot be nil.')
-      end
-
-      if @budgeted.nil?
-        invalid_properties.push('invalid value for "budgeted", budgeted cannot be nil.')
-      end
-
-      if @activity.nil?
-        invalid_properties.push('invalid value for "activity", activity cannot be nil.')
-      end
-
-      if @balance.nil?
-        invalid_properties.push('invalid value for "balance", balance cannot be nil.')
-      end
-
-      if @deleted.nil?
-        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -350,10 +318,6 @@ module YNAB
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] goal_type Object to be assigned
     def goal_type=(goal_type)
-      validator = EnumAttributeValidator.new('String', ["TB", "TBD", "MF", "NEED", "DEBT", "null"])
-      unless validator.valid?(goal_type)
-        fail ArgumentError, "invalid value for \"goal_type\", must be one of #{validator.allowable_values}."
-      end
       @goal_type = goal_type
     end
 

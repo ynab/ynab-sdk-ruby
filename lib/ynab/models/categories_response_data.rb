@@ -77,14 +77,6 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @category_groups.nil?
-        invalid_properties.push('invalid value for "category_groups", category_groups cannot be nil.')
-      end
-
-      if @server_knowledge.nil?
-        invalid_properties.push('invalid value for "server_knowledge", server_knowledge cannot be nil.')
-      end
-
       invalid_properties
     end
 

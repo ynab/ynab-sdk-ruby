@@ -248,34 +248,6 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @date.nil?
-        invalid_properties.push('invalid value for "date", date cannot be nil.')
-      end
-
-      if @amount.nil?
-        invalid_properties.push('invalid value for "amount", amount cannot be nil.')
-      end
-
-      if @cleared.nil?
-        invalid_properties.push('invalid value for "cleared", cleared cannot be nil.')
-      end
-
-      if @approved.nil?
-        invalid_properties.push('invalid value for "approved", approved cannot be nil.')
-      end
-
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
-      if @deleted.nil?
-        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -301,30 +273,18 @@ module YNAB
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] cleared Object to be assigned
     def cleared=(cleared)
-      validator = EnumAttributeValidator.new('String', ["cleared", "uncleared", "reconciled"])
-      unless validator.valid?(cleared)
-        fail ArgumentError, "invalid value for \"cleared\", must be one of #{validator.allowable_values}."
-      end
       @cleared = cleared
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] flag_color Object to be assigned
     def flag_color=(flag_color)
-      validator = EnumAttributeValidator.new('String', ["red", "orange", "yellow", "green", "blue", "purple", "null"])
-      unless validator.valid?(flag_color)
-        fail ArgumentError, "invalid value for \"flag_color\", must be one of #{validator.allowable_values}."
-      end
       @flag_color = flag_color
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] debt_transaction_type Object to be assigned
     def debt_transaction_type=(debt_transaction_type)
-      validator = EnumAttributeValidator.new('String', ["payment", "refund", "fee", "interest", "escrow", "balancedAdjustment", "credit", "charge", "null"])
-      unless validator.valid?(debt_transaction_type)
-        fail ArgumentError, "invalid value for \"debt_transaction_type\", must be one of #{validator.allowable_values}."
-      end
       @debt_transaction_type = debt_transaction_type
     end
 

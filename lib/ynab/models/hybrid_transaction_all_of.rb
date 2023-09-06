@@ -125,14 +125,6 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @type.nil?
-        invalid_properties.push('invalid value for "type", type cannot be nil.')
-      end
-
-      if @account_name.nil?
-        invalid_properties.push('invalid value for "account_name", account_name cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -149,10 +141,6 @@ module YNAB
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ["transaction", "subtransaction"])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
       @type = type
     end
 
