@@ -106,18 +106,6 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @amount.nil?
-        invalid_properties.push('invalid value for "amount", amount cannot be nil.')
-      end
-
-      if !@payee_name.nil? && @payee_name.to_s.length > 50
-        invalid_properties.push('invalid value for "payee_name", the character length must be smaller than or equal to 50.')
-      end
-
-      if !@memo.nil? && @memo.to_s.length > 200
-        invalid_properties.push('invalid value for "memo", the character length must be smaller than or equal to 200.')
-      end
-
       invalid_properties
     end
 
@@ -133,20 +121,12 @@ module YNAB
     # Custom attribute writer method with validation
     # @param [Object] payee_name Value to be assigned
     def payee_name=(payee_name)
-      if !payee_name.nil? && payee_name.to_s.length > 50
-        fail ArgumentError, 'invalid value for "payee_name", the character length must be smaller than or equal to 50.'
-      end
-
       @payee_name = payee_name
     end
 
     # Custom attribute writer method with validation
     # @param [Object] memo Value to be assigned
     def memo=(memo)
-      if !memo.nil? && memo.to_s.length > 200
-        fail ArgumentError, 'invalid value for "memo", the character length must be smaller than or equal to 200.'
-      end
-
       @memo = memo
     end
 

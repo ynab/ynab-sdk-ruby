@@ -209,18 +209,6 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@payee_name.nil? && @payee_name.to_s.length > 50
-        invalid_properties.push('invalid value for "payee_name", the character length must be smaller than or equal to 50.')
-      end
-
-      if !@memo.nil? && @memo.to_s.length > 200
-        invalid_properties.push('invalid value for "memo", the character length must be smaller than or equal to 200.')
-      end
-
-      if !@import_id.nil? && @import_id.to_s.length > 36
-        invalid_properties.push('invalid value for "import_id", the character length must be smaller than or equal to 36.')
-      end
-
       invalid_properties
     end
 
@@ -240,50 +228,30 @@ module YNAB
     # Custom attribute writer method with validation
     # @param [Object] payee_name Value to be assigned
     def payee_name=(payee_name)
-      if !payee_name.nil? && payee_name.to_s.length > 50
-        fail ArgumentError, 'invalid value for "payee_name", the character length must be smaller than or equal to 50.'
-      end
-
       @payee_name = payee_name
     end
 
     # Custom attribute writer method with validation
     # @param [Object] memo Value to be assigned
     def memo=(memo)
-      if !memo.nil? && memo.to_s.length > 200
-        fail ArgumentError, 'invalid value for "memo", the character length must be smaller than or equal to 200.'
-      end
-
       @memo = memo
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] cleared Object to be assigned
     def cleared=(cleared)
-      validator = EnumAttributeValidator.new('String', ["cleared", "uncleared", "reconciled"])
-      unless validator.valid?(cleared)
-        fail ArgumentError, "invalid value for \"cleared\", must be one of #{validator.allowable_values}."
-      end
       @cleared = cleared
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] flag_color Object to be assigned
     def flag_color=(flag_color)
-      validator = EnumAttributeValidator.new('String', ["red", "orange", "yellow", "green", "blue", "purple", "null"])
-      unless validator.valid?(flag_color)
-        fail ArgumentError, "invalid value for \"flag_color\", must be one of #{validator.allowable_values}."
-      end
       @flag_color = flag_color
     end
 
     # Custom attribute writer method with validation
     # @param [Object] import_id Value to be assigned
     def import_id=(import_id)
-      if !import_id.nil? && import_id.to_s.length > 36
-        fail ArgumentError, 'invalid value for "import_id", the character length must be smaller than or equal to 36.'
-      end
-
       @import_id = import_id
     end
 

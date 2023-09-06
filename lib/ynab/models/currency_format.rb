@@ -123,38 +123,6 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @iso_code.nil?
-        invalid_properties.push('invalid value for "iso_code", iso_code cannot be nil.')
-      end
-
-      if @example_format.nil?
-        invalid_properties.push('invalid value for "example_format", example_format cannot be nil.')
-      end
-
-      if @decimal_digits.nil?
-        invalid_properties.push('invalid value for "decimal_digits", decimal_digits cannot be nil.')
-      end
-
-      if @decimal_separator.nil?
-        invalid_properties.push('invalid value for "decimal_separator", decimal_separator cannot be nil.')
-      end
-
-      if @symbol_first.nil?
-        invalid_properties.push('invalid value for "symbol_first", symbol_first cannot be nil.')
-      end
-
-      if @group_separator.nil?
-        invalid_properties.push('invalid value for "group_separator", group_separator cannot be nil.')
-      end
-
-      if @currency_symbol.nil?
-        invalid_properties.push('invalid value for "currency_symbol", currency_symbol cannot be nil.')
-      end
-
-      if @display_symbol.nil?
-        invalid_properties.push('invalid value for "display_symbol", display_symbol cannot be nil.')
-      end
-
       invalid_properties
     end
 

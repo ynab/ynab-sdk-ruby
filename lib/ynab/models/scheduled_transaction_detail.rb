@@ -233,42 +233,6 @@ module YNAB
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @date_first.nil?
-        invalid_properties.push('invalid value for "date_first", date_first cannot be nil.')
-      end
-
-      if @date_next.nil?
-        invalid_properties.push('invalid value for "date_next", date_next cannot be nil.')
-      end
-
-      if @frequency.nil?
-        invalid_properties.push('invalid value for "frequency", frequency cannot be nil.')
-      end
-
-      if @amount.nil?
-        invalid_properties.push('invalid value for "amount", amount cannot be nil.')
-      end
-
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
-      if @deleted.nil?
-        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
-      end
-
-      if @account_name.nil?
-        invalid_properties.push('invalid value for "account_name", account_name cannot be nil.')
-      end
-
-      if @subtransactions.nil?
-        invalid_properties.push('invalid value for "subtransactions", subtransactions cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -294,20 +258,12 @@ module YNAB
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] frequency Object to be assigned
     def frequency=(frequency)
-      validator = EnumAttributeValidator.new('String', ["never", "daily", "weekly", "everyOtherWeek", "twiceAMonth", "every4Weeks", "monthly", "everyOtherMonth", "every3Months", "every4Months", "twiceAYear", "yearly", "everyOtherYear"])
-      unless validator.valid?(frequency)
-        fail ArgumentError, "invalid value for \"frequency\", must be one of #{validator.allowable_values}."
-      end
       @frequency = frequency
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] flag_color Object to be assigned
     def flag_color=(flag_color)
-      validator = EnumAttributeValidator.new('String', ["red", "orange", "yellow", "green", "blue", "purple", "null"])
-      unless validator.valid?(flag_color)
-        fail ArgumentError, "invalid value for \"flag_color\", must be one of #{validator.allowable_values}."
-      end
       @flag_color = flag_color
     end
 

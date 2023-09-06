@@ -260,10 +260,6 @@ module YNAB
       if @api_client.config.client_side_validation && budget_id.nil?
         fail ArgumentError, "Missing the required parameter 'budget_id' when calling TransactionsApi.get_transactions"
       end
-      allowable_values = ["uncategorized", "unapproved"]
-      if @api_client.config.client_side_validation && opts[:'type'] && !allowable_values.include?(opts[:'type'])
-        fail ArgumentError, "invalid value for \"type\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = '/budgets/{budget_id}/transactions'.sub('{' + 'budget_id' + '}', CGI.escape(budget_id.to_s))
 
@@ -341,10 +337,6 @@ module YNAB
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling TransactionsApi.get_transactions_by_account"
-      end
-      allowable_values = ["uncategorized", "unapproved"]
-      if @api_client.config.client_side_validation && opts[:'type'] && !allowable_values.include?(opts[:'type'])
-        fail ArgumentError, "invalid value for \"type\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/budgets/{budget_id}/accounts/{account_id}/transactions'.sub('{' + 'budget_id' + '}', CGI.escape(budget_id.to_s)).sub('{' + 'account_id' + '}', CGI.escape(account_id.to_s))
@@ -424,10 +416,6 @@ module YNAB
       if @api_client.config.client_side_validation && category_id.nil?
         fail ArgumentError, "Missing the required parameter 'category_id' when calling TransactionsApi.get_transactions_by_category"
       end
-      allowable_values = ["uncategorized", "unapproved"]
-      if @api_client.config.client_side_validation && opts[:'type'] && !allowable_values.include?(opts[:'type'])
-        fail ArgumentError, "invalid value for \"type\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = '/budgets/{budget_id}/categories/{category_id}/transactions'.sub('{' + 'budget_id' + '}', CGI.escape(budget_id.to_s)).sub('{' + 'category_id' + '}', CGI.escape(category_id.to_s))
 
@@ -505,10 +493,6 @@ module YNAB
       # verify the required parameter 'payee_id' is set
       if @api_client.config.client_side_validation && payee_id.nil?
         fail ArgumentError, "Missing the required parameter 'payee_id' when calling TransactionsApi.get_transactions_by_payee"
-      end
-      allowable_values = ["uncategorized", "unapproved"]
-      if @api_client.config.client_side_validation && opts[:'type'] && !allowable_values.include?(opts[:'type'])
-        fail ArgumentError, "invalid value for \"type\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/budgets/{budget_id}/payees/{payee_id}/transactions'.sub('{' + 'budget_id' + '}', CGI.escape(budget_id.to_s)).sub('{' + 'payee_id' + '}', CGI.escape(payee_id.to_s))
