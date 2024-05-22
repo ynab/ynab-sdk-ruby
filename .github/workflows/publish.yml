@@ -26,7 +26,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.5
+          ruby-version: 3.3.1
       - name: Upgrade RubyGems version
         run: gem update --system
       - name: Install gems
