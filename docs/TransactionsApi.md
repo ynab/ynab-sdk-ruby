@@ -9,8 +9,8 @@ All URIs are relative to *https://api.ynab.com/v1*
 | [**get_transaction_by_id**](TransactionsApi.md#get_transaction_by_id) | **GET** /budgets/{budget_id}/transactions/{transaction_id} | Single transaction |
 | [**get_transactions**](TransactionsApi.md#get_transactions) | **GET** /budgets/{budget_id}/transactions | List transactions |
 | [**get_transactions_by_account**](TransactionsApi.md#get_transactions_by_account) | **GET** /budgets/{budget_id}/accounts/{account_id}/transactions | List account transactions |
-| [**get_transactions_by_category**](TransactionsApi.md#get_transactions_by_category) | **GET** /budgets/{budget_id}/categories/{category_id}/transactions | List category transactions |
-| [**get_transactions_by_payee**](TransactionsApi.md#get_transactions_by_payee) | **GET** /budgets/{budget_id}/payees/{payee_id}/transactions | List payee transactions |
+| [**get_transactions_by_category**](TransactionsApi.md#get_transactions_by_category) | **GET** /budgets/{budget_id}/categories/{category_id}/transactions | List category transactions, excluding any pending transactions |
+| [**get_transactions_by_payee**](TransactionsApi.md#get_transactions_by_payee) | **GET** /budgets/{budget_id}/payees/{payee_id}/transactions | List payee transactions, excluding any pending transactions |
 | [**import_transactions**](TransactionsApi.md#import_transactions) | **POST** /budgets/{budget_id}/transactions/import | Import transactions |
 | [**update_transaction**](TransactionsApi.md#update_transaction) | **PUT** /budgets/{budget_id}/transactions/{transaction_id} | Updates an existing transaction |
 | [**update_transactions**](TransactionsApi.md#update_transactions) | **PATCH** /budgets/{budget_id}/transactions | Update multiple transactions |
@@ -82,7 +82,7 @@ Returns a single transaction
 
 List transactions
 
-Returns budget transactions
+Returns budget transactions, excluding any pending transactions
 
 ### Parameters
 
@@ -104,7 +104,7 @@ Returns budget transactions
 
 List account transactions
 
-Returns all transactions for a specified account
+Returns all transactions for a specified account, excluding any pending transactions
 
 ### Parameters
 
@@ -125,7 +125,7 @@ Returns all transactions for a specified account
 
 > <HybridTransactionsResponse> get_transactions_by_category(budget_id, category_id, opts)
 
-List category transactions
+List category transactions, excluding any pending transactions
 
 Returns all transactions for a specified category
 
@@ -148,7 +148,7 @@ Returns all transactions for a specified category
 
 > <HybridTransactionsResponse> get_transactions_by_payee(budget_id, payee_id, opts)
 
-List payee transactions
+List payee transactions, excluding any pending transactions
 
 Returns all transactions for a specified payee
 
@@ -220,7 +220,7 @@ Updates multiple transactions, by `id` or `import_id`.
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
-| **data** | [**PatchTransactionsWrapper**](PatchTransactionsWrapper.md) | The transactions to update. Each transaction must have either an &#x60;id&#x60; or &#x60;import_id&#x60; specified. If &#x60;id&#x60; is specified as null an &#x60;import_id&#x60; value can be provided which will allow transaction(s) to be updated by their &#x60;import_id&#x60;. If an &#x60;id&#x60; is specified, it will always be used for lookup. |  |
+| **data** | [**PatchTransactionsWrapper**](PatchTransactionsWrapper.md) | The transactions to update. Each transaction must have either an &#x60;id&#x60; or &#x60;import_id&#x60; specified. If &#x60;id&#x60; is specified as null an &#x60;import_id&#x60; value can be provided which will allow transaction(s) to be updated by its &#x60;import_id&#x60;. If an &#x60;id&#x60; is specified, it will always be used for lookup.  You should not specify both &#x60;id&#x60; and &#x60;import_id&#x60;.  Updating an &#x60;import_id&#x60; on an existing transaction is not allowed; if an &#x60;import_id&#x60; is specified, it will only be used to lookup the transaction. |  |
 
 ### Return type
 

@@ -4,6 +4,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **transaction** | [**SaveTransaction**](SaveTransaction.md) |  | [optional] |
-| **transactions** | [**Array&lt;SaveTransaction&gt;**](SaveTransaction.md) |  | [optional] |
+| **transaction** | [**NewTransaction**](NewTransaction.md) |  | [optional] |
+| **transactions** | [**Array&lt;NewTransaction&gt;**](NewTransaction.md) |  | [optional] |
 

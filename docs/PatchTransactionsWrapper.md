@@ -4,5 +4,5 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **transactions** | [**Array&lt;SaveTransactionWithId&gt;**](SaveTransactionWithId.md) |  |  |
+| **transactions** | [**Array&lt;SaveTransactionWithIdOrImportId&gt;**](SaveTransactionWithIdOrImportId.md) |  |  |
 

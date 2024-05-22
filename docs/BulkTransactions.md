@@ -4,5 +4,5 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **transactions** | [**Array&lt;SaveTransaction&gt;**](SaveTransaction.md) |  |  |
+| **transactions** | [**Array&lt;SaveTransactionWithOptionalFields&gt;**](SaveTransactionWithOptionalFields.md) |  |  |
 
