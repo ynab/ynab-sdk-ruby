@@ -11,3 +11,5 @@
 ## Publishing
 
 Run the "Publish" GitHub Actions workflow
+
+Note: Use the Publish workflow to bump the version number in `lib/ynab/version.rb`
