@@ -3,8 +3,10 @@
 ## Setup
 
 - Install dependencies: `bundle`
-- Generate latest client based on swagger spec: `rake generate`
-- Run tests: `rake spec` or `rspec`
+- Generate latest client based on OpenAPI spec:
+  - Install [OpenAPI Generator](https://openapi-generator.tech/), for macOS: `brew install openapi-generator`
+  - Run `bundle exec rake generate`
+- Run tests: `bundle exec rake spec` or `rspec`
 
 ## Publishing
 

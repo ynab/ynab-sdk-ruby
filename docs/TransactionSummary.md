@@ -8,9 +8,10 @@
 | **date** | **Date** | The transaction date in ISO format (e.g. 2016-12-01) |  |
 | **amount** | **Integer** | The transaction amount in milliunits format |  |
 | **memo** | **String** |  | [optional] |
-| **cleared** | **String** | The cleared status of the transaction |  |
+| **cleared** | [**TransactionClearedStatus**](TransactionClearedStatus.md) |  |  |
 | **approved** | **Boolean** | Whether or not the transaction is approved |  |
-| **flag_color** | **String** | The transaction flag | [optional] |
+| **flag_color** | [**TransactionFlagColor**](TransactionFlagColor.md) |  | [optional] |
+| **flag_name** | **String** | The customized name of a transaction flag | [optional] |
 | **account_id** | **String** |  |  |
 | **payee_id** | **String** |  | [optional] |
 | **category_id** | **String** |  | [optional] |

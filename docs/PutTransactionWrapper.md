@@ -4,5 +4,5 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **transaction** | [**SaveTransaction**](SaveTransaction.md) |  |  |
+| **transaction** | [**ExistingTransaction**](ExistingTransaction.md) |  |  |
 
