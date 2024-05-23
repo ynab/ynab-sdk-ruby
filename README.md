@@ -16,6 +16,8 @@ This client is generated using the [OpenAPI Generator](https://openapi-generator
 gem install ynab
 ```
 
+Note: The current version of this gem (3.0.0) requires Ruby version 3.3 or later. If you are using an older version of Ruby, you can install [version 2.1](https://rubygems.org/gems/ynab/versions/2.1.0) of this gem.
+
 ## Usage
 To use this client you must
 [obtain an access token](https://api.ynab.com/#authentication-overview) from
@@ -78,6 +80,6 @@ The following methods are available in this library.
 
 ## License
 
-Copyright (c) 2022 You Need A Budget, LLC
+Copyright (c) 2024 You Need A Budget, LLC
 
 Licensed under the Apache-2.0 license
