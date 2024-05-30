@@ -20,6 +20,8 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Hide the inputs values to keep them private in the logs when running this workflow
+        uses: levibostian/action-hide-sensitive-inputs@v1
       - uses: actions/checkout@v4
       - name: Setup git repo
         run: |
@@ -39,7 +41,7 @@ jobs:
       - name: Bump Version
         id: bump_version
         run: |
-          NEW_VERSION=$(rake "bump_version_number[${{ github.event.inputs.version_type }}]")
+          NEW_VERSION=$(rake "bump_version_number[${{ inputs.version_type }}]")
           echo "NEW_VERSION=$NEW_VERSION"
           echo "new_version=$(echo $NEW_VERSION)" >> $GITHUB_OUTPUT
       - name: Configure authentication to RubyGems
@@ -49,11 +51,11 @@ jobs:
           chmod 0600 $HOME/.gem/credentials
           printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
         env:
-          GEM_HOST_API_KEY: "${{ github.event.inputs.rubygems_api_key }}"
+          GEM_HOST_API_KEY: "${{ inputs.rubygems_api_key }}"
       - name: Publish to RubyGems
         run: rake publish
         env:
-          GEM_HOST_OTP_CODE: ${{ github.event.inputs.rubygems_otp }}
+          GEM_HOST_OTP_CODE: ${{ inputs.rubygems_otp }}
       - name: Create a Release
         uses: softprops/action-gh-release@v1
         with:
