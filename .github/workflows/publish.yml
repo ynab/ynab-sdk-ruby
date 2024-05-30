@@ -10,9 +10,10 @@ on:
         - major
         - minor
         - patch
+    secrets:
       rubygems_api_key:
-          description: API Key
-          required: true
+        description: API Key
+        required: true
       rubygems_otp:
         description: OTP Code
         required: true
@@ -49,11 +50,11 @@ jobs:
           chmod 0600 $HOME/.gem/credentials
           printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
         env:
-          GEM_HOST_API_KEY: "${{ github.event.inputs.rubygems_api_key }}"
+          GEM_HOST_API_KEY: "${{ github.event.secrets.rubygems_api_key }}"
       - name: Publish to RubyGems
         run: rake publish
         env:
-          GEM_HOST_OTP_CODE: ${{ github.event.inputs.rubygems_otp }}
+          GEM_HOST_OTP_CODE: ${{ github.event.secrets.rubygems_otp }}
       - name: Create a Release
         uses: softprops/action-gh-release@v1
         with:
