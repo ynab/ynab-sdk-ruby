@@ -6,7 +6,7 @@ info:
     upon HTTPS for transport. We respond with meaningful HTTP response codes and
     if an error occurs, we include error details in the response body.  API
     Documentation is at https://api.ynab.com
-  version: 1.69.0
+  version: 1.70.0
 servers:
   - url: https://api.ynab.com/v1
 security:
@@ -2016,6 +2016,15 @@ components:
             - DEBT
             - null
           nullable: true
+        goal_needs_whole_amount:
+          type: boolean
+          description: >-
+            Indicates the monthly rollover behavior for "NEED"-type goals. When
+            "true", the goal will always ask for the target amount in the new
+            month ("Set Aside"). When "false", previous month category funding is
+            used ("Refill"). For other goal types, this field will be null.
+          nullable: true
+          default: null
         goal_day:
           type: integer
           description: >-
