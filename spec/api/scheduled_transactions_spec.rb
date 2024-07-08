@@ -34,7 +34,7 @@ describe 'scheduled transactions' do
     end
   end
 
-  describe 'GET /budgets/{budget_id}/transactions' do
+  describe 'GET /budgets/{budget_id}/scheduled_transactions' do
     it 'returns a list of transactions' do
       VCR.use_cassette("scheduled_transactions") do
         response = instance.get_scheduled_transactions(budget_id)
@@ -44,12 +44,30 @@ describe 'scheduled transactions' do
     end
   end
 
-  describe 'GET /budgets/{budget_id}/transaction/{payee_id}' do
+  describe 'GET /budgets/{budget_id}/scheduled_transactions/{payee_id}' do
     it 'returns a payee' do
       VCR.use_cassette("scheduled_transaction") do
         response = instance.get_scheduled_transaction_by_id(budget_id, '1a8e4929-3ad1-4859-8443-2aeeab0684ab')
         expect(response.data.scheduled_transaction).to be
         expect(response.data.scheduled_transaction.amount).to eq -10000
+      end
+    end
+  end
+
+  describe 'POST /budgets/{budget_id}/scheduled_transactions' do
+    it 'creates a scheduled transaction' do
+      VCR.use_cassette("create_scheduled_transaction") do
+        response = instance.create_scheduled_transaction(budget_id, {
+          scheduled_transaction: {
+            date: "#{Time.now.year + 1}-01-01",
+            account_id: '49b0c987-7d2b-46ec-ba14-f8a7e79fb830',
+            amount: 20000,
+            frequency: 'weekly',
+          }
+        })
+        expect(client.last_request.response.options[:code]).to be 201
+        expect(response.data.scheduled_transaction).to be
+        expect(response.data.scheduled_transaction.amount).to eq 20000
       end
     end
   end

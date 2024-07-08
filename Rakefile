@@ -12,8 +12,6 @@ end
 
 task :default => [:spec]
 
-REQUIRED_RUBY_VERSION = ">= 3.3"
-
 desc "Run OpenAPI Generator to update the client from the spec"
 task :generate do
   spec_filename = 'open_api_spec.yaml'
@@ -22,7 +20,7 @@ task :generate do
   # Remove existing generated files to ensure old files are not included in the gem
   sh "rm -r docs/ lib/ynab/models/"
   # Generate the client
-  sh "openapi-generator generate -i ./#{spec_filename} -g ruby --additional-properties=gemRequiredRubyVersion='#{REQUIRED_RUBY_VERSION}' -c config.json -t ./templates -o ./"
+  sh "openapi-generator generate -i ./#{spec_filename} -g ruby -c config.yaml -o ./"
 end
 
 task :get_current_version do

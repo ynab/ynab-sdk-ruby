@@ -77,6 +77,7 @@ The following methods are available in this library.
 |                            | [transactions.import_transactions(budget_id)](https://github.com/ynab/ynab-sdk-ruby/blob/master/docs/TransactionsApi.md#import_transactions)                                                                      | Imports transactions                       |
 | **Scheduled Transactions** | [scheduled_transactions.get_scheduled_transactions(budget_id)](https://github.com/ynab/ynab-sdk-ruby/blob/master/docs/ScheduledTransactionsApi.md#get_scheduled_transactions)                                     | Returns all scheduled transactions                    |
 |                            | [scheduled_transactions.get_scheduled_transaction_by_id(budget_id, scheduled_transaction_id)](https://github.com/ynab/ynab-sdk-ruby/blob/master/docs/ScheduledTransactionsApi.md#get_scheduled_transaction_by_id) | Returns a single scheduled transaction                |
+|                            | [scheduled_transactions.create_scheduled_transaction(budget_id, data)](https://github.com/ynab/ynab-sdk-ruby/blob/master/docs/ScheduledTransactionsApi.md#create_scheduled_transaction)                                                                  | Creates a single scheduled transaction                      |
 
 ## License
 

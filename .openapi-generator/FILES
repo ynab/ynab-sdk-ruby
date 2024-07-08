@@ -62,6 +62,7 @@ docs/PayeesApi.md
 docs/PayeesResponse.md
 docs/PayeesResponseData.md
 docs/PostAccountWrapper.md
+docs/PostScheduledTransactionWrapper.md
 docs/PostTransactionsWrapper.md
 docs/PutTransactionWrapper.md
 docs/SaveAccount.md
@@ -72,6 +73,7 @@ docs/SaveMonthCategory.md
 docs/SavePayee.md
 docs/SavePayeeResponse.md
 docs/SavePayeeResponseData.md
+docs/SaveScheduledTransaction.md
 docs/SaveSubTransaction.md
 docs/SaveTransactionWithIdOrImportId.md
 docs/SaveTransactionWithOptionalFields.md
@@ -79,6 +81,7 @@ docs/SaveTransactionsResponse.md
 docs/SaveTransactionsResponseData.md
 docs/ScheduledSubTransaction.md
 docs/ScheduledTransactionDetail.md
+docs/ScheduledTransactionFrequency.md
 docs/ScheduledTransactionResponse.md
 docs/ScheduledTransactionResponseData.md
 docs/ScheduledTransactionSummary.md
@@ -169,6 +172,7 @@ lib/ynab/models/payee_response_data.rb
 lib/ynab/models/payees_response.rb
 lib/ynab/models/payees_response_data.rb
 lib/ynab/models/post_account_wrapper.rb
+lib/ynab/models/post_scheduled_transaction_wrapper.rb
 lib/ynab/models/post_transactions_wrapper.rb
 lib/ynab/models/put_transaction_wrapper.rb
 lib/ynab/models/save_account.rb
@@ -179,6 +183,7 @@ lib/ynab/models/save_month_category.rb
 lib/ynab/models/save_payee.rb
 lib/ynab/models/save_payee_response.rb
 lib/ynab/models/save_payee_response_data.rb
+lib/ynab/models/save_scheduled_transaction.rb
 lib/ynab/models/save_sub_transaction.rb
 lib/ynab/models/save_transaction_with_id_or_import_id.rb
 lib/ynab/models/save_transaction_with_optional_fields.rb
@@ -186,6 +191,7 @@ lib/ynab/models/save_transactions_response.rb
 lib/ynab/models/save_transactions_response_data.rb
 lib/ynab/models/scheduled_sub_transaction.rb
 lib/ynab/models/scheduled_transaction_detail.rb
+lib/ynab/models/scheduled_transaction_frequency.rb
 lib/ynab/models/scheduled_transaction_response.rb
 lib/ynab/models/scheduled_transaction_response_data.rb
 lib/ynab/models/scheduled_transaction_summary.rb
