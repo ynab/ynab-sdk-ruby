@@ -14,10 +14,10 @@ task :default => [:spec]
 
 REQUIRED_RUBY_VERSION = ">= 3.3"
 
-desc "Run Swagger Code Generator to update the client from the Swagger spec"
+desc "Run OpenAPI Generator to update the client from the spec"
 task :generate do
   spec_filename = 'open_api_spec.yaml'
-  # Download latest swagger spec
+  # Download latest spec
   sh "wget https://api.ynab.com/papi/#{spec_filename} -O ./#{spec_filename}"
   # Remove existing generated files to ensure old files are not included in the gem
   sh "rm -r docs/ lib/ynab/models/"
