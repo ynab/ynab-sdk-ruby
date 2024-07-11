@@ -11,38 +11,29 @@ require 'date'
 require 'time'
 
 module YNAB
-  class NewTransaction
+  class SaveScheduledTransaction
     attr_accessor :account_id
 
-    # The transaction date in ISO format (e.g. 2016-12-01).  Future dates (scheduled transactions) are not permitted.  Split transaction dates cannot be changed and if a different date is supplied it will be ignored.
+    # The scheduled transaction date in ISO format (e.g. 2016-12-01).
     attr_accessor :date
 
-    # The transaction amount in milliunits format.  Split transaction amounts cannot be changed and if a different amount is supplied it will be ignored.
+    # The scheduled transaction amount in milliunits format.
     attr_accessor :amount
 
-    # The payee for the transaction.  To create a transfer between two accounts, use the account transfer payee pointing to the target account.  Account transfer payees are specified as `transfer_payee_id` on the account resource.
+    # The payee for the scheduled transaction.  To create a transfer between two accounts, use the account transfer payee pointing to the target account.  Account transfer payees are specified as `transfer_payee_id` on the account resource.
     attr_accessor :payee_id
 
-    # The payee name.  If a `payee_name` value is provided and `payee_id` has a null value, the `payee_name` value will be used to resolve the payee by either (1) a matching payee rename rule (only if `import_id` is also specified) or (2) a payee with the same name or (3) creation of a new payee.
+    # The payee name for the the scheduled transaction.  If a `payee_name` value is provided and `payee_id` has a null value, the `payee_name` value will be used to resolve the payee by either (1) a payee with the same name or (2) creation of a new payee.
     attr_accessor :payee_name
 
-    # The category for the transaction.  To configure a split transaction, you can specify null for `category_id` and provide a `subtransactions` array as part of the transaction object.  If an existing transaction is a split, the `category_id` cannot be changed.  Credit Card Payment categories are not permitted and will be ignored if supplied.
+    # The category for the scheduled transaction. Credit Card Payment categories are not permitted. Creating a split scheduled transaction is not currently supported.
     attr_accessor :category_id
 
     attr_accessor :memo
 
-    attr_accessor :cleared
-
-    # Whether or not the transaction is approved.  If not supplied, transaction will be unapproved by default.
-    attr_accessor :approved
-
     attr_accessor :flag_color
 
-    # An array of subtransactions to configure a transaction as a split. Updating `subtransactions` on an existing split transaction is not supported.
-    attr_accessor :subtransactions
-
-    # If specified, a new transaction will be assigned this `import_id` and considered \"imported\".  We will also attempt to match this imported transaction to an existing \"user-entered\" transaction on the same account, with the same amount, and with a date +/-10 days from the imported transaction date.<br><br>Transactions imported through File Based Import or Direct Import (not through the API) are assigned an import_id in the format: 'YNAB:[milliunit_amount]:[iso_date]:[occurrence]'. For example, a transaction dated 2015-12-30 in the amount of -$294.23 USD would have an import_id of 'YNAB:-294230:2015-12-30:1'.  If a second transaction on the same account was imported and had the same date and same amount, its import_id would be 'YNAB:-294230:2015-12-30:2'.  Using a consistent format will prevent duplicates through Direct Import and File Based Import.<br><br>If import_id is omitted or specified as null, the transaction will be treated as a \"user-entered\" transaction. As such, it will be eligible to be matched against transactions later being imported (via DI, FBI, or API).
-    attr_accessor :import_id
+    attr_accessor :frequency
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -76,11 +67,8 @@ module YNAB
         :'payee_name' => :'payee_name',
         :'category_id' => :'category_id',
         :'memo' => :'memo',
-        :'cleared' => :'cleared',
-        :'approved' => :'approved',
         :'flag_color' => :'flag_color',
-        :'subtransactions' => :'subtransactions',
-        :'import_id' => :'import_id'
+        :'frequency' => :'frequency'
       }
     end
 
@@ -99,11 +87,8 @@ module YNAB
         :'payee_name' => :'String',
         :'category_id' => :'String',
         :'memo' => :'String',
-        :'cleared' => :'TransactionClearedStatus',
-        :'approved' => :'Boolean',
         :'flag_color' => :'TransactionFlagColor',
-        :'subtransactions' => :'Array<SaveSubTransaction>',
-        :'import_id' => :'String'
+        :'frequency' => :'ScheduledTransactionFrequency'
       }
     end
 
@@ -115,28 +100,20 @@ module YNAB
         :'category_id',
         :'memo',
         :'flag_color',
-        :'import_id'
       ])
-    end
-
-    # List of class defined in allOf (OpenAPI v3)
-    def self.openapi_all_of
-      [
-      :'SaveTransactionWithOptionalFields'
-      ]
     end
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `YNAB::NewTransaction` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `YNAB::SaveScheduledTransaction` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `YNAB::NewTransaction`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `YNAB::SaveScheduledTransaction`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -169,26 +146,12 @@ module YNAB
         self.memo = attributes[:'memo']
       end
 
-      if attributes.key?(:'cleared')
-        self.cleared = attributes[:'cleared']
-      end
-
-      if attributes.key?(:'approved')
-        self.approved = attributes[:'approved']
-      end
-
       if attributes.key?(:'flag_color')
         self.flag_color = attributes[:'flag_color']
       end
 
-      if attributes.key?(:'subtransactions')
-        if (value = attributes[:'subtransactions']).is_a?(Array)
-          self.subtransactions = value
-        end
-      end
-
-      if attributes.key?(:'import_id')
-        self.import_id = attributes[:'import_id']
+      if attributes.key?(:'frequency')
+        self.frequency = attributes[:'frequency']
       end
     end
 
@@ -202,9 +165,10 @@ module YNAB
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @account_id.nil?
+      return false if @date.nil?
       return false if !@payee_name.nil? && @payee_name.to_s.length > 50
       return false if !@memo.nil? && @memo.to_s.length > 200
-      return false if !@import_id.nil? && @import_id.to_s.length > 36
       true
     end
 
@@ -220,12 +184,6 @@ module YNAB
       @memo = memo
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] import_id Value to be assigned
-    def import_id=(import_id)
-      @import_id = import_id
-    end
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -238,11 +196,8 @@ module YNAB
           payee_name == o.payee_name &&
           category_id == o.category_id &&
           memo == o.memo &&
-          cleared == o.cleared &&
-          approved == o.approved &&
           flag_color == o.flag_color &&
-          subtransactions == o.subtransactions &&
-          import_id == o.import_id
+          frequency == o.frequency
     end
 
     # @see the `==` method
@@ -254,7 +209,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, date, amount, payee_id, payee_name, category_id, memo, cleared, approved, flag_color, subtransactions, import_id].hash
+      [account_id, date, amount, payee_id, payee_name, category_id, memo, flag_color, frequency].hash
     end
 
     # Builds the object from hash

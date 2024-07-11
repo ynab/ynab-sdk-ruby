@@ -66,6 +66,16 @@ describe 'transactions' do
     end
   end
 
+  describe 'GET /budgets/{budget_id}/months/{month}/transactions' do
+    it 'returns a list of transactions for a month' do
+      VCR.use_cassette("month_transactions") do
+        response = instance.get_transactions_by_month(budget_id, "2024-07-01")
+        expect(client.last_request.response.options[:code]).to be 200
+        expect(response.data.transactions.length).to be 2
+      end
+    end
+  end
+
   describe 'GET /budgets/{budget_id}/transaction/{transaction_id}' do
     it 'returns a transaction' do
       VCR.use_cassette("transaction") do

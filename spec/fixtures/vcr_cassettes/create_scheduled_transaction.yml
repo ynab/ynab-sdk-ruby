@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/scheduled_transactions
+    body:
+      encoding: UTF-8
+      string: '{"scheduled_transaction":{"date":"2025-01-01","account_id":"49b0c987-7d2b-46ec-ba14-f8a7e79fb830","amount":20000,"frequency":"weekly"}}'
+    headers:
+      User-Agent:
+      - api_client/ruby/3.2.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer 9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - '0'
+      x-content-type-options:
+      - nosniff
+      x-download-options:
+      - noopen
+      x-permitted-cross-domain-policies:
+      - none
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      content-type:
+      - application/json; charset=utf-8
+      vary:
+      - Accept-Encoding, Origin
+      etag:
+      - W/"a2fe3b102465b2515af0f411970ca861"
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - 0ccaa271-1563-4ab8-a6ad-db09893e62db
+      x-runtime:
+      - '0.104987'
+      server-timing:
+      - start_processing.action_controller;dur=0.01, sql.active_record;dur=31.01,
+        instantiation.active_record;dur=0.56, cache_read.active_support;dur=0.21,
+        cache_fetch_hit.active_support;dur=0.00, transaction.active_record;dur=26.93,
+        render.active_model_serializers;dur=15.03, process_action.action_controller;dur=50.91
+      Content-Length:
+      - '463'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"scheduled_transaction":{"id":"5901eada-db36-4d95-b737-c1a5cc43a915","date_first":"2025-01-01","date_next":"2025-01-01","frequency":"weekly","amount":20000,"memo":null,"flag_color":null,"flag_name":null,"account_id":"49b0c987-7d2b-46ec-ba14-f8a7e79fb830","account_name":"Checking","payee_id":null,"payee_name":null,"category_id":null,"category_name":"Uncategorized","transfer_account_id":null,"deleted":false,"subtransactions":[]},"server_knowledge":64}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3000/papi/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/scheduled_transactions
+  recorded_at: Mon, 08 Jul 2024 23:16:33 GMT
+recorded_with: VCR 6.2.0

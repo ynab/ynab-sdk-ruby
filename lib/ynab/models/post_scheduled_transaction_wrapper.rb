@@ -11,72 +11,13 @@ require 'date'
 require 'time'
 
 module YNAB
-  class SaveTransactionWithOptionalFields
-    attr_accessor :account_id
-
-    # The transaction date in ISO format (e.g. 2016-12-01).  Future dates (scheduled transactions) are not permitted.  Split transaction dates cannot be changed and if a different date is supplied it will be ignored.
-    attr_accessor :date
-
-    # The transaction amount in milliunits format.  Split transaction amounts cannot be changed and if a different amount is supplied it will be ignored.
-    attr_accessor :amount
-
-    # The payee for the transaction.  To create a transfer between two accounts, use the account transfer payee pointing to the target account.  Account transfer payees are specified as `transfer_payee_id` on the account resource.
-    attr_accessor :payee_id
-
-    # The payee name.  If a `payee_name` value is provided and `payee_id` has a null value, the `payee_name` value will be used to resolve the payee by either (1) a matching payee rename rule (only if `import_id` is also specified) or (2) a payee with the same name or (3) creation of a new payee.
-    attr_accessor :payee_name
-
-    # The category for the transaction.  To configure a split transaction, you can specify null for `category_id` and provide a `subtransactions` array as part of the transaction object.  If an existing transaction is a split, the `category_id` cannot be changed.  Credit Card Payment categories are not permitted and will be ignored if supplied.
-    attr_accessor :category_id
-
-    attr_accessor :memo
-
-    attr_accessor :cleared
-
-    # Whether or not the transaction is approved.  If not supplied, transaction will be unapproved by default.
-    attr_accessor :approved
-
-    attr_accessor :flag_color
-
-    # An array of subtransactions to configure a transaction as a split. Updating `subtransactions` on an existing split transaction is not supported.
-    attr_accessor :subtransactions
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+  class PostScheduledTransactionWrapper
+    attr_accessor :scheduled_transaction
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
-        :'date' => :'date',
-        :'amount' => :'amount',
-        :'payee_id' => :'payee_id',
-        :'payee_name' => :'payee_name',
-        :'category_id' => :'category_id',
-        :'memo' => :'memo',
-        :'cleared' => :'cleared',
-        :'approved' => :'approved',
-        :'flag_color' => :'flag_color',
-        :'subtransactions' => :'subtransactions'
+        :'scheduled_transaction' => :'scheduled_transaction'
       }
     end
 
@@ -88,28 +29,13 @@ module YNAB
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
-        :'date' => :'Date',
-        :'amount' => :'Integer',
-        :'payee_id' => :'String',
-        :'payee_name' => :'String',
-        :'category_id' => :'String',
-        :'memo' => :'String',
-        :'cleared' => :'TransactionClearedStatus',
-        :'approved' => :'Boolean',
-        :'flag_color' => :'TransactionFlagColor',
-        :'subtransactions' => :'Array<SaveSubTransaction>'
+        :'scheduled_transaction' => :'SaveScheduledTransaction'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'payee_id',
-        :'payee_name',
-        :'category_id',
-        :'memo',
-        :'flag_color',
       ])
     end
 
@@ -117,61 +43,19 @@ module YNAB
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `YNAB::SaveTransactionWithOptionalFields` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `YNAB::PostScheduledTransactionWrapper` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `YNAB::SaveTransactionWithOptionalFields`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `YNAB::PostScheduledTransactionWrapper`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
-
-      if attributes.key?(:'date')
-        self.date = attributes[:'date']
-      end
-
-      if attributes.key?(:'amount')
-        self.amount = attributes[:'amount']
-      end
-
-      if attributes.key?(:'payee_id')
-        self.payee_id = attributes[:'payee_id']
-      end
-
-      if attributes.key?(:'payee_name')
-        self.payee_name = attributes[:'payee_name']
-      end
-
-      if attributes.key?(:'category_id')
-        self.category_id = attributes[:'category_id']
-      end
-
-      if attributes.key?(:'memo')
-        self.memo = attributes[:'memo']
-      end
-
-      if attributes.key?(:'cleared')
-        self.cleared = attributes[:'cleared']
-      end
-
-      if attributes.key?(:'approved')
-        self.approved = attributes[:'approved']
-      end
-
-      if attributes.key?(:'flag_color')
-        self.flag_color = attributes[:'flag_color']
-      end
-
-      if attributes.key?(:'subtransactions')
-        if (value = attributes[:'subtransactions']).is_a?(Array)
-          self.subtransactions = value
-        end
+      if attributes.key?(:'scheduled_transaction')
+        self.scheduled_transaction = attributes[:'scheduled_transaction']
       end
     end
 
@@ -185,21 +69,8 @@ module YNAB
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@payee_name.nil? && @payee_name.to_s.length > 50
-      return false if !@memo.nil? && @memo.to_s.length > 200
+      return false if @scheduled_transaction.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] payee_name Value to be assigned
-    def payee_name=(payee_name)
-      @payee_name = payee_name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] memo Value to be assigned
-    def memo=(memo)
-      @memo = memo
     end
 
     # Checks equality by comparing each attribute.
@@ -207,17 +78,7 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
-          date == o.date &&
-          amount == o.amount &&
-          payee_id == o.payee_id &&
-          payee_name == o.payee_name &&
-          category_id == o.category_id &&
-          memo == o.memo &&
-          cleared == o.cleared &&
-          approved == o.approved &&
-          flag_color == o.flag_color &&
-          subtransactions == o.subtransactions
+          scheduled_transaction == o.scheduled_transaction
     end
 
     # @see the `==` method
@@ -229,7 +90,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, date, amount, payee_id, payee_name, category_id, memo, cleared, approved, flag_color, subtransactions].hash
+      [scheduled_transaction].hash
     end
 
     # Builds the object from hash
