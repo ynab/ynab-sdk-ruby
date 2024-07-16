@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.email       = ["api@ynab.com"]
   s.homepage    = "https://github.com/ynab/ynab-sdk-ruby"
   s.summary     = "YNAB API Client for Ruby"
-  s.description = "Ruby gem wrapper for the YNAB API. Generated from server specification version 1.72.0 using OpenAPI Generator version 7.7.0."
+  s.description = "Ruby gem wrapper for the YNAB API. API documentation available at https://api.ynab.com. Generated from server specification version 1.72.0 using OpenAPI Generator version 7.7.0."
   s.license     = "Apache-2.0"
   s.required_ruby_version = ">= 3.3"
   s.metadata    = {}
