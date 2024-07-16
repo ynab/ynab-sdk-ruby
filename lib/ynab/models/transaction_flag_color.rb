@@ -35,8 +35,12 @@ module YNAB
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      return value if TransactionFlagColor.all_vars.include?(value)
-      raise "Invalid ENUM value #{value} for class #TransactionFlagColor"
+      if TransactionFlagColor.all_vars.include?(value)
+        return value
+      else
+        return nil
+      end
     end
   end
+
 end

@@ -44,6 +44,18 @@ describe 'transactions' do
         expect(response.data.transactions.length).to be 2
       end
     end
+
+    it 'gracefully handles invalid flag_color values' do
+      # transactions_invalid_flags contains transactions with invalid/unsupported flag_color values
+      VCR.use_cassette("transactions_invalid_flags") do
+        response = instance.get_transactions(budget_id)
+        expect(client.last_request.response.options[:code]).to be 200
+        expect(response.data.transactions.length).to be 2
+        # We expect the flag_color to have been converted to nil for these transactions
+        expect(response.data.transactions[0].flag_color).to be_nil
+        expect(response.data.transactions[1].flag_color).to be_nil
+      end
+    end
   end
 
   describe 'GET /budgets/{budget_id}/category/{category_id}/transactions' do
