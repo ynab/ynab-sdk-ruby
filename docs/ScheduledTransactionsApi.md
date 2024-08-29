@@ -15,7 +15,7 @@ All URIs are relative to *https://api.ynab.com/v1*
 
 Create a single scheduled transaction
 
-Creates a single scheduled transaction.
+Creates a single scheduled transaction (a transaction with a future date).
 
 ### Parameters
 

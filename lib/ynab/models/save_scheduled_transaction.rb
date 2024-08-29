@@ -14,7 +14,7 @@ module YNAB
   class SaveScheduledTransaction
     attr_accessor :account_id
 
-    # The scheduled transaction date in ISO format (e.g. 2016-12-01).
+    # The scheduled transaction date in ISO format (e.g. 2016-12-01).  This should be a future date no more than 5 years into the future.
     attr_accessor :date
 
     # The scheduled transaction amount in milliunits format.
@@ -167,8 +167,8 @@ module YNAB
     def valid?
       return false if @account_id.nil?
       return false if @date.nil?
-      return false if !@payee_name.nil? && @payee_name.to_s.length > 50
-      return false if !@memo.nil? && @memo.to_s.length > 200
+      return false if !@payee_name.nil? && @payee_name.to_s.length > 200
+      return false if !@memo.nil? && @memo.to_s.length > 500
       true
     end
 

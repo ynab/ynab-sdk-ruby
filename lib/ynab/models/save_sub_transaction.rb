@@ -110,8 +110,8 @@ module YNAB
     # @return true if the model is valid
     def valid?
       return false if @amount.nil?
-      return false if !@payee_name.nil? && @payee_name.to_s.length > 50
-      return false if !@memo.nil? && @memo.to_s.length > 200
+      return false if !@payee_name.nil? && @payee_name.to_s.length > 200
+      return false if !@memo.nil? && @memo.to_s.length > 500
       true
     end
 

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ynab (3.3.0)
+    ynab (3.4.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
 GEM

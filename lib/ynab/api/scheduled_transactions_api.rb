@@ -17,7 +17,7 @@ module YNAB
       @api_client = api_client
     end
     # Create a single scheduled transaction
-    # Creates a single scheduled transaction.
+    # Creates a single scheduled transaction (a transaction with a future date).
     # @param budget_id [String] The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
     # @param data [PostScheduledTransactionWrapper] The scheduled transaction to create
     # @param [Hash] opts the optional parameters
@@ -28,7 +28,7 @@ module YNAB
     end
 
     # Create a single scheduled transaction
-    # Creates a single scheduled transaction.
+    # Creates a single scheduled transaction (a transaction with a future date).
     # @param budget_id [String] The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
     # @param data [PostScheduledTransactionWrapper] The scheduled transaction to create
     # @param [Hash] opts the optional parameters
