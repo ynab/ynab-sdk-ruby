@@ -3,10 +3,12 @@
 ## Setup
 
 - Install dependencies: `bundle`
-- Generate latest client based on OpenAPI spec:
-  - Install [OpenAPI Generator](https://openapi-generator.tech/), for macOS: `brew install openapi-generator`
-  - Run `bundle exec rake generate`
+- Install [OpenAPI Generator](https://openapi-generator.tech/) (on macOS: `brew install openapi-generator`)
 - Run tests: `bundle exec rake spec` or `rspec`
+
+## Generating
+
+Run `bundle exec rake generate`.  This will generate the API client from the latest OpenAPI spec.  Once generated, you should open a PR and merge the changes.
 
 ## Publishing
 
