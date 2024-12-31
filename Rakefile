@@ -20,7 +20,7 @@ task :generate do
   # Remove existing generated files to ensure old files are not included in the gem
   sh "rm -r docs/ lib/ynab/models/"
   # Generate the client
-  sh "openapi-generator generate -i ./#{spec_filename} -g ruby -c config.yaml -o ./"
+  sh "openapi-generator generate -i ./#{spec_filename} -g ruby -c openapi-generator-config.yaml -o ./"
 end
 
 task :get_current_version do
