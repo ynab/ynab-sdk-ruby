@@ -1,7 +1,7 @@
 gemName: ynab
 moduleName: YNAB
-gemSummary: YNAB API Client for Ruby
-gemDescription: Ruby gem wrapper for the YNAB API. API documentation available at https://api.ynab.com.
+gemSummary: Official Ruby client for the YNAB API
+gemDescription: Official Ruby client for the YNAB API. API documentation available at https://api.ynab.com.
 gemHomepage: https://github.com/ynab/ynab-sdk-ruby
 gemLicense: Apache-2.0
 gemAuthor: YNAB
