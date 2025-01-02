@@ -1,7 +1,6 @@
 # YNAB API Ruby Library
 
-[![Build](https://github.com/ynab/ynab-sdk-ruby/actions/workflows/build-test.yml/badge.svg)](https://github.com/ynab/ynab-sdk-ruby/actions/workflows/build-test.yml)
-[![Gem Version](https://badge.fury.io/rb/ynab.svg)](https://rubygems.org/gems/ynab)
+[![Build](https://github.com/ynab/ynab-sdk-ruby/actions/workflows/build-test.yml/badge.svg)](https://github.com/ynab/ynab-sdk-ruby/actions/workflows/build-test.yml) [![Gem Version](https://badge.fury.io/rb/ynab.svg?icon=si%3Arubygems)](https://badge.fury.io/rb/ynab)
 
 This is the Ruby client for the YNAB API.
 
