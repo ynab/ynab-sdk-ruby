@@ -316,7 +316,7 @@ module YNAB
       return false if @budgeted.nil?
       return false if @activity.nil?
       return false if @balance.nil?
-      goal_type_validator = EnumAttributeValidator.new('String', ["TB", "TBD", "MF", "NEED", "DEBT", "null"])
+      goal_type_validator = EnumAttributeValidator.new('String', ["TB", "TBD", "MF", "NEED", "DEBT"])
       return false unless goal_type_validator.valid?(@goal_type)
       return false if @deleted.nil?
       true

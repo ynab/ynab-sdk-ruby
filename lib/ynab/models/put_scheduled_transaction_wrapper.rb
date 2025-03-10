@@ -11,43 +11,13 @@ require 'date'
 require 'time'
 
 module YNAB
-  class ScheduledSubTransaction
-    attr_accessor :id
-
-    attr_accessor :scheduled_transaction_id
-
-    # The scheduled subtransaction amount in milliunits format
-    attr_accessor :amount
-
-    attr_accessor :memo
-
-    attr_accessor :payee_id
-
-    attr_accessor :payee_name
-
-    attr_accessor :category_id
-
-    attr_accessor :category_name
-
-    # If a transfer, the account_id which the scheduled subtransaction transfers to
-    attr_accessor :transfer_account_id
-
-    # Whether or not the scheduled subtransaction has been deleted. Deleted scheduled subtransactions will only be included in delta requests.
-    attr_accessor :deleted
+  class PutScheduledTransactionWrapper
+    attr_accessor :scheduled_transaction
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'scheduled_transaction_id' => :'scheduled_transaction_id',
-        :'amount' => :'amount',
-        :'memo' => :'memo',
-        :'payee_id' => :'payee_id',
-        :'payee_name' => :'payee_name',
-        :'category_id' => :'category_id',
-        :'category_name' => :'category_name',
-        :'transfer_account_id' => :'transfer_account_id',
-        :'deleted' => :'deleted'
+        :'scheduled_transaction' => :'scheduled_transaction'
       }
     end
 
@@ -59,28 +29,13 @@ module YNAB
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'scheduled_transaction_id' => :'String',
-        :'amount' => :'Integer',
-        :'memo' => :'String',
-        :'payee_id' => :'String',
-        :'payee_name' => :'String',
-        :'category_id' => :'String',
-        :'category_name' => :'String',
-        :'transfer_account_id' => :'String',
-        :'deleted' => :'Boolean'
+        :'scheduled_transaction' => :'SaveScheduledTransaction'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'memo',
-        :'payee_id',
-        :'payee_name',
-        :'category_id',
-        :'category_name',
-        :'transfer_account_id',
       ])
     end
 
@@ -88,55 +43,19 @@ module YNAB
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `YNAB::ScheduledSubTransaction` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `YNAB::PutScheduledTransactionWrapper` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `YNAB::ScheduledSubTransaction`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `YNAB::PutScheduledTransactionWrapper`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'scheduled_transaction_id')
-        self.scheduled_transaction_id = attributes[:'scheduled_transaction_id']
-      end
-
-      if attributes.key?(:'amount')
-        self.amount = attributes[:'amount']
-      end
-
-      if attributes.key?(:'memo')
-        self.memo = attributes[:'memo']
-      end
-
-      if attributes.key?(:'payee_id')
-        self.payee_id = attributes[:'payee_id']
-      end
-
-      if attributes.key?(:'payee_name')
-        self.payee_name = attributes[:'payee_name']
-      end
-
-      if attributes.key?(:'category_id')
-        self.category_id = attributes[:'category_id']
-      end
-
-      if attributes.key?(:'category_name')
-        self.category_name = attributes[:'category_name']
-      end
-
-      if attributes.key?(:'transfer_account_id')
-        self.transfer_account_id = attributes[:'transfer_account_id']
-      end
-
-      if attributes.key?(:'deleted')
-        self.deleted = attributes[:'deleted']
+      if attributes.key?(:'scheduled_transaction')
+        self.scheduled_transaction = attributes[:'scheduled_transaction']
       end
     end
 
@@ -150,10 +69,7 @@ module YNAB
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
-      return false if @scheduled_transaction_id.nil?
-      return false if @amount.nil?
-      return false if @deleted.nil?
+      return false if @scheduled_transaction.nil?
       true
     end
 
@@ -162,16 +78,7 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          scheduled_transaction_id == o.scheduled_transaction_id &&
-          amount == o.amount &&
-          memo == o.memo &&
-          payee_id == o.payee_id &&
-          payee_name == o.payee_name &&
-          category_id == o.category_id &&
-          category_name == o.category_name &&
-          transfer_account_id == o.transfer_account_id &&
-          deleted == o.deleted
+          scheduled_transaction == o.scheduled_transaction
     end
 
     # @see the `==` method
@@ -183,7 +90,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, scheduled_transaction_id, amount, memo, payee_id, payee_name, category_id, category_name, transfer_account_id, deleted].hash
+      [scheduled_transaction].hash
     end
 
     # Builds the object from hash

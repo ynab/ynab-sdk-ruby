@@ -18,12 +18,16 @@ module YNAB
 
     attr_accessor :category_group_id
 
+    # The goal target amount in milliunits format.  This amount can only be changed if the category already has a configured goal (goal_type != null).
+    attr_accessor :goal_target
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
         :'note' => :'note',
-        :'category_group_id' => :'category_group_id'
+        :'category_group_id' => :'category_group_id',
+        :'goal_target' => :'goal_target'
       }
     end
 
@@ -37,7 +41,8 @@ module YNAB
       {
         :'name' => :'String',
         :'note' => :'String',
-        :'category_group_id' => :'String'
+        :'category_group_id' => :'String',
+        :'goal_target' => :'Integer'
       }
     end
 
@@ -46,6 +51,7 @@ module YNAB
       Set.new([
         :'name',
         :'note',
+        :'goal_target'
       ])
     end
 
@@ -75,6 +81,10 @@ module YNAB
       if attributes.key?(:'category_group_id')
         self.category_group_id = attributes[:'category_group_id']
       end
+
+      if attributes.key?(:'goal_target')
+        self.goal_target = attributes[:'goal_target']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -97,7 +107,8 @@ module YNAB
       self.class == o.class &&
           name == o.name &&
           note == o.note &&
-          category_group_id == o.category_group_id
+          category_group_id == o.category_group_id &&
+          goal_target == o.goal_target
     end
 
     # @see the `==` method
@@ -109,7 +120,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, note, category_group_id].hash
+      [name, note, category_group_id, goal_target].hash
     end
 
     # Builds the object from hash

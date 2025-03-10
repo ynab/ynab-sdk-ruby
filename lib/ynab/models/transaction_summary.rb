@@ -265,7 +265,7 @@ module YNAB
       return false if @cleared.nil?
       return false if @approved.nil?
       return false if @account_id.nil?
-      debt_transaction_type_validator = EnumAttributeValidator.new('String', ["payment", "refund", "fee", "interest", "escrow", "balanceAdjustment", "credit", "charge", "null"])
+      debt_transaction_type_validator = EnumAttributeValidator.new('String', ["payment", "refund", "fee", "interest", "escrow", "balanceAdjustment", "credit", "charge"])
       return false unless debt_transaction_type_validator.valid?(@debt_transaction_type)
       return false if @deleted.nil?
       true

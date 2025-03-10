@@ -90,6 +90,75 @@ module YNAB
       return data, status_code, headers
     end
 
+    # Deletes an existing scheduled transaction
+    # Deletes a scheduled transaction
+    # @param budget_id [String] The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
+    # @param scheduled_transaction_id [String] The id of the scheduled transaction
+    # @param [Hash] opts the optional parameters
+    # @return [ScheduledTransactionResponse]
+    def delete_scheduled_transaction(budget_id, scheduled_transaction_id, opts = {})
+      data, _status_code, _headers = delete_scheduled_transaction_with_http_info(budget_id, scheduled_transaction_id, opts)
+      data
+    end
+
+    # Deletes an existing scheduled transaction
+    # Deletes a scheduled transaction
+    # @param budget_id [String] The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
+    # @param scheduled_transaction_id [String] The id of the scheduled transaction
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ScheduledTransactionResponse, Integer, Hash)>] ScheduledTransactionResponse data, response status code and response headers
+    def delete_scheduled_transaction_with_http_info(budget_id, scheduled_transaction_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ScheduledTransactionsApi.delete_scheduled_transaction ...'
+      end
+      # verify the required parameter 'budget_id' is set
+      if @api_client.config.client_side_validation && budget_id.nil?
+        fail ArgumentError, "Missing the required parameter 'budget_id' when calling ScheduledTransactionsApi.delete_scheduled_transaction"
+      end
+      # verify the required parameter 'scheduled_transaction_id' is set
+      if @api_client.config.client_side_validation && scheduled_transaction_id.nil?
+        fail ArgumentError, "Missing the required parameter 'scheduled_transaction_id' when calling ScheduledTransactionsApi.delete_scheduled_transaction"
+      end
+      # resource path
+      local_var_path = '/budgets/{budget_id}/scheduled_transactions'.sub('{' + 'budget_id' + '}', CGI.escape(budget_id.to_s)).sub('{' + 'scheduled_transaction_id' + '}', CGI.escape(scheduled_transaction_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ScheduledTransactionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearer']
+
+      new_options = opts.merge(
+        :operation => :"ScheduledTransactionsApi.delete_scheduled_transaction",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ScheduledTransactionsApi#delete_scheduled_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Single scheduled transaction
     # Returns a single scheduled transaction
     # @param budget_id [String] The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
@@ -221,6 +290,86 @@ module YNAB
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ScheduledTransactionsApi#get_scheduled_transactions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates an existing scheduled transaction
+    # Updates a single scheduled transaction
+    # @param budget_id [String] The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
+    # @param scheduled_transaction_id [String] The id of the scheduled transaction
+    # @param put_scheduled_transaction_wrapper [PutScheduledTransactionWrapper] The scheduled transaction to update
+    # @param [Hash] opts the optional parameters
+    # @return [ScheduledTransactionResponse]
+    def update_scheduled_transaction(budget_id, scheduled_transaction_id, put_scheduled_transaction_wrapper, opts = {})
+      data, _status_code, _headers = update_scheduled_transaction_with_http_info(budget_id, scheduled_transaction_id, put_scheduled_transaction_wrapper, opts)
+      data
+    end
+
+    # Updates an existing scheduled transaction
+    # Updates a single scheduled transaction
+    # @param budget_id [String] The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
+    # @param scheduled_transaction_id [String] The id of the scheduled transaction
+    # @param put_scheduled_transaction_wrapper [PutScheduledTransactionWrapper] The scheduled transaction to update
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ScheduledTransactionResponse, Integer, Hash)>] ScheduledTransactionResponse data, response status code and response headers
+    def update_scheduled_transaction_with_http_info(budget_id, scheduled_transaction_id, put_scheduled_transaction_wrapper, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ScheduledTransactionsApi.update_scheduled_transaction ...'
+      end
+      # verify the required parameter 'budget_id' is set
+      if @api_client.config.client_side_validation && budget_id.nil?
+        fail ArgumentError, "Missing the required parameter 'budget_id' when calling ScheduledTransactionsApi.update_scheduled_transaction"
+      end
+      # verify the required parameter 'scheduled_transaction_id' is set
+      if @api_client.config.client_side_validation && scheduled_transaction_id.nil?
+        fail ArgumentError, "Missing the required parameter 'scheduled_transaction_id' when calling ScheduledTransactionsApi.update_scheduled_transaction"
+      end
+      # verify the required parameter 'put_scheduled_transaction_wrapper' is set
+      if @api_client.config.client_side_validation && put_scheduled_transaction_wrapper.nil?
+        fail ArgumentError, "Missing the required parameter 'put_scheduled_transaction_wrapper' when calling ScheduledTransactionsApi.update_scheduled_transaction"
+      end
+      # resource path
+      local_var_path = '/budgets/{budget_id}/scheduled_transactions'.sub('{' + 'budget_id' + '}', CGI.escape(budget_id.to_s)).sub('{' + 'scheduled_transaction_id' + '}', CGI.escape(scheduled_transaction_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(put_scheduled_transaction_wrapper)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ScheduledTransactionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearer']
+
+      new_options = opts.merge(
+        :operation => :"ScheduledTransactionsApi.update_scheduled_transaction",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ScheduledTransactionsApi#update_scheduled_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
