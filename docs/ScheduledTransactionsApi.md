@@ -5,8 +5,10 @@ All URIs are relative to *https://api.ynab.com/v1*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**create_scheduled_transaction**](ScheduledTransactionsApi.md#create_scheduled_transaction) | **POST** /budgets/{budget_id}/scheduled_transactions | Create a single scheduled transaction |
+| [**delete_scheduled_transaction**](ScheduledTransactionsApi.md#delete_scheduled_transaction) | **DELETE** /budgets/{budget_id}/scheduled_transactions | Deletes an existing scheduled transaction |
 | [**get_scheduled_transaction_by_id**](ScheduledTransactionsApi.md#get_scheduled_transaction_by_id) | **GET** /budgets/{budget_id}/scheduled_transactions/{scheduled_transaction_id} | Single scheduled transaction |
 | [**get_scheduled_transactions**](ScheduledTransactionsApi.md#get_scheduled_transactions) | **GET** /budgets/{budget_id}/scheduled_transactions | List scheduled transactions |
+| [**update_scheduled_transaction**](ScheduledTransactionsApi.md#update_scheduled_transaction) | **PUT** /budgets/{budget_id}/scheduled_transactions | Updates an existing scheduled transaction |
 
 
 ## create_scheduled_transaction
@@ -23,6 +25,26 @@ Creates a single scheduled transaction (a transaction with a future date).
 | ---- | ---- | ----------- | ----- |
 | **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
 | **data** | [**PostScheduledTransactionWrapper**](PostScheduledTransactionWrapper.md) | The scheduled transaction to create |  |
+
+### Return type
+
+[**ScheduledTransactionResponse**](ScheduledTransactionResponse.md)
+
+
+## delete_scheduled_transaction
+
+> <ScheduledTransactionResponse> delete_scheduled_transaction(budget_id, scheduled_transaction_id)
+
+Deletes an existing scheduled transaction
+
+Deletes a scheduled transaction
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **scheduled_transaction_id** | **String** | The id of the scheduled transaction |  |
 
 ### Return type
 
@@ -67,4 +89,25 @@ Returns all scheduled transactions
 ### Return type
 
 [**ScheduledTransactionsResponse**](ScheduledTransactionsResponse.md)
+
+
+## update_scheduled_transaction
+
+> <ScheduledTransactionResponse> update_scheduled_transaction(budget_id, scheduled_transaction_id, put_scheduled_transaction_wrapper)
+
+Updates an existing scheduled transaction
+
+Updates a single scheduled transaction
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **scheduled_transaction_id** | **String** | The id of the scheduled transaction |  |
+| **put_scheduled_transaction_wrapper** | [**PutScheduledTransactionWrapper**](PutScheduledTransactionWrapper.md) | The scheduled transaction to update |  |
+
+### Return type
+
+[**ScheduledTransactionResponse**](ScheduledTransactionResponse.md)
 

@@ -64,6 +64,7 @@ docs/PayeesResponseData.md
 docs/PostAccountWrapper.md
 docs/PostScheduledTransactionWrapper.md
 docs/PostTransactionsWrapper.md
+docs/PutScheduledTransactionWrapper.md
 docs/PutTransactionWrapper.md
 docs/SaveAccount.md
 docs/SaveCategory.md
@@ -174,6 +175,7 @@ lib/ynab/models/payees_response_data.rb
 lib/ynab/models/post_account_wrapper.rb
 lib/ynab/models/post_scheduled_transaction_wrapper.rb
 lib/ynab/models/post_transactions_wrapper.rb
+lib/ynab/models/put_scheduled_transaction_wrapper.rb
 lib/ynab/models/put_transaction_wrapper.rb
 lib/ynab/models/save_account.rb
 lib/ynab/models/save_category.rb
