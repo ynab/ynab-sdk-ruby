@@ -120,7 +120,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'scheduled_transaction_id' when calling ScheduledTransactionsApi.delete_scheduled_transaction"
       end
       # resource path
-      local_var_path = '/budgets/{budget_id}/scheduled_transactions'.sub('{' + 'budget_id' + '}', CGI.escape(budget_id.to_s)).sub('{' + 'scheduled_transaction_id' + '}', CGI.escape(scheduled_transaction_id.to_s))
+      local_var_path = '/budgets/{budget_id}/scheduled_transactions/{scheduled_transaction_id}'.sub('{' + 'budget_id' + '}', CGI.escape(budget_id.to_s)).sub('{' + 'scheduled_transaction_id' + '}', CGI.escape(scheduled_transaction_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -330,7 +330,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'put_scheduled_transaction_wrapper' when calling ScheduledTransactionsApi.update_scheduled_transaction"
       end
       # resource path
-      local_var_path = '/budgets/{budget_id}/scheduled_transactions'.sub('{' + 'budget_id' + '}', CGI.escape(budget_id.to_s)).sub('{' + 'scheduled_transaction_id' + '}', CGI.escape(scheduled_transaction_id.to_s))
+      local_var_path = '/budgets/{budget_id}/scheduled_transactions/{scheduled_transaction_id}'.sub('{' + 'budget_id' + '}', CGI.escape(budget_id.to_s)).sub('{' + 'scheduled_transaction_id' + '}', CGI.escape(scheduled_transaction_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
