@@ -5,10 +5,10 @@ All URIs are relative to *https://api.ynab.com/v1*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**create_scheduled_transaction**](ScheduledTransactionsApi.md#create_scheduled_transaction) | **POST** /budgets/{budget_id}/scheduled_transactions | Create a single scheduled transaction |
-| [**delete_scheduled_transaction**](ScheduledTransactionsApi.md#delete_scheduled_transaction) | **DELETE** /budgets/{budget_id}/scheduled_transactions | Deletes an existing scheduled transaction |
+| [**delete_scheduled_transaction**](ScheduledTransactionsApi.md#delete_scheduled_transaction) | **DELETE** /budgets/{budget_id}/scheduled_transactions/{scheduled_transaction_id} | Deletes an existing scheduled transaction |
 | [**get_scheduled_transaction_by_id**](ScheduledTransactionsApi.md#get_scheduled_transaction_by_id) | **GET** /budgets/{budget_id}/scheduled_transactions/{scheduled_transaction_id} | Single scheduled transaction |
 | [**get_scheduled_transactions**](ScheduledTransactionsApi.md#get_scheduled_transactions) | **GET** /budgets/{budget_id}/scheduled_transactions | List scheduled transactions |
-| [**update_scheduled_transaction**](ScheduledTransactionsApi.md#update_scheduled_transaction) | **PUT** /budgets/{budget_id}/scheduled_transactions | Updates an existing scheduled transaction |
+| [**update_scheduled_transaction**](ScheduledTransactionsApi.md#update_scheduled_transaction) | **PUT** /budgets/{budget_id}/scheduled_transactions/{scheduled_transaction_id} | Updates an existing scheduled transaction |
 
 
 ## create_scheduled_transaction
