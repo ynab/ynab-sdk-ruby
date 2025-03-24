@@ -19,7 +19,7 @@ Note: The current version of this gem requires Ruby version 3.3 or later. If you
 
 ## Usage
 To use this client you must
-[obtain an access token](https://api.ynab.com/#authentication-overview) from
+[obtain an access token](https://api.ynab.com/#authentication) from
 your [Account Settings](https://app.ynab.com/settings) page of the YNAB web
 app.
 
