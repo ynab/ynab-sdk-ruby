@@ -76,6 +76,9 @@ module YNAB
     # The amount of funding still needed to complete the goal within the current goal period.
     attr_accessor :goal_overall_left
 
+    # The date/time the goal was snoozed.  If the goal is not snoozed, this will be null.
+    attr_accessor :goal_snoozed_at
+
     # Whether or not the category has been deleted.  Deleted categories will only be included in delta requests.
     attr_accessor :deleted
 
@@ -127,6 +130,7 @@ module YNAB
         :'goal_under_funded' => :'goal_under_funded',
         :'goal_overall_funded' => :'goal_overall_funded',
         :'goal_overall_left' => :'goal_overall_left',
+        :'goal_snoozed_at' => :'goal_snoozed_at',
         :'deleted' => :'deleted'
       }
     end
@@ -162,6 +166,7 @@ module YNAB
         :'goal_under_funded' => :'Integer',
         :'goal_overall_funded' => :'Integer',
         :'goal_overall_left' => :'Integer',
+        :'goal_snoozed_at' => :'Time',
         :'deleted' => :'Boolean'
       }
     end
@@ -184,6 +189,7 @@ module YNAB
         :'goal_under_funded',
         :'goal_overall_funded',
         :'goal_overall_left',
+        :'goal_snoozed_at',
       ])
     end
 
@@ -294,6 +300,10 @@ module YNAB
         self.goal_overall_left = attributes[:'goal_overall_left']
       end
 
+      if attributes.key?(:'goal_snoozed_at')
+        self.goal_snoozed_at = attributes[:'goal_snoozed_at']
+      end
+
       if attributes.key?(:'deleted')
         self.deleted = attributes[:'deleted']
       end
@@ -356,6 +366,7 @@ module YNAB
           goal_under_funded == o.goal_under_funded &&
           goal_overall_funded == o.goal_overall_funded &&
           goal_overall_left == o.goal_overall_left &&
+          goal_snoozed_at == o.goal_snoozed_at &&
           deleted == o.deleted
     end
 
@@ -368,7 +379,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, category_group_id, category_group_name, name, hidden, original_category_group_id, note, budgeted, activity, balance, goal_type, goal_needs_whole_amount, goal_day, goal_cadence, goal_cadence_frequency, goal_creation_month, goal_target, goal_target_month, goal_percentage_complete, goal_months_to_budget, goal_under_funded, goal_overall_funded, goal_overall_left, deleted].hash
+      [id, category_group_id, category_group_name, name, hidden, original_category_group_id, note, budgeted, activity, balance, goal_type, goal_needs_whole_amount, goal_day, goal_cadence, goal_cadence_frequency, goal_creation_month, goal_target, goal_target_month, goal_percentage_complete, goal_months_to_budget, goal_under_funded, goal_overall_funded, goal_overall_left, goal_snoozed_at, deleted].hash
     end
 
     # Builds the object from hash
