@@ -14,10 +14,14 @@ module YNAB
   class TransactionResponseData
     attr_accessor :transaction
 
+    # The knowledge of the server
+    attr_accessor :server_knowledge
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'transaction' => :'transaction'
+        :'transaction' => :'transaction',
+        :'server_knowledge' => :'server_knowledge'
       }
     end
 
@@ -29,7 +33,8 @@ module YNAB
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'transaction' => :'TransactionDetail'
+        :'transaction' => :'TransactionDetail',
+        :'server_knowledge' => :'Integer'
       }
     end
 
@@ -57,6 +62,10 @@ module YNAB
       if attributes.key?(:'transaction')
         self.transaction = attributes[:'transaction']
       end
+
+      if attributes.key?(:'server_knowledge')
+        self.server_knowledge = attributes[:'server_knowledge']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -70,6 +79,7 @@ module YNAB
     # @return true if the model is valid
     def valid?
       return false if @transaction.nil?
+      return false if @server_knowledge.nil?
       true
     end
 
@@ -78,7 +88,8 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          transaction == o.transaction
+          transaction == o.transaction &&
+          server_knowledge == o.server_knowledge
     end
 
     # @see the `==` method
@@ -90,7 +101,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [transaction].hash
+      [transaction, server_knowledge].hash
     end
 
     # Builds the object from hash

@@ -52,7 +52,7 @@ describe 'transactions' do
         expect(client.last_request.response.options[:code]).to be 200
         expect(response.data.transactions.length).to be 2
         # We expect the flag_color to have been converted to nil for these transactions
-        expect(response.data.transactions[0].flag_color).to be_nil
+        expect(response.data.transactions[0].flag_color).to eq ""
         expect(response.data.transactions[1].flag_color).to be_nil
       end
     end

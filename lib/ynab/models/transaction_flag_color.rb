@@ -18,9 +18,10 @@ module YNAB
     GREEN = "green".freeze
     BLUE = "blue".freeze
     PURPLE = "purple".freeze
+    EMPTY = "".freeze
 
     def self.all_vars
-      @all_vars ||= [RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE].freeze
+      @all_vars ||= [RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE, EMPTY].freeze
     end
 
     # Builds the enum from string
