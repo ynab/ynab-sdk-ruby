@@ -9,6 +9,7 @@ require '{{gemName}}/version'
 require '{{gemName}}/configuration'
 
 # Models
+require '{{gemName}}/api_model_base'
 {{#models}}
 {{#model}}
 require '{{gemName}}/{{modelPackage}}/{{classFilename}}'{{/model}}
@@ -39,8 +40,8 @@ module {{moduleName}}
       UserApi.new(@client)
     end
 
-    def budgets
-      BudgetsApi.new(@client)
+    def plans
+      PlansApi.new(@client)
     end
 
     def accounts

@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.localhost:3000/v1/budgets
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - api_client/ruby/0.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer 9f1a2c4842b614a771aaae9220fc54ae835e298c4654dc2c9205fc1d7bd1a045
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding, Origin
+      ETag:
+      - W/"ab6962c846032f67f346997e36a2d21e"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - cac5447b-f782-466a-9f0e-bf6fc725bf7f
+      X-Runtime:
+      - '0.176181'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"budgets":[{"id":"36e85244-5254-47be-a7d1-28be746a7f72","name":"Hammel
+        Budget","last_modified_on":"2018-02-14T20:28:50+00:00","date_format":{"locale":"en_US"},"currency_format":{"locale":"en_US"},"first_month":"2010-10-01","last_month":"2018-02-01"},{"id":"5b202339-ba6a-4498-bc93-f6909ec38153","name":"Household
+        Budget","last_modified_on":"2018-02-14T20:28:53+00:00","date_format":{"locale":"en_US"},"currency_format":{"locale":"en_US"},"first_month":"2013-09-01","last_month":"2018-02-01"},{"id":"9db9a05d-c61c-4ce8-95ea-06174910f332","name":"My
+        Budget","last_modified_on":"2018-02-15T18:24:02+00:00","date_format":{"format":"MM/DD/YYYY"},"currency_format":{"iso_code":"USD","example_format":"123,456.78","decimal_digits":2,"decimal_separator":".","symbol_first":true,"group_separator":",","currency_symbol":"$","display_symbol":true},"first_month":"2018-02-01","last_month":"2018-02-01"},{"id":"f419ac25-6217-4175-88dc-c3136ff5f6fd","name":"ABC","last_modified_on":"2018-02-15T18:53:19+00:00","date_format":{"format":"MM/DD/YYYY"},"currency_format":{"iso_code":"USD","example_format":"123,456.78","decimal_digits":2,"decimal_separator":".","symbol_first":true,"group_separator":",","currency_symbol":"$","display_symbol":true},"first_month":"2018-02-01","last_month":"2018-02-01"}]}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://api.localhost:3000/v1/budgets
+  recorded_at: Thu, 15 Feb 2018 18:59:58 GMT
+recorded_with: VCR 3.0.3

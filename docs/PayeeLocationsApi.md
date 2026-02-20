@@ -4,16 +4,16 @@ All URIs are relative to *https://api.ynab.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_payee_location_by_id**](PayeeLocationsApi.md#get_payee_location_by_id) | **GET** /budgets/{budget_id}/payee_locations/{payee_location_id} | Single payee location |
-| [**get_payee_locations**](PayeeLocationsApi.md#get_payee_locations) | **GET** /budgets/{budget_id}/payee_locations | List payee locations |
-| [**get_payee_locations_by_payee**](PayeeLocationsApi.md#get_payee_locations_by_payee) | **GET** /budgets/{budget_id}/payees/{payee_id}/payee_locations | List locations for a payee |
+| [**get_payee_location_by_id**](PayeeLocationsApi.md#get_payee_location_by_id) | **GET** /budgets/{plan_id}/payee_locations/{payee_location_id} | Get a payee location |
+| [**get_payee_locations**](PayeeLocationsApi.md#get_payee_locations) | **GET** /budgets/{plan_id}/payee_locations | Get all payee locations |
+| [**get_payee_locations_by_payee**](PayeeLocationsApi.md#get_payee_locations_by_payee) | **GET** /budgets/{plan_id}/payees/{payee_id}/payee_locations | Get all locations for a payee |
 
 
 ## get_payee_location_by_id
 
-> <PayeeLocationResponse> get_payee_location_by_id(budget_id, payee_location_id)
+> <PayeeLocationResponse> get_payee_location_by_id(plan_id, payee_location_id)
 
-Single payee location
+Get a payee location
 
 Returns a single payee location
 
@@ -21,7 +21,7 @@ Returns a single payee location
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **payee_location_id** | **String** | id of payee location |  |
 
 ### Return type
@@ -31,9 +31,9 @@ Returns a single payee location
 
 ## get_payee_locations
 
-> <PayeeLocationsResponse> get_payee_locations(budget_id)
+> <PayeeLocationsResponse> get_payee_locations(plan_id)
 
-List payee locations
+Get all payee locations
 
 Returns all payee locations
 
@@ -41,7 +41,7 @@ Returns all payee locations
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 
 ### Return type
 
@@ -50,9 +50,9 @@ Returns all payee locations
 
 ## get_payee_locations_by_payee
 
-> <PayeeLocationsResponse> get_payee_locations_by_payee(budget_id, payee_id)
+> <PayeeLocationsResponse> get_payee_locations_by_payee(plan_id, payee_id)
 
-List locations for a payee
+Get all locations for a payee
 
 Returns all payee locations for a specified payee
 
@@ -60,7 +60,7 @@ Returns all payee locations for a specified payee
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **payee_id** | **String** | id of payee |  |
 
 ### Return type

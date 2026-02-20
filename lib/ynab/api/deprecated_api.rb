@@ -20,36 +20,36 @@ module YNAB
       @api_client = api_client
     end
     # Bulk create transactions
-    # Creates multiple transactions.  Although this endpoint is still supported, it is recommended to use 'POST /budgets/{budget_id}/transactions' to create multiple transactions.
-    # @param budget_id [String] The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
+    # Creates multiple transactions.  Although this endpoint is still supported, it is recommended to use 'POST /budgets/{plan_id}/transactions' to create multiple transactions.
+    # @param plan_id [String] The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
     # @param transactions [BulkTransactions] The list of transactions to create
     # @param [Hash] opts the optional parameters
     # @return [BulkResponse]
-    def bulk_create_transactions(budget_id, transactions, opts = {})
-      data, _status_code, _headers = bulk_create_transactions_with_http_info(budget_id, transactions, opts)
+    def bulk_create_transactions(plan_id, transactions, opts = {})
+      data, _status_code, _headers = bulk_create_transactions_with_http_info(plan_id, transactions, opts)
       data
     end
 
     # Bulk create transactions
-    # Creates multiple transactions.  Although this endpoint is still supported, it is recommended to use &#39;POST /budgets/{budget_id}/transactions&#39; to create multiple transactions.
-    # @param budget_id [String] The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
+    # Creates multiple transactions.  Although this endpoint is still supported, it is recommended to use &#39;POST /budgets/{plan_id}/transactions&#39; to create multiple transactions.
+    # @param plan_id [String] The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
     # @param transactions [BulkTransactions] The list of transactions to create
     # @param [Hash] opts the optional parameters
     # @return [Array<(BulkResponse, Integer, Hash)>] BulkResponse data, response status code and response headers
-    def bulk_create_transactions_with_http_info(budget_id, transactions, opts = {})
+    def bulk_create_transactions_with_http_info(plan_id, transactions, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DeprecatedApi.bulk_create_transactions ...'
       end
-      # verify the required parameter 'budget_id' is set
-      if @api_client.config.client_side_validation && budget_id.nil?
-        fail ArgumentError, "Missing the required parameter 'budget_id' when calling DeprecatedApi.bulk_create_transactions"
+      # verify the required parameter 'plan_id' is set
+      if @api_client.config.client_side_validation && plan_id.nil?
+        fail ArgumentError, "Missing the required parameter 'plan_id' when calling DeprecatedApi.bulk_create_transactions"
       end
       # verify the required parameter 'transactions' is set
       if @api_client.config.client_side_validation && transactions.nil?
         fail ArgumentError, "Missing the required parameter 'transactions' when calling DeprecatedApi.bulk_create_transactions"
       end
       # resource path
-      local_var_path = '/budgets/{budget_id}/transactions/bulk'.sub('{' + 'budget_id' + '}', CGI.escape(budget_id.to_s))
+      local_var_path = '/budgets/{plan_id}/transactions/bulk'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

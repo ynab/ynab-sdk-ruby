@@ -4,7 +4,7 @@ require 'ynab'
 access_token = ENV['YNAB_ACCESS_TOKEN']
 ynab = YNAB::API.new(access_token)
 
-budget_id = ENV['YNAB_BUDGET_ID']
+plan_id = ENV['YNAB_plan_id']
 account_id = 'f6fe07cb-c895-not-real-acfac0b7f026'
 category_id = 'a191ac84-de09-not-real-6c5ed8cfdabe'
 
@@ -23,7 +23,7 @@ data = {
 }
 
 begin
-  ynab.transactions.create_transaction(budget_id, data)
+  ynab.transactions.create_transaction(plan_id, data)
 rescue YNAB::ApiError => e
   puts "ERROR: id=#{e.id}; name=#{e.name}; detail: #{e.detail}"
 end

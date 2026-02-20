@@ -4,16 +4,16 @@ All URIs are relative to *https://api.ynab.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_payee_by_id**](PayeesApi.md#get_payee_by_id) | **GET** /budgets/{budget_id}/payees/{payee_id} | Single payee |
-| [**get_payees**](PayeesApi.md#get_payees) | **GET** /budgets/{budget_id}/payees | List payees |
-| [**update_payee**](PayeesApi.md#update_payee) | **PATCH** /budgets/{budget_id}/payees/{payee_id} | Update a payee |
+| [**get_payee_by_id**](PayeesApi.md#get_payee_by_id) | **GET** /budgets/{plan_id}/payees/{payee_id} | Get a payee |
+| [**get_payees**](PayeesApi.md#get_payees) | **GET** /budgets/{plan_id}/payees | Get all payees |
+| [**update_payee**](PayeesApi.md#update_payee) | **PATCH** /budgets/{plan_id}/payees/{payee_id} | Update a payee |
 
 
 ## get_payee_by_id
 
-> <PayeeResponse> get_payee_by_id(budget_id, payee_id)
+> <PayeeResponse> get_payee_by_id(plan_id, payee_id)
 
-Single payee
+Get a payee
 
 Returns a single payee
 
@@ -21,7 +21,7 @@ Returns a single payee
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **payee_id** | **String** | The id of the payee |  |
 
 ### Return type
@@ -31,9 +31,9 @@ Returns a single payee
 
 ## get_payees
 
-> <PayeesResponse> get_payees(budget_id, opts)
+> <PayeesResponse> get_payees(plan_id, opts)
 
-List payees
+Get all payees
 
 Returns all payees
 
@@ -41,7 +41,7 @@ Returns all payees
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **last_knowledge_of_server** | **Integer** | The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included. | [optional] |
 
 ### Return type
@@ -51,7 +51,7 @@ Returns all payees
 
 ## update_payee
 
-> <SavePayeeResponse> update_payee(budget_id, payee_id, data)
+> <SavePayeeResponse> update_payee(plan_id, payee_id, data)
 
 Update a payee
 
@@ -61,7 +61,7 @@ Update a payee
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **payee_id** | **String** | The id of the payee |  |
 | **data** | [**PatchPayeeWrapper**](PatchPayeeWrapper.md) | The payee to update |  |
 

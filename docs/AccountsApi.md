@@ -4,16 +4,16 @@ All URIs are relative to *https://api.ynab.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_account**](AccountsApi.md#create_account) | **POST** /budgets/{budget_id}/accounts | Create a new account |
-| [**get_account_by_id**](AccountsApi.md#get_account_by_id) | **GET** /budgets/{budget_id}/accounts/{account_id} | Single account |
-| [**get_accounts**](AccountsApi.md#get_accounts) | **GET** /budgets/{budget_id}/accounts | Account list |
+| [**create_account**](AccountsApi.md#create_account) | **POST** /budgets/{plan_id}/accounts | Create an account |
+| [**get_account_by_id**](AccountsApi.md#get_account_by_id) | **GET** /budgets/{plan_id}/accounts/{account_id} | Get an account |
+| [**get_accounts**](AccountsApi.md#get_accounts) | **GET** /budgets/{plan_id}/accounts | Get all accounts |
 
 
 ## create_account
 
-> <AccountResponse> create_account(budget_id, data)
+> <AccountResponse> create_account(plan_id, data)
 
-Create a new account
+Create an account
 
 Creates a new account
 
@@ -21,7 +21,7 @@ Creates a new account
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget (\&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget) |  |
+| **plan_id** | **String** | The id of the plan (\&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan) |  |
 | **data** | [**PostAccountWrapper**](PostAccountWrapper.md) | The account to create. |  |
 
 ### Return type
@@ -31,9 +31,9 @@ Creates a new account
 
 ## get_account_by_id
 
-> <AccountResponse> get_account_by_id(budget_id, account_id)
+> <AccountResponse> get_account_by_id(plan_id, account_id)
 
-Single account
+Get an account
 
 Returns a single account
 
@@ -41,7 +41,7 @@ Returns a single account
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **account_id** | **String** | The id of the account |  |
 
 ### Return type
@@ -51,9 +51,9 @@ Returns a single account
 
 ## get_accounts
 
-> <AccountsResponse> get_accounts(budget_id, opts)
+> <AccountsResponse> get_accounts(plan_id, opts)
 
-Account list
+Get all accounts
 
 Returns all accounts
 
@@ -61,7 +61,7 @@ Returns all accounts
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **last_knowledge_of_server** | **Integer** | The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included. | [optional] |
 
 ### Return type

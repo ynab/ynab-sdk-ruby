@@ -4,5 +4,5 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budgeted** | **Integer** | Budgeted amount in milliunits format |  |
+| **budgeted** | **Integer** | Assigned (budgeted) amount in milliunits format |  |
 
