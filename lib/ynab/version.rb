@@ -1,3 +1,3 @@
 module YNAB
-  VERSION = '3.9.0'
+  VERSION = '4.9.0'
 end
