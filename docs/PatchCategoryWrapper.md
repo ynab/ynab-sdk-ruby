@@ -4,5 +4,5 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **category** | [**SaveCategory**](SaveCategory.md) |  |  |
+| **category** | [**ExistingCategory**](ExistingCategory.md) |  |  |
 

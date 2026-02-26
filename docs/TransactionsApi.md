@@ -4,22 +4,22 @@ All URIs are relative to *https://api.ynab.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_transaction**](TransactionsApi.md#create_transaction) | **POST** /budgets/{budget_id}/transactions | Create a single transaction or multiple transactions |
-| [**delete_transaction**](TransactionsApi.md#delete_transaction) | **DELETE** /budgets/{budget_id}/transactions/{transaction_id} | Deletes an existing transaction |
-| [**get_transaction_by_id**](TransactionsApi.md#get_transaction_by_id) | **GET** /budgets/{budget_id}/transactions/{transaction_id} | Single transaction |
-| [**get_transactions**](TransactionsApi.md#get_transactions) | **GET** /budgets/{budget_id}/transactions | List transactions |
-| [**get_transactions_by_account**](TransactionsApi.md#get_transactions_by_account) | **GET** /budgets/{budget_id}/accounts/{account_id}/transactions | List account transactions |
-| [**get_transactions_by_category**](TransactionsApi.md#get_transactions_by_category) | **GET** /budgets/{budget_id}/categories/{category_id}/transactions | List category transactions, excluding any pending transactions |
-| [**get_transactions_by_month**](TransactionsApi.md#get_transactions_by_month) | **GET** /budgets/{budget_id}/months/{month}/transactions | List transactions in month, excluding any pending transactions |
-| [**get_transactions_by_payee**](TransactionsApi.md#get_transactions_by_payee) | **GET** /budgets/{budget_id}/payees/{payee_id}/transactions | List payee transactions, excluding any pending transactions |
-| [**import_transactions**](TransactionsApi.md#import_transactions) | **POST** /budgets/{budget_id}/transactions/import | Import transactions |
-| [**update_transaction**](TransactionsApi.md#update_transaction) | **PUT** /budgets/{budget_id}/transactions/{transaction_id} | Updates an existing transaction |
-| [**update_transactions**](TransactionsApi.md#update_transactions) | **PATCH** /budgets/{budget_id}/transactions | Update multiple transactions |
+| [**create_transaction**](TransactionsApi.md#create_transaction) | **POST** /budgets/{plan_id}/transactions | Create a single transaction or multiple transactions |
+| [**delete_transaction**](TransactionsApi.md#delete_transaction) | **DELETE** /budgets/{plan_id}/transactions/{transaction_id} | Delete a transaction |
+| [**get_transaction_by_id**](TransactionsApi.md#get_transaction_by_id) | **GET** /budgets/{plan_id}/transactions/{transaction_id} | Get a transaction |
+| [**get_transactions**](TransactionsApi.md#get_transactions) | **GET** /budgets/{plan_id}/transactions | Get all transactions |
+| [**get_transactions_by_account**](TransactionsApi.md#get_transactions_by_account) | **GET** /budgets/{plan_id}/accounts/{account_id}/transactions | Get all account transactions |
+| [**get_transactions_by_category**](TransactionsApi.md#get_transactions_by_category) | **GET** /budgets/{plan_id}/categories/{category_id}/transactions | Get all category transactions |
+| [**get_transactions_by_month**](TransactionsApi.md#get_transactions_by_month) | **GET** /budgets/{plan_id}/months/{month}/transactions | Get all plan month transactions |
+| [**get_transactions_by_payee**](TransactionsApi.md#get_transactions_by_payee) | **GET** /budgets/{plan_id}/payees/{payee_id}/transactions | Get all payee transactions |
+| [**import_transactions**](TransactionsApi.md#import_transactions) | **POST** /budgets/{plan_id}/transactions/import | Import transactions |
+| [**update_transaction**](TransactionsApi.md#update_transaction) | **PUT** /budgets/{plan_id}/transactions/{transaction_id} | Update a transaction |
+| [**update_transactions**](TransactionsApi.md#update_transactions) | **PATCH** /budgets/{plan_id}/transactions | Update multiple transactions |
 
 
 ## create_transaction
 
-> <SaveTransactionsResponse> create_transaction(budget_id, data)
+> <SaveTransactionsResponse> create_transaction(plan_id, data)
 
 Create a single transaction or multiple transactions
 
@@ -29,7 +29,7 @@ Creates a single transaction or multiple transactions.  If you provide a body co
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **data** | [**PostTransactionsWrapper**](PostTransactionsWrapper.md) | The transaction or transactions to create.  To create a single transaction you can specify a value for the &#x60;transaction&#x60; object and to create multiple transactions you can specify an array of &#x60;transactions&#x60;.  It is expected that you will only provide a value for one of these objects. |  |
 
 ### Return type
@@ -39,9 +39,9 @@ Creates a single transaction or multiple transactions.  If you provide a body co
 
 ## delete_transaction
 
-> <TransactionResponse> delete_transaction(budget_id, transaction_id)
+> <TransactionResponse> delete_transaction(plan_id, transaction_id)
 
-Deletes an existing transaction
+Delete a transaction
 
 Deletes a transaction
 
@@ -49,7 +49,7 @@ Deletes a transaction
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **transaction_id** | **String** | The id of the transaction |  |
 
 ### Return type
@@ -59,9 +59,9 @@ Deletes a transaction
 
 ## get_transaction_by_id
 
-> <TransactionResponse> get_transaction_by_id(budget_id, transaction_id)
+> <TransactionResponse> get_transaction_by_id(plan_id, transaction_id)
 
-Single transaction
+Get a transaction
 
 Returns a single transaction
 
@@ -69,7 +69,7 @@ Returns a single transaction
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **transaction_id** | **String** | The id of the transaction |  |
 
 ### Return type
@@ -79,17 +79,17 @@ Returns a single transaction
 
 ## get_transactions
 
-> <TransactionsResponse> get_transactions(budget_id, opts)
+> <TransactionsResponse> get_transactions(plan_id, opts)
 
-List transactions
+Get all transactions
 
-Returns budget transactions, excluding any pending transactions
+Returns plan transactions, excluding any pending transactions
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **since_date** | **Date** | If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). | [optional] |
 | **type** | **String** | If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported. | [optional] |
 | **last_knowledge_of_server** | **Integer** | The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included. | [optional] |
@@ -101,9 +101,9 @@ Returns budget transactions, excluding any pending transactions
 
 ## get_transactions_by_account
 
-> <TransactionsResponse> get_transactions_by_account(budget_id, account_id, opts)
+> <TransactionsResponse> get_transactions_by_account(plan_id, account_id, opts)
 
-List account transactions
+Get all account transactions
 
 Returns all transactions for a specified account, excluding any pending transactions
 
@@ -111,7 +111,7 @@ Returns all transactions for a specified account, excluding any pending transact
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **account_id** | **String** | The id of the account |  |
 | **since_date** | **Date** | If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). | [optional] |
 | **type** | **String** | If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported. | [optional] |
@@ -124,17 +124,17 @@ Returns all transactions for a specified account, excluding any pending transact
 
 ## get_transactions_by_category
 
-> <HybridTransactionsResponse> get_transactions_by_category(budget_id, category_id, opts)
+> <HybridTransactionsResponse> get_transactions_by_category(plan_id, category_id, opts)
 
-List category transactions, excluding any pending transactions
+Get all category transactions
 
-Returns all transactions for a specified category
+Returns all transactions for a specified category, excluding any pending transactions
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **category_id** | **String** | The id of the category |  |
 | **since_date** | **Date** | If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). | [optional] |
 | **type** | **String** | If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported. | [optional] |
@@ -147,40 +147,40 @@ Returns all transactions for a specified category
 
 ## get_transactions_by_month
 
-> <HybridTransactionsResponse> get_transactions_by_month(budget_id, month, opts)
+> <TransactionsResponse> get_transactions_by_month(plan_id, month, opts)
 
-List transactions in month, excluding any pending transactions
+Get all plan month transactions
 
-Returns all transactions for a specified month
+Returns all transactions for a specified month, excluding any pending transactions
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
-| **month** | **String** | The budget month in ISO format (e.g. 2016-12-01) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC)) |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
+| **month** | **String** | The plan month in ISO format (e.g. 2016-12-01) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC)) |  |
 | **since_date** | **Date** | If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). | [optional] |
 | **type** | **String** | If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported. | [optional] |
 | **last_knowledge_of_server** | **Integer** | The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included. | [optional] |
 
 ### Return type
 
-[**HybridTransactionsResponse**](HybridTransactionsResponse.md)
+[**TransactionsResponse**](TransactionsResponse.md)
 
 
 ## get_transactions_by_payee
 
-> <HybridTransactionsResponse> get_transactions_by_payee(budget_id, payee_id, opts)
+> <HybridTransactionsResponse> get_transactions_by_payee(plan_id, payee_id, opts)
 
-List payee transactions, excluding any pending transactions
+Get all payee transactions
 
-Returns all transactions for a specified payee
+Returns all transactions for a specified payee, excluding any pending transactions
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **payee_id** | **String** | The id of the payee |  |
 | **since_date** | **Date** | If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). | [optional] |
 | **type** | **String** | If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported. | [optional] |
@@ -193,17 +193,17 @@ Returns all transactions for a specified payee
 
 ## import_transactions
 
-> <TransactionsImportResponse> import_transactions(budget_id)
+> <TransactionsImportResponse> import_transactions(plan_id)
 
 Import transactions
 
-Imports available transactions on all linked accounts for the given budget.  Linked accounts allow transactions to be imported directly from a specified financial institution and this endpoint initiates that import.  Sending a request to this endpoint is the equivalent of clicking \"Import\" on each account in the web application or tapping the \"New Transactions\" banner in the mobile applications.  The response for this endpoint contains the transaction ids that have been imported.
+Imports available transactions on all linked accounts for the given plan.  Linked accounts allow transactions to be imported directly from a specified financial institution and this endpoint initiates that import.  Sending a request to this endpoint is the equivalent of clicking \"Import\" on each account in the web application or tapping the \"New Transactions\" banner in the mobile applications.  The response for this endpoint contains the transaction ids that have been imported.
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 
 ### Return type
 
@@ -212,9 +212,9 @@ Imports available transactions on all linked accounts for the given budget.  Lin
 
 ## update_transaction
 
-> <TransactionResponse> update_transaction(budget_id, transaction_id, data)
+> <TransactionResponse> update_transaction(plan_id, transaction_id, data)
 
-Updates an existing transaction
+Update a transaction
 
 Updates a single transaction
 
@@ -222,7 +222,7 @@ Updates a single transaction
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **transaction_id** | **String** | The id of the transaction |  |
 | **data** | [**PutTransactionWrapper**](PutTransactionWrapper.md) | The transaction to update |  |
 
@@ -233,7 +233,7 @@ Updates a single transaction
 
 ## update_transactions
 
-> <SaveTransactionsResponse> update_transactions(budget_id, data)
+> <SaveTransactionsResponse> update_transactions(plan_id, data)
 
 Update multiple transactions
 
@@ -243,7 +243,7 @@ Updates multiple transactions, by `id` or `import_id`.
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget_id** | **String** | The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget). |  |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
 | **data** | [**PatchTransactionsWrapper**](PatchTransactionsWrapper.md) | The transactions to update. Each transaction must have either an &#x60;id&#x60; or &#x60;import_id&#x60; specified. If &#x60;id&#x60; is specified as null an &#x60;import_id&#x60; value can be provided which will allow transaction(s) to be updated by its &#x60;import_id&#x60;. If an &#x60;id&#x60; is specified, it will always be used for lookup.  You should not specify both &#x60;id&#x60; and &#x60;import_id&#x60;.  Updating an &#x60;import_id&#x60; on an existing transaction is not allowed; if an &#x60;import_id&#x60; is specified, it will only be used to lookup the transaction. |  |
 
 ### Return type

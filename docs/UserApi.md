@@ -4,14 +4,14 @@ All URIs are relative to *https://api.ynab.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_user**](UserApi.md#get_user) | **GET** /user | User info |
+| [**get_user**](UserApi.md#get_user) | **GET** /user | Get user |
 
 
 ## get_user
 
 > <UserResponse> get_user
 
-User info
+Get user
 
 Returns authenticated user information
 
