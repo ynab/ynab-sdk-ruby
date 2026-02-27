@@ -34,9 +34,9 @@ task :bump_version_number, [:version_type] do |t, args|
   # Increment version number
   case args[:version_type]
   when 'major'
-    new_version = current_version.split('.').tap { |v| v[0] = v[0].to_i + 1 }.join('.')
+    new_version = current_version.split('.').tap { |v| v[0] = v[0].to_i + 1; v[1] = 0; v[2] = 0 }.join('.')
   when 'minor'
-    new_version = current_version.split('.').tap { |v| v[1] = v[1].to_i + 1 }.join('.')
+    new_version = current_version.split('.').tap { |v| v[1] = v[1].to_i + 1; v[2] = 0 }.join('.')
   when 'patch'
     new_version = current_version.split('.').tap { |v| v[2] = v[2].to_i + 1 }.join('.')
   else
