@@ -4,9 +4,9 @@ All URIs are relative to *https://api.ynab.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_plan_by_id**](PlansApi.md#get_plan_by_id) | **GET** /budgets/{plan_id} | Get a plan |
-| [**get_plan_settings_by_id**](PlansApi.md#get_plan_settings_by_id) | **GET** /budgets/{plan_id}/settings | Get plan settings |
-| [**get_plans**](PlansApi.md#get_plans) | **GET** /budgets | Get all plans |
+| [**get_plan_by_id**](PlansApi.md#get_plan_by_id) | **GET** /plans/{plan_id} | Get a plan |
+| [**get_plan_settings_by_id**](PlansApi.md#get_plan_settings_by_id) | **GET** /plans/{plan_id}/settings | Get plan settings |
+| [**get_plans**](PlansApi.md#get_plans) | **GET** /plans | Get all plans |
 
 
 ## get_plan_by_id

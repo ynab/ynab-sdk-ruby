@@ -4,6 +4,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **budget** | [**PlanDetail**](PlanDetail.md) |  |  |
+| **plan** | [**PlanDetail**](PlanDetail.md) |  |  |
 | **server_knowledge** | **Integer** | The knowledge of the server |  |
 

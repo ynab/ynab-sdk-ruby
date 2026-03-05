@@ -45,7 +45,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'data' when calling AccountsApi.create_account"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/accounts'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/accounts'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -119,7 +119,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'account_id' when calling AccountsApi.get_account_by_id"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/accounts/{account_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'account_id' + '}', CGI.escape(account_id.to_s))
+      local_var_path = '/plans/{plan_id}/accounts/{account_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'account_id' + '}', CGI.escape(account_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -184,7 +184,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'plan_id' when calling AccountsApi.get_accounts"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/accounts'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/accounts'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

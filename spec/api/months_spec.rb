@@ -34,7 +34,7 @@ describe 'months' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/months' do
+  describe 'GET /plans/{plan_id}/months' do
     it 'returns a list of months' do
       VCR.use_cassette("months") do
         response = instance.get_plan_months(plan_id)
@@ -44,7 +44,7 @@ describe 'months' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/months/{month}' do
+  describe 'GET /plans/{plan_id}/months/{month}' do
     it 'returns a month' do
       VCR.use_cassette("month") do
         response = instance.get_plan_month(plan_id, '2018-02-01')

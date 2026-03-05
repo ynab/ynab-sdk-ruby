@@ -45,7 +45,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'month' when calling MonthsApi.get_plan_month"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/months/{month}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'month' + '}', CGI.escape(month.to_s))
+      local_var_path = '/plans/{plan_id}/months/{month}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'month' + '}', CGI.escape(month.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -110,7 +110,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'plan_id' when calling MonthsApi.get_plan_months"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/months'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/months'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

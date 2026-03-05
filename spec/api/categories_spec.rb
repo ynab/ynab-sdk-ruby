@@ -35,7 +35,7 @@ describe 'categories' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/categories' do
+  describe 'GET /plans/{plan_id}/categories' do
     it 'returns a list of categories' do
       VCR.use_cassette("categories") do
         response = instance.get_categories(plan_id)
@@ -46,7 +46,7 @@ describe 'categories' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/categories/{category_id}' do
+  describe 'GET /plans/{plan_id}/categories/{category_id}' do
     it 'returns a category' do
       VCR.use_cassette("category") do
         response = instance.get_category_by_id(plan_id, category_id)
@@ -56,7 +56,7 @@ describe 'categories' do
     end
   end
 
-  describe 'PATCH /budgets/{plan_id}/months/{month}/categories/{category_id}' do
+  describe 'PATCH /plans/{plan_id}/months/{month}/categories/{category_id}' do
     it 'returns a category' do
       VCR.use_cassette("patch_month_category") do
         response = instance.update_month_category(plan_id, '2018-02-01', category_id, month_category: { budgeted: 20382 })

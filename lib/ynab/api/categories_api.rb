@@ -45,7 +45,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'data' when calling CategoriesApi.create_category"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/categories'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/categories'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -119,7 +119,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'data' when calling CategoriesApi.create_category_group"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/category_groups'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/category_groups'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -189,7 +189,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'plan_id' when calling CategoriesApi.get_categories"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/categories'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/categories'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -259,7 +259,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'category_id' when calling CategoriesApi.get_category_by_id"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/categories/{category_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'category_id' + '}', CGI.escape(category_id.to_s))
+      local_var_path = '/plans/{plan_id}/categories/{category_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'category_id' + '}', CGI.escape(category_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -334,7 +334,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'category_id' when calling CategoriesApi.get_month_category_by_id"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/months/{month}/categories/{category_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'month' + '}', CGI.escape(month.to_s)).sub('{' + 'category_id' + '}', CGI.escape(category_id.to_s))
+      local_var_path = '/plans/{plan_id}/months/{month}/categories/{category_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'month' + '}', CGI.escape(month.to_s)).sub('{' + 'category_id' + '}', CGI.escape(category_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -409,7 +409,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'data' when calling CategoriesApi.update_category"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/categories/{category_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'category_id' + '}', CGI.escape(category_id.to_s))
+      local_var_path = '/plans/{plan_id}/categories/{category_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'category_id' + '}', CGI.escape(category_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -489,7 +489,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'data' when calling CategoriesApi.update_category_group"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/category_groups/{category_group_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'category_group_id' + '}', CGI.escape(category_group_id.to_s))
+      local_var_path = '/plans/{plan_id}/category_groups/{category_group_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'category_group_id' + '}', CGI.escape(category_group_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -575,7 +575,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'data' when calling CategoriesApi.update_month_category"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/months/{month}/categories/{category_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'month' + '}', CGI.escape(month.to_s)).sub('{' + 'category_id' + '}', CGI.escape(category_id.to_s))
+      local_var_path = '/plans/{plan_id}/months/{month}/categories/{category_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'month' + '}', CGI.escape(month.to_s)).sub('{' + 'category_id' + '}', CGI.escape(category_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

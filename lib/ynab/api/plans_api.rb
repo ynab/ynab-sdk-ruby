@@ -41,7 +41,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'plan_id' when calling PlansApi.get_plan_by_id"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -105,7 +105,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'plan_id' when calling PlansApi.get_plan_settings_by_id"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/settings'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/settings'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -164,7 +164,7 @@ module YNAB
         @api_client.config.logger.debug 'Calling API: PlansApi.get_plans ...'
       end
       # resource path
-      local_var_path = '/budgets'
+      local_var_path = '/plans'
 
       # query parameters
       query_params = opts[:query_params] || {}

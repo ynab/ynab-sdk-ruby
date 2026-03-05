@@ -34,7 +34,7 @@ describe 'accounts' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/accounts' do
+  describe 'GET /plans/{plan_id}/accounts' do
     it 'returns a list of accounts' do
       VCR.use_cassette("accounts") do
         response = instance.get_accounts(plan_id)
@@ -44,7 +44,7 @@ describe 'accounts' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/accounts/{account_id}' do
+  describe 'GET /plans/{plan_id}/accounts/{account_id}' do
     it 'returns an account' do
       VCR.use_cassette("account") do
         response = instance.get_account_by_id(plan_id, '5982e895-98e5-41ca-9681-0b6de1036a1c')
@@ -54,7 +54,7 @@ describe 'accounts' do
     end
   end
 
-  describe 'POST /budgets/{plan_id}/accounts' do
+  describe 'POST /plans/{plan_id}/accounts' do
     it 'creates an account' do
       VCR.use_cassette("create_account") do
         response = instance.create_account(plan_id, {

@@ -12,7 +12,7 @@ require 'time'
 
 module YNAB
   class PlanDetailResponseData < ApiModelBase
-    attr_accessor :budget
+    attr_accessor :plan
 
     # The knowledge of the server
     attr_accessor :server_knowledge
@@ -20,7 +20,7 @@ module YNAB
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'budget' => :'budget',
+        :'plan' => :'plan',
         :'server_knowledge' => :'server_knowledge'
       }
     end
@@ -33,7 +33,7 @@ module YNAB
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'budget' => :'PlanDetail',
+        :'plan' => :'PlanDetail',
         :'server_knowledge' => :'Integer'
       }
     end
@@ -59,8 +59,8 @@ module YNAB
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'budget')
-        self.budget = attributes[:'budget']
+      if attributes.key?(:'plan')
+        self.plan = attributes[:'plan']
       end
 
       if attributes.key?(:'server_knowledge')
@@ -78,7 +78,7 @@ module YNAB
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @budget.nil?
+      return false if @plan.nil?
       return false if @server_knowledge.nil?
       true
     end
@@ -88,7 +88,7 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          budget == o.budget &&
+          plan == o.plan &&
           server_knowledge == o.server_knowledge
     end
 
@@ -101,7 +101,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [budget, server_knowledge].hash
+      [plan, server_knowledge].hash
     end
 
     # Builds the object from hash

@@ -34,7 +34,7 @@ describe 'payees' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/payees' do
+  describe 'GET /plans/{plan_id}/payees' do
     it 'returns a list of payees' do
       VCR.use_cassette("payees") do
         response = instance.get_payees(plan_id)
@@ -44,7 +44,7 @@ describe 'payees' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/payees/{payee_id}' do
+  describe 'GET /plans/{plan_id}/payees/{payee_id}' do
     it 'returns a payee' do
       VCR.use_cassette("payee") do
         response = instance.get_payee_by_id(plan_id, '200e6eb1-02fc-4af6-be26-27c5740bb949')

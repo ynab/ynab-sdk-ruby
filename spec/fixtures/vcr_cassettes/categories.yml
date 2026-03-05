@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/categories
+    uri: http://api.localhost:3000/v1/plans/f419ac25-6217-4175-88dc-c3136ff5f6fd/categories
     body:
       encoding: US-ASCII
       string: ''
@@ -62,6 +62,6 @@ http_interactions:
         Categories","hidden":false,"categories":[]}]}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/categories
+      effective_url: http://api.localhost:3000/v1/plans/f419ac25-6217-4175-88dc-c3136ff5f6fd/categories
   recorded_at: Thu, 15 Feb 2018 18:59:58 GMT
 recorded_with: VCR 3.0.3

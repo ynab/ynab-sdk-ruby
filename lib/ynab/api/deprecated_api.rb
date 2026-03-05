@@ -20,7 +20,7 @@ module YNAB
       @api_client = api_client
     end
     # Bulk create transactions
-    # Creates multiple transactions.  Although this endpoint is still supported, it is recommended to use 'POST /budgets/{plan_id}/transactions' to create multiple transactions.
+    # Creates multiple transactions.  Although this endpoint is still supported, it is recommended to use 'POST /plans/{plan_id}/transactions' to create multiple transactions.
     # @param plan_id [String] The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
     # @param transactions [BulkTransactions] The list of transactions to create
     # @param [Hash] opts the optional parameters
@@ -31,7 +31,7 @@ module YNAB
     end
 
     # Bulk create transactions
-    # Creates multiple transactions.  Although this endpoint is still supported, it is recommended to use &#39;POST /budgets/{plan_id}/transactions&#39; to create multiple transactions.
+    # Creates multiple transactions.  Although this endpoint is still supported, it is recommended to use &#39;POST /plans/{plan_id}/transactions&#39; to create multiple transactions.
     # @param plan_id [String] The id of the budget. \&quot;last-used\&quot; can be used to specify the last used budget and \&quot;default\&quot; can be used if default budget selection is enabled (see: https://api.ynab.com/#oauth-default-budget).
     # @param transactions [BulkTransactions] The list of transactions to create
     # @param [Hash] opts the optional parameters
@@ -49,7 +49,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'transactions' when calling DeprecatedApi.bulk_create_transactions"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/transactions/bulk'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/transactions/bulk'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

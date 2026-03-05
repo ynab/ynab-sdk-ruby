@@ -4,9 +4,9 @@ All URIs are relative to *https://api.ynab.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_payee_by_id**](PayeesApi.md#get_payee_by_id) | **GET** /budgets/{plan_id}/payees/{payee_id} | Get a payee |
-| [**get_payees**](PayeesApi.md#get_payees) | **GET** /budgets/{plan_id}/payees | Get all payees |
-| [**update_payee**](PayeesApi.md#update_payee) | **PATCH** /budgets/{plan_id}/payees/{payee_id} | Update a payee |
+| [**get_payee_by_id**](PayeesApi.md#get_payee_by_id) | **GET** /plans/{plan_id}/payees/{payee_id} | Get a payee |
+| [**get_payees**](PayeesApi.md#get_payees) | **GET** /plans/{plan_id}/payees | Get all payees |
+| [**update_payee**](PayeesApi.md#update_payee) | **PATCH** /plans/{plan_id}/payees/{payee_id} | Update a payee |
 
 
 ## get_payee_by_id
