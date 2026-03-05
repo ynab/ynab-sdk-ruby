@@ -45,7 +45,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'data' when calling TransactionsApi.create_transaction"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -119,7 +119,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'transaction_id' when calling TransactionsApi.delete_transaction"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/transactions/{transaction_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'transaction_id' + '}', CGI.escape(transaction_id.to_s))
+      local_var_path = '/plans/{plan_id}/transactions/{transaction_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'transaction_id' + '}', CGI.escape(transaction_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -188,7 +188,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'transaction_id' when calling TransactionsApi.get_transaction_by_id"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/transactions/{transaction_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'transaction_id' + '}', CGI.escape(transaction_id.to_s))
+      local_var_path = '/plans/{plan_id}/transactions/{transaction_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'transaction_id' + '}', CGI.escape(transaction_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -257,7 +257,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'plan_id' when calling TransactionsApi.get_transactions"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -335,7 +335,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'account_id' when calling TransactionsApi.get_transactions_by_account"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/accounts/{account_id}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'account_id' + '}', CGI.escape(account_id.to_s))
+      local_var_path = '/plans/{plan_id}/accounts/{account_id}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'account_id' + '}', CGI.escape(account_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -413,7 +413,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'category_id' when calling TransactionsApi.get_transactions_by_category"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/categories/{category_id}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'category_id' + '}', CGI.escape(category_id.to_s))
+      local_var_path = '/plans/{plan_id}/categories/{category_id}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'category_id' + '}', CGI.escape(category_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -491,7 +491,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'month' when calling TransactionsApi.get_transactions_by_month"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/months/{month}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'month' + '}', CGI.escape(month.to_s))
+      local_var_path = '/plans/{plan_id}/months/{month}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'month' + '}', CGI.escape(month.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -569,7 +569,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'payee_id' when calling TransactionsApi.get_transactions_by_payee"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/payees/{payee_id}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'payee_id' + '}', CGI.escape(payee_id.to_s))
+      local_var_path = '/plans/{plan_id}/payees/{payee_id}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'payee_id' + '}', CGI.escape(payee_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -635,7 +635,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'plan_id' when calling TransactionsApi.import_transactions"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/transactions/import'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/transactions/import'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -710,7 +710,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'data' when calling TransactionsApi.update_transaction"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/transactions/{transaction_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'transaction_id' + '}', CGI.escape(transaction_id.to_s))
+      local_var_path = '/plans/{plan_id}/transactions/{transaction_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'transaction_id' + '}', CGI.escape(transaction_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -784,7 +784,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'data' when calling TransactionsApi.update_transactions"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/transactions'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

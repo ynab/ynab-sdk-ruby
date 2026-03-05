@@ -4,9 +4,9 @@ All URIs are relative to *https://api.ynab.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_payee_location_by_id**](PayeeLocationsApi.md#get_payee_location_by_id) | **GET** /budgets/{plan_id}/payee_locations/{payee_location_id} | Get a payee location |
-| [**get_payee_locations**](PayeeLocationsApi.md#get_payee_locations) | **GET** /budgets/{plan_id}/payee_locations | Get all payee locations |
-| [**get_payee_locations_by_payee**](PayeeLocationsApi.md#get_payee_locations_by_payee) | **GET** /budgets/{plan_id}/payees/{payee_id}/payee_locations | Get all locations for a payee |
+| [**get_payee_location_by_id**](PayeeLocationsApi.md#get_payee_location_by_id) | **GET** /plans/{plan_id}/payee_locations/{payee_location_id} | Get a payee location |
+| [**get_payee_locations**](PayeeLocationsApi.md#get_payee_locations) | **GET** /plans/{plan_id}/payee_locations | Get all payee locations |
+| [**get_payee_locations_by_payee**](PayeeLocationsApi.md#get_payee_locations_by_payee) | **GET** /plans/{plan_id}/payees/{payee_id}/payee_locations | Get all locations for a payee |
 
 
 ## get_payee_location_by_id

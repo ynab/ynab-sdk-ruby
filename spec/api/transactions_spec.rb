@@ -36,7 +36,7 @@ describe 'transactions' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/transactions' do
+  describe 'GET /plans/{plan_id}/transactions' do
     it 'returns a list of transactions' do
       VCR.use_cassette("transactions") do
         response = instance.get_transactions(plan_id)
@@ -58,7 +58,7 @@ describe 'transactions' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/category/{category_id}/transactions' do
+  describe 'GET /plans/{plan_id}/category/{category_id}/transactions' do
     it 'returns a list of transactions for a category' do
       VCR.use_cassette("category_transactions") do
         response = instance.get_transactions_by_category(plan_id, category_id)
@@ -68,7 +68,7 @@ describe 'transactions' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/category/{payee_id}/transactions' do
+  describe 'GET /plans/{plan_id}/category/{payee_id}/transactions' do
     it 'returns a list of transactions for a payee' do
       VCR.use_cassette("payee_transactions") do
         response = instance.get_transactions_by_payee(plan_id, payee_id)
@@ -78,7 +78,7 @@ describe 'transactions' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/months/{month}/transactions' do
+  describe 'GET /plans/{plan_id}/months/{month}/transactions' do
     it 'returns a list of transactions for a month' do
       VCR.use_cassette("month_transactions") do
         response = instance.get_transactions_by_month(plan_id, "2024-07-01")
@@ -88,7 +88,7 @@ describe 'transactions' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/transaction/{transaction_id}' do
+  describe 'GET /plans/{plan_id}/transaction/{transaction_id}' do
     it 'returns a transaction' do
       VCR.use_cassette("transaction") do
         response = instance.get_transaction_by_id(plan_id, '81c374ff-74ab-4d6d-8d5a-ba3ad3fa68e4')
@@ -98,7 +98,7 @@ describe 'transactions' do
     end
   end
 
-  describe 'POST /budgets/{plan_id}/transactions' do
+  describe 'POST /plans/{plan_id}/transactions' do
     it 'creates a transaction' do
       VCR.use_cassette("create_transaction") do
         response = instance.create_transaction(plan_id, {
@@ -137,7 +137,7 @@ describe 'transactions' do
     end
   end
 
-  describe 'PUT /budgets/{plan_id}/transactions/{transaction_id}' do
+  describe 'PUT /plans/{plan_id}/transactions/{transaction_id}' do
     it 'updates a transaction' do
       VCR.use_cassette("update_transaction") do
         response = instance.update_transaction(plan_id, '4cd63d34-3814-4f50-abd0-59ce05b40d91', {
@@ -154,7 +154,7 @@ describe 'transactions' do
     end
   end
 
-  describe 'PATCH /budgets/{plan_id}/transactions' do
+  describe 'PATCH /plans/{plan_id}/transactions' do
     it 'updates multiple transactions' do
       VCR.use_cassette("update_transactions") do
         response = instance.update_transactions(plan_id, {
@@ -178,7 +178,7 @@ describe 'transactions' do
     end
   end
 
-  describe 'POST /budgets/{plan_id}/transactions' do
+  describe 'POST /plans/{plan_id}/transactions' do
     it 'create multiple transactions' do
       VCR.use_cassette("multiple_transactions") do
         response = instance.create_transaction(plan_id, {
@@ -209,7 +209,7 @@ describe 'transactions' do
     end
   end
 
-  describe 'POST /budgets/{plan_id}/transactions/import' do
+  describe 'POST /plans/{plan_id}/transactions/import' do
     it 'import transactions' do
       VCR.use_cassette("import_transactions") do
         response = instance.import_transactions(plan_id)
@@ -220,7 +220,7 @@ describe 'transactions' do
     end
   end
 
-  describe 'POST /budgets/{plan_id}/transactions/bulk' do
+  describe 'POST /plans/{plan_id}/transactions/bulk' do
     it 'bulk creations transactions' do
       VCR.use_cassette("bulk_transactions") do
         response = instance.bulk_create_transactions(plan_id, {

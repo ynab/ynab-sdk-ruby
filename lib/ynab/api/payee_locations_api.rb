@@ -45,7 +45,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'payee_location_id' when calling PayeeLocationsApi.get_payee_location_by_id"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/payee_locations/{payee_location_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'payee_location_id' + '}', CGI.escape(payee_location_id.to_s))
+      local_var_path = '/plans/{plan_id}/payee_locations/{payee_location_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'payee_location_id' + '}', CGI.escape(payee_location_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -108,7 +108,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'plan_id' when calling PayeeLocationsApi.get_payee_locations"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/payee_locations'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/payee_locations'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -177,7 +177,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'payee_id' when calling PayeeLocationsApi.get_payee_locations_by_payee"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/payees/{payee_id}/payee_locations'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'payee_id' + '}', CGI.escape(payee_id.to_s))
+      local_var_path = '/plans/{plan_id}/payees/{payee_id}/payee_locations'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'payee_id' + '}', CGI.escape(payee_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

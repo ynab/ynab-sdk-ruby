@@ -12,15 +12,15 @@ require 'time'
 
 module YNAB
   class PlanSummaryResponseData < ApiModelBase
-    attr_accessor :budgets
+    attr_accessor :plans
 
-    attr_accessor :default_budget
+    attr_accessor :default_plan
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'budgets' => :'budgets',
-        :'default_budget' => :'default_budget'
+        :'plans' => :'plans',
+        :'default_plan' => :'default_plan'
       }
     end
 
@@ -32,8 +32,8 @@ module YNAB
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'budgets' => :'Array<PlanSummary>',
-        :'default_budget' => :'PlanSummary'
+        :'plans' => :'Array<PlanSummary>',
+        :'default_plan' => :'PlanSummary'
       }
     end
 
@@ -58,14 +58,14 @@ module YNAB
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'budgets')
-        if (value = attributes[:'budgets']).is_a?(Array)
-          self.budgets = value
+      if attributes.key?(:'plans')
+        if (value = attributes[:'plans']).is_a?(Array)
+          self.plans = value
         end
       end
 
-      if attributes.key?(:'default_budget')
-        self.default_budget = attributes[:'default_budget']
+      if attributes.key?(:'default_plan')
+        self.default_plan = attributes[:'default_plan']
       end
     end
 
@@ -79,7 +79,7 @@ module YNAB
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @budgets.nil?
+      return false if @plans.nil?
       true
     end
 
@@ -88,8 +88,8 @@ module YNAB
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          budgets == o.budgets &&
-          default_budget == o.default_budget
+          plans == o.plans &&
+          default_plan == o.default_plan
     end
 
     # @see the `==` method
@@ -101,7 +101,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [budgets, default_budget].hash
+      [plans, default_plan].hash
     end
 
     # Builds the object from hash
