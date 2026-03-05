@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.localhost:3000/v1/budgets
+    uri: http://api.localhost:3000/v1/plans
     body:
       encoding: US-ASCII
       string: ''
@@ -44,6 +44,6 @@ http_interactions:
       string: '{"error":{"id":"401","name":"unauthorized","detail":"Unauthorized"}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://api.localhost:3000/v1/budgets
+      effective_url: http://api.localhost:3000/v1/plans
   recorded_at: Thu, 15 Feb 2018 18:59:58 GMT
 recorded_with: VCR 3.0.3

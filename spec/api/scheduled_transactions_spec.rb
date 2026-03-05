@@ -34,7 +34,7 @@ describe 'scheduled transactions' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/scheduled_transactions' do
+  describe 'GET /plans/{plan_id}/scheduled_transactions' do
     it 'returns a list of transactions' do
       VCR.use_cassette("scheduled_transactions") do
         response = instance.get_scheduled_transactions(plan_id)
@@ -44,7 +44,7 @@ describe 'scheduled transactions' do
     end
   end
 
-  describe 'GET /budgets/{plan_id}/scheduled_transactions/{payee_id}' do
+  describe 'GET /plans/{plan_id}/scheduled_transactions/{payee_id}' do
     it 'returns a payee' do
       VCR.use_cassette("scheduled_transaction") do
         response = instance.get_scheduled_transaction_by_id(plan_id, '1a8e4929-3ad1-4859-8443-2aeeab0684ab')
@@ -54,7 +54,7 @@ describe 'scheduled transactions' do
     end
   end
 
-  describe 'POST /budgets/{plan_id}/scheduled_transactions' do
+  describe 'POST /plans/{plan_id}/scheduled_transactions' do
     it 'creates a scheduled transaction' do
       VCR.use_cassette("create_scheduled_transaction") do
         response = instance.create_scheduled_transaction(plan_id, {

@@ -45,7 +45,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'payee_id' when calling PayeesApi.get_payee_by_id"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/payees/{payee_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'payee_id' + '}', CGI.escape(payee_id.to_s))
+      local_var_path = '/plans/{plan_id}/payees/{payee_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'payee_id' + '}', CGI.escape(payee_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -110,7 +110,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'plan_id' when calling PayeesApi.get_payees"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/payees'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
+      local_var_path = '/plans/{plan_id}/payees'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -186,7 +186,7 @@ module YNAB
         fail ArgumentError, "Missing the required parameter 'data' when calling PayeesApi.update_payee"
       end
       # resource path
-      local_var_path = '/budgets/{plan_id}/payees/{payee_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'payee_id' + '}', CGI.escape(payee_id.to_s))
+      local_var_path = '/plans/{plan_id}/payees/{payee_id}'.sub('{' + 'plan_id' + '}', CGI.escape(plan_id.to_s)).sub('{' + 'payee_id' + '}', CGI.escape(payee_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -4,11 +4,11 @@ All URIs are relative to *https://api.ynab.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_scheduled_transaction**](ScheduledTransactionsApi.md#create_scheduled_transaction) | **POST** /budgets/{plan_id}/scheduled_transactions | Create a scheduled transaction |
-| [**delete_scheduled_transaction**](ScheduledTransactionsApi.md#delete_scheduled_transaction) | **DELETE** /budgets/{plan_id}/scheduled_transactions/{scheduled_transaction_id} | Delete a scheduled transaction |
-| [**get_scheduled_transaction_by_id**](ScheduledTransactionsApi.md#get_scheduled_transaction_by_id) | **GET** /budgets/{plan_id}/scheduled_transactions/{scheduled_transaction_id} | Get a scheduled transaction |
-| [**get_scheduled_transactions**](ScheduledTransactionsApi.md#get_scheduled_transactions) | **GET** /budgets/{plan_id}/scheduled_transactions | Get all scheduled transactions |
-| [**update_scheduled_transaction**](ScheduledTransactionsApi.md#update_scheduled_transaction) | **PUT** /budgets/{plan_id}/scheduled_transactions/{scheduled_transaction_id} | Update a scheduled transaction |
+| [**create_scheduled_transaction**](ScheduledTransactionsApi.md#create_scheduled_transaction) | **POST** /plans/{plan_id}/scheduled_transactions | Create a scheduled transaction |
+| [**delete_scheduled_transaction**](ScheduledTransactionsApi.md#delete_scheduled_transaction) | **DELETE** /plans/{plan_id}/scheduled_transactions/{scheduled_transaction_id} | Delete a scheduled transaction |
+| [**get_scheduled_transaction_by_id**](ScheduledTransactionsApi.md#get_scheduled_transaction_by_id) | **GET** /plans/{plan_id}/scheduled_transactions/{scheduled_transaction_id} | Get a scheduled transaction |
+| [**get_scheduled_transactions**](ScheduledTransactionsApi.md#get_scheduled_transactions) | **GET** /plans/{plan_id}/scheduled_transactions | Get all scheduled transactions |
+| [**update_scheduled_transaction**](ScheduledTransactionsApi.md#update_scheduled_transaction) | **PUT** /plans/{plan_id}/scheduled_transactions/{scheduled_transaction_id} | Update a scheduled transaction |
 
 
 ## create_scheduled_transaction

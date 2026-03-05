@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://api.localhost:3000/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/scheduled_transactions
+    uri: http://api.localhost:3000/v1/plans/f419ac25-6217-4175-88dc-c3136ff5f6fd/scheduled_transactions
     body:
       encoding: UTF-8
       string: '{"scheduled_transaction":{"date":"2025-01-01","account_id":"49b0c987-7d2b-46ec-ba14-f8a7e79fb830","amount":20000,"frequency":"weekly"}}'
@@ -58,6 +58,6 @@ http_interactions:
       string: '{"data":{"scheduled_transaction":{"id":"5901eada-db36-4d95-b737-c1a5cc43a915","date_first":"2025-01-01","date_next":"2025-01-01","frequency":"weekly","amount":20000,"memo":null,"flag_color":null,"flag_name":null,"account_id":"49b0c987-7d2b-46ec-ba14-f8a7e79fb830","account_name":"Checking","payee_id":null,"payee_name":null,"category_id":null,"category_name":"Uncategorized","transfer_account_id":null,"deleted":false,"subtransactions":[]},"server_knowledge":64}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://localhost:3000/papi/v1/budgets/f419ac25-6217-4175-88dc-c3136ff5f6fd/scheduled_transactions
+      effective_url: http://localhost:3000/papi/v1/plans/f419ac25-6217-4175-88dc-c3136ff5f6fd/scheduled_transactions
   recorded_at: Mon, 08 Jul 2024 23:16:33 GMT
 recorded_with: VCR 6.2.0

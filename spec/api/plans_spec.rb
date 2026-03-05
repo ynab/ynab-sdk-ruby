@@ -33,22 +33,22 @@ describe 'plans' do
     end
   end
 
-  describe 'GET /budgets' do
-    it 'returns a list of budgets' do
-      VCR.use_cassette("budgets") do
+  describe 'GET /plans' do
+    it 'returns a list of plans' do
+      VCR.use_cassette("plans") do
         response = instance.get_plans
         expect(client.last_request.response.options[:code]).to be 200
-        expect(response.data.budgets.length).to be 4
+        expect(response.data.plans.length).to be 4
       end
     end
   end
 
-  describe 'GET /budgets/{plan_id}' do
-    it 'returns a budget' do
-      VCR.use_cassette("budget") do
+  describe 'GET /plans/{plan_id}' do
+    it 'returns a plan' do
+      VCR.use_cassette("plan") do
         response = instance.get_plan_by_id('f419ac25-6217-4175-88dc-c3136ff5f6fd')
-        expect(response.data.budget).to be
-        expect(response.data.budget.name).to eq "ABC"
+        expect(response.data.plan).to be
+        expect(response.data.plan.name).to eq "ABC"
       end
     end
   end
