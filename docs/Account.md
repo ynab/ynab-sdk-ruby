@@ -22,4 +22,10 @@
 | **debt_minimum_payments** | **Hash&lt;String, Integer&gt;** |  | [optional] |
 | **debt_escrow_amounts** | **Hash&lt;String, Integer&gt;** |  | [optional] |
 | **deleted** | **Boolean** | Whether or not the account has been deleted.  Deleted accounts will only be included in delta requests. |  |
+| **balance_formatted** | **String** | The current available balance of the account formatted in the plan&#39;s currency format | [optional] |
+| **balance_currency** | **Float** | The current available balance of the account as a decimal currency amount | [optional] |
+| **cleared_balance_formatted** | **String** | The current cleared balance of the account formatted in the plan&#39;s currency format | [optional] |
+| **cleared_balance_currency** | **Float** | The current cleared balance of the account as a decimal currency amount | [optional] |
+| **uncleared_balance_formatted** | **String** | The current uncleared balance of the account formatted in the plan&#39;s currency format | [optional] |
+| **uncleared_balance_currency** | **Float** | The current uncleared balance of the account as a decimal currency amount | [optional] |
 

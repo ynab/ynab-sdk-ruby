@@ -17,4 +17,6 @@
 | **category_id** | **String** |  | [optional] |
 | **transfer_account_id** | **String** | If a transfer, the account_id which the scheduled transaction transfers to | [optional] |
 | **deleted** | **Boolean** | Whether or not the scheduled transaction has been deleted.  Deleted scheduled transactions will only be included in delta requests. |  |
+| **amount_formatted** | **String** | The scheduled transaction amount formatted in the plan&#39;s currency format | [optional] |
+| **amount_currency** | **Float** | The scheduled transaction amount as a decimal currency amount | [optional] |
 

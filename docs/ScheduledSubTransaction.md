@@ -14,4 +14,6 @@
 | **category_name** | **String** |  | [optional] |
 | **transfer_account_id** | **String** | If a transfer, the account_id which the scheduled subtransaction transfers to | [optional] |
 | **deleted** | **Boolean** | Whether or not the scheduled subtransaction has been deleted. Deleted scheduled subtransactions will only be included in delta requests. |  |
+| **amount_formatted** | **String** | The scheduled subtransaction amount formatted in the plan&#39;s currency format | [optional] |
+| **amount_currency** | **Float** | The scheduled subtransaction amount as a decimal currency amount | [optional] |
 

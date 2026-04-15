@@ -4,9 +4,30 @@ All URIs are relative to *https://api.ynab.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**create_payee**](PayeesApi.md#create_payee) | **POST** /plans/{plan_id}/payees | Create a payee |
 | [**get_payee_by_id**](PayeesApi.md#get_payee_by_id) | **GET** /plans/{plan_id}/payees/{payee_id} | Get a payee |
 | [**get_payees**](PayeesApi.md#get_payees) | **GET** /plans/{plan_id}/payees | Get all payees |
 | [**update_payee**](PayeesApi.md#update_payee) | **PATCH** /plans/{plan_id}/payees/{payee_id} | Update a payee |
+
+
+## create_payee
+
+> <SavePayeeResponse> create_payee(plan_id, data)
+
+Create a payee
+
+Creates a new payee
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **plan_id** | **String** | The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan). |  |
+| **data** | [**PostPayeeWrapper**](PostPayeeWrapper.md) | The payee to create |  |
+
+### Return type
+
+[**SavePayeeResponse**](SavePayeeResponse.md)
 
 
 ## get_payee_by_id

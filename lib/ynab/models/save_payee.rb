@@ -12,7 +12,7 @@ require 'time'
 
 module YNAB
   class SavePayee < ApiModelBase
-    # The name of the payee. The name must be a maximum of 500 characters.
+    # The name of the payee.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

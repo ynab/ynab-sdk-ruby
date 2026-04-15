@@ -60,7 +60,7 @@ module YNAB
     def self.openapi_types
       {
         :'name' => :'String',
-        :'type' => :'AccountType',
+        :'type' => :'SaveAccountType',
         :'balance' => :'Integer'
       }
     end

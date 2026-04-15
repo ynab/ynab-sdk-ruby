@@ -18,11 +18,14 @@ module YNAB
 
     attr_accessor :category_group_id
 
-    # The goal target amount in milliunits format.  If value is specified and goal has not already been configured for category, a monthly 'Needed for Spending' goal will be created for the category with this target amount.
+    # The goal target amount in milliunits format.  If value is specified and goal has not already been configured for category, a monthly goal will be created for the category with this target amount.  If goal_type is not specified, it will default to 'NEED' or 'MF' for Credit Card Payment categories.
     attr_accessor :goal_target
 
     # The goal target date in ISO format (e.g. 2016-12-01).
     attr_accessor :goal_target_date
+
+    # Whether the goal requires the full target amount each period. Only supported for 'NEED' goals. When true, the goal is configured as 'Set aside another...'. When false, the goal is configured as 'Refill up to...'.
+    attr_accessor :goal_needs_whole_amount
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -31,7 +34,8 @@ module YNAB
         :'note' => :'note',
         :'category_group_id' => :'category_group_id',
         :'goal_target' => :'goal_target',
-        :'goal_target_date' => :'goal_target_date'
+        :'goal_target_date' => :'goal_target_date',
+        :'goal_needs_whole_amount' => :'goal_needs_whole_amount'
       }
     end
 
@@ -47,7 +51,8 @@ module YNAB
         :'note' => :'String',
         :'category_group_id' => :'String',
         :'goal_target' => :'Integer',
-        :'goal_target_date' => :'Date'
+        :'goal_target_date' => :'Date',
+        :'goal_needs_whole_amount' => :'Boolean'
       }
     end
 
@@ -57,7 +62,8 @@ module YNAB
         :'name',
         :'note',
         :'goal_target',
-        :'goal_target_date'
+        :'goal_target_date',
+        :'goal_needs_whole_amount'
       ])
     end
 
@@ -95,6 +101,10 @@ module YNAB
       if attributes.key?(:'goal_target_date')
         self.goal_target_date = attributes[:'goal_target_date']
       end
+
+      if attributes.key?(:'goal_needs_whole_amount')
+        self.goal_needs_whole_amount = attributes[:'goal_needs_whole_amount']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -119,7 +129,8 @@ module YNAB
           note == o.note &&
           category_group_id == o.category_group_id &&
           goal_target == o.goal_target &&
-          goal_target_date == o.goal_target_date
+          goal_target_date == o.goal_target_date &&
+          goal_needs_whole_amount == o.goal_needs_whole_amount
     end
 
     # @see the `==` method
@@ -131,7 +142,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, note, category_group_id, goal_target, goal_target_date].hash
+      [name, note, category_group_id, goal_target, goal_target_date, goal_needs_whole_amount].hash
     end
 
     # Builds the object from hash

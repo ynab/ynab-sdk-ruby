@@ -44,6 +44,12 @@ module YNAB
     # Whether or not the scheduled transaction has been deleted.  Deleted scheduled transactions will only be included in delta requests.
     attr_accessor :deleted
 
+    # The scheduled transaction amount formatted in the plan's currency format
+    attr_accessor :amount_formatted
+
+    # The scheduled transaction amount as a decimal currency amount
+    attr_accessor :amount_currency
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -81,7 +87,9 @@ module YNAB
         :'payee_id' => :'payee_id',
         :'category_id' => :'category_id',
         :'transfer_account_id' => :'transfer_account_id',
-        :'deleted' => :'deleted'
+        :'deleted' => :'deleted',
+        :'amount_formatted' => :'amount_formatted',
+        :'amount_currency' => :'amount_currency'
       }
     end
 
@@ -105,20 +113,24 @@ module YNAB
         :'payee_id' => :'String',
         :'category_id' => :'String',
         :'transfer_account_id' => :'String',
-        :'deleted' => :'Boolean'
+        :'deleted' => :'Boolean',
+        :'amount_formatted' => :'String',
+        :'amount_currency' => :'Float'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'memo',
         :'flag_color',
-        :'flag_name',
-        :'payee_id',
-        :'category_id',
-        :'transfer_account_id',
       ])
+    end
+
+    # List of class defined in allOf (OpenAPI v3)
+    def self.openapi_all_of
+      [
+      :'ScheduledTransactionSummaryBase'
+      ]
     end
 
     # Initializes the object
@@ -187,6 +199,14 @@ module YNAB
       if attributes.key?(:'deleted')
         self.deleted = attributes[:'deleted']
       end
+
+      if attributes.key?(:'amount_formatted')
+        self.amount_formatted = attributes[:'amount_formatted']
+      end
+
+      if attributes.key?(:'amount_currency')
+        self.amount_currency = attributes[:'amount_currency']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -234,7 +254,9 @@ module YNAB
           payee_id == o.payee_id &&
           category_id == o.category_id &&
           transfer_account_id == o.transfer_account_id &&
-          deleted == o.deleted
+          deleted == o.deleted &&
+          amount_formatted == o.amount_formatted &&
+          amount_currency == o.amount_currency
     end
 
     # @see the `==` method
@@ -246,7 +268,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, date_first, date_next, frequency, amount, memo, flag_color, flag_name, account_id, payee_id, category_id, transfer_account_id, deleted].hash
+      [id, date_first, date_next, frequency, amount, memo, flag_color, flag_name, account_id, payee_id, category_id, transfer_account_id, deleted, amount_formatted, amount_currency].hash
     end
 
     # Builds the object from hash

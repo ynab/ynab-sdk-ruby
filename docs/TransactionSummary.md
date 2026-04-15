@@ -23,4 +23,6 @@
 | **import_payee_name_original** | **String** | If the transaction was imported, the original payee name as it appeared on the statement | [optional] |
 | **debt_transaction_type** | **String** | If the transaction is a debt/loan account transaction, the type of transaction | [optional] |
 | **deleted** | **Boolean** | Whether or not the transaction has been deleted.  Deleted transactions will only be included in delta requests. |  |
+| **amount_formatted** | **String** | The transaction amount formatted in the plan&#39;s currency format | [optional] |
+| **amount_currency** | **Float** | The transaction amount as a decimal currency amount | [optional] |
 
