@@ -85,6 +85,48 @@ module YNAB
     # Whether or not the category has been deleted.  Deleted categories will only be included in delta requests.
     attr_accessor :deleted
 
+    # Available balance of the category formatted in the plan's currency format
+    attr_accessor :balance_formatted
+
+    # Available balance of the category as a decimal currency amount
+    attr_accessor :balance_currency
+
+    # Activity of the category formatted in the plan's currency format
+    attr_accessor :activity_formatted
+
+    # Activity of the category as a decimal currency amount
+    attr_accessor :activity_currency
+
+    # Assigned (budgeted) amount of the category formatted in the plan's currency format
+    attr_accessor :budgeted_formatted
+
+    # Assigned (budgeted) amount of the category as a decimal currency amount
+    attr_accessor :budgeted_currency
+
+    # The goal target amount formatted in the plan's currency format
+    attr_accessor :goal_target_formatted
+
+    # The goal target amount as a decimal currency amount
+    attr_accessor :goal_target_currency
+
+    # The goal underfunded amount formatted in the plan's currency format
+    attr_accessor :goal_under_funded_formatted
+
+    # The goal underfunded amount as a decimal currency amount
+    attr_accessor :goal_under_funded_currency
+
+    # The total amount funded towards the goal formatted in the plan's currency format
+    attr_accessor :goal_overall_funded_formatted
+
+    # The total amount funded towards the goal as a decimal currency amount
+    attr_accessor :goal_overall_funded_currency
+
+    # The amount of funding still needed to complete the goal formatted in the plan's currency format
+    attr_accessor :goal_overall_left_formatted
+
+    # The amount of funding still needed to complete the goal as a decimal currency amount
+    attr_accessor :goal_overall_left_currency
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -135,7 +177,21 @@ module YNAB
         :'goal_overall_funded' => :'goal_overall_funded',
         :'goal_overall_left' => :'goal_overall_left',
         :'goal_snoozed_at' => :'goal_snoozed_at',
-        :'deleted' => :'deleted'
+        :'deleted' => :'deleted',
+        :'balance_formatted' => :'balance_formatted',
+        :'balance_currency' => :'balance_currency',
+        :'activity_formatted' => :'activity_formatted',
+        :'activity_currency' => :'activity_currency',
+        :'budgeted_formatted' => :'budgeted_formatted',
+        :'budgeted_currency' => :'budgeted_currency',
+        :'goal_target_formatted' => :'goal_target_formatted',
+        :'goal_target_currency' => :'goal_target_currency',
+        :'goal_under_funded_formatted' => :'goal_under_funded_formatted',
+        :'goal_under_funded_currency' => :'goal_under_funded_currency',
+        :'goal_overall_funded_formatted' => :'goal_overall_funded_formatted',
+        :'goal_overall_funded_currency' => :'goal_overall_funded_currency',
+        :'goal_overall_left_formatted' => :'goal_overall_left_formatted',
+        :'goal_overall_left_currency' => :'goal_overall_left_currency'
       }
     end
 
@@ -172,31 +228,44 @@ module YNAB
         :'goal_overall_funded' => :'Integer',
         :'goal_overall_left' => :'Integer',
         :'goal_snoozed_at' => :'Time',
-        :'deleted' => :'Boolean'
+        :'deleted' => :'Boolean',
+        :'balance_formatted' => :'String',
+        :'balance_currency' => :'Float',
+        :'activity_formatted' => :'String',
+        :'activity_currency' => :'Float',
+        :'budgeted_formatted' => :'String',
+        :'budgeted_currency' => :'Float',
+        :'goal_target_formatted' => :'String',
+        :'goal_target_currency' => :'Float',
+        :'goal_under_funded_formatted' => :'String',
+        :'goal_under_funded_currency' => :'Float',
+        :'goal_overall_funded_formatted' => :'String',
+        :'goal_overall_funded_currency' => :'Float',
+        :'goal_overall_left_formatted' => :'String',
+        :'goal_overall_left_currency' => :'Float'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'original_category_group_id',
-        :'note',
         :'goal_type',
-        :'goal_needs_whole_amount',
-        :'goal_day',
-        :'goal_cadence',
-        :'goal_cadence_frequency',
-        :'goal_creation_month',
-        :'goal_target',
-        :'goal_target_month',
-        :'goal_target_date',
-        :'goal_percentage_complete',
-        :'goal_months_to_budget',
-        :'goal_under_funded',
-        :'goal_overall_funded',
-        :'goal_overall_left',
-        :'goal_snoozed_at',
+        :'goal_target_formatted',
+        :'goal_target_currency',
+        :'goal_under_funded_formatted',
+        :'goal_under_funded_currency',
+        :'goal_overall_funded_formatted',
+        :'goal_overall_funded_currency',
+        :'goal_overall_left_formatted',
+        :'goal_overall_left_currency'
       ])
+    end
+
+    # List of class defined in allOf (OpenAPI v3)
+    def self.openapi_all_of
+      [
+      :'CategoryBase'
+      ]
     end
 
     # Initializes the object
@@ -317,6 +386,62 @@ module YNAB
       if attributes.key?(:'deleted')
         self.deleted = attributes[:'deleted']
       end
+
+      if attributes.key?(:'balance_formatted')
+        self.balance_formatted = attributes[:'balance_formatted']
+      end
+
+      if attributes.key?(:'balance_currency')
+        self.balance_currency = attributes[:'balance_currency']
+      end
+
+      if attributes.key?(:'activity_formatted')
+        self.activity_formatted = attributes[:'activity_formatted']
+      end
+
+      if attributes.key?(:'activity_currency')
+        self.activity_currency = attributes[:'activity_currency']
+      end
+
+      if attributes.key?(:'budgeted_formatted')
+        self.budgeted_formatted = attributes[:'budgeted_formatted']
+      end
+
+      if attributes.key?(:'budgeted_currency')
+        self.budgeted_currency = attributes[:'budgeted_currency']
+      end
+
+      if attributes.key?(:'goal_target_formatted')
+        self.goal_target_formatted = attributes[:'goal_target_formatted']
+      end
+
+      if attributes.key?(:'goal_target_currency')
+        self.goal_target_currency = attributes[:'goal_target_currency']
+      end
+
+      if attributes.key?(:'goal_under_funded_formatted')
+        self.goal_under_funded_formatted = attributes[:'goal_under_funded_formatted']
+      end
+
+      if attributes.key?(:'goal_under_funded_currency')
+        self.goal_under_funded_currency = attributes[:'goal_under_funded_currency']
+      end
+
+      if attributes.key?(:'goal_overall_funded_formatted')
+        self.goal_overall_funded_formatted = attributes[:'goal_overall_funded_formatted']
+      end
+
+      if attributes.key?(:'goal_overall_funded_currency')
+        self.goal_overall_funded_currency = attributes[:'goal_overall_funded_currency']
+      end
+
+      if attributes.key?(:'goal_overall_left_formatted')
+        self.goal_overall_left_formatted = attributes[:'goal_overall_left_formatted']
+      end
+
+      if attributes.key?(:'goal_overall_left_currency')
+        self.goal_overall_left_currency = attributes[:'goal_overall_left_currency']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -378,7 +503,21 @@ module YNAB
           goal_overall_funded == o.goal_overall_funded &&
           goal_overall_left == o.goal_overall_left &&
           goal_snoozed_at == o.goal_snoozed_at &&
-          deleted == o.deleted
+          deleted == o.deleted &&
+          balance_formatted == o.balance_formatted &&
+          balance_currency == o.balance_currency &&
+          activity_formatted == o.activity_formatted &&
+          activity_currency == o.activity_currency &&
+          budgeted_formatted == o.budgeted_formatted &&
+          budgeted_currency == o.budgeted_currency &&
+          goal_target_formatted == o.goal_target_formatted &&
+          goal_target_currency == o.goal_target_currency &&
+          goal_under_funded_formatted == o.goal_under_funded_formatted &&
+          goal_under_funded_currency == o.goal_under_funded_currency &&
+          goal_overall_funded_formatted == o.goal_overall_funded_formatted &&
+          goal_overall_funded_currency == o.goal_overall_funded_currency &&
+          goal_overall_left_formatted == o.goal_overall_left_formatted &&
+          goal_overall_left_currency == o.goal_overall_left_currency
     end
 
     # @see the `==` method
@@ -390,7 +529,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, category_group_id, category_group_name, name, hidden, original_category_group_id, note, budgeted, activity, balance, goal_type, goal_needs_whole_amount, goal_day, goal_cadence, goal_cadence_frequency, goal_creation_month, goal_target, goal_target_month, goal_target_date, goal_percentage_complete, goal_months_to_budget, goal_under_funded, goal_overall_funded, goal_overall_left, goal_snoozed_at, deleted].hash
+      [id, category_group_id, category_group_name, name, hidden, original_category_group_id, note, budgeted, activity, balance, goal_type, goal_needs_whole_amount, goal_day, goal_cadence, goal_cadence_frequency, goal_creation_month, goal_target, goal_target_month, goal_target_date, goal_percentage_complete, goal_months_to_budget, goal_under_funded, goal_overall_funded, goal_overall_left, goal_snoozed_at, deleted, balance_formatted, balance_currency, activity_formatted, activity_currency, budgeted_formatted, budgeted_currency, goal_target_formatted, goal_target_currency, goal_under_funded_formatted, goal_under_funded_currency, goal_overall_funded_formatted, goal_overall_funded_currency, goal_overall_left_formatted, goal_overall_left_currency].hash
     end
 
     # Builds the object from hash

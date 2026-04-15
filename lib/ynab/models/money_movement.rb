@@ -37,6 +37,12 @@ module YNAB
     # The amount of the money movement in milliunits format
     attr_accessor :amount
 
+    # The money movement amount formatted in the plan's currency format
+    attr_accessor :amount_formatted
+
+    # The money movement amount as a decimal currency amount
+    attr_accessor :amount_currency
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -48,7 +54,9 @@ module YNAB
         :'performed_by_user_id' => :'performed_by_user_id',
         :'from_category_id' => :'from_category_id',
         :'to_category_id' => :'to_category_id',
-        :'amount' => :'amount'
+        :'amount' => :'amount',
+        :'amount_formatted' => :'amount_formatted',
+        :'amount_currency' => :'amount_currency'
       }
     end
 
@@ -68,21 +76,23 @@ module YNAB
         :'performed_by_user_id' => :'String',
         :'from_category_id' => :'String',
         :'to_category_id' => :'String',
-        :'amount' => :'Integer'
+        :'amount' => :'Integer',
+        :'amount_formatted' => :'String',
+        :'amount_currency' => :'Float'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'month',
-        :'moved_at',
-        :'note',
-        :'money_movement_group_id',
-        :'performed_by_user_id',
-        :'from_category_id',
-        :'to_category_id',
       ])
+    end
+
+    # List of class defined in allOf (OpenAPI v3)
+    def self.openapi_all_of
+      [
+      :'MoneyMovementBase'
+      ]
     end
 
     # Initializes the object
@@ -135,6 +145,14 @@ module YNAB
       if attributes.key?(:'amount')
         self.amount = attributes[:'amount']
       end
+
+      if attributes.key?(:'amount_formatted')
+        self.amount_formatted = attributes[:'amount_formatted']
+      end
+
+      if attributes.key?(:'amount_currency')
+        self.amount_currency = attributes[:'amount_currency']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -165,7 +183,9 @@ module YNAB
           performed_by_user_id == o.performed_by_user_id &&
           from_category_id == o.from_category_id &&
           to_category_id == o.to_category_id &&
-          amount == o.amount
+          amount == o.amount &&
+          amount_formatted == o.amount_formatted &&
+          amount_currency == o.amount_currency
     end
 
     # @see the `==` method
@@ -177,7 +197,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, month, moved_at, note, money_movement_group_id, performed_by_user_id, from_category_id, to_category_id, amount].hash
+      [id, month, moved_at, note, money_movement_group_id, performed_by_user_id, from_category_id, to_category_id, amount, amount_formatted, amount_currency].hash
     end
 
     # Builds the object from hash

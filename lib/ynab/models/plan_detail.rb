@@ -87,16 +87,16 @@ module YNAB
         :'last_month' => :'Date',
         :'date_format' => :'DateFormat',
         :'currency_format' => :'CurrencyFormat',
-        :'accounts' => :'Array<Account>',
+        :'accounts' => :'Array<AccountBase>',
         :'payees' => :'Array<Payee>',
         :'payee_locations' => :'Array<PayeeLocation>',
         :'category_groups' => :'Array<CategoryGroup>',
-        :'categories' => :'Array<Category>',
-        :'months' => :'Array<MonthDetail>',
-        :'transactions' => :'Array<TransactionSummary>',
-        :'subtransactions' => :'Array<SubTransaction>',
-        :'scheduled_transactions' => :'Array<ScheduledTransactionSummary>',
-        :'scheduled_subtransactions' => :'Array<ScheduledSubTransaction>'
+        :'categories' => :'Array<CategoryBase>',
+        :'months' => :'Array<MonthDetailBase>',
+        :'transactions' => :'Array<TransactionSummaryBase>',
+        :'subtransactions' => :'Array<SubTransactionBase>',
+        :'scheduled_transactions' => :'Array<ScheduledTransactionSummaryBase>',
+        :'scheduled_subtransactions' => :'Array<ScheduledSubTransactionBase>'
       }
     end
 

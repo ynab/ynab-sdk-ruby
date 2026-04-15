@@ -44,6 +44,12 @@ module YNAB
     # Whether or not the scheduled transaction has been deleted.  Deleted scheduled transactions will only be included in delta requests.
     attr_accessor :deleted
 
+    # The scheduled transaction amount formatted in the plan's currency format
+    attr_accessor :amount_formatted
+
+    # The scheduled transaction amount as a decimal currency amount
+    attr_accessor :amount_currency
+
     attr_accessor :account_name
 
     attr_accessor :payee_name
@@ -92,6 +98,8 @@ module YNAB
         :'category_id' => :'category_id',
         :'transfer_account_id' => :'transfer_account_id',
         :'deleted' => :'deleted',
+        :'amount_formatted' => :'amount_formatted',
+        :'amount_currency' => :'amount_currency',
         :'account_name' => :'account_name',
         :'payee_name' => :'payee_name',
         :'category_name' => :'category_name',
@@ -120,6 +128,8 @@ module YNAB
         :'category_id' => :'String',
         :'transfer_account_id' => :'String',
         :'deleted' => :'Boolean',
+        :'amount_formatted' => :'String',
+        :'amount_currency' => :'Float',
         :'account_name' => :'String',
         :'payee_name' => :'String',
         :'category_name' => :'String',
@@ -210,6 +220,14 @@ module YNAB
         self.deleted = attributes[:'deleted']
       end
 
+      if attributes.key?(:'amount_formatted')
+        self.amount_formatted = attributes[:'amount_formatted']
+      end
+
+      if attributes.key?(:'amount_currency')
+        self.amount_currency = attributes[:'amount_currency']
+      end
+
       if attributes.key?(:'account_name')
         self.account_name = attributes[:'account_name']
       end
@@ -277,6 +295,8 @@ module YNAB
           category_id == o.category_id &&
           transfer_account_id == o.transfer_account_id &&
           deleted == o.deleted &&
+          amount_formatted == o.amount_formatted &&
+          amount_currency == o.amount_currency &&
           account_name == o.account_name &&
           payee_name == o.payee_name &&
           category_name == o.category_name &&
@@ -292,7 +312,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, date_first, date_next, frequency, amount, memo, flag_color, flag_name, account_id, payee_id, category_id, transfer_account_id, deleted, account_name, payee_name, category_name, subtransactions].hash
+      [id, date_first, date_next, frequency, amount, memo, flag_color, flag_name, account_id, payee_id, category_id, transfer_account_id, deleted, amount_formatted, amount_currency, account_name, payee_name, category_name, subtransactions].hash
     end
 
     # Builds the object from hash

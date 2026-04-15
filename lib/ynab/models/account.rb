@@ -59,6 +59,24 @@ module YNAB
     # Whether or not the account has been deleted.  Deleted accounts will only be included in delta requests.
     attr_accessor :deleted
 
+    # The current available balance of the account formatted in the plan's currency format
+    attr_accessor :balance_formatted
+
+    # The current available balance of the account as a decimal currency amount
+    attr_accessor :balance_currency
+
+    # The current cleared balance of the account formatted in the plan's currency format
+    attr_accessor :cleared_balance_formatted
+
+    # The current cleared balance of the account as a decimal currency amount
+    attr_accessor :cleared_balance_currency
+
+    # The current uncleared balance of the account formatted in the plan's currency format
+    attr_accessor :uncleared_balance_formatted
+
+    # The current uncleared balance of the account as a decimal currency amount
+    attr_accessor :uncleared_balance_currency
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -101,7 +119,13 @@ module YNAB
         :'debt_interest_rates' => :'debt_interest_rates',
         :'debt_minimum_payments' => :'debt_minimum_payments',
         :'debt_escrow_amounts' => :'debt_escrow_amounts',
-        :'deleted' => :'deleted'
+        :'deleted' => :'deleted',
+        :'balance_formatted' => :'balance_formatted',
+        :'balance_currency' => :'balance_currency',
+        :'cleared_balance_formatted' => :'cleared_balance_formatted',
+        :'cleared_balance_currency' => :'cleared_balance_currency',
+        :'uncleared_balance_formatted' => :'uncleared_balance_formatted',
+        :'uncleared_balance_currency' => :'uncleared_balance_currency'
       }
     end
 
@@ -130,18 +154,27 @@ module YNAB
         :'debt_interest_rates' => :'Hash<String, Integer>',
         :'debt_minimum_payments' => :'Hash<String, Integer>',
         :'debt_escrow_amounts' => :'Hash<String, Integer>',
-        :'deleted' => :'Boolean'
+        :'deleted' => :'Boolean',
+        :'balance_formatted' => :'String',
+        :'balance_currency' => :'Float',
+        :'cleared_balance_formatted' => :'String',
+        :'cleared_balance_currency' => :'Float',
+        :'uncleared_balance_formatted' => :'String',
+        :'uncleared_balance_currency' => :'Float'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'note',
-        :'transfer_payee_id',
-        :'last_reconciled_at',
-        :'debt_original_balance',
       ])
+    end
+
+    # List of class defined in allOf (OpenAPI v3)
+    def self.openapi_all_of
+      [
+      :'AccountBase'
+      ]
     end
 
     # Initializes the object
@@ -236,6 +269,30 @@ module YNAB
       if attributes.key?(:'deleted')
         self.deleted = attributes[:'deleted']
       end
+
+      if attributes.key?(:'balance_formatted')
+        self.balance_formatted = attributes[:'balance_formatted']
+      end
+
+      if attributes.key?(:'balance_currency')
+        self.balance_currency = attributes[:'balance_currency']
+      end
+
+      if attributes.key?(:'cleared_balance_formatted')
+        self.cleared_balance_formatted = attributes[:'cleared_balance_formatted']
+      end
+
+      if attributes.key?(:'cleared_balance_currency')
+        self.cleared_balance_currency = attributes[:'cleared_balance_currency']
+      end
+
+      if attributes.key?(:'uncleared_balance_formatted')
+        self.uncleared_balance_formatted = attributes[:'uncleared_balance_formatted']
+      end
+
+      if attributes.key?(:'uncleared_balance_currency')
+        self.uncleared_balance_currency = attributes[:'uncleared_balance_currency']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -256,6 +313,7 @@ module YNAB
       return false if @balance.nil?
       return false if @cleared_balance.nil?
       return false if @uncleared_balance.nil?
+      return false if @transfer_payee_id.nil?
       return false if @deleted.nil?
       true
     end
@@ -282,7 +340,13 @@ module YNAB
           debt_interest_rates == o.debt_interest_rates &&
           debt_minimum_payments == o.debt_minimum_payments &&
           debt_escrow_amounts == o.debt_escrow_amounts &&
-          deleted == o.deleted
+          deleted == o.deleted &&
+          balance_formatted == o.balance_formatted &&
+          balance_currency == o.balance_currency &&
+          cleared_balance_formatted == o.cleared_balance_formatted &&
+          cleared_balance_currency == o.cleared_balance_currency &&
+          uncleared_balance_formatted == o.uncleared_balance_formatted &&
+          uncleared_balance_currency == o.uncleared_balance_currency
     end
 
     # @see the `==` method
@@ -294,7 +358,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, type, on_budget, closed, note, balance, cleared_balance, uncleared_balance, transfer_payee_id, direct_import_linked, direct_import_in_error, last_reconciled_at, debt_original_balance, debt_interest_rates, debt_minimum_payments, debt_escrow_amounts, deleted].hash
+      [id, name, type, on_budget, closed, note, balance, cleared_balance, uncleared_balance, transfer_payee_id, direct_import_linked, direct_import_in_error, last_reconciled_at, debt_original_balance, debt_interest_rates, debt_minimum_payments, debt_escrow_amounts, deleted, balance_formatted, balance_currency, cleared_balance_formatted, cleared_balance_currency, uncleared_balance_formatted, uncleared_balance_currency].hash
     end
 
     # Builds the object from hash

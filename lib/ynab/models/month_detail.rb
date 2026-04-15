@@ -34,6 +34,30 @@ module YNAB
     # Whether or not the month has been deleted.  Deleted months will only be included in delta requests.
     attr_accessor :deleted
 
+    # The total income formatted in the plan's currency format
+    attr_accessor :income_formatted
+
+    # The total income as a decimal currency amount
+    attr_accessor :income_currency
+
+    # The total amount assigned formatted in the plan's currency format
+    attr_accessor :budgeted_formatted
+
+    # The total amount assigned as a decimal currency amount
+    attr_accessor :budgeted_currency
+
+    # The total activity amount formatted in the plan's currency format
+    attr_accessor :activity_formatted
+
+    # The total activity amount as a decimal currency amount
+    attr_accessor :activity_currency
+
+    # The available amount for 'Ready to Assign' formatted in the plan's currency format
+    attr_accessor :to_be_budgeted_formatted
+
+    # The available amount for 'Ready to Assign' as a decimal currency amount
+    attr_accessor :to_be_budgeted_currency
+
     # The plan month categories.  Amounts (budgeted, activity, balance, etc.) are specific to the {month} parameter specified.
     attr_accessor :categories
 
@@ -48,6 +72,14 @@ module YNAB
         :'to_be_budgeted' => :'to_be_budgeted',
         :'age_of_money' => :'age_of_money',
         :'deleted' => :'deleted',
+        :'income_formatted' => :'income_formatted',
+        :'income_currency' => :'income_currency',
+        :'budgeted_formatted' => :'budgeted_formatted',
+        :'budgeted_currency' => :'budgeted_currency',
+        :'activity_formatted' => :'activity_formatted',
+        :'activity_currency' => :'activity_currency',
+        :'to_be_budgeted_formatted' => :'to_be_budgeted_formatted',
+        :'to_be_budgeted_currency' => :'to_be_budgeted_currency',
         :'categories' => :'categories'
       }
     end
@@ -68,6 +100,14 @@ module YNAB
         :'to_be_budgeted' => :'Integer',
         :'age_of_money' => :'Integer',
         :'deleted' => :'Boolean',
+        :'income_formatted' => :'String',
+        :'income_currency' => :'Float',
+        :'budgeted_formatted' => :'String',
+        :'budgeted_currency' => :'Float',
+        :'activity_formatted' => :'String',
+        :'activity_currency' => :'Float',
+        :'to_be_budgeted_formatted' => :'String',
+        :'to_be_budgeted_currency' => :'Float',
         :'categories' => :'Array<Category>'
       }
     end
@@ -132,6 +172,38 @@ module YNAB
         self.deleted = attributes[:'deleted']
       end
 
+      if attributes.key?(:'income_formatted')
+        self.income_formatted = attributes[:'income_formatted']
+      end
+
+      if attributes.key?(:'income_currency')
+        self.income_currency = attributes[:'income_currency']
+      end
+
+      if attributes.key?(:'budgeted_formatted')
+        self.budgeted_formatted = attributes[:'budgeted_formatted']
+      end
+
+      if attributes.key?(:'budgeted_currency')
+        self.budgeted_currency = attributes[:'budgeted_currency']
+      end
+
+      if attributes.key?(:'activity_formatted')
+        self.activity_formatted = attributes[:'activity_formatted']
+      end
+
+      if attributes.key?(:'activity_currency')
+        self.activity_currency = attributes[:'activity_currency']
+      end
+
+      if attributes.key?(:'to_be_budgeted_formatted')
+        self.to_be_budgeted_formatted = attributes[:'to_be_budgeted_formatted']
+      end
+
+      if attributes.key?(:'to_be_budgeted_currency')
+        self.to_be_budgeted_currency = attributes[:'to_be_budgeted_currency']
+      end
+
       if attributes.key?(:'categories')
         if (value = attributes[:'categories']).is_a?(Array)
           self.categories = value
@@ -172,6 +244,14 @@ module YNAB
           to_be_budgeted == o.to_be_budgeted &&
           age_of_money == o.age_of_money &&
           deleted == o.deleted &&
+          income_formatted == o.income_formatted &&
+          income_currency == o.income_currency &&
+          budgeted_formatted == o.budgeted_formatted &&
+          budgeted_currency == o.budgeted_currency &&
+          activity_formatted == o.activity_formatted &&
+          activity_currency == o.activity_currency &&
+          to_be_budgeted_formatted == o.to_be_budgeted_formatted &&
+          to_be_budgeted_currency == o.to_be_budgeted_currency &&
           categories == o.categories
     end
 
@@ -184,7 +264,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [month, note, income, budgeted, activity, to_be_budgeted, age_of_money, deleted, categories].hash
+      [month, note, income, budgeted, activity, to_be_budgeted, age_of_money, deleted, income_formatted, income_currency, budgeted_formatted, budgeted_currency, activity_formatted, activity_currency, to_be_budgeted_formatted, to_be_budgeted_currency, categories].hash
     end
 
     # Builds the object from hash

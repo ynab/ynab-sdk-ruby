@@ -13,4 +13,6 @@
 | **from_category_id** | **String** | The id of the category the money was moved from | [optional] |
 | **to_category_id** | **String** | The id of the category the money was moved to | [optional] |
 | **amount** | **Integer** | The amount of the money movement in milliunits format |  |
+| **amount_formatted** | **String** | The money movement amount formatted in the plan&#39;s currency format | [optional] |
+| **amount_currency** | **Float** | The money movement amount as a decimal currency amount | [optional] |
 
