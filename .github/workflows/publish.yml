@@ -21,8 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Hide the inputs values to keep them private in the logs when running this workflow
-        uses: levibostian/action-hide-sensitive-inputs@v1
-      - uses: actions/checkout@v6
+        uses: levibostian/action-hide-sensitive-inputs@80877460a95aa5e56cba23314096ef0e0a3c10c1 # 1.1.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           token: ${{ secrets.GH_API_TOKEN }}
       - name: Setup git repo
@@ -61,12 +61,12 @@ jobs:
           GEM_HOST_OTP_CODE: ${{ inputs.rubygems_otp }}
       - name: Create a Release
         id: create-release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3.0.0
         with:
           tag_name: ${{ steps.bump_version.outputs.new_version }}
           generate_release_notes: true
       - name: Comment on PRs with link to release they are included in
-        uses: actions/github-script@v6
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           RELEASE_ID: ${{ steps.create-release.outputs.id }}
         with:
