@@ -227,11 +227,12 @@ module YNAB
       return data, status_code, headers
     end
 
-    # Get all transactions
+    # Get transactions
     # Returns plan transactions, excluding any pending transactions
     # @param plan_id [String] The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan).
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
+    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). Defaults to one year ago when not specified.
+    # @option opts [Date] :until_date If specified, only transactions on or before this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
     # @option opts [String] :type If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported.
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [TransactionsResponse]
@@ -240,11 +241,12 @@ module YNAB
       data
     end
 
-    # Get all transactions
+    # Get transactions
     # Returns plan transactions, excluding any pending transactions
     # @param plan_id [String] The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan).
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
+    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). Defaults to one year ago when not specified.
+    # @option opts [Date] :until_date If specified, only transactions on or before this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
     # @option opts [String] :type If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported.
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [Array<(TransactionsResponse, Integer, Hash)>] TransactionsResponse data, response status code and response headers
@@ -262,6 +264,7 @@ module YNAB
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
+      query_params[:'until_date'] = opts[:'until_date'] if !opts[:'until_date'].nil?
       query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
       query_params[:'last_knowledge_of_server'] = opts[:'last_knowledge_of_server'] if !opts[:'last_knowledge_of_server'].nil?
 
@@ -299,12 +302,13 @@ module YNAB
       return data, status_code, headers
     end
 
-    # Get all account transactions
+    # Get account transactions
     # Returns all transactions for a specified account, excluding any pending transactions
     # @param plan_id [String] The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan).
     # @param account_id [String] The id of the account
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
+    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). Defaults to one year ago when not specified.
+    # @option opts [Date] :until_date If specified, only transactions on or before this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
     # @option opts [String] :type If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported.
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [TransactionsResponse]
@@ -313,12 +317,13 @@ module YNAB
       data
     end
 
-    # Get all account transactions
+    # Get account transactions
     # Returns all transactions for a specified account, excluding any pending transactions
     # @param plan_id [String] The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan).
     # @param account_id [String] The id of the account
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
+    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). Defaults to one year ago when not specified.
+    # @option opts [Date] :until_date If specified, only transactions on or before this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
     # @option opts [String] :type If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported.
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [Array<(TransactionsResponse, Integer, Hash)>] TransactionsResponse data, response status code and response headers
@@ -340,6 +345,7 @@ module YNAB
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
+      query_params[:'until_date'] = opts[:'until_date'] if !opts[:'until_date'].nil?
       query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
       query_params[:'last_knowledge_of_server'] = opts[:'last_knowledge_of_server'] if !opts[:'last_knowledge_of_server'].nil?
 
@@ -377,12 +383,13 @@ module YNAB
       return data, status_code, headers
     end
 
-    # Get all category transactions
+    # Get category transactions
     # Returns all transactions for a specified category, excluding any pending transactions
     # @param plan_id [String] The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan).
     # @param category_id [String] The id of the category
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
+    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). Defaults to one year ago when not specified.
+    # @option opts [Date] :until_date If specified, only transactions on or before this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
     # @option opts [String] :type If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported.
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [HybridTransactionsResponse]
@@ -391,12 +398,13 @@ module YNAB
       data
     end
 
-    # Get all category transactions
+    # Get category transactions
     # Returns all transactions for a specified category, excluding any pending transactions
     # @param plan_id [String] The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan).
     # @param category_id [String] The id of the category
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
+    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). Defaults to one year ago when not specified.
+    # @option opts [Date] :until_date If specified, only transactions on or before this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
     # @option opts [String] :type If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported.
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [Array<(HybridTransactionsResponse, Integer, Hash)>] HybridTransactionsResponse data, response status code and response headers
@@ -418,6 +426,7 @@ module YNAB
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
+      query_params[:'until_date'] = opts[:'until_date'] if !opts[:'until_date'].nil?
       query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
       query_params[:'last_knowledge_of_server'] = opts[:'last_knowledge_of_server'] if !opts[:'last_knowledge_of_server'].nil?
 
@@ -455,12 +464,13 @@ module YNAB
       return data, status_code, headers
     end
 
-    # Get all plan month transactions
+    # Get plan month transactions
     # Returns all transactions for a specified month, excluding any pending transactions
     # @param plan_id [String] The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan).
     # @param month [String] The plan month in ISO format (e.g. 2016-12-01) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC))
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
+    # @option opts [Date] :until_date If specified, only transactions on or before this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
     # @option opts [String] :type If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported.
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [TransactionsResponse]
@@ -469,12 +479,13 @@ module YNAB
       data
     end
 
-    # Get all plan month transactions
+    # Get plan month transactions
     # Returns all transactions for a specified month, excluding any pending transactions
     # @param plan_id [String] The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan).
     # @param month [String] The plan month in ISO format (e.g. 2016-12-01) (\&quot;current\&quot; can also be used to specify the current calendar month (UTC))
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
+    # @option opts [Date] :until_date If specified, only transactions on or before this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
     # @option opts [String] :type If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported.
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [Array<(TransactionsResponse, Integer, Hash)>] TransactionsResponse data, response status code and response headers
@@ -496,6 +507,7 @@ module YNAB
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
+      query_params[:'until_date'] = opts[:'until_date'] if !opts[:'until_date'].nil?
       query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
       query_params[:'last_knowledge_of_server'] = opts[:'last_knowledge_of_server'] if !opts[:'last_knowledge_of_server'].nil?
 
@@ -533,12 +545,13 @@ module YNAB
       return data, status_code, headers
     end
 
-    # Get all payee transactions
+    # Get payee transactions
     # Returns all transactions for a specified payee, excluding any pending transactions
     # @param plan_id [String] The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan).
     # @param payee_id [String] The id of the payee
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
+    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). Defaults to one year ago when not specified.
+    # @option opts [Date] :until_date If specified, only transactions on or before this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
     # @option opts [String] :type If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported.
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [HybridTransactionsResponse]
@@ -547,12 +560,13 @@ module YNAB
       data
     end
 
-    # Get all payee transactions
+    # Get payee transactions
     # Returns all transactions for a specified payee, excluding any pending transactions
     # @param plan_id [String] The id of the plan. \&quot;last-used\&quot; can be used to specify the last used plan and \&quot;default\&quot; can be used if default plan selection is enabled (see: https://api.ynab.com/#oauth-default-plan).
     # @param payee_id [String] The id of the payee
     # @param [Hash] opts the optional parameters
-    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
+    # @option opts [Date] :since_date If specified, only transactions on or after this date will be included.  The date should be ISO formatted (e.g. 2016-12-30). Defaults to one year ago when not specified.
+    # @option opts [Date] :until_date If specified, only transactions on or before this date will be included.  The date should be ISO formatted (e.g. 2016-12-30).
     # @option opts [String] :type If specified, only transactions of the specified type will be included. \&quot;uncategorized\&quot; and \&quot;unapproved\&quot; are currently supported.
     # @option opts [Integer] :last_knowledge_of_server The starting server knowledge.  If provided, only entities that have changed since &#x60;last_knowledge_of_server&#x60; will be included.
     # @return [Array<(HybridTransactionsResponse, Integer, Hash)>] HybridTransactionsResponse data, response status code and response headers
@@ -574,6 +588,7 @@ module YNAB
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'since_date'] = opts[:'since_date'] if !opts[:'since_date'].nil?
+      query_params[:'until_date'] = opts[:'until_date'] if !opts[:'until_date'].nil?
       query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
       query_params[:'last_knowledge_of_server'] = opts[:'last_knowledge_of_server'] if !opts[:'last_knowledge_of_server'].nil?
 
