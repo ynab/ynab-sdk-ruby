@@ -23,6 +23,9 @@ module YNAB
     # Whether or not the category is hidden
     attr_accessor :hidden
 
+    # Whether or not the category is internal
+    attr_accessor :internal
+
     # DEPRECATED: No longer used.  Value will always be null.
     attr_accessor :original_category_group_id
 
@@ -157,6 +160,7 @@ module YNAB
         :'category_group_name' => :'category_group_name',
         :'name' => :'name',
         :'hidden' => :'hidden',
+        :'internal' => :'internal',
         :'original_category_group_id' => :'original_category_group_id',
         :'note' => :'note',
         :'budgeted' => :'budgeted',
@@ -208,6 +212,7 @@ module YNAB
         :'category_group_name' => :'String',
         :'name' => :'String',
         :'hidden' => :'Boolean',
+        :'internal' => :'Boolean',
         :'original_category_group_id' => :'String',
         :'note' => :'String',
         :'budgeted' => :'Integer',
@@ -301,6 +306,10 @@ module YNAB
 
       if attributes.key?(:'hidden')
         self.hidden = attributes[:'hidden']
+      end
+
+      if attributes.key?(:'internal')
+        self.internal = attributes[:'internal']
       end
 
       if attributes.key?(:'original_category_group_id')
@@ -458,6 +467,7 @@ module YNAB
       return false if @category_group_id.nil?
       return false if @name.nil?
       return false if @hidden.nil?
+      return false if @internal.nil?
       return false if @budgeted.nil?
       return false if @activity.nil?
       return false if @balance.nil?
@@ -483,6 +493,7 @@ module YNAB
           category_group_name == o.category_group_name &&
           name == o.name &&
           hidden == o.hidden &&
+          internal == o.internal &&
           original_category_group_id == o.original_category_group_id &&
           note == o.note &&
           budgeted == o.budgeted &&
@@ -529,7 +540,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, category_group_id, category_group_name, name, hidden, original_category_group_id, note, budgeted, activity, balance, goal_type, goal_needs_whole_amount, goal_day, goal_cadence, goal_cadence_frequency, goal_creation_month, goal_target, goal_target_month, goal_target_date, goal_percentage_complete, goal_months_to_budget, goal_under_funded, goal_overall_funded, goal_overall_left, goal_snoozed_at, deleted, balance_formatted, balance_currency, activity_formatted, activity_currency, budgeted_formatted, budgeted_currency, goal_target_formatted, goal_target_currency, goal_under_funded_formatted, goal_under_funded_currency, goal_overall_funded_formatted, goal_overall_funded_currency, goal_overall_left_formatted, goal_overall_left_currency].hash
+      [id, category_group_id, category_group_name, name, hidden, internal, original_category_group_id, note, budgeted, activity, balance, goal_type, goal_needs_whole_amount, goal_day, goal_cadence, goal_cadence_frequency, goal_creation_month, goal_target, goal_target_month, goal_target_date, goal_percentage_complete, goal_months_to_budget, goal_under_funded, goal_overall_funded, goal_overall_left, goal_snoozed_at, deleted, balance_formatted, balance_currency, activity_formatted, activity_currency, budgeted_formatted, budgeted_currency, goal_target_formatted, goal_target_currency, goal_under_funded_formatted, goal_under_funded_currency, goal_overall_funded_formatted, goal_overall_funded_currency, goal_overall_left_formatted, goal_overall_left_currency].hash
     end
 
     # Builds the object from hash
