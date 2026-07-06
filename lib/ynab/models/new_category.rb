@@ -16,6 +16,7 @@ module YNAB
 
     attr_accessor :note
 
+    # The id of the category group to which this category belongs.  An internal category group may not be specified.
     attr_accessor :category_group_id
 
     # The goal target amount in milliunits format.  If value is specified and goal has not already been configured for category, a monthly goal will be created for the category with this target amount.  If goal_type is not specified, it will default to 'NEED' or 'MF' for Credit Card Payment categories.

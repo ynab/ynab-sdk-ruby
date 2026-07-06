@@ -9,6 +9,7 @@
 | **category_group_name** | **String** |  | [optional] |
 | **name** | **String** |  |  |
 | **hidden** | **Boolean** | Whether or not the category is hidden |  |
+| **internal** | **Boolean** | Whether or not the category is internal |  |
 | **original_category_group_id** | **String** | DEPRECATED: No longer used.  Value will always be null. | [optional] |
 | **note** | **String** |  | [optional] |
 | **budgeted** | **Integer** | Assigned (budgeted) amount in milliunits format |  |

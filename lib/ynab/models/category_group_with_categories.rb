@@ -19,6 +19,9 @@ module YNAB
     # Whether or not the category group is hidden
     attr_accessor :hidden
 
+    # Whether or not the category group is internal
+    attr_accessor :internal
+
     # Whether or not the category group has been deleted.  Deleted category groups will only be included in delta requests.
     attr_accessor :deleted
 
@@ -31,6 +34,7 @@ module YNAB
         :'id' => :'id',
         :'name' => :'name',
         :'hidden' => :'hidden',
+        :'internal' => :'internal',
         :'deleted' => :'deleted',
         :'categories' => :'categories'
       }
@@ -47,6 +51,7 @@ module YNAB
         :'id' => :'String',
         :'name' => :'String',
         :'hidden' => :'Boolean',
+        :'internal' => :'Boolean',
         :'deleted' => :'Boolean',
         :'categories' => :'Array<Category>'
       }
@@ -92,6 +97,10 @@ module YNAB
         self.hidden = attributes[:'hidden']
       end
 
+      if attributes.key?(:'internal')
+        self.internal = attributes[:'internal']
+      end
+
       if attributes.key?(:'deleted')
         self.deleted = attributes[:'deleted']
       end
@@ -116,6 +125,7 @@ module YNAB
       return false if @id.nil?
       return false if @name.nil?
       return false if @hidden.nil?
+      return false if @internal.nil?
       return false if @deleted.nil?
       return false if @categories.nil?
       true
@@ -129,6 +139,7 @@ module YNAB
           id == o.id &&
           name == o.name &&
           hidden == o.hidden &&
+          internal == o.internal &&
           deleted == o.deleted &&
           categories == o.categories
     end
@@ -142,7 +153,7 @@ module YNAB
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, hidden, deleted, categories].hash
+      [id, name, hidden, internal, deleted, categories].hash
     end
 
     # Builds the object from hash
