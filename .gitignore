@@ -39,4 +39,3 @@ build/
 .rvmrc
 .socket-scans/
 .socket.facts.json
-.socket-basics-merged.json
