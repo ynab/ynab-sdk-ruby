@@ -12,7 +12,7 @@ GEM
     ethon (0.16.0)
       ffi (>= 1.15.0)
     ffi (1.17.3)
-    rake (13.0.1)
+    rake (13.4.2)
     rspec (3.13.2)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
