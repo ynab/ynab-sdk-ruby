@@ -1,0 +1,7 @@
+# See https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners#codeowners-syntax
+
+# Paths that Dependabot PRs can touch
+/Gemfile @ynab/full-stack
+/Gemfile.lock @ynab/full-stack
+/ynab.gemspec @ynab/full-stack
+/.github/ @ynab/full-stack
