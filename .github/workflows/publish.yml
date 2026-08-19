@@ -1,15 +1,6 @@
 name: Publish
 on:
   workflow_dispatch:
-    inputs:
-      version_type:
-        type: choice
-        description: Version type
-        default: minor
-        options:
-        - major
-        - minor
-        - patch
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -19,11 +10,7 @@ jobs:
       pull-requests: write # comment on PRs included in the release
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          token: ${{ secrets.GH_API_TOKEN }}
       - name: Setup git repo
-        env:
-          GH_API_TOKEN: ${{ secrets.GH_API_TOKEN }}
         run: |
           git config user.name $GITHUB_ACTOR
           git config user.email gh-actions-${GITHUB_ACTOR}@github.com
@@ -37,21 +24,36 @@ jobs:
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
-      - name: Bump Version
-        id: bump_version
+      - name: Resolve version to publish
+        id: version
         run: |
-          NEW_VERSION=$(rake "bump_version_number[${{ inputs.version_type }}]")
-          echo "NEW_VERSION=$NEW_VERSION"
-          echo "new_version=$(echo $NEW_VERSION)" >> $GITHUB_OUTPUT
+          version=$(rake get_current_version)
+          echo "version=${version}" >> $GITHUB_OUTPUT
+          echo "tag-name=v${version}" >> $GITHUB_OUTPUT
+      - name: Verify the release tag does not already exist
+        env:
+          TAG_NAME: ${{ steps.version.outputs.tag-name }}
+        run: |
+          if git ls-remote --exit-code --tags origin "refs/tags/${TAG_NAME}" >/dev/null 2>&1; then
+            echo "::error::Tag ${TAG_NAME} already exists. Bump the version in lib/ynab/version.rb first."
+            exit 1
+          fi
       - name: Configure authentication to RubyGems (trusted publishing)
         uses: rubygems/configure-rubygems-credentials@dc5a8d8553e6ee01fc26761a49e99e733d17954a # v2.1.0
       - name: Publish to RubyGems
         run: rake publish
+      - name: Tag the release commit
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          TAG_NAME: ${{ steps.version.outputs.tag-name }}
+        run: |
+          git tag -a "${TAG_NAME}" -m "Version ${VERSION}"
+          git push origin "${TAG_NAME}"
       - name: Create a Release
         id: create-release
         uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 # v3.0.2
         with:
-          tag_name: ${{ steps.bump_version.outputs.new_version }}
+          tag_name: ${{ steps.version.outputs.tag-name }}
           generate_release_notes: true
       - name: Comment on PRs with link to release they are included in
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
