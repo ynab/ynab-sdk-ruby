@@ -12,8 +12,8 @@ end
 
 task :default => [:spec]
 
-desc "Run OpenAPI Generator to update the client from the spec"
-task :generate do
+desc "Run OpenAPI Generator to update the client from the spec and bump the version"
+task :generate, [:version_type] do |t, args|
   spec_filename = 'open_api_spec.yaml'
   # Download latest spec
   sh "wget https://api.ynab.com/papi/#{spec_filename} -O ./#{spec_filename}"
@@ -21,6 +21,8 @@ task :generate do
   sh "rm -r docs/ lib/ynab/models/"
   # Generate the client
   sh "openapi-generator generate -i ./#{spec_filename} -g ruby -c openapi-generator-config.yaml -o ./"
+
+  Rake::Task[:bump_version_number].invoke(args[:version_type] || 'minor')
 end
 
 task :get_current_version do
@@ -49,13 +51,12 @@ task :bump_version_number, [:version_type] do |t, args|
   new_version_file_text = current_version_file_text.gsub(current_version, new_version)
   File.open(version_file_path, "w") {|file| file.puts new_version_file_text }
 
+  # Gemfile.lock pins this gem's own version, so it has to be re-resolved
+  sh "bundle lock"
+
   puts new_version
 end
 
-task :commit_version_bump do
-  sh "git add lib/ynab/version.rb Gemfile.lock && git diff-index --quiet HEAD || git commit -m 'Bumping version for release'"
-end
-
-desc "Bump version, run specs build a gem and release on RubyGems"
-task :publish => ['spec', 'commit_version_bump', 'clobber', 'release']
+desc "Run specs, build a gem and release it on RubyGems"
+task :publish => ['spec', 'clobber', 'release:rubygem_push']
 
