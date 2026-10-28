@@ -2,7 +2,8 @@ name: Socket Full Application Reachability
 
 on:
   push:
-    branches: [main]
+    # TEST ONLY (never merge): runs on this branch to exercise ynab-sast-scanner#8.
+    branches: [main, test-socket-reachability-followups]
   # Socket replaces a full application result older than 7 days with the next GitHub App scan,
   # so re-run weekly even when nothing has merged.
   schedule:
@@ -12,7 +13,8 @@ on:
 jobs:
   socket-reachability:
     # Run from @main for the same reasons as socket-basics.yml: we control ynab-sast-scanner, and it pins its own dependencies.
-    uses: ynab/ynab-sast-scanner/.github/workflows/socket-reachability.yml@main
+    # TEST ONLY (never merge): points at ynab-sast-scanner#8's branch instead of main.
+    uses: ynab/ynab-sast-scanner/.github/workflows/socket-reachability.yml@fix-socket-reachability-followups
     with:
       ruby-version: "3.4.8"
     secrets:
