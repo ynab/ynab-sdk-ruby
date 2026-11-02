@@ -34,3 +34,4 @@ spec/
 spec/**/*.rb
 lib/ynab/api_error.rb
 lib/ynab/version.rb
+.gitignore
