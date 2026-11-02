@@ -1,4 +1,3 @@
-.gitignore
 .rspec
 docs/Account.md
 docs/AccountBase.md

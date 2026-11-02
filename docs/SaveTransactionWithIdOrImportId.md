@@ -14,7 +14,7 @@
 | **cleared** | [**TransactionClearedStatus**](TransactionClearedStatus.md) |  | [optional] |
 | **approved** | **Boolean** | Whether or not the transaction is approved.  If not supplied, transaction will be unapproved by default. | [optional] |
 | **flag_color** | [**TransactionFlagColor**](TransactionFlagColor.md) |  | [optional] |
-| **subtransactions** | [**Array&lt;SaveSubTransaction&gt;**](SaveSubTransaction.md) | An array of subtransactions to configure a transaction as a split. Updating &#x60;subtransactions&#x60; on an existing split transaction is not supported. | [optional] |
+| **subtransactions** | [**Array&lt;SaveSubTransaction&gt;**](SaveSubTransaction.md) | An array of subtransactions to configure a transaction as a split. Updating &#x60;subtransactions&#x60; on an existing split transaction is not supported and will return an error.  Splits are not allowed on tracking accounts or on transfers between on-budget accounts; a transfer to a tracking account can be a split. | [optional] |
 | **id** | **String** | If specified, this id will be used to lookup a transaction by its &#x60;id&#x60; for the purpose of updating the transaction itself. If not specified, an &#x60;import_id&#x60; should be supplied. | [optional] |
 | **import_id** | **String** | If specified, this id will be used to lookup a transaction by its &#x60;import_id&#x60; for the purpose of updating the transaction itself. If not specified, an &#x60;id&#x60; should be supplied.  You may not provide both an &#x60;id&#x60; and an &#x60;import_id&#x60; and updating an &#x60;import_id&#x60; on an existing transaction is not allowed. | [optional] |
 

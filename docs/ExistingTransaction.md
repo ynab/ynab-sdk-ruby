@@ -14,5 +14,5 @@
 | **cleared** | [**TransactionClearedStatus**](TransactionClearedStatus.md) |  | [optional] |
 | **approved** | **Boolean** | Whether or not the transaction is approved.  If not supplied, transaction will be unapproved by default. | [optional] |
 | **flag_color** | [**TransactionFlagColor**](TransactionFlagColor.md) |  | [optional] |
-| **subtransactions** | [**Array&lt;SaveSubTransaction&gt;**](SaveSubTransaction.md) | An array of subtransactions to configure a transaction as a split. Updating &#x60;subtransactions&#x60; on an existing split transaction is not supported. | [optional] |
+| **subtransactions** | [**Array&lt;SaveSubTransaction&gt;**](SaveSubTransaction.md) | An array of subtransactions to configure a transaction as a split. Updating &#x60;subtransactions&#x60; on an existing split transaction is not supported and will return an error.  Splits are not allowed on tracking accounts or on transfers between on-budget accounts; a transfer to a tracking account can be a split. | [optional] |
 
