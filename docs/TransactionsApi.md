@@ -202,7 +202,7 @@ Returns all transactions for a specified payee, excluding any pending transactio
 
 Import transactions
 
-Imports available transactions on all linked accounts for the given plan.  Linked accounts allow transactions to be imported directly from a specified financial institution and this endpoint initiates that import.  Sending a request to this endpoint is the equivalent of clicking \"Import\" on each account in the web application or tapping the \"New Transactions\" banner in the mobile applications.  The response for this endpoint contains the transaction ids that have been imported.
+DEPRECATED: This endpoint is no longer needed because YNAB now automatically imports transactions on linked accounts.  Requests are still accepted for backwards compatibility but no import is performed and the response will always contain an empty list of transaction ids.
 
 ### Parameters
 
