@@ -9,7 +9,7 @@ GEM
   specs:
     base64 (0.3.0)
     diff-lcs (1.6.2)
-    ethon (0.18.0)
+    ethon (0.19.1)
       ffi (>= 1.15.0)
       logger
     ffi (1.17.4)
