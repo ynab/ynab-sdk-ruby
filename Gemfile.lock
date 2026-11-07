@@ -9,7 +9,7 @@ GEM
   specs:
     base64 (0.3.0)
     diff-lcs (1.6.2)
-    ethon (0.18.0)
+    ethon (0.19.1)
       ffi (>= 1.15.0)
       logger
     ffi (1.17.4)
@@ -28,8 +28,8 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.7)
-    typhoeus (1.6.0)
-      ethon (>= 0.18.0)
+    typhoeus (1.7.1)
+      ethon (>= 0.19.1, < 0.20.0)
     vcr (6.4.0)
 
 PLATFORMS
